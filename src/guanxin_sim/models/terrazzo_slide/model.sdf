@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="terrazzo_slide">
+    <static>true</static>
+    <link name="slide_link">
+      <!-- 物理碰撞剛體：小丘主體、滑梯斜面與頂部平台 -->
+      <collision name="mound_col">
+        <pose>0 0 1.2 0 0 0</pose>
+        <geometry>
+          <cylinder><radius>5.5</radius><length>2.4</length></cylinder>
+        </geometry>
+      </collision>
+      <collision name="slide_ramp_col">
+        <pose>4.0 0 1.2 0 0.45 0</pose>
+        <geometry>
+          <box><size>6.8 4.2 0.3</size></box>
+        </geometry>
+        <surface>
+          <friction><ode><mu>0.15</mu><mu2>0.15</mu2></ode></friction>
+        </surface>
+      </collision>
+      <collision name="top_platform_col">
+        <pose>0 0 2.3 0 0 0</pose>
+        <geometry>
+          <box><size>3.5 4.5 0.3</size></box>
+        </geometry>
+      </collision>
+
+      <!-- 視覺呈現：人工草皮地景遊戲山丘 (Landscaped Green Mound) -->
+      <visual name="mound_vis">
+        <pose>0 0 1.2 0 0 0</pose>
+        <geometry>
+          <cylinder><radius>5.5</radius><length>2.4</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>0.16 0.52 0.16 1</ambient>
+          <diffuse>0.20 0.58 0.20 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：頂部平臺 (Top Platform - 安全鋪面) -->
+      <visual name="top_platform_vis">
+        <pose>0 0 2.35 0 0 0</pose>
+        <geometry>
+          <box><size>3.5 4.5 0.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.45 0.4 1</ambient>
+          <diffuse>0.55 0.5 0.45 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：標誌性磨石子滑道床面 (Polished Terrazzo Slide Bed) -->
+      <!-- 寬 4.2m，長 6.8m，傾角約 26 度 -->
+      <visual name="terrazzo_surface">
+        <pose>4.0 0 1.25 0 0.45 0</pose>
+        <geometry>
+          <box><size>6.8 4.2 0.18</size></box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.84 1</ambient>
+          <diffuse>0.88 0.88 0.90 1</diffuse>
+          <specular>0.6 0.6 0.65 1</specular>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：滑道分流分隔石條 (Lane Dividers: 中央寬滑道 + 兩側單人滑道) -->
+      <visual name="divider_l">
+        <pose>4.0 -0.8 1.35 0 0.45 0</pose>
+        <geometry>
+          <box><size>6.8 0.15 0.25</size></box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.52 1</ambient>
+          <diffuse>0.55 0.55 0.58 1</diffuse>
+        </material>
+      </visual>
+      <visual name="divider_r">
+        <pose>4.0 0.8 1.35 0 0.45 0</pose>
+        <geometry>
+          <box><size>6.8 0.15 0.25</size></box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.52 1</ambient>
+          <diffuse>0.55 0.55 0.58 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：鮮黃色安全護欄 (Yellow Safety Handrails) -->
+      <visual name="rail_left">
+        <pose>4.0 -2.15 1.7 0 0.45 0</pose>
+        <geometry>
+          <box><size>6.8 0.08 0.7</size></box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.8 0.05 1</ambient>
+          <diffuse>1.0 0.85 0.1 1</diffuse>
+        </material>
+      </visual>
+      <visual name="rail_right">
+        <pose>4.0 2.15 1.7 0 0.45 0</pose>
+        <geometry>
+          <box><size>6.8 0.08 0.7</size></box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.8 0.05 1</ambient>
+          <diffuse>1.0 0.85 0.1 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：頂部平臺防護欄杆 -->
+      <visual name="top_rail_back">
+        <pose>-1.65 0 2.8 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 4.5 0.9</size></box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.8 0.05 1</ambient>
+          <diffuse>1.0 0.85 0.1 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：側面攀爬岩塊坡道 (Climbing Rock Grips Slope) -->
+      <visual name="climbing_slope">
+        <pose>0 3.8 1.2 0.45 0 0</pose>
+        <geometry>
+          <box><size>3.5 4.5 0.18</size></box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.45 0.3 1</ambient>
+          <diffuse>0.35 0.5 0.35 1</diffuse>
+        </material>
+      </visual>
+      <!-- 彩色攀爬岩塊 (Rock Grips) -->
+      <visual name="grip_1"><pose>-0.8 3.5 1.4 0 0 0</pose><geometry><box><size>0.2 0.2 0.1</size></box></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material></visual>
+      <visual name="grip_2"><pose>0.6 3.8 1.1 0 0 0</pose><geometry><box><size>0.2 0.2 0.1</size></box></geometry><material><ambient>0.1 0.3 0.9 1</ambient><diffuse>0.1 0.3 0.9 1</diffuse></material></visual>
+      <visual name="grip_3"><pose>-0.3 4.2 0.8 0 0 0</pose><geometry><box><size>0.2 0.2 0.1</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material></visual>
+
+      <!-- 視覺呈現：後方木質登頂階梯 (Timber Climbing Stairs) -->
+      <visual name="stairs_block">
+        <pose>-3.5 0 1.1 0 0 0</pose>
+        <geometry>
+          <box><size>2.6 2.8 2.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.45 0.32 0.22 1</ambient>
+          <diffuse>0.5 0.38 0.26 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

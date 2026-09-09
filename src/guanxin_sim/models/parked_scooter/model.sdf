@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="parked_scooter">
+    <static>true</static>
+    <link name="scooter_link">
+      <!-- 簡化外接碰撞方塊 (Oriented Bounding Box) -->
+      <collision name="scooter_col">
+        <pose>0 0 0.55 0 0 0</pose>
+        <geometry>
+          <box><size>1.7 0.65 1.1</size></box>
+        </geometry>
+      </collision>
+
+      <!-- 前後車輪 (10吋黑色橡膠車胎) -->
+      <visual name="front_wheel">
+        <pose>0.6 0 0.22 1.5707963 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.22</radius><length>0.10</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="rear_wheel">
+        <pose>-0.55 0 0.22 1.5707963 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.22</radius><length>0.10</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 踏板底盤與腳踏區 (Floorboard) -->
+      <visual name="floorboard">
+        <pose>0 0 0.25 0 0 0</pose>
+        <geometry>
+          <box><size>0.65 0.45 0.08</size></box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 前斜板面罩 (Front Shield & Fairing - 經典白/深藍色) -->
+      <visual name="front_cowl">
+        <pose>0.45 0 0.62 0 0.35 0</pose>
+        <geometry>
+          <box><size>0.32 0.42 0.65</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.88 0.90 1</ambient>
+          <diffuse>0.90 0.92 0.95 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 前大燈 (Headlamp Lens) -->
+      <visual name="headlight">
+        <pose>0.62 0 0.76 0 0.35 0</pose>
+        <geometry>
+          <box><size>0.08 0.24 0.14</size></box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.95 1.0 1</ambient>
+          <diffuse>0.95 0.98 1.0 1</diffuse>
+          <emissive>0.4 0.45 0.5 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 龍頭握把與儀表蓋 (Handlebar) -->
+      <visual name="handlebar">
+        <pose>0.32 0 0.95 0 0 0</pose>
+        <geometry>
+          <box><size>0.12 0.62 0.10</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 左右後照鏡 (Rearview Mirrors) -->
+      <visual name="mirror_l">
+        <pose>0.34 0.28 1.10 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 0.12 0.12</size></box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+      <visual name="mirror_r">
+        <pose>0.34 -0.28 1.10 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 0.12 0.12</size></box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 後座機車座墊 (Seat Cushion - 黑色皮革) -->
+      <visual name="seat">
+        <pose>-0.22 0 0.68 -0.05 0 0</pose>
+        <geometry>
+          <box><size>0.72 0.36 0.18</size></box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.12 0.12 1</ambient>
+          <diffuse>0.16 0.16 0.16 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 後車體側蓋 (Body Rear Side Cover) -->
+      <visual name="rear_body">
+        <pose>-0.3 0 0.45 0 0 0</pose>
+        <geometry>
+          <box><size>0.65 0.42 0.32</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.88 0.90 1</ambient>
+          <diffuse>0.90 0.92 0.95 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 車尾燈與白底車牌 (Tail Light & Taiwan Plate) -->
+      <visual name="taillight">
+        <pose>-0.65 0 0.55 0 0 0</pose>
+        <geometry>
+          <box><size>0.06 0.24 0.10</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.05 0.05 1</ambient>
+          <diffuse>0.95 0.1 0.1 1</diffuse>
+          <emissive>0.5 0.05 0.05 1</emissive>
+        </material>
+      </visual>
+      <visual name="license_plate">
+        <pose>-0.67 0 0.40 0 0.1 0</pose>
+        <geometry>
+          <box><size>0.02 0.22 0.12</size></box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.95 0.95 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

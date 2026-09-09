@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="street_tree">
+    <static>true</static>
+    <link name="tree_link">
+      <!-- 物理碰撞剛體：僅樹幹圓柱體 (確保物理引擎零負擔，樹冠無碰撞) -->
+      <collision name="trunk_col">
+        <pose>0 0 2.0 0 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.20</radius><length>4.0</length></cylinder>
+        </geometry>
+      </collision>
+
+      <!-- 視覺呈現：主樹幹 (Textured Bark Trunk) -->
+      <visual name="trunk_vis">
+        <pose>0 0 2.0 0 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.20</radius><length>4.0</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>0.28 0.22 0.16 1</ambient>
+          <diffuse>0.35 0.28 0.20 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：底部樹根微擴展 (Root Flare) -->
+      <visual name="root_flare">
+        <pose>0 0 0.2 0 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.32</radius><length>0.4</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>0.26 0.20 0.14 1</ambient>
+          <diffuse>0.32 0.25 0.18 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：低多邊形交叉分層樹冠 (X-Plane & Faceted Foliage Canopy) -->
+      <!-- 底層主樹冠叢 (Bottom Canopy Cluster) -->
+      <visual name="foliage_base">
+        <pose>0 0 4.2 0 0 0</pose>
+        <geometry>
+          <box><size>3.6 3.6 1.4</size></box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.38 0.14 1</ambient>
+          <diffuse>0.16 0.48 0.18 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 中層旋轉 45 度樹冠叢 (Mid Canopy 45-deg Rotated) -->
+      <visual name="foliage_mid">
+        <pose>0 0 4.8 0 0 0.785398</pose>
+        <geometry>
+          <box><size>3.2 3.2 1.5</size></box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.46 0.16 1</ambient>
+          <diffuse>0.20 0.56 0.22 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 頂部圓拱穹頂樹冠叢 (Top Crown Dome) -->
+      <visual name="foliage_top">
+        <pose>0 0 5.6 0 0 0</pose>
+        <geometry>
+          <box><size>2.4 2.4 1.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.18 0.52 0.18 1</ambient>
+          <diffuse>0.24 0.62 0.26 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

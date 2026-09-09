@@ -61,9 +61,12 @@ gz_my_world/
         ├── worlds/
         │   └── guanxin.sdf     # 關新路世界檔 (路網、公園、星巴克/麥當勞/豪宅街區)
         ├── models/
-        │   └── model_y/        # Tesla Model Y 載具模型
-        │       ├── model.config
-        │       └── model.sdf   # 包含 4 輪、轉向軸、3 相機與阿克曼外掛
+        │   ├── model_y/              # Tesla Model Y 載具模型 (4輪+轉向+3相機+阿克曼)
+        │   ├── taipower_box/         # 台灣經典台電墨綠色變電箱 (金屬雙門+散熱百葉+警示標誌)
+        │   ├── traffic_signal_pole/  # 台灣標準懸臂式紅綠燈與路名牌桿 (關新路/關新二街)
+        │   ├── parked_scooter/       # 台灣 125cc 速克達通勤機車 (路邊停車格)
+        │   ├── street_tree/          # 低多邊形都會樟樹/榕樹 (分層樹冠+防碰撞樹幹)
+        │   └── terrazzo_slide/       # 關新公園標誌性磨石子地景溜滑梯與攀爬坡
         └── guanxin_sim/
             ├── __init__.py
             └── teleop_vehicle.py # 鍵盤操控、OpenCV 相機 HUD 視窗與原點重設節點
@@ -116,6 +119,47 @@ bash run.sh
 ## 📝 需求與實作歷程更新日誌 (Update Log)
 
 整合自 `requirement.md`、`IMPLEMENTATION_PLAN.md` 以及各階段開發紀錄：
+
+### [v1.7.0] - 2026-09-10
+#### 🏙️ 高擬真街景細節升級 (騎樓走廊、側懸垂直招牌、分區材質步道、地景磨石子滑梯、台電變電箱、號誌桿與路邊機車群)
+* **需求來源 (Prompt 深度解析)**：
+  * 以 Senior Robotics Simulation & 3D Environment Specialist 角色，將世界模型從粗糙方塊（greybox）全面升級為具備豐富台灣街景特徵與細節之高擬真街區（Semi-Realistic Authentic Taiwanese Urban Environment），供機器人相機與 LiDAR 感測模擬使用，並在兼顧豐富視覺細節的同時嚴格控制物理運算開銷（Visual / Collision 嚴格分離）。
+  * **核心設計與建模細節**：
+    1. **商業建築立面升級 (Commercial Building Facades)**：
+       * **挑高騎樓人行道 (Recessed Arcades)**：關新路西側配置深度 2.5m、挑高 3.6m 之完整騎樓走廊，配置 9 根 $0.6\text{m} \times 0.6\text{m}$ 剛體支撐立柱群、地磚鋪面與天花板圓形暖白吸頂筒燈。
+       * **店面材質與多樣性 (Storefronts)**：高透明度景觀玻璃帷幕、金屬窗框；西側騎樓增設經典 7-Eleven 便利商店門面（紅橘綠三色招牌橫幅、大面落地窗、室內展示貨架光影）。
+       * **側懸垂直突出招牌 (Protruding Signs) 與雨遮 (Canopies)**：打破扁平外觀，全面配置垂直突出雙面招牌（7-Eleven、麥當勞、星巴克美人魚圓盤、國泰世華綠樹標、康是美十字標、摩斯漢堡紅標、寶雅粉紅標）與窗前遮陽/遮雨棚架。
+    2. **關新公園內部地貌材質分區與遊憩核心 (Guanxin Park Interior)**：
+       * **地表材質分區 (Surface Material Separation)**：
+         * 外圍環狀紅磚/透水磚漫步道（寬 3.5m，磚紅色透水磚質感）。
+         * 多層次草坪質感（中央開闊向陽草坪、林下深綠蔭涼草坪）。
+         * 兒童專屬細沙坑區（$12\text{m} \times 8\text{m}$ 細沙材質與邊界圍石）。
+         * 鞦韆區紅色安全防衝撞橡膠地墊。
+         * 公園外圍邊界矮灌木綠籬（Shrub Rows）。
+       * **地景磨石子溜滑梯 (Terrazzo Slide Model)**：模組化封裝 `terrazzo_slide` 模型，具備 2.4m 綠化遊戲土丘、寬面磨石子滑道（中央寬滑道 + 兩側單人滑道）、亮黃色金屬安全扶手護欄、攀爬岩塊坡道與木質登頂階梯。
+    3. **道路標線與台灣街道特有街道家具 (Road Markings & Street Artifacts Props)**：
+       * **道路標線細節**：15cm 高度路緣石人行道、路口與轉彎處「紅線」（絕對禁止停車）、門市暫停處「黃線」、機車停等區、斑馬線、速限 "30" 標字。
+       * **模組化街道家具模型 (Modular Props in `models/`)**：
+         * `taipower_box`：台灣經典台電墨綠色變電箱（雙開門金屬接縫、側面百葉散熱孔、黃色高壓電警示三角形貼紙、混凝土基座）。
+         * `traffic_signal_pole`：台灣標準鍍鋅金屬懸臂式號誌桿（4.5m 懸臂、紅黃綠車道號誌箱、小綠人/小紅人倒數行人燈、綠底白字 `關新路` 與 `關新二街` 路名牌、頂部傾角 LED 路燈）。
+         * `parked_scooter`：台灣經典 125cc 速克達通勤機車（車體斜板、頭燈、龍頭後照鏡、皮革座墊、10 吋車輪、尾燈與車牌），成排斜向停放於藍底機車停車格中。
+         * `street_tree`：低多邊形分層綠葉與圓柱樹幹之行道樟樹/榕樹。
+    4. **物理引擎效能優化 (Engineering Constraints)**：
+       * 嚴格分離 Visual 與 Collision，招牌、雨遮、路燈懸臂、樹冠 foliage 皆設為無碰撞剛體，僅保留地面、立柱、樹幹與主建築外框為簡易幾何，確保 ODE 物理引擎維持 500Hz 超高頻更新率。
+* **修改檔案清單**：
+  * `src/guanxin_sim/models/taipower_box/`：新創 `model.config`, `model.sdf`。
+  * `src/guanxin_sim/models/traffic_signal_pole/`：新創 `model.config`, `model.sdf`。
+  * `src/guanxin_sim/models/parked_scooter/`：新創 `model.config`, `model.sdf`。
+  * `src/guanxin_sim/models/street_tree/`：新創 `model.config`, `model.sdf`。
+  * `src/guanxin_sim/models/terrazzo_slide/`：新創 `model.config`, `model.sdf`。
+  * `src/guanxin_sim/worlds/guanxin.sdf`：完全重構整合全部新模型、騎樓與立面細節。
+  * `README.md`：追加本 v1.7.0 需求歷程日誌與模型架構說明。
+* **驗證與測試**：
+  * `gz sdf -k` 驗證所有 5 個道具模型與主世界檔，輸出均為 `Valid.`。
+  * ROS 2 Jazzy `colcon build --symlink-install` 建置成功（1 package finished）。
+  * `ros2 launch guanxin_sim sim.launch.py -s` 語法檢驗通過。
+
+---
 
 ### [v1.6.0] - 2026-09-10
 #### 🏙️ 實地街景素材全面 1:1 還原 (寶雅/起家雞/麥當勞/國泰世華/康是美/星巴克/中央分隔島/蒲葵廣場/摩斯漢堡)
