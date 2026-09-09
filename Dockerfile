@@ -45,4 +45,8 @@ RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc && \
     echo "export SDF_PATH=/ros2_ws/src/guanxin_sim/models:/ros2_ws/install/guanxin_sim/share/guanxin_sim/models" >> /root/.bashrc && \
     echo "export GZ_FILE_PATH=/ros2_ws/src/guanxin_sim/models:/ros2_ws/install/guanxin_sim/share/guanxin_sim/models" >> /root/.bashrc
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash"]

@@ -41,4 +41,4 @@ docker run -it --rm \
     -v "$(pwd)/src:/ros2_ws/src" \
     --name guanxin_sim_container \
     guanxin_sim:latest \
-    $COMMAND
+    bash -c "source /opt/ros/jazzy/setup.bash && colcon build --symlink-install > /dev/null && source /ros2_ws/install/setup.bash && $COMMAND"
