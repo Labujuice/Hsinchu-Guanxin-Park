@@ -255,23 +255,210 @@
     <model name="street_corridor_buildings">
       <static>true</static>
       <link name="building_link">
-        <!-- 西側建築立面 (關新路西側一整排大樓與店面，寬度 36m，高度 20m，為實體碰撞阻擋牆) -->
-        <collision name="bldg_west_col">
-          <pose>200 -32 10 0 0 0</pose>
-          <geometry>
-            <box><size>410 36 20</size></box>
-          </geometry>
+        <!-- ==================== 西側南段建築群 (光復路至公園前 X: 0 ~ 115) ==================== -->
+        <collision name="bldg_west_south_col">
+          <pose>57.5 -32 10 0 0 0</pose>
+          <geometry><box><size>115 36 20</size></box></geometry>
         </collision>
-        <visual name="bldg_west_vis">
-          <pose>200 -32 10 0 0 0</pose>
-          <geometry>
-            <box><size>410 36 20</size></box>
-          </geometry>
+        <visual name="bldg_west_south_vis">
+          <pose>57.5 -32 10 0 0 0</pose>
+          <geometry><box><size>115 36 20</size></box></geometry>
           <material>
             <ambient>0.72 0.70 0.68 1</ambient>
             <diffuse>0.75 0.72 0.70 1</diffuse>
           </material>
         </visual>
+
+        <!-- ==================== 西側北段建築群 (公園後至新莊車站 X: 265 ~ 410) ==================== -->
+        <collision name="bldg_west_north_col">
+          <pose>337.5 -32 10 0 0 0</pose>
+          <geometry><box><size>145 36 20</size></box></geometry>
+        </collision>
+        <visual name="bldg_west_north_vis">
+          <pose>337.5 -32 10 0 0 0</pose>
+          <geometry><box><size>145 36 20</size></box></geometry>
+          <material>
+            <ambient>0.72 0.70 0.68 1</ambient>
+            <diffuse>0.75 0.72 0.70 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- ==================== 西側正對關新公園指標商住街區 (X: 115 ~ 265) ==================== -->
+        <!-- 包含：星巴克日光門市、麥當勞關新店、康是美/富邦銀行、精緻餐飲街與昌益/豐邑高層現代大樓 -->
+        
+        <!-- 1. 建築背部本體剛體碰撞牆 -->
+        <collision name="park_opp_main_col">
+          <pose>190 -34 16 0 0 0</pose>
+          <geometry><box><size>150 32 32</size></box></geometry>
+        </collision>
+        <visual name="park_opp_podium_vis">
+          <pose>190 -34 16 0 0 0</pose>
+          <geometry><box><size>150 32 32</size></box></geometry>
+          <material>
+            <ambient>0.78 0.76 0.73 1</ambient>
+            <diffuse>0.82 0.80 0.77 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- 2. 一樓挑高 6.5 米騎樓立柱群 (沿人行道邊界配置剛體立柱，具實體碰撞) -->
+        <collision name="pillar_col_1"><pose>125 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_1"><pose>125 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_2"><pose>145 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_2"><pose>145 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_3"><pose>165 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_3"><pose>165 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_4"><pose>185 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_4"><pose>185 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_5"><pose>205 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_5"><pose>205 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_6"><pose>225 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_6"><pose>225 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_7"><pose>245 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_7"><pose>245 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <collision name="pillar_col_8"><pose>260 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_8"><pose>260 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+
+        <!-- 3. 騎樓走廊頂部吊頂石材橫樑 (Arcade Ceiling) -->
+        <visual name="arcade_ceiling_vis">
+          <pose>190 -16.5 6.4 0 0 0</pose>
+          <geometry><box><size>150 4.5 0.4</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material>
+        </visual>
+
+        <!-- ==================== 【知名店面 1：康是美 & 台北富邦銀行】(X: 115 ~ 155) ==================== -->
+        <!-- 門面落地玻璃窗 -->
+        <visual name="store_fubon_glass">
+          <pose>135 -18 3.2 0 0 0</pose>
+          <geometry><box><size>38 0.2 6.0</size></box></geometry>
+          <material><ambient>0.1 0.2 0.3 0.9</ambient><diffuse>0.15 0.25 0.35 0.9</diffuse><specular>0.8 0.8 0.8 1</specular></material>
+        </visual>
+        <!-- 富邦銀行藍色品牌飾條 -->
+        <visual name="fubon_banner">
+          <pose>128 -17.8 5.8 0 0 0</pose>
+          <geometry><box><size>22 0.25 1.0</size></box></geometry>
+          <material><ambient>0.05 0.35 0.75 1</ambient><diffuse>0.08 0.45 0.85 1</diffuse><emissive>0.05 0.25 0.5 1</emissive></material>
+        </visual>
+        <!-- 康是美亮橘色招牌板 -->
+        <visual name="cosmed_banner">
+          <pose>147 -17.8 5.8 0 0 0</pose>
+          <geometry><box><size>14 0.25 1.0</size></box></geometry>
+          <material><ambient>0.95 0.45 0.05 1</ambient><diffuse>0.95 0.5 0.05 1</diffuse><emissive>0.6 0.25 0.0 1</emissive></material>
+        </visual>
+
+        <!-- ==================== 【知名店面 2：麥當勞 新竹關新店】(X: 155 ~ 185) ==================== -->
+        <!-- 麥當勞落地窗與深灰現代外觀 -->
+        <visual name="mcd_glass">
+          <pose>170 -18 3.2 0 0 0</pose>
+          <geometry><box><size>30 0.2 6.0</size></box></geometry>
+          <material><ambient>0.15 0.15 0.15 0.9</ambient><diffuse>0.2 0.2 0.2 0.9</diffuse></material>
+        </visual>
+        <!-- 麥當勞紅色招牌背板 -->
+        <visual name="mcd_red_banner">
+          <pose>170 -17.8 5.8 0 0 0</pose>
+          <geometry><box><size>26 0.25 1.1</size></box></geometry>
+          <material><ambient>0.85 0.08 0.08 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material>
+        </visual>
+        <!-- 麥當勞經典金色「M」雙拱門立體發光標誌 -->
+        <visual name="mcd_golden_arch_left">
+          <pose>169.3 -17.6 5.8 0 0 0</pose>
+          <geometry><cylinder><radius>0.6</radius><length>0.15</length></cylinder></geometry>
+          <material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material>
+        </visual>
+        <visual name="mcd_golden_arch_right">
+          <pose>170.7 -17.6 5.8 0 0 0</pose>
+          <geometry><cylinder><radius>0.6</radius><length>0.15</length></cylinder></geometry>
+          <material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material>
+        </visual>
+        <!-- 麥當勞門口得來速/點餐窗口裝飾 -->
+        <visual name="mcd_order_window">
+          <pose>179 -17.9 2.5 0 0 0</pose>
+          <geometry><box><size>3.5 0.15 2.2</size></box></geometry>
+          <material><ambient>0.9 0.8 0.4 1</ambient><diffuse>0.9 0.8 0.4 1</diffuse><emissive>0.5 0.4 0.1 1</emissive></material>
+        </visual>
+
+        <!-- ==================== 【知名店面 3：星巴克 新竹日光門市 (38號)】(X: 185 ~ 215) ==================== -->
+        <!-- 黑色金屬框挑高大面積落地玻璃帷幕 (標誌性雙面大採光設計) -->
+        <visual name="starbucks_glass_wall">
+          <pose>200 -18 3.2 0 0 0</pose>
+          <geometry><box><size>30 0.2 6.0</size></box></geometry>
+          <material><ambient>0.08 0.1 0.12 0.9</ambient><diffuse>0.1 0.12 0.15 0.9</diffuse><specular>0.9 0.9 0.9 1</specular></material>
+        </visual>
+        <!-- 室內咖啡廳溫馨暖黃照明 (落地窗透光) -->
+        <visual name="starbucks_interior_light">
+          <pose>200 -18.2 3.2 0 0 0</pose>
+          <geometry><box><size>28 0.1 5.6</size></box></geometry>
+          <material><ambient>0.95 0.85 0.5 1</ambient><diffuse>0.95 0.85 0.5 1</diffuse><emissive>0.7 0.55 0.3 1</emissive></material>
+        </visual>
+        <!-- 星巴克標誌性雙尾美人魚圓形綠色 Logo 招牌 -->
+        <visual name="starbucks_green_disc">
+          <pose>200 -17.6 5.8 -1.5707963 0 0</pose>
+          <geometry><cylinder><radius>1.1</radius><length>0.2</length></cylinder></geometry>
+          <material><ambient>0.0 0.42 0.22 1</ambient><diffuse>0.0 0.5 0.26 1</diffuse><emissive>0.0 0.5 0.26 1</emissive></material>
+        </visual>
+        <visual name="starbucks_inner_white_emblem">
+          <pose>200 -17.5 5.8 -1.5707963 0 0</pose>
+          <geometry><cylinder><radius>0.75</radius><length>0.22</length></cylinder></geometry>
+          <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 0.8 1</emissive></material>
+        </visual>
+        <!-- 深色木質/黑金屬遮陽棚 (Awning) -->
+        <visual name="starbucks_awning">
+          <pose>200 -16.2 5.0 -0.2 0 0</pose>
+          <geometry><box><size>26 2.6 0.15</size></box></geometry>
+          <material><ambient>0.12 0.08 0.06 1</ambient><diffuse>0.15 0.1 0.08 1</diffuse></material>
+        </visual>
+        <!-- 人行道露天咖啡座 (遮陽傘與咖啡桌) -->
+        <visual name="cafe_table_1"><pose>194 -14.2 0.75 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.2 0.15 0.1 1</diffuse></material></visual>
+        <visual name="cafe_umbrella_1"><pose>194 -14.2 2.2 0 0 0</pose><geometry><cone><radius>1.2</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.4 0.2 1</diffuse></material></visual>
+
+        <visual name="cafe_table_2"><pose>206 -14.2 0.75 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.2 0.15 0.1 1</diffuse></material></visual>
+        <visual name="cafe_umbrella_2"><pose>206 -14.2 2.2 0 0 0</pose><geometry><cone><radius>1.2</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.4 0.2 1</diffuse></material></visual>
+
+        <!-- ==================== 【知名店面 4：洋朵義式 / 樂子 The Diner 餐廳街】(X: 215 ~ 260) ==================== -->
+        <!-- 木質格柵現代餐廳門面 -->
+        <visual name="diner_glass_wall">
+          <pose>237 -18 3.2 0 0 0</pose>
+          <geometry><box><size>42 0.2 6.0</size></box></geometry>
+          <material><ambient>0.12 0.12 0.15 0.9</ambient><diffuse>0.15 0.15 0.18 0.9</diffuse></material>
+        </visual>
+        <visual name="diner_wood_grille">
+          <pose>237 -17.8 5.8 0 0 0</pose>
+          <geometry><box><size>38 0.22 1.1</size></box></geometry>
+          <material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.45 0.3 0.18 1</diffuse></material>
+        </visual>
+
+        <!-- ==================== 上方 4 棟 20 層豪華現代住宅塔樓 (昌益丹麥/芬蘭/豐邑一極風格) ==================== -->
+        <!-- 住宅大樓 1 (Tower 1 - 康是美上方) -->
+        <collision name="tower_col_1"><pose>133 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_1"><pose>133 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <!-- 陽台層次凹槽與深色玻璃 (Balconies) -->
+        <visual name="tower_balconies_1"><pose>133 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <!-- 頂部現代景觀屋突天際線冠頂 (Rooftop Crown Pergola) -->
+        <visual name="tower_crown_1"><pose>133 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+
+        <!-- 住宅大樓 2 (Tower 2 - 麥當勞上方) -->
+        <collision name="tower_col_2"><pose>170 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_2"><pose>170 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_2"><pose>170 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_2"><pose>170 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+
+        <!-- 住宅大樓 3 (Tower 3 - 星巴克日光門市上方) -->
+        <collision name="tower_col_3"><pose>203 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_3"><pose>203 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_3"><pose>203 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_3"><pose>203 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+
+        <!-- 住宅大樓 4 (Tower 4 - 美食餐廳街上方) -->
+        <collision name="tower_col_4"><pose>240 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_4"><pose>240 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_4"><pose>240 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_4"><pose>240 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
 
         <!-- 東側南段建築群 (光復路至公園前 X: 0 ~ 115) -->
         <collision name="bldg_east_south_col">
