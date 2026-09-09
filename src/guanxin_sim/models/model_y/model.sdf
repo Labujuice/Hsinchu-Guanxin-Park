@@ -1,0 +1,407 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="model_y">
+    <!-- ==================== 車身底盤 (Chassis) ==================== -->
+    <link name="chassis">
+      <pose>0 0 0.37 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0.1 0 0 0</pose>
+        <mass>1740.0</mass>
+        <inertia>
+          <ixx>750.0</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>2800.0</iyy><iyz>0</iyz>
+          <izz>3100.0</izz>
+        </inertia>
+      </inertial>
+
+      <!-- 底盤主要碰撞剛體 -->
+      <collision name="chassis_collision">
+        <pose>0 0 0.25 0 0 0</pose>
+        <geometry>
+          <box><size>4.75 1.92 0.70</size></box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode><mu>0.8</mu><mu2>0.8</mu2></ode>
+          </friction>
+          <contact>
+            <ode><min_depth>0.01</min_depth></ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <!-- 車頂車窗碰撞剛體 -->
+      <collision name="cabin_collision">
+        <pose>-0.2 0 0.8 0 0 0</pose>
+        <geometry>
+          <box><size>2.6 1.5 0.55</size></box>
+        </geometry>
+      </collision>
+
+      <!-- 車身外觀 (Model Y 標誌性酒紅/深紅色車漆) -->
+      <visual name="body_visual">
+        <pose>0 0 0.22 0 0 0</pose>
+        <geometry>
+          <box><size>4.75 1.88 0.65</size></box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.12 0.12 1</ambient>
+          <diffuse>0.85 0.15 0.15 1</diffuse>
+          <specular>0.6 0.6 0.6 1</specular>
+        </material>
+      </visual>
+
+      <!-- 車頭引擎蓋與斜面前鼻 -->
+      <visual name="hood_visual">
+        <pose>1.7 0 0.35 -0.15 0 0</pose>
+        <geometry>
+          <box><size>1.3 1.8 0.35</size></box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.12 0.12 1</ambient>
+          <diffuse>0.85 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 座艙溫室玻璃 (風擋、車頂玻璃與車窗) -->
+      <visual name="greenhouse_visual">
+        <pose>-0.15 0 0.78 0 0 0</pose>
+        <geometry>
+          <box><size>2.6 1.52 0.52</size></box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.15 0.2 0.9</ambient>
+          <diffuse>0.15 0.2 0.25 0.9</diffuse>
+          <specular>0.8 0.8 0.8 1</specular>
+        </material>
+      </visual>
+
+      <!-- 車內儀表板與內裝 (提供車內視角第一人稱臨場感) -->
+      <visual name="dashboard_visual">
+        <pose>0.8 0 0.62 0 0 0</pose>
+        <geometry>
+          <box><size>0.4 1.4 0.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 方向盤 (駕駛座前) -->
+      <visual name="steering_wheel_visual">
+        <pose>0.65 0.38 0.7 0 0.5 0</pose>
+        <geometry>
+          <cylinder><radius>0.18</radius><length>0.04</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 車頭 LED 頭燈 -->
+      <visual name="headlight_left">
+        <pose>2.36 0.65 0.32 0 0 0</pose>
+        <geometry><box><size>0.06 0.3 0.12</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 0.8 1</emissive></material>
+      </visual>
+      <visual name="headlight_right">
+        <pose>2.36 -0.65 0.32 0 0 0</pose>
+        <geometry><box><size>0.06 0.3 0.12</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 0.8 1</emissive></material>
+      </visual>
+
+      <!-- 車尾 LED 尾燈 -->
+      <visual name="taillight_left">
+        <pose>-2.36 0.65 0.4 0 0 0</pose>
+        <geometry><box><size>0.06 0.35 0.08</size></box></geometry>
+        <material><ambient>0.8 0 0 1</ambient><diffuse>0.9 0 0 1</diffuse><emissive>0.8 0 0 1</emissive></material>
+      </visual>
+      <visual name="taillight_right">
+        <pose>-2.36 -0.65 0.4 0 0 0</pose>
+        <geometry><box><size>0.06 0.35 0.08</size></box></geometry>
+        <material><ambient>0.8 0 0 1</ambient><diffuse>0.9 0 0 1</diffuse><emissive>0.8 0 0 1</emissive></material>
+      </visual>
+
+      <!-- ==================== 三大相機感測器 ==================== -->
+      <!-- 1. 車內駕駛座視角 (Driver Interior POV Cam) -->
+      <sensor name="driver_cam" type="camera">
+        <pose>0.4 0.38 0.78 0 0 0</pose>
+        <topic>/model_y/view_driver</topic>
+        <camera>
+          <horizontal_fov>1.4</horizontal_fov>
+          <image><width>1280</width><height>720</height></image>
+          <clip><near>0.05</near><far>500</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+      </sensor>
+
+      <!-- 2. 第三人稱追蹤視角 (Third-person Chase Cam) -->
+      <sensor name="chase_cam" type="camera">
+        <pose>-5.0 0.0 2.2 0 0.25 0</pose>
+        <topic>/model_y/view_chase</topic>
+        <camera>
+          <horizontal_fov>1.5</horizontal_fov>
+          <image><width>1280</width><height>720</height></image>
+          <clip><near>0.1</near><far>500</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+      </sensor>
+
+      <!-- 3. 車頭第一人稱視角 (Front Hood POV Cam) -->
+      <sensor name="hood_cam" type="camera">
+        <pose>2.1 0.0 0.45 0 0 0</pose>
+        <topic>/model_y/view_hood</topic>
+        <camera>
+          <horizontal_fov>1.6</horizontal_fov>
+          <image><width>1280</width><height>720</height></image>
+          <clip><near>0.05</near><far>500</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+      </sensor>
+    </link>
+
+    <!-- ==================== 前轉向節 (Steering Knuckles) ==================== -->
+    <link name="front_left_steering_link">
+      <pose>1.445 0.815 0.37 0 0 0</pose>
+      <inertial>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.05</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.05</iyy><iyz>0</iyz>
+          <izz>0.05</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <joint name="front_left_steering_joint" type="revolute">
+      <parent>chassis</parent>
+      <child>front_left_steering_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.6</lower>
+          <upper>0.6</upper>
+          <effort>1000.0</effort>
+          <velocity>2.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <link name="front_right_steering_link">
+      <pose>1.445 -0.815 0.37 0 0 0</pose>
+      <inertial>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.05</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.05</iyy><iyz>0</iyz>
+          <izz>0.05</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <joint name="front_right_steering_joint" type="revolute">
+      <parent>chassis</parent>
+      <child>front_right_steering_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.6</lower>
+          <upper>0.6</upper>
+          <effort>1000.0</effort>
+          <velocity>2.0</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- ==================== 四組車輪 (Wheels) ==================== -->
+    <!-- 前左輪 -->
+    <link name="front_left_wheel">
+      <pose>1.445 0.815 0.37 -1.5707963 0 0</pose>
+      <inertial>
+        <mass>55.0</mass>
+        <inertia>
+          <ixx>1.9</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>1.9</iyy><iyz>0</iyz>
+          <izz>3.7</izz>
+        </inertia>
+      </inertial>
+      <collision name="col">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode><mu>1.1</mu><mu2>1.1</mu2></ode>
+          </friction>
+          <contact>
+            <ode><min_depth>0.005</min_depth><kp>1e7</kp><kd>1e3</kd></ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="vis">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+      <visual name="rim">
+        <geometry><cylinder><radius>0.24</radius><length>0.252</length></cylinder></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+      </visual>
+    </link>
+
+    <joint name="front_left_wheel_joint" type="revolute">
+      <parent>front_left_steering_link</parent>
+      <child>front_left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit><effort>500.0</effort><velocity>80.0</velocity></limit>
+      </axis>
+    </joint>
+
+    <!-- 前右輪 -->
+    <link name="front_right_wheel">
+      <pose>1.445 -0.815 0.37 -1.5707963 0 0</pose>
+      <inertial>
+        <mass>55.0</mass>
+        <inertia>
+          <ixx>1.9</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>1.9</iyy><iyz>0</iyz>
+          <izz>3.7</izz>
+        </inertia>
+      </inertial>
+      <collision name="col">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode><mu>1.1</mu><mu2>1.1</mu2></ode>
+          </friction>
+          <contact>
+            <ode><min_depth>0.005</min_depth><kp>1e7</kp><kd>1e3</kd></ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="vis">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+      <visual name="rim">
+        <geometry><cylinder><radius>0.24</radius><length>0.252</length></cylinder></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+      </visual>
+    </link>
+
+    <joint name="front_right_wheel_joint" type="revolute">
+      <parent>front_right_steering_link</parent>
+      <child>front_right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit><effort>500.0</effort><velocity>80.0</velocity></limit>
+      </axis>
+    </joint>
+
+    <!-- 後左輪 -->
+    <link name="rear_left_wheel">
+      <pose>-1.445 0.815 0.37 -1.5707963 0 0</pose>
+      <inertial>
+        <mass>55.0</mass>
+        <inertia>
+          <ixx>1.9</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>1.9</iyy><iyz>0</iyz>
+          <izz>3.7</izz>
+        </inertia>
+      </inertial>
+      <collision name="col">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode><mu>1.1</mu><mu2>1.1</mu2></ode>
+          </friction>
+          <contact>
+            <ode><min_depth>0.005</min_depth><kp>1e7</kp><kd>1e3</kd></ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="vis">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+      <visual name="rim">
+        <geometry><cylinder><radius>0.24</radius><length>0.252</length></cylinder></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+      </visual>
+    </link>
+
+    <joint name="rear_left_wheel_joint" type="revolute">
+      <parent>chassis</parent>
+      <child>rear_left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit><effort>2000.0</effort><velocity>80.0</velocity></limit>
+      </axis>
+    </joint>
+
+    <!-- 後右輪 -->
+    <link name="rear_right_wheel">
+      <pose>-1.445 -0.815 0.37 -1.5707963 0 0</pose>
+      <inertial>
+        <mass>55.0</mass>
+        <inertia>
+          <ixx>1.9</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>1.9</iyy><iyz>0</iyz>
+          <izz>3.7</izz>
+        </inertia>
+      </inertial>
+      <collision name="col">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode><mu>1.1</mu><mu2>1.1</mu2></ode>
+          </friction>
+          <contact>
+            <ode><min_depth>0.005</min_depth><kp>1e7</kp><kd>1e3</kd></ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="vis">
+        <geometry><cylinder><radius>0.37</radius><length>0.25</length></cylinder></geometry>
+        <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+      <visual name="rim">
+        <geometry><cylinder><radius>0.24</radius><length>0.252</length></cylinder></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+      </visual>
+    </link>
+
+    <joint name="rear_right_wheel_joint" type="revolute">
+      <parent>chassis</parent>
+      <child>rear_right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit><effort>2000.0</effort><velocity>80.0</velocity></limit>
+      </axis>
+    </joint>
+
+    <!-- ==================== 阿克曼轉向外掛 (Ackermann Steering) ==================== -->
+    <plugin filename="gz-sim-ackermann-steering-system" name="gz::sim::systems::AckermannSteering">
+      <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+      <left_steering_joint>front_left_steering_joint</left_steering_joint>
+      <right_steering_joint>front_right_steering_joint</right_steering_joint>
+      <kingpin_width>1.63</kingpin_width>
+      <steering_limit>0.6</steering_limit>
+      <wheel_base>2.89</wheel_base>
+      <wheel_separation>1.63</wheel_separation>
+      <wheel_radius>0.37</wheel_radius>
+      <min_turning_radius>5.8</min_turning_radius>
+      <max_velocity>25.0</max_velocity>
+      <max_linear_acceleration>5.0</max_linear_acceleration>
+      <max_angular_acceleration>4.0</max_angular_acceleration>
+      <frame_id>odom</frame_id>
+      <child_frame_id>model_y/chassis</child_frame_id>
+    </plugin>
+  </model>
+</sdf>
