@@ -86,7 +86,7 @@ class TeleopVehicle(Node):
         print(f"\n[視角切換] >> {view_info['name']} ({view_info['desc']})")
 
     def reset_origin(self):
-        print("\n[原點重設] 正在瞬移 Model Y 回光復關新路口起點 (5, 0, 0.38)...")
+        print("\n[原點重設] 正在瞬移 Model Y 回光復關新路口起點右側車道 (5, -5, 0.38)...")
         self.speed = 0.0
         self.steer = 0.0
         self.publish_twist()
@@ -97,7 +97,7 @@ class TeleopVehicle(Node):
             "--reptype", "gz.msgs.Boolean",
             "--timeout", "1500",
             "--req",
-            'name: "model_y", position: {x: 5.0, y: 0.0, z: 0.38}, orientation: {x: 0, y: 0, z: 0, w: 1}'
+            'name: "model_y", position: {x: 5.0, y: -5.0, z: 0.38}, orientation: {x: 0, y: 0, z: 0, w: 1}'
         ]
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, timeout=2.0)

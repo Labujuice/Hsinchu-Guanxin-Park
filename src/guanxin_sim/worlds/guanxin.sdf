@@ -42,13 +42,14 @@
 
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
-      <pose>100 -50 150 0 0 0</pose>
+      <pose>100 50 150 0 0 0</pose>
       <diffuse>0.95 0.95 0.9 1</diffuse>
       <specular>0.3 0.3 0.3 1</specular>
-      <direction>-0.4 0.2 -0.8</direction>
+      <direction>-0.4 -0.2 -0.8</direction>
     </light>
 
     <!-- ==================== 道路路網 (關新路、關新二街、關新北路、關新東路) ==================== -->
+    <!-- 朝向說明：車輛自光復路向新莊車站行駛 (+X 方向)。依台灣右側通行，右側車道為 -Y，公園位於右邊 (-Y 側) -->
     <model name="guanxin_road_network">
       <static>true</static>
       <link name="road_link">
@@ -64,145 +65,147 @@
           <material><ambient>0.22 0.22 0.22 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
         </visual>
 
-        <!-- 關新路雙黃線與分道標線 -->
+        <!-- 關新路雙黃分向線 (Y = 0) -->
         <visual name="center_double_yellow">
           <pose>205 0 0.052 0 0 0</pose>
           <geometry><box><size>400 0.3 0.002</size></box></geometry>
           <material><ambient>0.9 0.75 0.1 1</ambient><diffuse>0.9 0.75 0.1 1</diffuse></material>
         </visual>
-        <visual name="lane_divider_west">
+        <!-- 右側車道分隔線 (Y = -5，往新莊車站方向) -->
+        <visual name="lane_divider_right">
           <pose>205 -5 0.052 0 0 0</pose>
           <geometry><box><size>400 0.15 0.002</size></box></geometry>
           <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material>
         </visual>
-        <visual name="lane_divider_east">
+        <!-- 左側車道分隔線 (Y = +5，往光復路方向) -->
+        <visual name="lane_divider_left">
           <pose>205 5 0.052 0 0 0</pose>
           <geometry><box><size>400 0.15 0.002</size></box></geometry>
           <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material>
         </visual>
 
-        <!-- 2. 關新二街 (公園南側路段，分支自關新路 X=180，寬 14m，延伸至 Y=115) -->
+        <!-- 2. 關新二街 (公園南側路段，向右分支通往公園南緣，X: 172 ~ 186，Y: -10 ~ -115) -->
         <collision name="road_sec2_col">
-          <pose>180 62.5 0.025 0 0 0</pose>
+          <pose>179 -62.5 0.025 0 0 0</pose>
           <geometry><box><size>14 105 0.05</size></box></geometry>
           <surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface>
         </collision>
         <visual name="road_sec2_vis">
-          <pose>180 62.5 0.025 0 0 0</pose>
+          <pose>179 -62.5 0.025 0 0 0</pose>
           <geometry><box><size>14 105 0.05</size></box></geometry>
           <material><ambient>0.24 0.24 0.24 1</ambient><diffuse>0.26 0.26 0.26 1</diffuse></material>
         </visual>
         <visual name="road_sec2_yellow_line">
-          <pose>180 62.5 0.052 0 0 0</pose>
+          <pose>179 -62.5 0.052 0 0 0</pose>
           <geometry><box><size>0.2 100 0.002</size></box></geometry>
           <material><ambient>0.9 0.75 0.1 1</ambient><diffuse>0.9 0.75 0.1 1</diffuse></material>
         </visual>
 
-        <!-- 3. 關新北路 (公園北側路段，分支自關新路 X=325，寬 14m，延伸至 Y=115) -->
+        <!-- 3. 關新北路 (公園北側路段，向右分支通往公園北緣，X: 316 ~ 330，Y: -10 ~ -115) -->
         <collision name="road_north_col">
-          <pose>325 62.5 0.025 0 0 0</pose>
+          <pose>323 -62.5 0.025 0 0 0</pose>
           <geometry><box><size>14 105 0.05</size></box></geometry>
           <surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface>
         </collision>
         <visual name="road_north_vis">
-          <pose>325 62.5 0.025 0 0 0</pose>
+          <pose>323 -62.5 0.025 0 0 0</pose>
           <geometry><box><size>14 105 0.05</size></box></geometry>
           <material><ambient>0.24 0.24 0.24 1</ambient><diffuse>0.26 0.26 0.26 1</diffuse></material>
         </visual>
         <visual name="road_north_yellow_line">
-          <pose>325 62.5 0.052 0 0 0</pose>
+          <pose>323 -62.5 0.052 0 0 0</pose>
           <geometry><box><size>0.2 100 0.002</size></box></geometry>
           <material><ambient>0.9 0.75 0.1 1</ambient><diffuse>0.9 0.75 0.1 1</diffuse></material>
         </visual>
 
-        <!-- 4. 關新東路 (公園東側路段，南北向連通關新二街與關新北路，Y=112，寬 14m，長 159m) -->
+        <!-- 4. 關新東路 (公園東側路段，南北向連通關新二街與關新北路，Y = -112，寬 14m，長 158m) -->
         <collision name="road_east_col">
-          <pose>252.5 112 0.025 0 0 0</pose>
-          <geometry><box><size>159 14 0.05</size></box></geometry>
+          <pose>251 -112 0.025 0 0 0</pose>
+          <geometry><box><size>158 14 0.05</size></box></geometry>
           <surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface>
         </collision>
         <visual name="road_east_vis">
-          <pose>252.5 112 0.025 0 0 0</pose>
-          <geometry><box><size>159 14 0.05</size></box></geometry>
+          <pose>251 -112 0.025 0 0 0</pose>
+          <geometry><box><size>158 14 0.05</size></box></geometry>
           <material><ambient>0.23 0.23 0.23 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material>
         </visual>
         <visual name="road_east_yellow_line">
-          <pose>252.5 112 0.052 0 0 0</pose>
+          <pose>251 -112 0.052 0 0 0</pose>
           <geometry><box><size>150 0.2 0.002</size></box></geometry>
           <material><ambient>0.9 0.75 0.1 1</ambient><diffuse>0.9 0.75 0.1 1</diffuse></material>
         </visual>
 
-        <!-- 路口斑馬線 (光復路口、關新二街口、關新北路口) -->
+        <!-- 路口斑馬線 -->
         <visual name="crosswalk_guangfu">
           <pose>10 0 0.052 0 0 0</pose>
           <geometry><box><size>4 18 0.002</size></box></geometry>
           <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
         </visual>
         <visual name="crosswalk_sec2">
-          <pose>180 11 0.052 0 0 0</pose>
+          <pose>179 -11 0.052 0 0 0</pose>
           <geometry><box><size>12 2.5 0.002</size></box></geometry>
           <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
         </visual>
         <visual name="crosswalk_north">
-          <pose>325 11 0.052 0 0 0</pose>
+          <pose>323 -11 0.052 0 0 0</pose>
           <geometry><box><size>12 2.5 0.002</size></box></geometry>
           <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
         </visual>
 
         <!-- ==================== 人行道 (Sidewalks - 15cm 高度剛體碰撞路緣) ==================== -->
-        <!-- 西側人行道 (全線貫穿 410m) -->
-        <collision name="sidewalk_w_col">
-          <pose>205 -12 0.10 0 0 0</pose>
+        <!-- 左側人行道 (商圈側 Y = +12，全線貫穿 410m) -->
+        <collision name="sidewalk_left_col">
+          <pose>205 12 0.10 0 0 0</pose>
           <geometry><box><size>410 4 0.20</size></box></geometry>
           <surface><friction><ode><mu>0.8</mu><mu2>0.8</mu2></ode></friction></surface>
         </collision>
-        <visual name="sidewalk_w_vis">
-          <pose>205 -12 0.10 0 0 0</pose>
+        <visual name="sidewalk_left_vis">
+          <pose>205 12 0.10 0 0 0</pose>
           <geometry><box><size>410 4 0.20</size></box></geometry>
           <material><ambient>0.65 0.65 0.65 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
         </visual>
 
-        <!-- 東側人行道 (在關新二街與關新北路路口挖開空隙，分為三段) -->
-        <!-- 東側南段人行道 (光復路至關新二街前 X: 0 ~ 173) -->
-        <collision name="sidewalk_e_south_col">
-          <pose>86.5 12 0.10 0 0 0</pose>
-          <geometry><box><size>173 4 0.20</size></box></geometry>
+        <!-- 右側人行道 (公園側 Y = -12，在關新二街口與關新北路口挖開空隙，分為三段) -->
+        <!-- 右側南段 (光復路至關新二街前 X: 0 ~ 172) -->
+        <collision name="sidewalk_r_south_col">
+          <pose>86 -12 0.10 0 0 0</pose>
+          <geometry><box><size>172 4 0.20</size></box></geometry>
         </collision>
-        <visual name="sidewalk_e_south_vis">
-          <pose>86.5 12 0.10 0 0 0</pose>
-          <geometry><box><size>173 4 0.20</size></box></geometry>
+        <visual name="sidewalk_r_south_vis">
+          <pose>86 -12 0.10 0 0 0</pose>
+          <geometry><box><size>172 4 0.20</size></box></geometry>
           <material><ambient>0.65 0.65 0.65 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
         </visual>
 
-        <!-- 東側中段人行道 (關新公園西側人行步道 X: 187 ~ 318, 長 131m) -->
-        <collision name="sidewalk_e_mid_col">
-          <pose>252.5 12 0.10 0 0 0</pose>
-          <geometry><box><size>131 4 0.20</size></box></geometry>
+        <!-- 右側中段 (關新公園正門側人行道 X: 186 ~ 316, 長 130m) -->
+        <collision name="sidewalk_r_mid_col">
+          <pose>251 -12 0.10 0 0 0</pose>
+          <geometry><box><size>130 4 0.20</size></box></geometry>
         </collision>
-        <visual name="sidewalk_e_mid_vis">
-          <pose>252.5 12 0.10 0 0 0</pose>
-          <geometry><box><size>131 4 0.20</size></box></geometry>
+        <visual name="sidewalk_r_mid_vis">
+          <pose>251 -12 0.10 0 0 0</pose>
+          <geometry><box><size>130 4 0.20</size></box></geometry>
           <material><ambient>0.65 0.65 0.65 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
         </visual>
 
-        <!-- 東側北段人行道 (關新北路至新莊車站 X: 332 ~ 410) -->
-        <collision name="sidewalk_e_north_col">
-          <pose>371 12 0.10 0 0 0</pose>
-          <geometry><box><size>78 4 0.20</size></box></geometry>
+        <!-- 右側北段 (關新北路至新莊車站 X: 330 ~ 410) -->
+        <collision name="sidewalk_r_north_col">
+          <pose>370 -12 0.10 0 0 0</pose>
+          <geometry><box><size>80 4 0.20</size></box></geometry>
         </collision>
-        <visual name="sidewalk_e_north_vis">
-          <pose>371 12 0.10 0 0 0</pose>
-          <geometry><box><size>78 4 0.20</size></box></geometry>
+        <visual name="sidewalk_r_north_vis">
+          <pose>370 -12 0.10 0 0 0</pose>
+          <geometry><box><size>80 4 0.20</size></box></geometry>
           <material><ambient>0.65 0.65 0.65 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
         </visual>
       </link>
     </model>
 
-    <!-- ==================== 關新公園 (Guanxin Park / 日光公園 - 依真實 3500坪尺寸建構) ==================== -->
-    <!-- 範圍：南北長 130m (X: 187.5 ~ 317.5), 東西寬 91m (Y: 14 ~ 105), 面積約 11,800 m^2 -->
+    <!-- ==================== 關新公園 (Guanxin Park / 日光公園 - 位於車輛行駛右手邊 Y = -59.5) ==================== -->
+    <!-- 範圍：南北長 130m (X: 186 ~ 316), 東西寬 91m (Y: -105 ~ -14), 實地登記面積 3,500 坪 (約 11,830 m^2) -->
     <model name="guanxin_park">
       <static>true</static>
-      <pose>252.5 59.5 0.12 0 0 0</pose>
+      <pose>251 -59.5 0.12 0 0 0</pose>
       <link name="park_link">
         <!-- 綠地大草坪主剛體 -->
         <collision name="park_lawn_col">
@@ -213,323 +216,365 @@
           <material><ambient>0.18 0.52 0.18 1</ambient><diffuse>0.22 0.58 0.22 1</diffuse></material>
         </visual>
 
-        <!-- 四周邊緣花台/景觀路緣剛體 (西側臨關新路) -->
-        <collision name="curb_west"><pose>0 -45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry></collision>
-        <visual name="curb_west_vis"><pose>0 -45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
+        <!-- 四周邊緣花台/景觀路緣剛體 (西側臨關新路 Y = +45.5 相對座標) -->
+        <collision name="curb_west"><pose>0 45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry></collision>
+        <visual name="curb_west_vis"><pose>0 45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
 
-        <!-- 南側臨關新二街邊界 -->
+        <!-- 南側臨關新二街邊界 (X = -64.5 相對座標) -->
         <collision name="curb_south"><pose>-64.5 0 0.25 0 0 0</pose><geometry><box><size>1.0 91 0.5</size></box></geometry></collision>
         <visual name="curb_south_vis"><pose>-64.5 0 0.25 0 0 0</pose><geometry><box><size>1.0 91 0.5</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
 
-        <!-- 北側臨關新北路邊界 -->
+        <!-- 北側臨關新北路邊界 (X = +64.5 相對座標) -->
         <collision name="curb_north"><pose>64.5 0 0.25 0 0 0</pose><geometry><box><size>1.0 91 0.5</size></box></geometry></collision>
         <visual name="curb_north_vis"><pose>64.5 0 0.25 0 0 0</pose><geometry><box><size>1.0 91 0.5</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
 
-        <!-- 東側臨關新東路邊界 -->
-        <collision name="curb_east"><pose>0 45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry></collision>
-        <visual name="curb_east_vis"><pose>0 45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
+        <!-- 東側臨關新東路邊界 (Y = -45 相對座標) -->
+        <collision name="curb_east"><pose>0 -45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry></collision>
+        <visual name="curb_east_vis"><pose>0 -45 0.25 0 0 0</pose><geometry><box><size>130 1.0 0.5</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
 
         <!-- 公園內部主步道 (十字形與環型步道) -->
         <visual name="path_horizontal"><pose>0 0 0.125 0 0 0</pose><geometry><box><size>124 5 0.01</size></box></geometry><material><ambient>0.82 0.78 0.7 1</ambient><diffuse>0.82 0.78 0.7 1</diffuse></material></visual>
         <visual name="path_vertical"><pose>0 0 0.125 0 0 0</pose><geometry><box><size>5 85 0.01</size></box></geometry><material><ambient>0.82 0.78 0.7 1</ambient><diffuse>0.82 0.78 0.7 1</diffuse></material></visual>
 
         <!-- ==================== 核心設施 1：休閒景觀涼亭 (Rest Pavilion / Gazebo) ==================== -->
-        <!-- 位於公園中心廣場偏南處 (相對公園局部座標: X=-10, Y=10) -->
-        <collision name="gazebo_col"><pose>-10 10 1.8 0 0 0</pose><geometry><box><size>7 7 3.6</size></box></geometry></collision>
+        <!-- 位於公園中心廣場 (相對公園局部座標: X=0, Y=10) -->
+        <collision name="gazebo_col"><pose>0 10 1.8 0 0 0</pose><geometry><box><size>7 7 3.6</size></box></geometry></collision>
         <!-- 4 根大理石支柱 -->
-        <visual name="p_post_1"><pose>-12.8 7.2 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
-        <visual name="p_post_2"><pose>-7.2 7.2 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
-        <visual name="p_post_3"><pose>-12.8 12.8 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
-        <visual name="p_post_4"><pose>-7.2 12.8 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
+        <visual name="p_post_1"><pose>-2.8 7.2 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
+        <visual name="p_post_2"><pose>2.8 7.2 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
+        <visual name="p_post_3"><pose>-2.8 12.8 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
+        <visual name="p_post_4"><pose>2.8 12.8 1.6 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>3.2</length></cylinder></geometry><material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.35 0.3 1</diffuse></material></visual>
         <!-- 涼亭四角斜坡頂棚 (Hipped Roof) -->
-        <visual name="gazebo_roof"><pose>-10 10 3.6 0 0 0</pose><geometry><box><size>7.5 7.5 0.6</size></box></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.3 0.2 0.15 1</diffuse></material></visual>
-        <visual name="gazebo_top_cap"><pose>-10 10 4.1 0 0 0</pose><geometry><box><size>4.5 4.5 0.5</size></box></geometry><material><ambient>0.25 0.18 0.12 1</ambient><diffuse>0.35 0.25 0.18 1</diffuse></material></visual>
+        <visual name="gazebo_roof"><pose>0 10 3.6 0 0 0</pose><geometry><box><size>7.5 7.5 0.6</size></box></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.3 0.2 0.15 1</diffuse></material></visual>
+        <visual name="gazebo_top_cap"><pose>0 10 4.1 0 0 0</pose><geometry><box><size>4.5 4.5 0.5</size></box></geometry><material><ambient>0.25 0.18 0.12 1</ambient><diffuse>0.35 0.25 0.18 1</diffuse></material></visual>
         <!-- 涼亭內部木質休閒長椅 -->
-        <visual name="gazebo_bench_1"><pose>-10 7.8 0.45 0 0 0</pose><geometry><box><size>4.0 0.5 0.4</size></box></geometry><material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.5 0.3 0.2 1</diffuse></material></visual>
-        <visual name="gazebo_bench_2"><pose>-10 12.2 0.45 0 0 0</pose><geometry><box><size>4.0 0.5 0.4</size></box></geometry><material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.5 0.3 0.2 1</diffuse></material></visual>
+        <visual name="gazebo_bench_1"><pose>0 7.8 0.45 0 0 0</pose><geometry><box><size>4.0 0.5 0.4</size></box></geometry><material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.5 0.3 0.2 1</diffuse></material></visual>
+        <visual name="gazebo_bench_2"><pose>0 12.2 0.45 0 0 0</pose><geometry><box><size>4.0 0.5 0.4</size></box></geometry><material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.5 0.3 0.2 1</diffuse></material></visual>
 
         <!-- ==================== 核心設施 2：地景磨石子大溜滑梯 (Hill Stone Slide) ==================== -->
-        <!-- 位於公園中心北側遊戲山丘區 (相對座標: X=18, Y=12) -->
+        <!-- 位於公園中心偏北山丘區 (相對座標: X=24, Y=-8) -->
         <!-- 遊戲小山丘斜坡剛體 -->
-        <collision name="slide_hill_col"><pose>18 12 1.2 0 0 0</pose><geometry><box><size>14 12 2.4</size></box></geometry></collision>
-        <visual name="slide_hill_mound"><pose>18 12 1.2 0 0 0</pose><geometry><box><size>14 12 2.4</size></box></geometry><material><ambient>0.2 0.48 0.2 1</ambient><diffuse>0.25 0.55 0.25 1</diffuse></material></visual>
+        <collision name="slide_hill_col"><pose>24 -8 1.2 0 0 0</pose><geometry><box><size>14 12 2.4</size></box></geometry></collision>
+        <visual name="slide_hill_mound"><pose>24 -8 1.2 0 0 0</pose><geometry><box><size>14 12 2.4</size></box></geometry><material><ambient>0.2 0.48 0.2 1</ambient><diffuse>0.25 0.55 0.25 1</diffuse></material></visual>
         <!-- 磨石子寬面溜滑梯滑道 (灰色平滑傾斜石面) -->
-        <visual name="stone_slide_wide"><pose>18 5.5 1.2 0.45 0 0</pose><geometry><box><size>4.2 8.0 0.2</size></box></geometry><material><ambient>0.85 0.85 0.85 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse><specular>0.6 0.6 0.6 1</specular></material></visual>
+        <visual name="stone_slide_wide"><pose>24 -1.5 1.2 -0.45 0 0</pose><geometry><box><size>4.2 8.0 0.2</size></box></geometry><material><ambient>0.85 0.85 0.85 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse><specular>0.6 0.6 0.6 1</specular></material></visual>
         <!-- 滑梯兩側黃色安全防護護欄 -->
-        <visual name="slide_rail_l"><pose>15.8 5.5 1.5 0.45 0 0</pose><geometry><box><size>0.2 8.0 0.5</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material></visual>
-        <visual name="slide_rail_r"><pose>20.2 5.5 1.5 0.45 0 0</pose><geometry><box><size>0.2 8.0 0.5</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material></visual>
+        <visual name="slide_rail_l"><pose>21.8 -1.5 1.5 -0.45 0 0</pose><geometry><box><size>0.2 8.0 0.5</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material></visual>
+        <visual name="slide_rail_r"><pose>26.2 -1.5 1.5 -0.45 0 0</pose><geometry><box><size>0.2 8.0 0.5</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material></visual>
         <!-- 山丘後方攀岩登頂階梯 -->
-        <visual name="slide_stairs"><pose>18 18.5 1.2 -0.45 0 0</pose><geometry><box><size>3.5 6.0 0.25</size></box></geometry><material><ambient>0.4 0.35 0.3 1</ambient><diffuse>0.5 0.45 0.4 1</diffuse></material></visual>
+        <visual name="slide_stairs"><pose>24 -14.5 1.2 0.45 0 0</pose><geometry><box><size>3.5 6.0 0.25</size></box></geometry><material><ambient>0.4 0.35 0.3 1</ambient><diffuse>0.5 0.45 0.4 1</diffuse></material></visual>
 
         <!-- ==================== 核心設施 3：盪鞦韆組 (Playground Swings) ==================== -->
-        <!-- 位於公園西側兒童共融遊樂場 (相對座標: X=-25, Y=-15) -->
+        <!-- 位於公園西側靠入口共融遊樂場 (相對座標: X=-24, Y=18) -->
         <!-- 防護安全軟地墊 (紅色橡膠地墊) -->
-        <visual name="swing_rubber_mat"><pose>-25 -15 0.13 0 0 0</pose><geometry><box><size>10 7 0.02</size></box></geometry><material><ambient>0.6 0.2 0.2 1</ambient><diffuse>0.65 0.25 0.25 1</diffuse></material></visual>
+        <visual name="swing_rubber_mat"><pose>-24 18 0.13 0 0 0</pose><geometry><box><size>10 7 0.02</size></box></geometry><material><ambient>0.6 0.2 0.2 1</ambient><diffuse>0.65 0.25 0.25 1</diffuse></material></visual>
         <!-- 鞦韆 A 字鋼構支架 (藍/黃色雙三角架) -->
-        <collision name="swing_frame_col"><pose>-25 -15 1.7 0 0 0</pose><geometry><box><size>8 0.8 3.4</size></box></geometry></collision>
-        <visual name="swing_frame_left"><pose>-28.8 -15 1.7 0 0.18 0</pose><geometry><cylinder><radius>0.08</radius><length>3.5</length></cylinder></geometry><material><ambient>0.1 0.4 0.8 1</ambient><diffuse>0.1 0.45 0.85 1</diffuse></material></visual>
-        <visual name="swing_frame_right"><pose>-21.2 -15 1.7 0 -0.18 0</pose><geometry><cylinder><radius>0.08</radius><length>3.5</length></cylinder></geometry><material><ambient>0.1 0.4 0.8 1</ambient><diffuse>0.1 0.45 0.85 1</diffuse></material></visual>
+        <collision name="swing_frame_col"><pose>-24 18 1.7 0 0 0</pose><geometry><box><size>8 0.8 3.4</size></box></geometry></collision>
+        <visual name="swing_frame_left"><pose>-27.8 18 1.7 0 0.18 0</pose><geometry><cylinder><radius>0.08</radius><length>3.5</length></cylinder></geometry><material><ambient>0.1 0.4 0.8 1</ambient><diffuse>0.1 0.45 0.85 1</diffuse></material></visual>
+        <visual name="swing_frame_right"><pose>-20.2 18 1.7 0 -0.18 0</pose><geometry><cylinder><radius>0.08</radius><length>3.5</length></cylinder></geometry><material><ambient>0.1 0.4 0.8 1</ambient><diffuse>0.1 0.45 0.85 1</diffuse></material></visual>
         <!-- 頂部水平橫樑 -->
-        <visual name="swing_top_beam"><pose>-25 -15 3.3 0 1.5707963 0</pose><geometry><cylinder><radius>0.09</radius><length>8.2</length></cylinder></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+        <visual name="swing_top_beam"><pose>-24 18 3.3 0 1.5707963 0</pose><geometry><cylinder><radius>0.09</radius><length>8.2</length></cylinder></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
         <!-- 鞦韆 1 (雙吊繩與座椅) -->
-        <visual name="swing_rope_1a"><pose>-26.5 -15 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="swing_rope_1b"><pose>-25.7 -15 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="swing_seat_1"><pose>-26.1 -15 0.85 0 0 0</pose><geometry><box><size>0.9 0.35 0.08</size></box></geometry><material><ambient>0.1 0.7 0.3 1</ambient><diffuse>0.1 0.8 0.35 1</diffuse></material></visual>
+        <visual name="swing_rope_1a"><pose>-25.5 18 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="swing_rope_1b"><pose>-24.7 18 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="swing_seat_1"><pose>-25.1 18 0.85 0 0 0</pose><geometry><box><size>0.9 0.35 0.08</size></box></geometry><material><ambient>0.1 0.7 0.3 1</ambient><diffuse>0.1 0.8 0.35 1</diffuse></material></visual>
         <!-- 鞦韆 2 -->
-        <visual name="swing_rope_2a"><pose>-24.3 -15 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="swing_rope_2b"><pose>-23.5 -15 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="swing_seat_2"><pose>-23.9 -15 0.85 0 0 0</pose><geometry><box><size>0.9 0.35 0.08</size></box></geometry><material><ambient>0.1 0.7 0.3 1</ambient><diffuse>0.1 0.8 0.35 1</diffuse></material></visual>
+        <visual name="swing_rope_2a"><pose>-23.3 18 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="swing_rope_2b"><pose>-22.5 18 2.0 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>2.2</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="swing_seat_2"><pose>-22.9 18 0.85 0 0 0</pose><geometry><box><size>0.9 0.35 0.08</size></box></geometry><material><ambient>0.1 0.7 0.3 1</ambient><diffuse>0.1 0.8 0.35 1</diffuse></material></visual>
 
         <!-- ==================== 公園代表性林蔭大樹 (實體剛體樹幹) ==================== -->
-        <collision name="tree_trunk_1"><pose>-45 -30 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
-        <visual name="tree_trunk_vis_1"><pose>-45 -30 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
-        <visual name="tree_foliage_1"><pose>-45 -30 4.2 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry><material><ambient>0.1 0.45 0.1 1</ambient><diffuse>0.1 0.45 0.1 1</diffuse></material></visual>
+        <collision name="tree_trunk_1"><pose>-45 20 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name="tree_trunk_vis_1"><pose>-45 20 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
+        <visual name="tree_foliage_1"><pose>-45 20 4.2 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry><material><ambient>0.1 0.45 0.1 1</ambient><diffuse>0.1 0.45 0.1 1</diffuse></material></visual>
 
-        <collision name="tree_trunk_2"><pose>-15 -35 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
-        <visual name="tree_trunk_vis_2"><pose>-15 -35 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
-        <visual name="tree_foliage_2"><pose>-15 -35 4.2 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry><material><ambient>0.12 0.5 0.12 1</ambient><diffuse>0.12 0.5 0.12 1</diffuse></material></visual>
+        <collision name="tree_trunk_2"><pose>-15 25 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name="tree_trunk_vis_2"><pose>-15 25 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
+        <visual name="tree_foliage_2"><pose>-15 25 4.2 0 0 0</pose><geometry><sphere><radius>2.6</radius></sphere></geometry><material><ambient>0.12 0.5 0.12 1</ambient><diffuse>0.12 0.5 0.12 1</diffuse></material></visual>
 
-        <collision name="tree_trunk_3"><pose>25 -32 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
-        <visual name="tree_trunk_vis_3"><pose>25 -32 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
-        <visual name="tree_foliage_3"><pose>25 -32 4.2 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry><material><ambient>0.1 0.45 0.1 1</ambient><diffuse>0.1 0.45 0.1 1</diffuse></material></visual>
+        <collision name="tree_trunk_3"><pose>25 22 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name="tree_trunk_vis_3"><pose>25 22 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
+        <visual name="tree_foliage_3"><pose>25 22 4.2 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry><material><ambient>0.1 0.45 0.1 1</ambient><diffuse>0.1 0.45 0.1 1</diffuse></material></visual>
 
-        <collision name="tree_trunk_4"><pose>45 25 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
-        <visual name="tree_trunk_vis_4"><pose>45 25 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
-        <visual name="tree_foliage_4"><pose>45 25 4.2 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry><material><ambient>0.12 0.5 0.12 1</ambient><diffuse>0.12 0.5 0.12 1</diffuse></material></visual>
+        <collision name="tree_trunk_4"><pose>45 -25 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name="tree_trunk_vis_4"><pose>45 -25 1.5 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>3.0</length></cylinder></geometry><material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.3 0.2 0.1 1</diffuse></material></visual>
+        <visual name="tree_foliage_4"><pose>45 -25 4.2 0 0 0</pose><geometry><sphere><radius>2.8</radius></sphere></geometry><material><ambient>0.12 0.5 0.12 1</ambient><diffuse>0.12 0.5 0.12 1</diffuse></material></visual>
       </link>
     </model>
 
-    <!-- ==================== 沿街商住大樓建築立面與邊界限制 ==================== -->
+    <!-- ==================== 沿街商住大樓建築立面與邊界限制 (位於左側 Y > 0 與公園周邊) ==================== -->
     <model name="street_corridor_buildings">
       <static>true</static>
       <link name="building_link">
-        <!-- ==================== 西側南段建築群 (光復路至麥當勞前 X: 0 ~ 130) ==================== -->
+        <!-- ==================== 左側南段建築 (光復路至麥當勞前 X: 0 ~ 115, Y: 14 ~ 50) ==================== -->
         <collision name="bldg_west_south_col">
-          <pose>65 -32 10 0 0 0</pose>
-          <geometry><box><size>130 36 20</size></box></geometry>
+          <pose>57.5 32 10 0 0 0</pose>
+          <geometry><box><size>115 36 20</size></box></geometry>
         </collision>
         <visual name="bldg_west_south_vis">
-          <pose>65 -32 10 0 0 0</pose>
-          <geometry><box><size>130 36 20</size></box></geometry>
+          <pose>57.5 32 10 0 0 0</pose>
+          <geometry><box><size>115 36 20</size></box></geometry>
           <material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.75 0.72 0.70 1</diffuse></material>
         </visual>
 
-        <!-- ==================== 西側正對公園與核心商圈 (X: 130 ~ 280) ==================== -->
-        <!-- 正確門牌順序（由南向北）：麥當勞 (26號) -> 康是美 (36號) -> 關新二街口 -> 星巴克日光門市 (38號) -> 富邦銀行/主題餐廳街 (51號) -->
+        <!-- ==================== 左側核心指標商圈 (X: 115 ~ 285) ==================== -->
+        <!-- 包含：麥當勞新竹關新店(得來速+停車場) -> 康是美 -> 關新二街對角 -> 星巴克日光門市(轉角落地窗) -> 富邦銀行/餐廳街 -->
         
-        <!-- 1. 西側建築後方主體碰撞牆 -->
+        <!-- 1. 左側商業建築後方剛體碰撞牆 -->
         <collision name="park_opp_main_col">
-          <pose>205 -34 16 0 0 0</pose>
-          <geometry><box><size>150 32 32</size></box></geometry>
+          <pose>200 34 16 0 0 0</pose>
+          <geometry><box><size>170 32 32</size></box></geometry>
         </collision>
         <visual name="park_opp_podium_vis">
-          <pose>205 -34 16 0 0 0</pose>
-          <geometry><box><size>150 32 32</size></box></geometry>
+          <pose>200 34 16 0 0 0</pose>
+          <geometry><box><size>170 32 32</size></box></geometry>
           <material><ambient>0.78 0.76 0.73 1</ambient><diffuse>0.82 0.80 0.77 1</diffuse></material>
         </visual>
 
-        <!-- 2. 一樓挑高 6.5 米騎樓立柱群 (沿人行道邊界，實體剛體立柱) -->
-        <collision name="pillar_col_1"><pose>135 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_1"><pose>135 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <!-- 2. 一樓挑高 6.5 米騎樓立柱群 (沿人行道邊界 Y = +15.2，剛體立柱) -->
+        <collision name="pillar_col_1"><pose>135 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_1"><pose>135 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_2"><pose>155 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_2"><pose>155 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_2"><pose>155 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_2"><pose>155 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_3"><pose>175 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_3"><pose>175 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_3"><pose>175 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_3"><pose>175 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_4"><pose>195 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_4"><pose>195 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_4"><pose>195 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_4"><pose>195 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_5"><pose>215 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_5"><pose>215 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_5"><pose>215 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_5"><pose>215 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_6"><pose>235 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_6"><pose>235 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_6"><pose>235 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_6"><pose>235 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_7"><pose>255 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_7"><pose>255 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_7"><pose>255 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_7"><pose>255 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
-        <collision name="pillar_col_8"><pose>275 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
-        <visual name="pillar_vis_8"><pose>275 -15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="pillar_col_8"><pose>275 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry></collision>
+        <visual name="pillar_vis_8"><pose>275 15.2 3.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>6.4</length></cylinder></geometry><material><ambient>0.25 0.25 0.25 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
 
         <!-- 騎樓走廊頂部吊頂石材橫樑 (Arcade Ceiling) -->
         <visual name="arcade_ceiling_vis">
-          <pose>205 -16.5 6.4 0 0 0</pose>
-          <geometry><box><size>150 4.5 0.4</size></box></geometry>
+          <pose>200 16.5 6.4 0 0 0</pose>
+          <geometry><box><size>170 4.5 0.4</size></box></geometry>
           <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material>
         </visual>
 
-        <!-- ==================== 【店面 1：麥當勞 新竹關新店 (關新路 26 號)】(X: 135 ~ 165) ==================== -->
-        <!-- 正確位置：在關新二街以南，往北開最先抵達的 26 號 -->
+        <!-- ==================== 【店面 1：麥當勞 新竹關新店 (26號) - 含得來速與專用停車場】(X: 120 ~ 165) ==================== -->
+        <!-- 位置：還沒到公園就會先碰到 (X: 120 ~ 165, Y: 18 ~ 42) -->
+        <!-- 麥當勞主建築本體 (雙層挑高) -->
+        <visual name="mcd_bldg">
+          <pose>140 28 4.2 0 0 0</pose>
+          <geometry><box><size>26 18 8.4</size></box></geometry>
+          <material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material>
+        </visual>
+        <!-- 麥當勞大片落地窗 -->
         <visual name="mcd_glass">
-          <pose>150 -18 3.2 0 0 0</pose>
-          <geometry><box><size>28 0.2 6.0</size></box></geometry>
+          <pose>140 18.2 3.2 0 0 0</pose>
+          <geometry><box><size>24 0.2 6.0</size></box></geometry>
           <material><ambient>0.15 0.15 0.15 0.9</ambient><diffuse>0.2 0.2 0.2 0.9</diffuse></material>
         </visual>
+        <!-- 麥當勞紅色企業門楣橫幅 -->
         <visual name="mcd_red_banner">
-          <pose>150 -17.8 5.8 0 0 0</pose>
-          <geometry><box><size>24 0.25 1.1</size></box></geometry>
+          <pose>140 18.0 5.8 0 0 0</pose>
+          <geometry><box><size>22 0.25 1.1</size></box></geometry>
           <material><ambient>0.85 0.08 0.08 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material>
         </visual>
-        <!-- 麥當勞經典金色「M」雙拱門立體發光標誌 -->
-        <visual name="mcd_golden_arch_left">
-          <pose>149.3 -17.6 5.8 0 0 0</pose>
+        <!-- 金色雙拱門「M」立體發光標誌 -->
+        <visual name="mcd_arch_left">
+          <pose>139.3 17.8 5.8 0 0 0</pose>
           <geometry><cylinder><radius>0.6</radius><length>0.15</length></cylinder></geometry>
           <material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material>
         </visual>
-        <visual name="mcd_golden_arch_right">
-          <pose>150.7 -17.6 5.8 0 0 0</pose>
+        <visual name="mcd_arch_right">
+          <pose>140.7 17.8 5.8 0 0 0</pose>
           <geometry><cylinder><radius>0.6</radius><length>0.15</length></cylinder></geometry>
           <material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material>
-        </visual>
-        <visual name="mcd_order_window">
-          <pose>159 -17.9 2.5 0 0 0</pose>
-          <geometry><box><size>3.5 0.15 2.2</size></box></geometry>
-          <material><ambient>0.9 0.8 0.4 1</ambient><diffuse>0.9 0.8 0.4 1</diffuse><emissive>0.5 0.4 0.1 1</emissive></material>
         </visual>
 
-        <!-- ==================== 【店面 2：康是美 (關新路 36 號)】(X: 165 ~ 180) ==================== -->
-        <!-- 位於麥當勞與關新二街之間 -->
+        <!-- 麥當勞專屬得來速車道 (Drive-Thru Lane) -->
+        <!-- 繞行建築後方與側邊的車道路面與黃色導引箭頭 -->
+        <visual name="mcd_dt_lane">
+          <pose>140 38.5 0.026 0 0 0</pose>
+          <geometry><box><size>30 5.0 0.002</size></box></geometry>
+          <material><ambient>0.18 0.18 0.18 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material>
+        </visual>
+        <visual name="mcd_dt_arrow_yellow">
+          <pose>140 38.5 0.03 0 0 0</pose>
+          <geometry><box><size>18 0.3 0.002</size></box></geometry>
+          <material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material>
+        </visual>
+        <!-- 得來速點餐點與點餐看板棚架 -->
+        <visual name="mcd_dt_menu_board">
+          <pose>126 37 1.8 0 0 0</pose>
+          <geometry><box><size>2.5 0.4 2.2</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse><emissive>0.4 0.4 0.4 1</emissive></material>
+        </visual>
+        <!-- 得來速取餐窗口雨遮 -->
+        <visual name="mcd_dt_window_canopy">
+          <pose>148 37 3.0 0 0 0</pose>
+          <geometry><box><size>4.0 1.5 0.2</size></box></geometry>
+          <material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material>
+        </visual>
+
+        <!-- 麥當勞專屬停車場 (Parking Lot with 停車格線) -->
+        <visual name="mcd_parking_lot">
+          <pose>158 24 0.026 0 0 0</pose>
+          <geometry><box><size>16 16 0.002</size></box></geometry>
+          <material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material>
+        </visual>
+        <!-- 停車格白線 1 ~ 4 -->
+        <visual name="mcd_parking_line_1"><pose>153 20 0.03 0 0 0</pose><geometry><box><size>5.0 0.15 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="mcd_parking_line_2"><pose>153 23 0.03 0 0 0</pose><geometry><box><size>5.0 0.15 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="mcd_parking_line_3"><pose>153 26 0.03 0 0 0</pose><geometry><box><size>5.0 0.15 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="mcd_parking_line_4"><pose>153 29 0.03 0 0 0</pose><geometry><box><size>5.0 0.15 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <!-- 停車場車輪擋塊 (Wheel Stops) -->
+        <visual name="wheel_stop_1"><pose>155.2 21.5 0.08 0 0 0</pose><geometry><box><size>0.2 1.8 0.12</size></box></geometry><material><ambient>0.8 0.8 0.1 1</ambient><diffuse>0.8 0.8 0.1 1</diffuse></material></visual>
+        <visual name="wheel_stop_2"><pose>155.2 24.5 0.08 0 0 0</pose><geometry><box><size>0.2 1.8 0.12</size></box></geometry><material><ambient>0.8 0.8 0.1 1</ambient><diffuse>0.8 0.8 0.1 1</diffuse></material></visual>
+        <visual name="wheel_stop_3"><pose>155.2 27.5 0.08 0 0 0</pose><geometry><box><size>0.2 1.8 0.12</size></box></geometry><material><ambient>0.8 0.8 0.1 1</ambient><diffuse>0.8 0.8 0.1 1</diffuse></material></visual>
+
+        <!-- ==================== 【店面 2：康是美 (36號)】(X: 165 ~ 178) ==================== -->
         <visual name="cosmed_glass">
-          <pose>172.5 -18 3.2 0 0 0</pose>
-          <geometry><box><size>15 0.2 6.0</size></box></geometry>
+          <pose>172 18.2 3.2 0 0 0</pose>
+          <geometry><box><size>12 0.2 6.0</size></box></geometry>
           <material><ambient>0.1 0.2 0.3 0.9</ambient><diffuse>0.15 0.25 0.35 0.9</diffuse></material>
         </visual>
         <visual name="cosmed_banner">
-          <pose>172.5 -17.8 5.8 0 0 0</pose>
-          <geometry><box><size>13 0.25 1.0</size></box></geometry>
+          <pose>172 18.0 5.8 0 0 0</pose>
+          <geometry><box><size>11 0.25 1.0</size></box></geometry>
           <material><ambient>0.95 0.45 0.05 1</ambient><diffuse>0.95 0.5 0.05 1</diffuse><emissive>0.6 0.25 0.0 1</emissive></material>
         </visual>
 
-        <!-- ==================== 【店面 3：星巴克 新竹日光門市 (關新路 38 號)】(X: 185 ~ 215) ==================== -->
-        <!-- 正確位置：過關新二街後，正對日光公園西南角！大面落地玻璃窗直接眺望公園大草坪 -->
+        <!-- ==================== 【店面 3：星巴克 新竹日光門市 (38號) - 位於關新路與關新二街轉角】(X: 180 ~ 210) ==================== -->
+        <!-- 位置：正處公園旁轉角處，雙面挑高黑色大面落地玻璃窗，直接眺望日光公園 -->
         <visual name="starbucks_glass_wall">
-          <pose>200 -18 3.2 0 0 0</pose>
+          <pose>195 18.2 3.2 0 0 0</pose>
           <geometry><box><size>28 0.2 6.0</size></box></geometry>
           <material><ambient>0.08 0.1 0.12 0.9</ambient><diffuse>0.1 0.12 0.15 0.9</diffuse><specular>0.9 0.9 0.9 1</specular></material>
         </visual>
-        <!-- 落地窗室內咖啡館透出暖光 -->
+        <!-- 落地窗內咖啡館暖光 -->
         <visual name="starbucks_interior_light">
-          <pose>200 -18.2 3.2 0 0 0</pose>
+          <pose>195 18.4 3.2 0 0 0</pose>
           <geometry><box><size>26 0.1 5.6</size></box></geometry>
           <material><ambient>0.95 0.85 0.5 1</ambient><diffuse>0.95 0.85 0.5 1</diffuse><emissive>0.7 0.55 0.3 1</emissive></material>
         </visual>
         <!-- 星巴克標誌性雙尾美人魚圓形綠色 Logo 招牌 -->
         <visual name="starbucks_green_disc">
-          <pose>200 -17.6 5.8 -1.5707963 0 0</pose>
+          <pose>195 17.6 5.8 1.5707963 0 0</pose>
           <geometry><cylinder><radius>1.1</radius><length>0.2</length></cylinder></geometry>
           <material><ambient>0.0 0.42 0.22 1</ambient><diffuse>0.0 0.5 0.26 1</diffuse><emissive>0.0 0.5 0.26 1</emissive></material>
         </visual>
         <visual name="starbucks_inner_white_emblem">
-          <pose>200 -17.5 5.8 -1.5707963 0 0</pose>
+          <pose>195 17.5 5.8 1.5707963 0 0</pose>
           <geometry><cylinder><radius>0.75</radius><length>0.22</length></cylinder></geometry>
           <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.8 0.8 0.8 1</emissive></material>
         </visual>
-        <!-- 深黑咖啡色遮陽棚 (Awning Canopy) -->
+        <!-- 深黑咖啡色遮陽棚 (Awning) -->
         <visual name="starbucks_awning">
-          <pose>200 -16.2 5.0 -0.2 0 0</pose>
+          <pose>195 16.2 5.0 0.2 0 0</pose>
           <geometry><box><size>25 2.6 0.15</size></box></geometry>
           <material><ambient>0.12 0.08 0.06 1</ambient><diffuse>0.15 0.1 0.08 1</diffuse></material>
         </visual>
         <!-- 人行道露天咖啡座 (遮陽傘與咖啡桌) -->
-        <visual name="cafe_table_1"><pose>194 -14.2 0.75 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.2 0.15 0.1 1</diffuse></material></visual>
-        <visual name="cafe_umbrella_1"><pose>194 -14.2 2.2 0 0 0</pose><geometry><cone><radius>1.2</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.4 0.2 1</diffuse></material></visual>
+        <visual name="cafe_table_1"><pose>189 14.2 0.75 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.2 0.15 0.1 1</diffuse></material></visual>
+        <visual name="cafe_umbrella_1"><pose>189 14.2 2.2 0 0 0</pose><geometry><cone><radius>1.2</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.4 0.2 1</diffuse></material></visual>
 
-        <visual name="cafe_table_2"><pose>206 -14.2 0.75 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.2 0.15 0.1 1</diffuse></material></visual>
-        <visual name="cafe_umbrella_2"><pose>206 -14.2 2.2 0 0 0</pose><geometry><cone><radius>1.2</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.4 0.2 1</diffuse></material></visual>
+        <visual name="cafe_table_2"><pose>201 14.2 0.75 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.2 0.15 0.1 1</diffuse></material></visual>
+        <visual name="cafe_umbrella_2"><pose>201 14.2 2.2 0 0 0</pose><geometry><cone><radius>1.2</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.4 0.2 1</diffuse></material></visual>
 
-        <!-- ==================== 【店面 4：台北富邦銀行 & 摩斯漢堡/餐廳街 (關新路 51 號)】(X: 215 ~ 275) ==================== -->
-        <!-- 正對關新公園核心步道與遊憩區 -->
+        <!-- ==================== 【店面 4：台北富邦銀行 & 摩斯漢堡/餐廳街 (51號)】(X: 210 ~ 280) ==================== -->
         <visual name="diner_fubon_glass">
-          <pose>245 -18 3.2 0 0 0</pose>
-          <geometry><box><size>56 0.2 6.0</size></box></geometry>
+          <pose>245 18.2 3.2 0 0 0</pose>
+          <geometry><box><size>65 0.2 6.0</size></box></geometry>
           <material><ambient>0.12 0.14 0.18 0.9</ambient><diffuse>0.15 0.18 0.22 0.9</diffuse></material>
         </visual>
-        <!-- 台北富邦銀行藍色品牌飾條 -->
+        <!-- 富邦銀行藍色品牌飾條 -->
         <visual name="fubon_banner">
-          <pose>230 -17.8 5.8 0 0 0</pose>
+          <pose>225 18.0 5.8 0 0 0</pose>
           <geometry><box><size>22 0.25 1.0</size></box></geometry>
           <material><ambient>0.05 0.35 0.75 1</ambient><diffuse>0.08 0.45 0.85 1</diffuse><emissive>0.05 0.25 0.5 1</emissive></material>
         </visual>
         <!-- 餐廳街木質格柵門面 -->
         <visual name="diner_wood_grille">
-          <pose>258 -17.8 5.8 0 0 0</pose>
-          <geometry><box><size>30 0.22 1.1</size></box></geometry>
+          <pose>255 18.0 5.8 0 0 0</pose>
+          <geometry><box><size>35 0.22 1.1</size></box></geometry>
           <material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.45 0.3 0.18 1</diffuse></material>
         </visual>
 
         <!-- ==================== 4 棟 20 層豪華現代住宅塔樓 (昌益丹麥/芬蘭/豐邑一極風格) ==================== -->
         <!-- 住宅大樓 1 (Tower 1 - 麥當勞上方，高 48m) -->
-        <collision name="tower_col_1"><pose>150 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
-        <visual name="tower_vis_1"><pose>150 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
-        <visual name="tower_balconies_1"><pose>150 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
-        <visual name="tower_crown_1"><pose>150 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <collision name="tower_col_1"><pose>140 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_1"><pose>140 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_1"><pose>140 20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_1"><pose>140 34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
 
         <!-- 住宅大樓 2 (Tower 2 - 星巴克上方，高 48m) -->
-        <collision name="tower_col_2"><pose>195 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
-        <visual name="tower_vis_2"><pose>195 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
-        <visual name="tower_balconies_2"><pose>195 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
-        <visual name="tower_crown_2"><pose>195 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <collision name="tower_col_2"><pose>195 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_2"><pose>195 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_2"><pose>195 20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_2"><pose>195 34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
 
         <!-- 住宅大樓 3 (Tower 3 - 富邦銀行上方，高 48m) -->
-        <collision name="tower_col_3"><pose>235 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
-        <visual name="tower_vis_3"><pose>235 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
-        <visual name="tower_balconies_3"><pose>235 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
-        <visual name="tower_crown_3"><pose>235 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <collision name="tower_col_3"><pose>235 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_3"><pose>235 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_3"><pose>235 20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_3"><pose>235 34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
 
         <!-- 住宅大樓 4 (Tower 4 - 餐廳街上方，高 48m) -->
-        <collision name="tower_col_4"><pose>270 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
-        <visual name="tower_vis_4"><pose>270 -34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
-        <visual name="tower_balconies_4"><pose>270 -20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
-        <visual name="tower_crown_4"><pose>270 -34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <collision name="tower_col_4"><pose>270 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry></collision>
+        <visual name="tower_vis_4"><pose>270 34 32 0 0 0</pose><geometry><box><size>28 26 32</size></box></geometry><material><ambient>0.82 0.80 0.77 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
+        <visual name="tower_balconies_4"><pose>270 20.8 32 0 0 0</pose><geometry><box><size>24 0.5 28</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.2 0.22 0.25 1</diffuse></material></visual>
+        <visual name="tower_crown_4"><pose>270 34 49 0 0 0</pose><geometry><box><size>24 22 2.5</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
 
-        <!-- ==================== 西側北段建築群 (公園後至新莊車站 X: 285 ~ 410) ==================== -->
+        <!-- ==================== 左側北段建築群 (公園後至新莊車站 X: 285 ~ 410, Y: 14 ~ 50) ==================== -->
         <collision name="bldg_west_north_col">
-          <pose>347.5 -32 10 0 0 0</pose>
+          <pose>347.5 32 10 0 0 0</pose>
           <geometry><box><size>125 36 20</size></box></geometry>
         </collision>
         <visual name="bldg_west_north_vis">
-          <pose>347.5 -32 10 0 0 0</pose>
+          <pose>347.5 32 10 0 0 0</pose>
           <geometry><box><size>125 36 20</size></box></geometry>
           <material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.75 0.72 0.70 1</diffuse></material>
         </visual>
 
-        <!-- ==================== 東側街廓建築群 (避開四周馬路與關新公園) ==================== -->
-        <!-- 1. 東側南段 (光復路至關新二街 X: 0 ~ 170, Y: 16 ~ 50) -->
+        <!-- ==================== 右側外圍街廓建築群 (避開關新公園與四周馬路) ==================== -->
+        <!-- 1. 關新二街以南街區 (X: 0 ~ 170, Y: -16 ~ -50) -->
         <collision name="bldg_east_south_col">
-          <pose>85 34 10 0 0 0</pose>
+          <pose>85 -34 10 0 0 0</pose>
           <geometry><box><size>170 34 20</size></box></geometry>
         </collision>
         <visual name="bldg_east_south_vis">
-          <pose>85 34 10 0 0 0</pose>
+          <pose>85 -34 10 0 0 0</pose>
           <geometry><box><size>170 34 20</size></box></geometry>
           <material><ambient>0.68 0.65 0.60 1</ambient><diffuse>0.72 0.68 0.65 1</diffuse></material>
         </visual>
 
-        <!-- 2. 東側北段 (關新北路至新莊車站 X: 335 ~ 410, Y: 16 ~ 50) -->
+        <!-- 2. 關新北路以北至新莊車站街區 (東京中城等社區, X: 335 ~ 410, Y: -16 ~ -50) -->
         <collision name="bldg_east_north_col">
-          <pose>372.5 34 10 0 0 0</pose>
+          <pose>372.5 -34 10 0 0 0</pose>
           <geometry><box><size>75 34 20</size></box></geometry>
         </collision>
         <visual name="bldg_east_north_vis">
-          <pose>372.5 34 10 0 0 0</pose>
+          <pose>372.5 -34 10 0 0 0</pose>
           <geometry><box><size>75 34 20</size></box></geometry>
           <material><ambient>0.68 0.65 0.60 1</ambient><diffuse>0.72 0.68 0.65 1</diffuse></material>
         </visual>
 
-        <!-- 3. 關新東路以東之「公園第一排」住宅大樓群 (豐邑一第風格, X: 180 ~ 325, Y: 135) -->
+        <!-- 3. 關新東路以東之「公園第一排」景觀大樓群 (豐邑一第等社區, X: 175 ~ 325, Y: -135) -->
         <collision name="bldg_east_park_first_row_col">
-          <pose>252.5 135 15 0 0 0</pose>
+          <pose>251 -135 15 0 0 0</pose>
           <geometry><box><size>145 30 30</size></box></geometry>
         </collision>
         <visual name="bldg_east_park_first_row_vis">
-          <pose>252.5 135 15 0 0 0</pose>
+          <pose>251 -135 15 0 0 0</pose>
           <geometry><box><size>145 30 30</size></box></geometry>
           <material><ambient>0.75 0.72 0.68 1</ambient><diffuse>0.78 0.75 0.72 1</diffuse></material>
         </visual>
 
-        <!-- 光復路口邊界擋牆 (防止車輛向後衝出光復路交會處) -->
+        <!-- 光復路口邊界擋牆 -->
         <collision name="south_boundary_wall">
           <pose>-6 0 5 0 0 0</pose>
           <geometry><box><size>4 50 10</size></box></geometry>
@@ -562,8 +607,8 @@
     <include>
       <name>model_y</name>
       <uri>model://model_y</uri>
-      <!-- 起始位置位於光復路與關新路口中央，車頭朝向新莊車站 (+X 方向) -->
-      <pose>5 0 0.38 0 0 0</pose>
+      <!-- 起始位置換邊至右側通行車道 (Y = -5.0)，車頭朝向新莊車站 (+X 方向) -->
+      <pose>5 -5.0 0.38 0 0 0</pose>
     </include>
 
   </world>
