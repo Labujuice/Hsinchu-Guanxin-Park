@@ -371,35 +371,21 @@
         <!-- 康是美亮橘色突出側懸十字招牌 (Protruding Cross Sign) -->
         <visual name="cosmed_protruding_sign"><pose>158 -13.6 5.2 0 0 0</pose><geometry><box><size>0.2 1.2 1.4</size></box></geometry><material><ambient>0.95 0.38 0.05 1</ambient><diffuse>1.0 0.42 0.08 1</diffuse><emissive>0.8 0.3 0.05 1</emissive></material></visual>
 
-        <!-- 6. 星巴克 新竹日光門市 (38 號) - 轉角雙面落地窗旗艦店 + 木柵露天咖啡座 (X: 174 ~ 197) -->
-        <collision name="sbux_bldg_col"><pose>185.5 -22 4.5 0 0 0</pose><geometry><box><size>23 15 9.0</size></box></geometry></collision>
-        <visual name="sbux_bldg_vis"><pose>185.5 -22 4.5 0 0 0</pose><geometry><box><size>23 15 9.0</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
-        <visual name="sbux_west_black_banner"><pose>185.5 -14.3 4.5 0 0 0</pose><geometry><box><size>22 0.3 1.2</size></box></geometry><material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
-        <visual name="sbux_west_white_text"><pose>186 -14.1 4.5 0 0 0</pose><geometry><box><size>8.5 0.2 0.6</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.9 0.9 0.9 1</emissive></material></visual>
-        <visual name="sbux_west_glass"><pose>185.5 -14.4 2.2 0 0 0</pose><geometry><box><size>21 0.2 3.6</size></box></geometry><material><ambient>0.08 0.1 0.12 0.9</ambient><diffuse>0.1 0.12 0.15 0.9</diffuse><emissive>0.7 0.55 0.3 1</emissive></material></visual>
-        <visual name="sbux_corner_logo"><pose>195.5 -14.2 4.5 1.5707963 0 0</pose><geometry><cylinder><radius>0.9</radius><length>0.25</length></cylinder></geometry><material><ambient>0.0 0.42 0.22 1</ambient><diffuse>0.0 0.5 0.26 1</diffuse><emissive>0.0 0.45 0.22 1</emissive></material></visual>
-        <!-- 星巴克圓形雙尾美人魚雙面側懸招牌 (Protruding Siren Round Sign) -->
-        <visual name="sbux_protruding_disc"><pose>176 -13.6 4.8 0 0 0</pose><geometry><cylinder><radius>0.6</radius><length>0.2</length></cylinder></geometry><material><ambient>0.0 0.42 0.22 1</ambient><diffuse>0.0 0.5 0.26 1</diffuse><emissive>0.0 0.45 0.22 1</emissive></material></visual>
-        <!-- 星巴克臨關新路遮陽棚 (Fabric Awning) -->
-        <visual name="sbux_west_awning"><pose>185.5 -13.6 3.8 0.2 0 0</pose><geometry><box><size>18 1.8 0.12</size></box></geometry><material><ambient>0.15 0.1 0.08 1</ambient><diffuse>0.2 0.14 0.1 1</diffuse></material></visual>
-
-        <!-- 北側臨關新二街大面落地窗與木柵露天咖啡座 (Wooden Fence Terrace) -->
-        <visual name="sbux_north_black_banner"><pose>186 -29.7 4.5 0 0 0</pose><geometry><box><size>18 0.3 1.2</size></box></geometry><material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
-        <visual name="sbux_north_glass"><pose>186 -29.6 2.2 0 0 0</pose><geometry><box><size>17 0.2 3.6</size></box></geometry><material><ambient>0.08 0.1 0.12 0.9</ambient><diffuse>0.1 0.12 0.15 0.9</diffuse><emissive>0.7 0.55 0.3 1</emissive></material></visual>
-        <visual name="sbux_terrace_deck"><pose>186 -32 0.18 0 0 0</pose><geometry><box><size>16 4.0 0.12</size></box></geometry><material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.45 0.3 0.18 1</diffuse></material></visual>
-        <visual name="sbux_terrace_fence"><pose>186 -34 0.65 0 0 0</pose><geometry><box><size>16 0.15 0.9</size></box></geometry><material><ambient>0.3 0.18 0.1 1</ambient><diffuse>0.35 0.22 0.12 1</diffuse></material></visual>
-        <visual name="sbux_table_1"><pose>182 -32 0.75 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.25 0.2 0.15 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_1"><pose>182 -32 2.2 0 0 0</pose><geometry><cone><radius>1.3</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.45 0.22 1</diffuse></material></visual>
-        <visual name="sbux_table_2"><pose>190 -32 0.75 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>0.05</length></cylinder></geometry><material><ambient>0.2 0.15 0.1 1</ambient><diffuse>0.25 0.2 0.15 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_2"><pose>190 -32 2.2 0 0 0</pose><geometry><cone><radius>1.3</radius><length>0.6</length></cone></geometry><material><ambient>0.0 0.35 0.18 1</ambient><diffuse>0.0 0.45 0.22 1</diffuse></material></visual>
-        <visual name="sbux_2f_bagel"><pose>186 -14.2 7.0 0 0 0</pose><geometry><box><size>15 0.4 1.2</size></box></geometry><material><ambient>0.92 0.9 0.88 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
-        <visual name="sbux_roof_frame"><pose>186 -17 11.5 0 0 0</pose><geometry><box><size>10 6.0 4.5</size></box></geometry><material><ambient>0.4 0.45 0.5 0.5</ambient><diffuse>0.45 0.5 0.55 0.5</diffuse></material></visual>
+        <!-- 6. 星巴克 新竹日光門市 (38 號) 改由下方獨立 model://starbucks_building 高真實度模型載入 -->
 
         <!-- 商圈後方高層住宅大樓 (48m) -->
         <collision name="east_tower_col"><pose>70 -48 24.0 0 0 0</pose><geometry><box><size>30 25 48.0</size></box></geometry></collision>
         <visual name="east_tower_vis"><pose>70 -48 24.0 0 0 0</pose><geometry><box><size>30 25 48.0</size></box></geometry><material><ambient>0.78 0.76 0.73 1</ambient><diffuse>0.82 0.80 0.77 1</diffuse></material></visual>
       </link>
     </model>
+
+    <!-- ==================== 星巴克新竹日光門市 (38 號) 高真實度實景模型 ==================== -->
+    <!-- 特色：45度導角入口、實景PBR立面貼圖、2F Bagel 24H網球工作室遮陽棚、木柵欄露天木棧咖啡座、屋頂鋼桁架高聳美人魚徽標 -->
+    <include>
+      <name>starbucks_building</name>
+      <uri>model://starbucks_building</uri>
+      <pose>185.5 -23.25 0 0 0 0</pose>
+    </include>
 
     <!-- ==================== 左側建築群 (West Side: 騎樓走廊, 7-Eleven, 摩斯漢堡, 現代豪宅) ==================== -->
     <!-- 特色：完整 2.5m 內縮騎樓 (Arcade)、支撐立柱群、騎樓吊頂燈、7-Eleven便利商店、側懸招牌 -->

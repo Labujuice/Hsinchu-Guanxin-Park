@@ -1,0 +1,527 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="starbucks_building">
+    <static>true</static>
+    <link name="building_link">
+
+      <!-- ==================== 1. 簡化剛體碰撞 (High-Performance Collisions) ==================== -->
+      <!-- 主建物主體碰撞體 -->
+      <collision name="main_bldg_col">
+        <pose>-1.5 -1.5 4.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>20.0 14.5 8.5</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 戶外露天木棧平台碰撞體 (可供行人與機器人行走) -->
+      <collision name="terrace_deck_col">
+        <pose>13.0 -2.0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.0 12.0 0.2</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+      <!-- ==================== 2. 主建物外牆與高解析實景貼圖 (Real Photo Facades) ==================== -->
+      <!-- (A) 臨關新路立面 (West Facade: 雙扇推門、陳列大櫥窗、STARBUCKS黑橫幅、黑木護牆板、2F Bagel網球遮陽棚) -->
+      <visual name="west_facade_vis">
+        <pose>-1.75 8.75 4.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>19.5 0.15 8.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_west_facade.png</albedo_map>
+              <roughness>0.4</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (B) 臨關新二街立面 (North Facade: 連續落地大玻璃窗、STARBUCKS黑條紋看板、2F Bagel網球工作室遮陽棚) -->
+      <visual name="north_facade_vis">
+        <pose>11.5 -1.75 4.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 14.0 8.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_north_facade.png</albedo_map>
+              <roughness>0.4</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (C) 45度導角轉角立面 (45-degree Chamfered Corner: 抿石子轉角立柱與黑底銅邊飾條) -->
+      <visual name="corner_chamfer_vis">
+        <pose>9.75 7.0 4.25 0 0 -0.785398</pose>
+        <geometry>
+          <box>
+            <size>4.95 0.15 8.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.85 0.85 0.85 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_corner_chamfer.png</albedo_map>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (D) 門口上方輕型金屬雨遮 (Entrance Canopy) -->
+      <visual name="entrance_canopy">
+        <pose>6.8 8.95 3.45 0.1 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.2 1.1 0.06</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.12 0.15 0.9</ambient>
+          <diffuse>0.15 0.18 0.22 0.9</diffuse>
+        </material>
+      </visual>
+
+      <!-- (E) 南側緊鄰康是美隔牆 (South Wall bordering Cosmed) -->
+      <visual name="south_wall_vis">
+        <pose>-11.5 -0.1 4.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 17.5 8.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.8 0.8 0.8 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_pebble_concrete.png</albedo_map>
+              <roughness>0.7</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (F) 東側後方背牆 (East Rear Wall facing Back Alley) -->
+      <visual name="east_rear_wall_vis">
+        <pose>0 -8.75 4.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>23.0 0.2 8.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.8 0.8 0.8 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_pebble_concrete.png</albedo_map>
+              <roughness>0.7</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (G) 屋頂樓板與女兒牆 (Rooftop Slab & Parapet) -->
+      <visual name="roof_slab">
+        <pose>-0.25 -0.2 8.45 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>22.5 17.2 0.25</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.45 0.45 0.45 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+      <visual name="roof_parapet_w">
+        <pose>-1.75 8.75 8.75 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>19.5 0.25 0.35</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.75 0.75 0.75 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_pebble_concrete.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="roof_parapet_n">
+        <pose>11.5 -1.75 8.75 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.25 14.0 0.35</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.75 0.75 0.75 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_pebble_concrete.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- ==================== 3. 臨關新路側懸星巴克雙尾美人魚圓形標誌 (Mounted Siren Medallion) ==================== -->
+      <visual name="siren_sign_arm">
+        <pose>-7.5 8.9 4.8 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.35 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="siren_medallion_disc">
+        <pose>-7.5 9.0 4.8 1.5707963 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.65</radius>
+            <length>0.12</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.0 0.45 0.22 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_siren_logo.png</albedo_map>
+              <roughness>0.3</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- ==================== 4. 北側關新二街木棧露天座與木柵圍欄 (Outdoor Terrace & Wood Slats Fence) ==================== -->
+      <!-- 戶外木棧地板 (Timber Deck) -->
+      <visual name="terrace_deck_vis">
+        <pose>13.0 -2.0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.0 12.0 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_wood_deck.png</albedo_map>
+              <roughness>0.6</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 黑色金屬基座圍邊 (Black Metal Edge Beam) -->
+      <visual name="terrace_edge_beam">
+        <pose>14.52 -2.0 0.1 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 12.05 0.22</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 木柵格欄杆主圍牆 (外側臨關新二街, Slat Fence Outer) -->
+      <visual name="terrace_fence_outer">
+        <pose>14.5 -2.0 0.65 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 12.0 0.85</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.95 0.95 0.95 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_terrace_fence.png</albedo_map>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 木柵格欄杆北側側圍 (Slat Fence North End) -->
+      <visual name="terrace_fence_north">
+        <pose>13.0 4.0 0.65 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.0 0.06 0.85</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.95 0.95 0.95 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_terrace_fence.png</albedo_map>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 木柵格欄杆南側側圍 (Slat Fence South End) -->
+      <visual name="terrace_fence_south">
+        <pose>13.0 -8.0 0.65 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.0 0.06 0.85</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.95 0.95 0.95 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_terrace_fence.png</albedo_map>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 露天座深木色景觀植栽槽 (North Planter Box) -->
+      <visual name="planter_box_north">
+        <pose>13.0 3.6 0.45 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.6 0.5 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.85 0.85 0.85 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_dark_wood.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="planter_plants_north">
+        <pose>13.0 3.6 0.8 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.4 0.4 0.35</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.5 0.15 1</ambient>
+          <diffuse>0.18 0.58 0.18 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 露天咖啡座圓桌與遮陽傘 1 -->
+      <visual name="cafe_table_1">
+        <pose>13.0 -4.5 0.75 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.45</radius>
+            <length>0.04</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.2 0.15 0.1 1</ambient>
+          <diffuse>0.25 0.2 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="table_pole_1">
+        <pose>13.0 -4.5 0.38 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.03</radius>
+            <length>0.72</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="parasol_1">
+        <pose>13.0 -4.5 2.2 0 0 0</pose>
+        <geometry>
+          <cone>
+            <radius>1.3</radius>
+            <length>0.6</length>
+          </cone>
+        </geometry>
+        <material>
+          <ambient>0.0 0.35 0.18 1</ambient>
+          <diffuse>0.0 0.45 0.22 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 露天咖啡座圓桌與遮陽傘 2 -->
+      <visual name="cafe_table_2">
+        <pose>13.0 0.5 0.75 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.45</radius>
+            <length>0.04</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.2 0.15 0.1 1</ambient>
+          <diffuse>0.25 0.2 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="table_pole_2">
+        <pose>13.0 0.5 0.38 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.03</radius>
+            <length>0.72</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="parasol_2">
+        <pose>13.0 0.5 2.2 0 0 0</pose>
+        <geometry>
+          <cone>
+            <radius>1.3</radius>
+            <length>0.6</length>
+          </cone>
+        </geometry>
+        <material>
+          <ambient>0.0 0.35 0.18 1</ambient>
+          <diffuse>0.0 0.45 0.22 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 5. 屋頂鋼構廣告架與高聳美人魚圓形標誌 (Rooftop Steel Truss & Siren) ==================== -->
+      <!-- 鋼構桁架實景透明貼圖主平面 (Facing Northwest Intersection) -->
+      <visual name="roof_truss_plane">
+        <pose>8.5 5.5 10.5 0 0 -0.785398</pose>
+        <geometry>
+          <box>
+            <size>6.0 0.05 4.0</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_roof_truss.png</albedo_map>
+              <roughness>0.3</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 桁架4根鍍鋅鋼立柱 (Steel Posts) -->
+      <visual name="truss_post_1">
+        <pose>6.0 3.0 10.5 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>4.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.6 0.65 0.7 1</ambient>
+          <diffuse>0.7 0.75 0.8 1</diffuse>
+        </material>
+      </visual>
+      <visual name="truss_post_2">
+        <pose>10.5 3.0 10.5 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>4.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.6 0.65 0.7 1</ambient>
+          <diffuse>0.7 0.75 0.8 1</diffuse>
+        </material>
+      </visual>
+      <visual name="truss_post_3">
+        <pose>6.0 7.5 10.5 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>4.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.6 0.65 0.7 1</ambient>
+          <diffuse>0.7 0.75 0.8 1</diffuse>
+        </material>
+      </visual>
+      <visual name="truss_post_4">
+        <pose>10.5 7.5 10.5 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>4.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.6 0.65 0.7 1</ambient>
+          <diffuse>0.7 0.75 0.8 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 鋼桁架頂部斜面高聳圓形美人魚徽標 (Elevated Rooftop Siren Logo Disc) -->
+      <visual name="roof_siren_medallion">
+        <pose>8.6 5.6 11.2 1.5707963 0 -0.785398</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.9</radius>
+            <length>0.16</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.0 0.5 0.25 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://starbucks_building/materials/textures/sbux_siren_logo.png</albedo_map>
+              <roughness>0.3</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

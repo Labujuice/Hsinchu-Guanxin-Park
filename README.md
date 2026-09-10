@@ -62,6 +62,7 @@ gz_my_world/
         │   └── guanxin.sdf     # 關新路世界檔 (路網、公園、星巴克/麥當勞/豪宅街區)
         ├── models/
         │   ├── model_y/              # Tesla Model Y 載具模型 (4輪+轉向+3相機+阿克曼)
+        │   ├── starbucks_building/   # 星巴克新竹日光門市 (實景PBR貼圖+45度導角+露天木棧座+屋頂鋼桁架)
         │   ├── taipower_box/         # 台灣經典台電墨綠色變電箱 (金屬雙門+散熱百葉+警示標誌)
         │   ├── traffic_signal_pole/  # 台灣標準懸臂式紅綠燈與路名牌桿 (關新路/關新二街)
         │   ├── parked_scooter/       # 台灣 125cc 速克達通勤機車 (路邊停車格)
@@ -119,6 +120,44 @@ bash run.sh
 ## 📝 需求與實作歷程更新日誌 (Update Log)
 
 整合自 `requirement.md`、`IMPLEMENTATION_PLAN.md` 以及各階段開發紀錄：
+
+### [v1.8.0] - 2026-09-10
+#### ☕ 星巴克新竹日光門市實景照片紋理深度還原與 45 度轉角旗艦店重建 (Starbucks Photorealistic Reconstruction)
+* **需求來源 (Prompt 深度解析)**：
+  * 使用者要求仔細端倪提供之實景照片（`docs/ref_map_material/` 與 `docs/images/`，特別是 `Street_photo2.png`, `Street_photo1.png`, `Street_photo7.png`），將需要的建築圖片與紋理盡可能從照片直接提取還原，針對星巴克新竹日光門市（關新路 38 號）進行重構，取代先前與實際街景差異過大的簡易幾何外形（primitive greybox）。
+  * 深入比對衛星空照圖（`google_map_sat2.png`）與路口實景街拍，精準校正方位與相對空間關係：
+    * 星巴克坐落於關新路與關新二街交會處之東南轉角。
+    * 正立面（西側）臨關新路，具備不銹鋼長拉把雙扇玻璃推門、陳列咖啡豆與馬克杯之大型落地展示櫥窗、黑波浪金屬招牌飾帶、深色碳化木護牆板與側懸美人魚圓形燈箱。
+    * 轉角處具備標誌性的 **45 度斜向導角（Chamfered Corner）**，由洗石子/抿石子工藝柱體貫通一至二樓，黑條紋金屬看板飾條於此平滑轉折並以銅質細條收邊。
+    * 側立面（北側）沿關新二街延伸，正對關新公園西南角棕櫚樹入口廣場，具備連續採光大玻璃帷幕與木柵欄露天休閒咖啡座（木棧平台、橫向木條柵欄搭配黑色細金屬立柱、深木色景觀植栽槽與深綠色遮陽傘）。
+    * 二樓由「BAGEL 24H TENNIS STUDIO 網球工作室」進駐，兩側立面均具備醒目的白色傾斜遮陽帆布棚（印有雙網球拍彩色 Logo、LINE QR Code 與英文店名）。
+    * 二樓平頂上方設有標誌性的 **開放式鍍鋅鋼構廣告桁架塔**，中心高聳懸掛巨型綠色雙尾美人魚圓形徽標。
+* **實景照片紋理提取與透視校正 (Texture Homography & Inpainting)**：
+  * 使用 OpenCV 透視變換（`cv2.getPerspectiveTransform` 與 `cv2.warpPerspective`）針對 `Street_photo2.png` 的傾斜透視進行高精度幾何校正，並建立專屬紋理資產：
+    1. `sbux_west_facade.png` (1024x512)：關新路主立面完整真實紋理（含 1F 入口雙門、展示櫥窗、STARBUCKS 3D字、黑木護牆板，以及 2F 大玻璃窗與 Bagel 網球遮陽棚）。
+    2. `sbux_north_facade.png` (1024x512)：關新二街側立面完整真實紋理（含 1F 連續採光窗、STARBUCKS 看板飾帶、植栽，以及 2F 窗格與 Bagel 網球遮陽棚）。
+    3. `sbux_corner_chamfer.png` (256x512)：45 度導角抿石子轉角柱與黑波浪橫紋看板金屬轉角飾條。
+    4. `sbux_siren_logo.png` (256x256)：自實景街拍高解析提取之綠色雙尾美人魚圓形徽標（帶透明 Alpha 圓形裁切遮罩）。
+    5. `sbux_roof_truss.png` (512x256)：屋頂廣告鋼構桁架實景透明貼圖（HSV 色彩空間去除天空背景，完整保留立柱、橫桿與 X 型拉桿結構）。
+    6. `sbux_terrace_fence.png` (512x128)：戶外咖啡座現代木柵欄（橫向溫潤木板條與黑色金屬立柱）。
+    7. `sbux_wood_deck.png` (256x256)：戶外露天咖啡座木棧平台地板紋理。
+    8. `sbux_pebble_concrete.png` (256x256)：台灣經典建築灰色洗石子/抿石子工藝紋理。
+    9. `sbux_dark_wood.png` (256x256)：深色實木護牆板紋理。
+  * **影像修復 (Seamless Inpainting & Cloning)**：針對 Google Maps 原始街景中附帶的浮動 UI 標記（如門口上方橘色咖啡杯圖標、櫥窗旁藍色購物袋圖標、北側橘色餐飲圖標），透過高斯羽化混合克隆鄰近無遮蔽玻璃窗格與 Telea 演算法修補，使立面貼圖潔淨無瑕疵、展現專業遊戲與模擬引擎等級的真實感。
+* **模組化模型結構與物理整合 (`src/guanxin_sim/models/starbucks_building/`)**：
+  * 遵循 Gazebo 最佳實踐建立獨立模型包：
+    * `model.config`：定義星巴克日光門市規格與版本資訊。
+    * `model.sdf`：建構包含 45 度轉角導角、臨關新路主面、臨關新二街側面的高真實度幾何；全面配置 `<pbr><metal><albedo_map>` 實景貼圖材質；加入門口立體雨遮、側懸美人魚圓形燈箱（夜間綠色發光）、木棧露天平台、木柵欄、景觀花槽綠植、露天咖啡桌椅與遮陽傘、屋頂 4 根鍍鋅鋼立柱與 X 型拉桿鋼桁架、以及屋頂斜向高聳懸掛之 1.8m 圓形美人魚徽標。
+  * **物理引擎與碰撞最佳化**：
+    * 主建築體採用簡易緊緻剛體碰撞箱（$20\text{m} \times 14.5\text{m} \times 8.5\text{m}$），木棧露天座配置地面碰撞體（可供行人與機器人通行測試），其餘細部裝飾（招牌、雨遮、植栽、陽傘、鋼桁架）均為純視覺幾何（無碰撞實體），將物理負載降至最低（ODE 維持 500Hz 超高頻更新），徹底防止 LiDAR 與相機穿透雜訊及載具物理穿模。
+  * **世界檔更新 (`src/guanxin_sim/worlds/guanxin.sdf`)**：
+    * 自 `east_commercial_block` 中徹底移除舊版陽春灰盒，以 `<include><uri>model://starbucks_building</uri><pose>185.5 -23.25 0 0 0 0</pose></include>` 載入。
+    * 修正舊版南北方向誤植問題，使露天木棧咖啡座與側立面精準朝向關新二街及關新公園。
+* **驗證與測試**：
+  * `gz sdf -k` 驗證 `src/guanxin_sim/models/starbucks_building/model.sdf` 輸出 `Valid.`。
+  * `gz sdf -k` 驗證 `src/guanxin_sim/worlds/guanxin.sdf` 輸出 `Valid.`。
+  * `colcon build --symlink-install` 編譯完成，`install/guanxin_sim/share/guanxin_sim/` 資源與符號連結確認就緒。
+  * `gz sdf -k` 驗證安裝路徑下之世界檔，輸出亦為 `Valid.`。
 
 ### [v1.7.0] - 2026-09-10
 #### 🏙️ 高擬真街景細節升級 (騎樓走廊、側懸垂直招牌、分區材質步道、地景磨石子滑梯、台電變電箱、號誌桿與路邊機車群)
