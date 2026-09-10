@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="cheogajip_store">
+    <static>true</static>
+    <link name="cheogajip_link">
+
+      <!-- Collision -->
+      <collision name="cheogajip_main_col">
+        <pose>0 0 3.25 0 0 0</pose>
+        <geometry>
+          <box><size>12.0 13.0 6.5</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Main Building Body (Dark textured stone/paint) -->
+      <visual name="cheogajip_body_vis">
+        <pose>0 0 3.25 0 0 0</pose>
+        <geometry>
+          <box><size>11.9 12.9 6.48</size></box>
+        </geometry>
+        <material>
+          <ambient>0.18 0.18 0.18 1</ambient>
+          <diffuse>0.22 0.22 0.22 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Front Photo-Real Facade (X: 12m, Z: 6.5m) -->
+      <visual name="cheogajip_facade_vis">
+        <pose>0 6.46 3.25 0 0 0</pose>
+        <geometry>
+          <box><size>12.0 0.08 6.5</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://cheogajip_store/materials/textures/cheogajip_facade.png</albedo_map>
+              <roughness>0.35</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Red Awning Accent Trim -->
+      <visual name="cheogajip_red_awning">
+        <pose>0 6.6 4.6 0 0 0</pose>
+        <geometry>
+          <box><size>11.8 0.4 0.12</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.1 0.1 1</ambient>
+          <diffuse>0.92 0.12 0.12 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Protruding Hanging Sign (起家雞側懸招牌) -->
+      <visual name="cheogajip_sign_arm">
+        <pose>-2.0 7.0 5.4 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 1.2 0.08</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+        </material>
+      </visual>
+      <visual name="cheogajip_protruding_sign">
+        <pose>-2.0 7.0 4.6 0 0 0</pose>
+        <geometry>
+          <box><size>0.12 1.1 1.6</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://cheogajip_store/materials/textures/cheogajip_protruding_sign.png</albedo_map>
+              <roughness>0.3</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="cathay_bank_building">
+    <static>true</static>
+    <link name="cathay_link">
+
+      <!-- Collision -->
+      <collision name="cathay_main_col">
+        <pose>0 0 9.25 0 0 0</pose>
+        <geometry>
+          <box><size>28.0 19.0 18.5</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Main Building Mass -->
+      <visual name="cathay_body_vis">
+        <pose>0 0 9.25 0 0 0</pose>
+        <geometry>
+          <box><size>27.9 18.9 18.48</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.85 0.85 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Front Photo-Real Facade (X: 28m, Z: 18.5m) -->
+      <visual name="cathay_facade_vis">
+        <pose>0 9.46 9.25 0 0 0</pose>
+        <geometry>
+          <box><size>28.0 0.08 18.5</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://cathay_bank_building/materials/textures/cathay_facade.png</albedo_map>
+              <roughness>0.35</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Left Slate Grey Architectural Wing (左側深灰色垂直裝飾板) -->
+      <visual name="cathay_slate_left">
+        <pose>-11.0 0.1 9.25 0 0 0</pose>
+        <geometry>
+          <box><size>6.0 19.2 18.5</size></box>
+        </geometry>
+        <material>
+          <ambient>0.22 0.25 0.28 1</ambient>
+          <diffuse>0.28 0.3 0.34 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.6</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 1F 門前步道與無障礙坡道 (Entrance Arcade & Ramp) -->
+      <visual name="cathay_walkway">
+        <pose>0 9.8 0.15 0 0 0</pose>
+        <geometry>
+          <box><size>26.0 1.2 0.3</size></box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <diffuse>0.75 0.75 0.75 1</diffuse>
+        </material>
+      </visual>
+      <visual name="cathay_ramp_railing">
+        <pose>-6.0 10.2 0.65 0 0 0</pose>
+        <geometry>
+          <box><size>6.0 0.08 0.7</size></box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 側懸國泰世華綠樹招牌 (Protruding Green Tree Sign) -->
+      <visual name="cathay_sign_arm">
+        <pose>-12.0 10.1 5.8 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 1.4 0.08</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+        </material>
+      </visual>
+      <visual name="cathay_protruding_sign">
+        <pose>-12.0 10.1 5.0 0 0 0</pose>
+        <geometry>
+          <box><size>0.12 1.2 1.6</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://cathay_bank_building/materials/textures/cathay_protruding_sign.png</albedo_map>
+              <roughness>0.3</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 屋頂垂直黃色國泰企業標誌塔 (Rooftop Vertical Sign Tower) -->
+      <visual name="cathay_roof_sign">
+        <pose>12.0 9.0 21.5 0 0 0</pose>
+        <geometry>
+          <box><size>0.6 1.8 6.0</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.85 0.75 0.1 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://cathay_bank_building/materials/textures/cathay_roof_sign.png</albedo_map>
+              <roughness>0.2</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

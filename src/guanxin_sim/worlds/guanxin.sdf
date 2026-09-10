@@ -265,127 +265,58 @@
     </include>
 
     <!-- ==================== 東側商圈街區 (East Side: POYA, 起家雞, 麥當勞, 國泰世華, 康是美, 星巴克) ==================== -->
-    <!-- 具備騎樓走廊、側懸垂直招牌、遮陽棚雨遮與高透明玻璃展示面 -->
-    <model name="east_commercial_block">
-      <static>true</static>
-      <link name="comm_link">
+    <!-- 依據實景照片 Street_photo7 ~ Street_photo11 1:1 照片級真實重建 -->
 
-        <!-- 1. POYA 寶雅 (20 號) - 桃粉色門面 + 側懸招牌 (X: 30 ~ 68) -->
-        <collision name="poya_bldg_col"><pose>49 -22 3.2 0 0 0</pose><geometry><box><size>38 15 6.4</size></box></geometry></collision>
-        <visual name="poya_bldg_vis"><pose>49 -22 3.2 0 0 0</pose><geometry><box><size>38 15 6.4</size></box></geometry><material><ambient>0.85 0.85 0.85 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
-        <visual name="poya_pink_banner"><pose>49 -14.3 5.0 0 0 0</pose><geometry><box><size>37 0.3 1.8</size></box></geometry><material><ambient>0.88 0.0 0.48 1</ambient><diffuse>0.92 0.0 0.52 1</diffuse><emissive>0.7 0.0 0.35 1</emissive></material></visual>
-        <visual name="poya_white_text"><pose>52 -14.1 5.0 0 0 0</pose><geometry><box><size>14 0.2 0.8</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.9 0.9 0.9 1</emissive></material></visual>
-        <visual name="poya_green_logo"><pose>43 -14.1 5.0 1.5707963 0 0</pose><geometry><cylinder><radius>0.6</radius><length>0.25</length></cylinder></geometry><material><ambient>0.1 0.6 0.25 1</ambient><diffuse>0.15 0.7 0.3 1</diffuse><emissive>0.1 0.5 0.2 1</emissive></material></visual>
-        <visual name="poya_glass_wall"><pose>49 -14.4 2.2 0 0 0</pose><geometry><box><size>36 0.2 3.8</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse><emissive>0.8 0.8 0.75 1</emissive></material></visual>
-        <!-- 寶雅專屬突出側懸招牌 (Protruding Hanging Sign - 垂直於牆面，打破平坦天際線) -->
-        <visual name="poya_protruding_sign"><pose>35 -13.6 4.8 0 0 0</pose><geometry><box><size>0.2 1.2 1.8</size></box></geometry><material><ambient>0.88 0.0 0.48 1</ambient><diffuse>0.92 0.0 0.52 1</diffuse><emissive>0.7 0.0 0.35 1</emissive></material></visual>
+    <!-- 1. POYA 寶雅新竹關新店 (20 號) 高真實度實景模型 -->
+    <include>
+      <name>poya_store</name>
+      <uri>model://poya_store</uri>
+      <pose>49.0 -22.0 0 0 0 0</pose>
+    </include>
 
-        <!-- 2. 起家雞 Cheogajip 韓式炸雞 (X: 68 ~ 80) -->
-        <collision name="chicken_col"><pose>74 -21 3.2 0 0 0</pose><geometry><box><size>12 13 6.4</size></box></geometry></collision>
-        <visual name="chicken_vis"><pose>74 -21 3.2 0 0 0</pose><geometry><box><size>12 13 6.4</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="chicken_red_banner"><pose>74 -14.3 4.8 0 0 0</pose><geometry><box><size>11 0.3 1.4</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse><emissive>0.6 0.1 0.1 1</emissive></material></visual>
-        <visual name="chicken_glass"><pose>74 -14.4 2.2 0 0 0</pose><geometry><box><size>10 0.2 3.6</size></box></geometry><material><ambient>0.15 0.15 0.15 0.85</ambient><diffuse>0.2 0.2 0.2 0.85</diffuse><emissive>0.5 0.4 0.2 1</emissive></material></visual>
+    <!-- 2. 起家雞韓式炸雞新竹關新店 (22 號) 高真實度實景模型 -->
+    <include>
+      <name>cheogajip_store</name>
+      <uri>model://cheogajip_store</uri>
+      <pose>74.0 -21.0 0 0 0 0</pose>
+    </include>
 
-        <!-- 3. 麥當勞 新竹關新店 (26 號) - 得來速 + 停車場 + 巨型 15m 看板塔 (X: 80 ~ 125) -->
-        <!-- 得來速入口車道 -->
-        <visual name="mcd_dt_in_asphalt"><pose>83 -22 0.026 0 0 0</pose><geometry><box><size>5.5 16 0.002</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material></visual>
-        <visual name="mcd_dt_in_text"><pose>83 -15.5 0.03 0 0 0</pose><geometry><box><size>4.5 1.5 0.002</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_dt_in_pylon"><pose>85.8 -14.8 1.4 0 0 0</pose><geometry><box><size>0.4 0.8 2.8</size></box></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="mcd_dt_in_pylon_m"><pose>85.8 -14.6 2.3 0 0 0</pose><geometry><box><size>0.3 0.5 0.5</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material></visual>
+    <!-- 3. 麥當勞新竹關新店 (26 號) 高真實度實景模型 (得來速 + 15m 看板塔 + 停車場 + 特斯拉充電樁) -->
+    <include>
+      <name>mcdonalds_building</name>
+      <uri>model://mcdonalds_building</uri>
+      <pose>102.0 -23.5 0 0 0 0</pose>
+    </include>
 
-        <!-- 麥當勞主建築 (2層樓) -->
-        <collision name="mcd_main_col"><pose>102.5 -23.5 4.25 0 0 0</pose><geometry><box><size>31 17.5 8.5</size></box></geometry></collision>
-        <visual name="mcd_main_vis"><pose>102.5 -23.5 4.25 0 0 0</pose><geometry><box><size>31 17.5 8.5</size></box></geometry><material><ambient>0.18 0.18 0.18 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material></visual>
-        <visual name="mcd_front_glass"><pose>102.5 -14.4 4.2 0 0 0</pose><geometry><box><size>28 0.2 7.2</size></box></geometry><material><ambient>0.1 0.12 0.15 0.85</ambient><diffuse>0.15 0.18 0.22 0.85</diffuse><emissive>0.7 0.65 0.5 1</emissive></material></visual>
-        <!-- 麥當勞紅色標誌性立體柱 -->
-        <visual name="mcd_red_pillar"><pose>91 -14.2 4.8 0 0 0</pose><geometry><box><size>3.2 0.8 9.6</size></box></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse></material></visual>
-        <visual name="mcd_p_m_left"><pose>90.4 -13.7 7.5 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>0.15</length></cylinder></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material></visual>
-        <visual name="mcd_p_m_right"><pose>91.6 -13.7 7.5 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>0.15</length></cylinder></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material></visual>
-        <!-- 麥當勞門前雨遮棚架 (Canopy) -->
-        <visual name="mcd_entry_canopy"><pose>103 -13.6 3.6 0 0 0</pose><geometry><box><size>18 2.0 0.15</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <!-- 麥當勞側懸突出發光招牌 (Protruding Sign) -->
-        <visual name="mcd_protruding_sign"><pose>88 -13.6 6.0 0 0 0</pose><geometry><box><size>0.2 1.4 1.4</size></box></geometry><material><ambient>0.85 0.08 0.08 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse><emissive>0.6 0.1 0.1 1</emissive></material></visual>
+    <!-- 4. 國泰世華銀行 & 日光大樓 (32 號) 5層樓高真實度實景模型 -->
+    <include>
+      <name>cathay_bank_building</name>
+      <uri>model://cathay_bank_building</uri>
+      <pose>142.0 -24.0 0 0 0 0</pose>
+    </include>
 
-        <!-- 麥當勞 15 米獨立超高看板塔 (Golden Arches Pylon Tower) -->
-        <visual name="mcd_tower_pole"><pose>86.5 -14.8 7.5 0 0 0</pose><geometry><box><size>0.8 0.8 15.0</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="mcd_tower_box"><pose>86.5 -14.8 14.5 0 0 0</pose><geometry><box><size>1.2 3.6 3.6</size></box></geometry><material><ambient>0.85 0.08 0.08 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material></visual>
-        <visual name="mcd_arch_l"><pose>86.5 -14.1 14.7 0 1.5707963 0</pose><geometry><cylinder><radius>1.1</radius><length>0.4</length></cylinder></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material></visual>
-        <visual name="mcd_arch_r"><pose>86.5 -15.5 14.7 0 1.5707963 0</pose><geometry><cylinder><radius>1.1</radius><length>0.4</length></cylinder></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>1.0 0.85 0.0 1</emissive></material></visual>
-        <visual name="mcd_tower_dt_text"><pose>86.5 -14.1 13.0 0 0 0</pose><geometry><box><size>0.4 2.8 0.5</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>1 1 1 1</emissive></material></visual>
+    <!-- 5. COSMED 康是美新竹日光門市 (36 號) 2層樓高真實度實景模型 -->
+    <include>
+      <name>cosmed_store</name>
+      <uri>model://cosmed_store</uri>
+      <pose>165.0 -21.5 0 0 0 0</pose>
+    </include>
 
-        <!-- 得來速後側繞行車道與點餐/取餐雨棚 -->
-        <visual name="mcd_dt_back_lane"><pose>103.5 -34.5 0.026 0 0 0</pose><geometry><box><size>41 5.0 0.002</size></box></geometry><material><ambient>0.18 0.18 0.18 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="mcd_order_board"><pose>92 -37 1.8 0 0 0</pose><geometry><box><size>2.6 0.4 2.2</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse><emissive>0.5 0.5 0.5 1</emissive></material></visual>
-        <visual name="mcd_order_canopy"><pose>92 -36 3.0 0 0 0</pose><geometry><box><size>3.8 2.5 0.2</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material></visual>
-        <visual name="mcd_pickup_canopy"><pose>112 -33 3.0 0 0 0</pose><geometry><box><size>4.0 1.6 0.2</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material></visual>
-
-        <!-- 麥當勞顧客停車場 (8格停車位 + 特斯拉充電樁) -->
-        <visual name="mcd_parking_surface"><pose>102.5 -51 0.026 0 0 0</pose><geometry><box><size>45 22 0.002</size></box></geometry><material><ambient>0.22 0.22 0.22 1</ambient><diffuse>0.24 0.24 0.24 1</diffuse></material></visual>
-        <visual name="mcd_ps_0"><pose>85 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_0"><pose>87.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_1"><pose>90 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_1"><pose>92.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_2"><pose>95 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_2"><pose>97.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_3"><pose>100 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_3"><pose>102.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_4"><pose>105 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_4"><pose>107.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_5"><pose>110 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_5"><pose>112.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_6"><pose>115 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_6"><pose>117.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="mcd_ps_7"><pose>120 -48 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_ws_7"><pose>122.2 -50.5 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
-        <visual name="tesla_charger_1"><pose>95 -53 0.8 0 0 0</pose><geometry><box><size>0.4 0.4 1.6</size></box></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.95 0.1 0.1 1</diffuse></material></visual>
-        <visual name="tesla_charger_2"><pose>105 -53 0.8 0 0 0</pose><geometry><box><size>0.4 0.4 1.6</size></box></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.95 0.1 0.1 1</diffuse></material></visual>
-
-        <!-- 得來速出口車道 -->
-        <visual name="mcd_dt_out_asphalt"><pose>125 -24 0.026 0 0 0</pose><geometry><box><size>5.5 19 0.002</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material></visual>
-        <visual name="mcd_dt_out_text"><pose>125 -15.5 0.03 0 0 0</pose><geometry><box><size>4.5 1.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="mcd_dt_out_pylon"><pose>122.2 -14.8 1.4 0 0 0</pose><geometry><box><size>0.4 0.8 2.8</size></box></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-
-        <!-- 4. 國泰世華銀行 & 日光 HOTEL (32 號) - 5層樓現代大樓 (X: 128 ~ 156) -->
-        <!-- 具備 1F 騎樓步道與支撐柱廊 (Arcade Pillars) -->
-        <collision name="cathay_bldg_col"><pose>142 -24 9.0 0 0 0</pose><geometry><box><size>28 19 18.0</size></box></geometry></collision>
-        <visual name="cathay_bldg_vis"><pose>142 -24 9.0 0 0 0</pose><geometry><box><size>28 19 18.0</size></box></geometry><material><ambient>0.88 0.88 0.88 1</ambient><diffuse>0.92 0.92 0.92 1</diffuse></material></visual>
-        <visual name="cathay_slate_left"><pose>131 -24 9.0 0 0 0</pose><geometry><box><size>6 19.2 18.0</size></box></geometry><material><ambient>0.25 0.28 0.3 1</ambient><diffuse>0.3 0.33 0.35 1</diffuse></material></visual>
-        <visual name="cathay_yellow_banner"><pose>137 -14.3 4.2 0 0 0</pose><geometry><box><size>13 0.3 1.6</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>0.8 0.65 0.0 1</emissive></material></visual>
-        <visual name="cathay_tree_logo"><pose>132 -14.1 4.2 0 0 0</pose><geometry><box><size>1.2 0.2 1.2</size></box></geometry><material><ambient>0.0 0.5 0.2 1</ambient><diffuse>0.0 0.6 0.25 1</diffuse><emissive>0.0 0.4 0.15 1</emissive></material></visual>
-        <visual name="cathay_green_banner"><pose>149 -14.3 4.2 0 0 0</pose><geometry><box><size>12 0.3 1.6</size></box></geometry><material><ambient>0.0 0.55 0.25 1</ambient><diffuse>0.0 0.65 0.3 1</diffuse><emissive>0.0 0.35 0.15 1</emissive></material></visual>
-        <visual name="cathay_glass"><pose>142 -14.4 2.1 0 0 0</pose><geometry><box><size>24 0.2 3.6</size></box></geometry><material><ambient>0.12 0.18 0.22 0.85</ambient><diffuse>0.15 0.22 0.28 0.85</diffuse><emissive>0.7 0.7 0.6 1</emissive></material></visual>
-        <visual name="cathay_roof_vertical_sign"><pose>154 -14.5 21.0 0 0 0</pose><geometry><box><size>0.6 1.8 6.0</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.85 0.0 1</diffuse><emissive>0.9 0.75 0.0 1</emissive></material></visual>
-        <!-- 國泰世華銀行突出側懸綠樹招牌 (Protruding Hanging Sign) -->
-        <visual name="cathay_protruding_sign"><pose>130 -13.6 5.2 0 0 0</pose><geometry><box><size>0.2 1.2 1.5</size></box></geometry><material><ambient>0.0 0.55 0.25 1</ambient><diffuse>0.0 0.65 0.3 1</diffuse><emissive>0.0 0.4 0.2 1</emissive></material></visual>
-
-        <!-- 5. COSMED 康是美 (36 號) - 亮橘色 2層樓拱窗建築 (X: 156 ~ 174) -->
-        <collision name="cosmed_bldg_col"><pose>165 -21 4.5 0 0 0</pose><geometry><box><size>18 13 9.0</size></box></geometry></collision>
-        <visual name="cosmed_bldg_vis"><pose>165 -21 4.5 0 0 0</pose><geometry><box><size>18 13 9.0</size></box></geometry><material><ambient>0.95 0.35 0.02 1</ambient><diffuse>1.0 0.38 0.03 1</diffuse></material></visual>
-        <visual name="cosmed_arch_win_1"><pose>160 -14.3 6.8 0 0 0</pose><geometry><box><size>2.8 0.2 2.6</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="cosmed_arch_win_2"><pose>165 -14.3 6.8 0 0 0</pose><geometry><box><size>2.8 0.2 2.6</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="cosmed_arch_win_3"><pose>170 -14.3 6.8 0 0 0</pose><geometry><box><size>2.8 0.2 2.6</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="cosmed_cross_logo"><pose>171 -14.2 4.8 0 0 0</pose><geometry><box><size>1.2 0.3 1.2</size></box></geometry><material><ambient>0.95 0.5 0.1 1</ambient><diffuse>1.0 0.6 0.15 1</diffuse><emissive>0.8 0.4 0.1 1</emissive></material></visual>
-        <visual name="cosmed_banner_text"><pose>165 -14.2 4.8 0 0 0</pose><geometry><box><size>10 0.2 0.8</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.9 0.9 0.9 1</emissive></material></visual>
-        <visual name="cosmed_glass"><pose>165 -14.4 2.2 0 0 0</pose><geometry><box><size>16 0.2 3.8</size></box></geometry><material><ambient>0.12 0.18 0.2 0.85</ambient><diffuse>0.15 0.22 0.25 0.85</diffuse><emissive>0.75 0.7 0.6 1</emissive></material></visual>
-        <visual name="cosmed_bench"><pose>162 -13.6 0.45 0 0 0</pose><geometry><box><size>2.2 0.6 0.45</size></box></geometry><material><ambient>0.4 0.25 0.15 1</ambient><diffuse>0.45 0.3 0.18 1</diffuse></material></visual>
-        <!-- 康是美亮橘色突出側懸十字招牌 (Protruding Cross Sign) -->
-        <visual name="cosmed_protruding_sign"><pose>158 -13.6 5.2 0 0 0</pose><geometry><box><size>0.2 1.2 1.4</size></box></geometry><material><ambient>0.95 0.38 0.05 1</ambient><diffuse>1.0 0.42 0.08 1</diffuse><emissive>0.8 0.3 0.05 1</emissive></material></visual>
-
-        <!-- 6. 星巴克 新竹日光門市 (38 號) 改由下方獨立 model://starbucks_building 高真實度模型載入 -->
-
-        <!-- 商圈後方高層住宅大樓 (48m) -->
-        <collision name="east_tower_col"><pose>70 -48 24.0 0 0 0</pose><geometry><box><size>30 25 48.0</size></box></geometry></collision>
-        <visual name="east_tower_vis"><pose>70 -48 24.0 0 0 0</pose><geometry><box><size>30 25 48.0</size></box></geometry><material><ambient>0.78 0.76 0.73 1</ambient><diffuse>0.82 0.80 0.77 1</diffuse></material></visual>
-      </link>
-    </model>
-
-    <!-- ==================== 星巴克新竹日光門市 (38 號) 高真實度實景模型 ==================== -->
-    <!-- 特色：45度導角入口、實景PBR立面貼圖、2F Bagel 24H網球工作室遮陽棚、木柵欄露天木棧咖啡座、屋頂鋼桁架高聳美人魚徽標 -->
+    <!-- 6. 星巴克新竹日光門市 (38 號) 高真實度實景模型 (45度導角入口、露天露台、屋頂桁架美人魚徽標) -->
     <include>
       <name>starbucks_building</name>
       <uri>model://starbucks_building</uri>
       <pose>185.5 -23.25 0 0 0 0</pose>
     </include>
+
+    <!-- 商圈後方高層住宅大樓 (48m) -->
+    <model name="east_commercial_tower">
+      <static>true</static>
+      <link name="tower_link">
+        <collision name="east_tower_col"><pose>70 -48 24.0 0 0 0</pose><geometry><box><size>30 25 48.0</size></box></geometry></collision>
+        <visual name="east_tower_vis"><pose>70 -48 24.0 0 0 0</pose><geometry><box><size>30 25 48.0</size></box></geometry><material><ambient>0.78 0.76 0.73 1</ambient><diffuse>0.82 0.80 0.77 1</diffuse></material></visual>
+      </link>
+    </model>
 
     <!-- ==================== 左側建築群 (West Side: 騎樓走廊, 7-Eleven, 摩斯漢堡, 現代豪宅) ==================== -->
     <!-- 特色：完整 2.5m 內縮騎樓 (Arcade)、支撐立柱群、騎樓吊頂燈、7-Eleven便利商店、側懸招牌 -->

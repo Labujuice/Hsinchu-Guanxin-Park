@@ -121,6 +121,52 @@ bash run.sh
 
 整合自 `requirement.md`、`IMPLEMENTATION_PLAN.md` 以及各階段開發紀錄：
 
+### [v1.9.0] - 2026-09-10
+#### 🍟 東側商圈全店面照片級深度還原 (麥當勞得來速與15m看板塔、國泰世華銀行與日光大樓、寶雅、起家雞、康是美)
+* **需求來源 (Prompt 深度解析)**：
+  * 使用者要求比照星巴克 [v1.8.0] 的高真實度實景還原水準，將東側商業街區其餘所有指標建物（**麥當勞、國泰世華銀行、寶雅、起家雞、康是美**）全部以相同嚴謹標準重構。
+  * 徹底摒棄粗糙的 greybox 幾何方塊，針對提供的實景照片（`docs/ref_map_material/Street_photo7.png` 至 `Street_photo11.png`）進行深度端倪、透視投影變換（Homography Perspective Rectification）與影像瑕疵修復，將街景中真實店面外觀、材質與招牌細節以模組化模型 1:1 復原至 Gazebo Harmonic 模擬世界中。
+* **空間座標與街區序列整合 (Guanxin Rd East Commercial Strip)**：
+  * 東側商圈沿關新路東側（$Y = -14.5$，面向 $+Y$ 方向）自南向北（$X: 30 \sim 197$）無縫銜接：
+    1. **POYA 寶雅新竹關新店** (20 號, $X \in [30.0, 68.0]$，寬 38m、深 15m、高 6.5m，中心 $(49.0, -22.0)$)
+    2. **起家雞 Cheogajip 韓式炸雞** (22 號, $X \in [68.0, 80.0]$，寬 12m、深 13m、高 6.5m，中心 $(74.0, -21.0)$)
+    3. **麥當勞新竹關新店** (26 號, $X \in [80.0, 128.0]$，中心 $(102.0, -23.5)$，含 2 層樓主建物、得來速雙車道、15m 獨立招牌塔、顧客專用停車場與特斯拉充電樁)
+    4. **國泰世華銀行新竹關新分行 & 日光大樓** (32 號, $X \in [128.0, 156.0]$，寬 28m、深 19m、高 18.5m 5層樓，中心 $(142.0, -24.0)$)
+    5. **COSMED 康是美新竹日光門市** (36 號, $X \in [156.0, 174.0]$，寬 18m、深 14m、高 8.5m 2層樓，中心 $(165.0, -21.5)$)
+    6. **星巴克新竹日光門市** (38 號, $X \in [174.0, 197.0]$，中心 $(185.5, -23.25)$，轉角 45 度導角旗艦店)
+* **實景照片紋理提取、幾何校正與去瑕疵修復 (Texture Pipeline)**：
+  * **寶雅 (POYA)**：自 `Street_photo11.png` 提取正面 1024x512 矩形立面（`poya_facade.png`），去除地圖浮動 Pin 標記，配置品牌專屬桃粉色飾帶（`poya_protruding_sign.png` 側懸雙面發光招牌）。
+  * **起家雞 (Cheogajip)**：自 `Street_photo11.png` 提取 512x512 質感黑外牆貼圖（`cheogajip_facade.png`），還原招牌標誌、紅黑雨遮飾條與雙面公雞商標側懸招牌（`cheogajip_protruding_sign.png`）。
+  * **麥當勞 (McDonald's)**：
+    * `mcd_facade.png` (1024x512)：自 `Street_photo10.png` 提取主立面，包含 McCafe 櫥窗、大面積落地黑框玻璃帷幕與二樓深色窗面。
+    * `mcd_sign_tower.png` (512x512)：精準還原雙面金色雙拱門 'M' 與「得來速 DRIVE-THRU」專用高空發光廣告箱。
+    * `mcd_dt_pylon.png` (256x512)：得來速專屬限高與車道導引立柱貼圖。
+  * **國泰世華銀行 & 日光大樓 (Cathay United Bank & Nikko Hotel)**：
+    * `cathay_facade.png` (1024x1024)：自 `Street_photo8.png` 提取 5 層樓大樓立面，包含 1F 國泰世華綠樹標誌、金黃與深綠企業色彩帶橫幅、日光大樓白色外牆與連續垂直窗格。
+    * `cathay_roof_sign.png` (256x512)：屋頂垂直黃色國泰企業發光廣告標誌。
+    * `cathay_protruding_sign.png` (256x512)：側懸綠樹標誌雙面圓角立體招牌。
+  * **康是美 (COSMED)**：自 `Street_photo7.png` 提取 1024x512 亮橘色二層樓歐風建築立面（`cosmed_facade.png`），還原二樓 3 扇特色白色拱型百葉窗、橘色招牌飾條與藥妝大門，並配置四色圓角十字側懸招牌（`cosmed_protruding_sign.png`）。
+* **獨立模組化模型包架構 (`src/guanxin_sim/models/`)**：
+  * 遵循 Gazebo Harmonic 規範，於 `src/guanxin_sim/models/` 建立 5 個標準模型包：
+    1. `poya_store/` (`model.config`, `model.sdf`, `materials/textures/`)
+    2. `cheogajip_store/` (`model.config`, `model.sdf`, `materials/textures/`)
+    3. `mcdonalds_building/` (`model.config`, `model.sdf`, `materials/textures/`)
+    4. `cathay_bank_building/` (`model.config`, `model.sdf`, `materials/textures/`)
+    5. `cosmed_store/` (`model.config`, `model.sdf`, `materials/textures/`)
+  * **細部建築特徵與環境元素**：
+    * **麥當勞標誌性立體刀鋒紅牆 (Red Blade Wall)**：自建築前立面突出，嵌入立體雙半圓金色雙拱門 'M'。
+    * **15米獨立看板塔 (Pylon Tower)**：由方鋼立柱支撐，頂部架設雙面發光之金色雙拱門與得來速巨型箱體。
+    * **得來速全套動線**：入口瀝青車道、黃色標線、入口導引柱；建築後方繞行車道、點餐雨棚、點餐對講機與電子菜單板、取餐窗口專用懸挑雨遮；出口車道與導引柱。
+    * **專用停車場與充電樁**：後方劃設 8 格標準停車位、亮黃色橡膠擋輪桿、以及 2 座特斯拉 Destination Charger 充電樁。
+    * **國泰世華無障礙設施**：1F 鋪面抬高人行步道、金屬無障礙護欄坡道、左側深灰色垂直石質建築翼。
+    * **康是美街區休憩**：門前設置木質長椅，提升街景生活感。
+* **物理負載嚴格控制 (Visual / Collision Separation)**：
+  * 主建物本體均採用單一緊緻剛體碰撞箱（Main Bounding Box Collision），所有外牆貼圖、招牌、雨遮、燈箱、立柱與充電樁均為純視覺幾何（Visual Only），確保 500Hz ODE 物理引擎 tick 無任何效能損耗，同時相機與 LiDAR 能完整接收到豐富的幾何邊界與光學特徵。
+* **世界檔更新與編譯驗證**：
+  * `src/guanxin_sim/worlds/guanxin.sdf`：完全移除舊版 `east_commercial_block` 中粗糙的方塊代碼，改以標準 `<include>` 載入上述 5 棟新模型與星巴克模型，商圈後方住宅大樓獨立為 `east_commercial_tower`。
+  * 執行 `gz sdf -k` 驗證所有 5 個子模型 SDF 及完整世界檔 `guanxin.sdf`，皆通過輸出 `Valid.`。
+  * 執行 `colcon build --symlink-install` 成功編譯，並驗證 `install/` 目錄下資源路徑 `Valid.`。
+
 ### [v1.8.0] - 2026-09-10
 #### ☕ 星巴克新竹日光門市實景照片紋理深度還原與 45 度轉角旗艦店重建 (Starbucks Photorealistic Reconstruction)
 * **需求來源 (Prompt 深度解析)**：

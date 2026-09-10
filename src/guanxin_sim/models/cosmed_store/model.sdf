@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="cosmed_store">
+    <static>true</static>
+    <link name="cosmed_link">
+
+      <!-- Collision -->
+      <collision name="cosmed_main_col">
+        <pose>0 0 4.25 0 0 0</pose>
+        <geometry>
+          <box><size>18.0 14.0 8.5</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Main Building Body (Warm orange masonry) -->
+      <visual name="cosmed_body_vis">
+        <pose>0 0 4.25 0 0 0</pose>
+        <geometry>
+          <box><size>17.9 13.9 8.48</size></box>
+        </geometry>
+        <material>
+          <ambient>0.92 0.36 0.05 1</ambient>
+          <diffuse>0.98 0.40 0.06 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Front Photo-Real Facade (X: 18m, Z: 8.5m - 3 Arched Windows, Cross Logo, Pharmacy Front) -->
+      <visual name="cosmed_facade_vis">
+        <pose>0 6.96 4.25 0 0 0</pose>
+        <geometry>
+          <box><size>18.0 0.08 8.5</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://cosmed_store/materials/textures/cosmed_facade.png</albedo_map>
+              <roughness>0.35</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 側懸亮橘色十字招牌 (Protruding Cross Sign) -->
+      <visual name="cosmed_sign_arm">
+        <pose>-7.0 7.5 5.8 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 1.2 0.08</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+        </material>
+      </visual>
+      <visual name="cosmed_protruding_sign">
+        <pose>-7.0 7.5 5.0 0 0 0</pose>
+        <geometry>
+          <box><size>0.12 1.2 1.5</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://cosmed_store/materials/textures/cosmed_protruding_sign.png</albedo_map>
+              <roughness>0.3</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 門前行人休憩長椅 (Pedestrian Waiting Bench) -->
+      <visual name="cosmed_bench">
+        <pose>-3.0 7.4 0.45 0 0 0</pose>
+        <geometry>
+          <box><size>2.2 0.6 0.45</size></box>
+        </geometry>
+        <material>
+          <ambient>0.38 0.24 0.15 1</ambient>
+          <diffuse>0.45 0.3 0.18 1</diffuse>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

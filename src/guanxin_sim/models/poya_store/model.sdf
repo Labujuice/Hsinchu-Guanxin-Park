@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="poya_store">
+    <static>true</static>
+    <link name="poya_link">
+
+      <!-- Collision -->
+      <collision name="poya_main_col">
+        <pose>0 0 3.25 0 0 0</pose>
+        <geometry>
+          <box><size>38.0 15.0 6.5</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Main Building Box (Neutral off-white rear and sides) -->
+      <visual name="poya_body_vis">
+        <pose>0 0 3.25 0 0 0</pose>
+        <geometry>
+          <box><size>37.9 14.9 6.48</size></box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.88 0.88 0.88 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.6</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Front Photo-Real Facade (X: 38m, Z: 6.5m) -->
+      <visual name="poya_facade_vis">
+        <pose>0 7.46 3.25 0 0 0</pose>
+        <geometry>
+          <box><size>38.0 0.08 6.5</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://poya_store/materials/textures/poya_facade.png</albedo_map>
+              <roughness>0.35</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- Magenta Fascia Top Border Trim -->
+      <visual name="poya_fascia_trim">
+        <pose>0 7.52 6.35 0 0 0</pose>
+        <geometry>
+          <box><size>38.1 0.2 0.3</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.0 0.45 1</ambient>
+          <diffuse>0.92 0.0 0.52 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Protruding Hanging Sign (側懸垂直粉紅招牌) -->
+      <visual name="poya_sign_arm">
+        <pose>-14.0 8.0 5.4 0 0 0</pose>
+        <geometry>
+          <box><size>0.08 1.4 0.08</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+        </material>
+      </visual>
+      <visual name="poya_protruding_sign">
+        <pose>-14.0 8.0 4.6 0 0 0</pose>
+        <geometry>
+          <box><size>0.12 1.2 1.8</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://poya_store/materials/textures/poya_protruding_sign.png</albedo_map>
+              <roughness>0.3</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

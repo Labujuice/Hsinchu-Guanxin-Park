@@ -1,0 +1,305 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="mcdonalds_building">
+    <static>true</static>
+    <link name="mcd_link">
+
+      <!-- ==================== Collisions (High-Performance ODE) ==================== -->
+      <!-- 2層樓主建物本體碰撞體 -->
+      <collision name="mcd_main_col">
+        <pose>0 0 4.25 0 0 0</pose>
+        <geometry>
+          <box><size>32.0 18.0 8.5</size></box>
+        </geometry>
+      </collision>
+
+      <!-- 15米看板塔基座防撞柱 -->
+      <collision name="mcd_tower_base_col">
+        <pose>-15.5 8.7 1.5 0 0 0</pose>
+        <geometry>
+          <box><size>1.0 1.0 3.0</size></box>
+        </geometry>
+      </collision>
+
+      <!-- ==================== 主建物外牆與高真實度實景貼圖 ==================== -->
+      <!-- (A) 主建物暗灰/黑磚牆主體 -->
+      <visual name="mcd_body_vis">
+        <pose>0 0 4.25 0 0 0</pose>
+        <geometry>
+          <box><size>31.9 17.9 8.48</size></box>
+        </geometry>
+        <material>
+          <ambient>0.18 0.18 0.18 1</ambient>
+          <diffuse>0.22 0.22 0.22 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.6</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (B) 臨關新路正面高解析度實景外牆 (Photo-Real Facade: McCafe, 落地大玻璃, 2F深色隔音窗) -->
+      <visual name="mcd_facade_vis">
+        <pose>0 8.96 4.25 0 0 0</pose>
+        <geometry>
+          <box><size>32.0 0.08 8.5</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://mcdonalds_building/materials/textures/mcd_facade.png</albedo_map>
+              <roughness>0.35</roughness>
+              <metalness>0.15</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- (C) 標誌性立體刀鋒紅牆 (Iconic McDonald's Red Blade Wall) -->
+      <visual name="mcd_red_blade_wall">
+        <pose>-11.0 9.25 4.8 0 0 0</pose>
+        <geometry>
+          <box><size>3.4 0.6 9.6</size></box>
+        </geometry>
+        <material>
+          <ambient>0.88 0.05 0.05 1</ambient>
+          <diffuse>0.95 0.08 0.08 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.3</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- 紅牆上的立體金色雙拱門 'M' (Golden Arches on Red Wall) -->
+      <visual name="mcd_wall_arch_l">
+        <pose>-11.6 9.6 7.6 1.5707963 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.48</radius><length>0.15</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.85 0.0 1</ambient>
+          <diffuse>1.0 0.85 0.0 1</diffuse>
+          <emissive>1.0 0.85 0.0 1</emissive>
+        </material>
+      </visual>
+      <visual name="mcd_wall_arch_r">
+        <pose>-10.4 9.6 7.6 1.5707963 0 0</pose>
+        <geometry>
+          <cylinder><radius>0.48</radius><length>0.15</length></cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.85 0.0 1</ambient>
+          <diffuse>1.0 0.85 0.0 1</diffuse>
+          <emissive>1.0 0.85 0.0 1</emissive>
+        </material>
+      </visual>
+
+      <!-- (D) 正面深灰金屬入店懸挑雨遮 (Entry Canopy) -->
+      <visual name="mcd_entry_canopy">
+        <pose>1.0 9.8 3.6 0 0 0</pose>
+        <geometry>
+          <box><size>18.0 1.8 0.15</size></box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 15 米獨立超高看板塔 (Golden Arches Pylon Tower) ==================== -->
+      <!-- 鋼骨支撐立柱 -->
+      <visual name="mcd_tower_pole">
+        <pose>-15.5 8.7 7.5 0 0 0</pose>
+        <geometry>
+          <box><size>0.7 0.7 15.0</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+        </material>
+      </visual>
+      <!-- 頂部巨型發光標誌箱 (附金色雙拱門 & 得來速 DRIVE-THRU 貼圖) -->
+      <visual name="mcd_tower_sign_box">
+        <pose>-15.5 8.7 13.5 0 0 0</pose>
+        <geometry>
+          <box><size>0.8 3.8 3.8</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.8 0.8 0.8 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://mcdonalds_building/materials/textures/mcd_sign_tower.png</albedo_map>
+              <roughness>0.2</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- ==================== 得來速車道與設施 (Drive-Thru Lane & Facilities) ==================== -->
+      <!-- 得來速入口車道瀝青路面 -->
+      <visual name="mcd_dt_in_asphalt">
+        <pose>-19.0 1.5 0.026 0 0 0</pose>
+        <geometry>
+          <box><size>5.5 16.0 0.002</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.22 0.22 0.22 1</diffuse>
+        </material>
+      </visual>
+      <!-- 入口黃色 "得來速" 車道標線 -->
+      <visual name="mcd_dt_in_text">
+        <pose>-19.0 7.5 0.03 0 0 0</pose>
+        <geometry>
+          <box><size>4.5 1.5 0.002</size></box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.8 0.1 1</ambient>
+          <diffuse>0.95 0.85 0.1 1</diffuse>
+        </material>
+      </visual>
+      <!-- 入口限高導引立柱 (Drive-Thru Entry Guidance Pylon) -->
+      <visual name="mcd_dt_in_pylon">
+        <pose>-16.2 8.7 1.4 0 0 0</pose>
+        <geometry>
+          <box><size>0.4 0.8 2.8</size></box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://mcdonalds_building/materials/textures/mcd_dt_pylon.png</albedo_map>
+              <roughness>0.3</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 得來速後側繞行車道 -->
+      <visual name="mcd_dt_back_lane">
+        <pose>1.5 -11.0 0.026 0 0 0</pose>
+        <geometry>
+          <box><size>41.0 5.0 0.002</size></box>
+        </geometry>
+        <material>
+          <ambient>0.18 0.18 0.18 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 點餐對講機與電子菜單螢幕 (Order Intercom & Digital Menu Board) -->
+      <visual name="mcd_order_board">
+        <pose>-10.0 -13.5 1.8 0 0 0</pose>
+        <geometry>
+          <box><size>2.6 0.4 2.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.12 0.12 0.12 1</diffuse>
+          <emissive>0.4 0.4 0.4 1</emissive>
+        </material>
+      </visual>
+      <!-- 點餐區遮陽雨棚 (Ordering Canopy) -->
+      <visual name="mcd_order_canopy">
+        <pose>-10.0 -12.5 3.0 0 0 0</pose>
+        <geometry>
+          <box><size>3.8 2.5 0.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.1 0.1 1</ambient>
+          <diffuse>0.9 0.1 0.1 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 取餐窗口雨棚 (Pickup Window Canopy) -->
+      <visual name="mcd_pickup_canopy">
+        <pose>10.0 -9.5 3.0 0 0 0</pose>
+        <geometry>
+          <box><size>4.0 1.6 0.2</size></box>
+        </geometry>
+        <material>
+          <ambient>0.85 0.1 0.1 1</ambient>
+          <diffuse>0.9 0.1 0.1 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 得來速出口車道瀝青與標線 -->
+      <visual name="mcd_dt_out_asphalt">
+        <pose>23.0 -0.5 0.026 0 0 0</pose>
+        <geometry>
+          <box><size>5.5 19.0 0.002</size></box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.22 0.22 0.22 1</diffuse>
+        </material>
+      </visual>
+      <visual name="mcd_dt_out_pylon">
+        <pose>20.2 8.7 1.4 0 0 0</pose>
+        <geometry>
+          <box><size>0.4 0.8 2.8</size></box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 顧客停車場 (8車位 + 特斯拉充電樁) ==================== -->
+      <visual name="mcd_parking_surface">
+        <pose>0.5 -27.5 0.026 0 0 0</pose>
+        <geometry>
+          <box><size>45.0 22.0 0.002</size></box>
+        </geometry>
+        <material>
+          <ambient>0.22 0.22 0.22 1</ambient>
+          <diffuse>0.24 0.24 0.24 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 停車格線與黃色擋輪桿 -->
+      <visual name="mcd_ps_0"><pose>-17.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_0"><pose>-15.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_1"><pose>-12.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_1"><pose>-10.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_2"><pose>-7.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_2"><pose>-5.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_3"><pose>-2.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_3"><pose>0.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_4"><pose>2.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_4"><pose>5.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_5"><pose>7.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_5"><pose>10.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_6"><pose>12.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="mcd_ws_6"><pose>15.0 -27.0 0.08 0 0 0</pose><geometry><box><size>1.8 0.2 0.12</size></box></geometry><material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+
+      <visual name="mcd_ps_7"><pose>17.5 -24.5 0.03 0 0 0</pose><geometry><box><size>0.15 5.5 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+
+      <!-- 特斯拉充電樁 (Tesla Destination Chargers) -->
+      <visual name="tesla_charger_1">
+        <pose>-7.0 -29.5 0.8 0 0 0</pose>
+        <geometry><box><size>0.4 0.4 1.6</size></box></geometry>
+        <material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.95 0.1 0.1 1</diffuse></material>
+      </visual>
+      <visual name="tesla_charger_2">
+        <pose>3.0 -29.5 0.8 0 0 0</pose>
+        <geometry><box><size>0.4 0.4 1.6</size></box></geometry>
+        <material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.95 0.1 0.1 1</diffuse></material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
