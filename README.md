@@ -121,6 +121,30 @@ bash run.sh
 
 整合自 `requirement.md`、`IMPLEMENTATION_PLAN.md` 以及各階段開發紀錄：
 
+### [v2.1.1] - 2026-09-12
+#### 🚗 Tesla Model Y 載具模型重載與出生點校準 (Vehicle Model Re-Include & Spawn Calibration)
+* **需求來源 (User Query)**：
+  * 使用者回報：「*我的 model Y 怎不見了*」。
+  * 調查確認：在進行 v2.1.0 全路網與寶雅-星巴克超精細商圈街景擴充時，世界檔模板重構過程中遺漏了 `<include><uri>model://model_y</uri></include>` 載具宣告，導致 Gazebo 模擬世界啟動時未生成 Model Y 車體，使 OpenCV 三重視角串流及鍵盤控制節點無法接收到車載相機與里程計數據。
+* **修正與實作細節 (`src/guanxin_sim/worlds/guanxin.sdf`)**：
+  * 於 `guanxin.sdf` 世界檔結尾正式補回 Tesla Model Y 載具模型載入：
+    ```xml
+    <!-- ==================== 載入 Tesla Model Y 載具 (自駕與鍵盤操控車輛) ==================== -->
+    <include>
+      <name>model_y</name>
+      <uri>model://model_y</uri>
+      <!-- 起始位置位於光復路與關新路口右側行車線，車頭朝向新莊車站 (+X 方向) -->
+      <pose>5.0 -5.0 0.38 0 0 0</pose>
+    </include>
+    ```
+  * **出生點校準**：嚴格匹配 `teleop_vehicle.py` 之瞬移重置點 $(5.0, -5.0, 0.38)$，位於關新路南端起點（光復路口）之台灣靠右行駛車道中央，離地高度 $Z = 0.38\text{m}$ 剛好使 4 輪平穩著地於柏油路面，車頭指向 $+X$（朝向日光公園與新莊車站）。
+* **測試與驗證**：
+  * `gz sdf -k /ros2_ws/src/guanxin_sim/worlds/guanxin.sdf` 幾何與資源關聯檢驗輸出 `Valid.`。
+  * `colcon build --symlink-install` 編譯就緒。
+  * 啟動後 Model Y 正常現身於起點車道，駕駛座視角、跟車視角、車頭視角及鍵盤駕駛控制（WSAD/V/O）全面恢復正常。
+
+---
+
 ### [v2.1.0] - 2026-09-11
 #### 🔍 關新一街與寶雅空間拓撲校正、中介12層大樓群重現、寶雅至星巴克沿線 80%+ 超高精細度街景實境擴充
 * **需求來源 (User Review & Critical Feedback)**：

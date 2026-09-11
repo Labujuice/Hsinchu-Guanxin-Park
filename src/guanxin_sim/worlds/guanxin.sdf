@@ -744,5 +744,13 @@
       </link>
     </model>
 
+    <!-- ==================== 載入 Tesla Model Y 載具 (自駕與鍵盤操控車輛) ==================== -->
+    <include>
+      <name>model_y</name>
+      <uri>model://model_y</uri>
+      <!-- 起始位置位於光復路與關新路口右側行車線，車頭朝向新莊車站 (+X 方向) -->
+      <pose>5.0 -5.0 0.38 0 0 0</pose>
+    </include>
+
   </world>
 </sdf>
