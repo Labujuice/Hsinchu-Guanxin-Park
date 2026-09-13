@@ -2,92 +2,145 @@
 <sdf version="1.8">
   <model name="changyi_residential_block">
     <static>true</static>
-    <link name="block_link">
+    <link name="nordic_block_link">
 
-      <!-- ==================== 物理碰撞剛體 ==================== -->
-      <!-- 主體後方塔身碰撞體 (Main Tower Body) -->
-      <collision name="tower_main_col">
-        <pose>0 -2.0 24.0 0 0 0</pose>
-        <geometry><box><size>64.0 31.0 48.0</size></box></geometry>
+      <!-- ==================== 物理碰撞剛體 (東排大樓、西排大樓與騎樓) ==================== -->
+      <!-- 東排大樓碰撞剛體 (East Row: 15層樓, 高48m, 臨關新路) -->
+      <collision name="east_row_col">
+        <pose>0 20.0 24.0 0 0 0</pose>
+        <geometry><box><size>60.0 16.0 48.0</size></box></geometry>
       </collision>
 
-      <!-- 騎樓上方天花板與二樓懸挑樓板碰撞體 (Arcade Soffit) -->
-      <collision name="arcade_roof_col">
-        <pose>0 15.5 26.25 0 0 0</pose>
-        <geometry><box><size>64.0 4.0 43.5</size></box></geometry>
+      <!-- 西排大樓碰撞剛體 (West Row: 15層樓, 高48m, 內排) -->
+      <collision name="west_row_col">
+        <pose>0 -20.0 24.0 0 0 0</pose>
+        <geometry><box><size>60.0 16.0 48.0</size></box></geometry>
       </collision>
 
-      <!-- ==================== 視覺呈現：大樓主體與現代外觀 (Tower Facade) ==================== -->
-      <visual name="tower_main_vis">
-        <pose>0 -2.0 24.0 0 0 0</pose>
-        <geometry><box><size>63.6 30.6 48.0</size></box></geometry>
+      <!-- 中間中庭公園地基大底碰撞剛體 -->
+      <collision name="park_ground_col">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry><box><size>62.0 58.0 0.10</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 1. 東排大樓 (East Row: 臨關新路 15F 豪宅, 挑高連續騎樓) ==================== -->
+      <!-- 東排大樓主體 -->
+      <visual name="east_row_main_vis">
+        <pose>0 20.0 24.0 0 0 0</pose>
+        <geometry><box><size>59.6 15.6 48.0</size></box></geometry>
         <material>
           <ambient>0.76 0.74 0.72 1</ambient>
           <diffuse>0.82 0.80 0.78 1</diffuse>
         </material>
       </visual>
 
-      <visual name="tower_upper_vis">
-        <pose>0 15.5 26.25 0 0 0</pose>
-        <geometry><box><size>63.6 3.8 43.5</size></box></geometry>
-        <material>
-          <ambient>0.76 0.74 0.72 1</ambient>
-          <diffuse>0.82 0.80 0.78 1</diffuse>
-        </material>
-      </visual>
-
-      <!-- ==================== 1F 挑高深凹連續騎樓走廊 (Ground Floor Arcade) ==================== -->
-      <!-- 騎樓地磚地面 (Arcade Paver Floor) -->
-      <visual name="arcade_floor_vis">
-        <pose>0 15.5 0.08 0 0 0</pose>
-        <geometry><box><size>64.0 3.8 0.02</size></box></geometry>
+      <!-- 1F 挑高深凹連續騎樓走廊 (Ground Arcade facing Guanxin Rd: Y = +27.0m) -->
+      <visual name="east_arcade_floor">
+        <pose>0 26.2 0.08 0 0 0</pose>
+        <geometry><box><size>59.0 3.6 0.02</size></box></geometry>
         <material><ambient>0.65 0.62 0.60 1</ambient><diffuse>0.72 0.70 0.68 1</diffuse></material>
       </visual>
 
-      <!-- 騎樓天花板 (Arcade Ceiling) -->
-      <visual name="arcade_ceiling_vis">
-        <pose>0 15.5 4.3 0 0 0</pose>
-        <geometry><box><size>64.0 3.8 0.25</size></box></geometry>
+      <visual name="east_arcade_ceiling">
+        <pose>0 26.2 4.2 0 0 0</pose>
+        <geometry><box><size>59.0 3.6 0.25</size></box></geometry>
         <material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material>
       </visual>
 
-      <!-- 騎樓外緣實體結構大圓柱列 (Arcade Concrete Columns) -->
-      <visual name="col_1"><pose>-25.0 17.2 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
-      <visual name="col_2"><pose>-12.5 17.2 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
-      <visual name="col_3"><pose>0.0 17.2 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
-      <visual name="col_4"><pose>12.5 17.2 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
-      <visual name="col_5"><pose>25.0 17.2 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <!-- 騎樓結構大圓柱列 (5 根大圓柱) -->
+      <visual name="east_col_1"><pose>-24.0 27.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="east_col_2"><pose>-12.0 27.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="east_col_3"><pose>0.0 27.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="east_col_4"><pose>12.0 27.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="east_col_5"><pose>24.0 27.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>4.2</length></cylinder></geometry><material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
 
-      <!-- 騎樓內側商鋪透明玻璃落地門面與招牌 (Storefronts) -->
-      <visual name="shops_glass">
-        <pose>0 13.55 2.1 0 0 0</pose>
-        <geometry><box><size>62.0 0.1 3.8</size></box></geometry>
-        <material>
-          <ambient>0.15 0.25 0.35 0.85</ambient>
-          <diffuse>0.20 0.35 0.45 0.85</diffuse>
-          <specular>0.9 0.95 1.0 1</specular>
-        </material>
+      <!-- 1F 店鋪落地玻璃櫥窗與招牌 (7-Eleven, 診所, 咖啡館) -->
+      <visual name="east_shops_glass">
+        <pose>0 24.3 2.1 0 0 0</pose>
+        <geometry><box><size>58.0 0.1 3.8</size></box></geometry>
+        <material><ambient>0.15 0.25 0.35 0.85</ambient><diffuse>0.20 0.35 0.45 0.85</diffuse><specular>0.9 0.95 1.0 1</specular></material>
       </visual>
 
-      <!-- 商鋪門楣橫向燈箱招牌 -->
-      <visual name="shops_fascia">
-        <pose>0 13.6 3.8 0 0 0</pose>
-        <geometry><box><size>62.0 0.2 0.8</size></box></geometry>
-        <material><ambient>0.85 0.85 0.85 1</ambient><diffuse>0.92 0.92 0.92 1</diffuse><emissive>0.4 0.4 0.4 1</emissive></material>
-      </visual>
-
-      <!-- ==================== 2F~15F 幾何立體陽台與外飾板 (Layered Balconies) ==================== -->
-      <visual name="balconies_facade">
-        <pose>0 17.5 26.5 0 0 0</pose>
-        <geometry><box><size>58.0 0.4 42.0</size></box></geometry>
+      <!-- 2F~15F 臨關新路立體陽台 (Balconies facing Guanxin Rd) -->
+      <visual name="east_balconies_vis">
+        <pose>0 28.0 26.5 0 0 0</pose>
+        <geometry><box><size>56.0 0.6 42.0</size></box></geometry>
         <material><ambient>0.28 0.30 0.32 1</ambient><diffuse>0.32 0.35 0.38 1</diffuse></material>
       </visual>
 
-      <!-- 建築頂部天際線女兒牆 (Roof Parapet) -->
-      <visual name="roof_parapet">
-        <pose>0 0 48.5 0 0 0</pose>
-        <geometry><box><size>64.5 35.5 1.0</size></box></geometry>
-        <material><ambient>0.35 0.35 0.38 1</ambient><diffuse>0.4 0.4 0.43 1</diffuse></material>
+      <!-- ==================== 2. 西排大樓 (West Row: 15F 內排大樓, 面向中庭公園) ==================== -->
+      <visual name="west_row_main_vis">
+        <pose>0 -20.0 24.0 0 0 0</pose>
+        <geometry><box><size>59.6 15.6 48.0</size></box></geometry>
+        <material>
+          <ambient>0.74 0.72 0.70 1</ambient>
+          <diffuse>0.80 0.78 0.76 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 西排大樓面向中庭公園之景觀陽台 (Balconies facing Central Park: Y = -11.8m) -->
+      <visual name="west_balconies_vis">
+        <pose>0 -11.8 24.0 0 0 0</pose>
+        <geometry><box><size>56.0 0.6 44.0</size></box></geometry>
+        <material><ambient>0.26 0.28 0.30 1</ambient><diffuse>0.30 0.32 0.35 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 3. 兩排中間的社區公園 (Central Community Park: 24m x 60m) ==================== -->
+      <!-- 中庭公園綠茵大草坪 (Central Lawn in the middle between the two rows) -->
+      <visual name="mid_park_lawn">
+        <pose>0 0 0.11 0 0 0</pose>
+        <geometry><box><size>58.0 22.0 0.02</size></box></geometry>
+        <material>
+          <ambient>0.16 0.52 0.18 1</ambient>
+          <diffuse>0.22 0.62 0.25 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 中庭步道系統 (Central Walking Paths: 紅磚與花崗岩步道) -->
+      <visual name="mid_park_walkway">
+        <pose>0 0 0.12 0 0 0</pose>
+        <geometry><box><size>56.0 3.2 0.01</size></box></geometry>
+        <material><ambient>0.65 0.40 0.30 1</ambient><diffuse>0.70 0.45 0.35 1</diffuse></material>
+      </visual>
+
+      <!-- 中庭景觀休閒涼亭 (Courtyard Pavilion) -->
+      <visual name="mid_pavilion_roof">
+        <pose>-15.0 0 3.2 0 0 0</pose>
+        <geometry><box><size>6.0 6.0 0.3</size></box></geometry>
+        <material><ambient>0.3 0.25 0.2 1</ambient><diffuse>0.4 0.32 0.25 1</diffuse></material>
+      </visual>
+      <visual name="mid_pavilion_p1"><pose>-17.5 -2.5 1.5 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>3.0</length></cylinder></geometry><material><ambient>0.25 0.25 0.28 1</ambient><diffuse>0.3 0.3 0.35 1</diffuse></material></visual>
+      <visual name="mid_pavilion_p2"><pose>-12.5 -2.5 1.5 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>3.0</length></cylinder></geometry><material><ambient>0.25 0.25 0.28 1</ambient><diffuse>0.3 0.3 0.35 1</diffuse></material></visual>
+      <visual name="mid_pavilion_p3"><pose>-17.5 2.5 1.5 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>3.0</length></cylinder></geometry><material><ambient>0.25 0.25 0.28 1</ambient><diffuse>0.3 0.3 0.35 1</diffuse></material></visual>
+      <visual name="mid_pavilion_p4"><pose>-12.5 2.5 1.5 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>3.0</length></cylinder></geometry><material><ambient>0.25 0.25 0.28 1</ambient><diffuse>0.3 0.3 0.35 1</diffuse></material></visual>
+
+      <!-- 中庭休閒長椅群 (Park Benches) -->
+      <visual name="mid_bench1"><pose>5.0 -4.0 0.4 0 0 0</pose><geometry><box><size>2.0 0.6 0.45</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.55 0.35 0.2 1</diffuse></material></visual>
+      <visual name="mid_bench2"><pose>5.0 4.0 0.4 0 0 0</pose><geometry><box><size>2.0 0.6 0.45</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.55 0.35 0.2 1</diffuse></material></visual>
+
+      <!-- 中庭兒童遊樂遊戲區 (Children Playground in Central Park) -->
+      <visual name="mid_play_mat"><pose>18.0 0 0.125 0 0 0</pose><geometry><box><size>12.0 10.0 0.015</size></box></geometry><material><ambient>0.15 0.45 0.7 1</ambient><diffuse>0.2 0.55 0.85 1</diffuse></material></visual>
+      <visual name="mid_spring_rider"><pose>18.0 0 0.6 0 0 0</pose><geometry><box><size>0.9 0.4 0.8</size></box></geometry><material><ambient>0.9 0.7 0.1 1</ambient><diffuse>0.95 0.8 0.15 1</diffuse></material></visual>
+
+      <!-- 中庭成蔭綠樹 (Courtyard Shade Trees) -->
+      <visual name="tree_trunk_1"><pose>-5.0 -6.0 2.0 0 0 0</pose><geometry><cylinder><radius>0.2</radius><length>4.0</length></cylinder></geometry><material><ambient>0.35 0.25 0.15 1</ambient><diffuse>0.42 0.30 0.20 1</diffuse></material></visual>
+      <visual name="tree_crown_1"><pose>-5.0 -6.0 4.5 0 0 0</pose><geometry><sphere><radius>2.4</radius></sphere></geometry><material><ambient>0.12 0.48 0.15 1</ambient><diffuse>0.16 0.58 0.20 1</diffuse></material></visual>
+      <visual name="tree_trunk_2"><pose>-5.0 6.0 2.0 0 0 0</pose><geometry><cylinder><radius>0.2</radius><length>4.0</length></cylinder></geometry><material><ambient>0.35 0.25 0.15 1</ambient><diffuse>0.42 0.30 0.20 1</diffuse></material></visual>
+      <visual name="tree_crown_2"><pose>-5.0 6.0 4.5 0 0 0</pose><geometry><sphere><radius>2.4</radius></sphere></geometry><material><ambient>0.12 0.48 0.15 1</ambient><diffuse>0.16 0.58 0.20 1</diffuse></material></visual>
+
+      <!-- ==================== 4. 社區開放道路 (Open Community Road: 關新路19巷貫穿) ==================== -->
+      <!-- 穿過社區側翼之開放柏油道路 (Asphalt Pavement: 寬 6.0m) -->
+      <visual name="open_road_asphalt">
+        <pose>28.5 0 0.10 0 0 0</pose>
+        <geometry><box><size>5.5 58.0 0.02</size></box></geometry>
+        <material><ambient>0.24 0.24 0.25 1</ambient><diffuse>0.26 0.26 0.27 1</diffuse></material>
+      </visual>
+
+      <!-- 道路分向黃實線 -->
+      <visual name="open_road_line">
+        <pose>28.5 0 0.115 0 0 0</pose>
+        <geometry><box><size>0.15 56.0 0.002</size></box></geometry>
+        <material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material>
       </visual>
 
     </link>

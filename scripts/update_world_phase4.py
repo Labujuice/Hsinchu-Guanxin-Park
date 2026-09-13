@@ -19,18 +19,19 @@ WORLD_PATH = os.path.join(REPO_DIR, "src", "guanxin_sim", "worlds", "guanxin.sdf
 
 ROAD_YAW = 1.34512
 CROSS_YAW = -0.22568
+WEST_BLDG_YAW = -1.79647  # Corrected yaw (-102.93 deg) so local +Y faces East towards Guanxin Road
 
 def generate_phase4_block():
     lines = []
     lines.append('    <!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ==================== -->')
     lines.append('    <!-- 確立街區天際線與真實建築陰影：關埔國小、東京中城(24F)、一品大觀(22F)、昌益丹麥芬蘭(15F)、富宇君鼎(24F) -->')
 
-    # 1. 昌益丹麥 / 芬蘭社區 (15F 現代社區, 挑高連續騎樓與大圓柱)
-    lines.append('\n    <!-- 1. 昌益丹麥 / 芬蘭 / 挪威現代住宅社區 (15層樓, 48m, 1F 挑高深凹連續騎樓走廊與圓柱列) -->')
+    # 1. 昌益丹麥 / 芬蘭社區 (15F 現代社區, 東西雙排對稱 + 中庭社區公園 + 貫穿開放道路)
+    lines.append('\n    <!-- 1. 昌益丹麥 / 芬蘭 / 挪威現代住宅社區 (15層樓, 48m, 東西雙排對稱 + 中庭社區公園 + 貫穿開放道路) -->')
     lines.append('    <include>')
     lines.append('      <name>changyi_residential_block</name>')
     lines.append('      <uri>model://changyi_residential_block</uri>')
-    lines.append(f'      <pose>-21.95 56.34 0.0 0 0 {CROSS_YAW:.5f}</pose>')
+    lines.append(f'      <pose>-29.75 58.13 0.0 0 0 {WEST_BLDG_YAW:.5f}</pose>')
     lines.append('    </include>')
 
     # 2. 一品大觀新古典豪宅 (22F, 68m, 崗石名邸, 挑高迎賓車道大門)
@@ -38,7 +39,7 @@ def generate_phase4_block():
     lines.append('    <include>')
     lines.append('      <name>yipin_daguan_complex</name>')
     lines.append('      <uri>model://yipin_daguan_complex</uri>')
-    lines.append(f'      <pose>28.68 285.83 0.0 0 0 {CROSS_YAW:.5f}</pose>')
+    lines.append(f'      <pose>13.17 222.70 0.0 0 0 {WEST_BLDG_YAW:.5f}</pose>')
     lines.append('    </include>')
 
     # 3. 東京中城現代雙塔豪宅 (24F, 72m, 日光公園正對面, 挑高大理石基座, 垂直遮陽格柵)
@@ -46,7 +47,7 @@ def generate_phase4_block():
     lines.append('    <include>')
     lines.append('      <name>tokyo_roppongi_towers</name>')
     lines.append('      <uri>model://tokyo_roppongi_towers</uri>')
-    lines.append(f'      <pose>57.99 413.51 0.0 0 0 {CROSS_YAW:.5f}</pose>')
+    lines.append(f'      <pose>60.92 412.84 0.0 0 0 {WEST_BLDG_YAW:.5f}</pose>')
     lines.append('    </include>')
 
     # 4. 富宇君鼎高層豪宅 (24F, 78m, 天際線冠頂 82m, 關新北路站前地標)
@@ -54,7 +55,7 @@ def generate_phase4_block():
     lines.append('    <include>')
     lines.append('      <name>fuyu_junding_tower</name>')
     lines.append('      <uri>model://fuyu_junding_tower</uri>')
-    lines.append(f'      <pose>92.17 553.41 0.0 0 0 {CROSS_YAW:.5f}</pose>')
+    lines.append(f'      <pose>94.12 552.96 0.0 0 0 {WEST_BLDG_YAW:.5f}</pose>')
     lines.append('    </include>')
 
     # 5. 關埔國小校園 (有機聚落式校舍、200m跑道操場、體育館、綠化露台)
@@ -62,7 +63,7 @@ def generate_phase4_block():
     lines.append('    <include>')
     lines.append('      <name>guanpu_elementary_school</name>')
     lines.append('      <uri>model://guanpu_elementary_school</uri>')
-    lines.append(f'      <pose>296.56 219.20 0.0 0 0 {ROAD_YAW:.5f}</pose>')
+    lines.append(f'      <pose>277.08 223.67 0.0 0 0 {WEST_BLDG_YAW:.5f}</pose>')
     lines.append('    </include>')
 
     return '\n'.join(lines)
@@ -71,26 +72,25 @@ def main():
     with open(WORLD_PATH, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Locate old west_side_blocks
+    # Locate phase 4 section or old west_side_blocks
+    phase4_pat = r'<!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ====================.*?<!-- ==================== Phase 3: 重點交通與公共休閒地標建模'
     old_west_pat = r'<!-- ==================== 西側街區群 \(West Side Blocks:.*?<!-- ==================== Phase 3: 重點交通與公共休閒地標建模'
-    if not re.search(old_west_pat, content, flags=re.DOTALL):
-        print("Error: Could not locate old west_side_blocks in world SDF!")
-        return False
 
     phase4_block = generate_phase4_block()
     replacement_str = phase4_block + "\n\n    <!-- ==================== Phase 3: 重點交通與公共休閒地標建模"
 
-    updated_content = re.sub(
-        old_west_pat,
-        replacement_str,
-        content,
-        flags=re.DOTALL
-    )
+    if re.search(phase4_pat, content, flags=re.DOTALL):
+        updated_content = re.sub(phase4_pat, replacement_str, content, flags=re.DOTALL)
+    elif re.search(old_west_pat, content, flags=re.DOTALL):
+        updated_content = re.sub(old_west_pat, replacement_str, content, flags=re.DOTALL)
+    else:
+        print("Error: Could not locate Phase 4 or old west_side_blocks in world SDF!")
+        return False
 
     with open(WORLD_PATH, 'w', encoding='utf-8') as f:
         f.write(updated_content)
 
-    print(f"Successfully updated {WORLD_PATH} with Phase 4 Education & Residential Landmarks!")
+    print(f"Successfully updated {WORLD_PATH} with corrected Phase 4 Education & Residential Landmarks!")
     return True
 
 if __name__ == '__main__':

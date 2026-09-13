@@ -827,42 +827,42 @@
       </link>
     </model>
 
-        <!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ==================== -->
+            <!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ==================== -->
     <!-- 確立街區天際線與真實建築陰影：關埔國小、東京中城(24F)、一品大觀(22F)、昌益丹麥芬蘭(15F)、富宇君鼎(24F) -->
 
-    <!-- 1. 昌益丹麥 / 芬蘭 / 挪威現代住宅社區 (15層樓, 48m, 1F 挑高深凹連續騎樓走廊與圓柱列) -->
+    <!-- 1. 昌益丹麥 / 芬蘭 / 挪威現代住宅社區 (15層樓, 48m, 東西雙排對稱 + 中庭社區公園 + 貫穿開放道路) -->
     <include>
       <name>changyi_residential_block</name>
       <uri>model://changyi_residential_block</uri>
-      <pose>-21.95 56.34 0.0 0 0 -0.22568</pose>
+      <pose>-29.75 58.13 0.0 0 0 -1.79647</pose>
     </include>
 
     <!-- 2. 一品大觀新古典崗石名邸 (22層樓, 68m, 挑高迎賓車道大門 Porte-Cochère, 崗石厚重基座) -->
     <include>
       <name>yipin_daguan_complex</name>
       <uri>model://yipin_daguan_complex</uri>
-      <pose>28.68 285.83 0.0 0 0 -0.22568</pose>
+      <pose>13.17 222.70 0.0 0 0 -1.79647</pose>
     </include>
 
     <!-- 3. 東京中城雙塔現代豪宅地標 (24層樓, 72m, 日光公園西側對街, 挑高大理石精品商鋪基座, 垂直金屬格柵) -->
     <include>
       <name>tokyo_roppongi_towers</name>
       <uri>model://tokyo_roppongi_towers</uri>
-      <pose>57.99 413.51 0.0 0 0 -0.22568</pose>
+      <pose>60.92 412.84 0.0 0 0 -1.79647</pose>
     </include>
 
     <!-- 4. 富宇君鼎 24 層天際線豪宅地標 (高 78m, 發光造型冠頂 82m, 新莊車站迎賓廣場西北側) -->
     <include>
       <name>fuyu_junding_tower</name>
       <uri>model://fuyu_junding_tower</uri>
-      <pose>92.17 553.41 0.0 0 0 -0.22568</pose>
+      <pose>94.12 552.96 0.0 0 0 -1.79647</pose>
     </include>
 
     <!-- 5. 新竹市立關埔國小校園 (有機低矮聚落校舍、木紋清水模立面、200m 紅土 PU 跑道操場、穿透式金屬格柵圍牆) -->
     <include>
       <name>guanpu_elementary_school</name>
       <uri>model://guanpu_elementary_school</uri>
-      <pose>296.56 219.20 0.0 0 0 1.34512</pose>
+      <pose>277.08 223.67 0.0 0 0 -1.79647</pose>
     </include>
 
     <!-- ==================== Phase 3: 重點交通與公共休閒地標建模 ==================== -->
