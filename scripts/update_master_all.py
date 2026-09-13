@@ -60,12 +60,33 @@ def build_accurate_road_network_sdf():
     lines.append('      <static>true</static>')
     lines.append('      <link name="road_link">')
 
-    # 1. 關新路主幹道 (860m, width 18m)
-    gx_len = 860.0
+    # 1a. 關新路主幹道直道段 (長 488m, 寬 18m, 雙向四線道)
+    gx_len = 488.0
     gx_mid_e, gx_mid_n = pt_road(gx_len / 2.0, 0.0)
-    lines.append(f'        <!-- 1. 關新路主幹道柏油路面 (長 {gx_len}m, 寬 18m, 雙向四線道, 方位角 {BEARING_DEG:.2f}°) -->')
-    lines.append(f'        <collision name="gx_road_col"><pose>{gx_mid_e:.3f} {gx_mid_n:.3f} 0.01 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{gx_len} 18.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
-    lines.append(f'        <visual name="gx_road_vis"><pose>{gx_mid_e:.3f} {gx_mid_n:.3f} 0.01 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{gx_len} 18.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>')
+    lines.append(f'        <!-- 1a. 關新路主幹道直道段柏油路面 (長 {gx_len}m, 寬 18m, 雙向四線道, 方位角 {BEARING_DEG:.2f}°) -->')
+    lines.append(f'        <collision name="gx_road_str_col"><pose>{gx_mid_e:.3f} {gx_mid_n:.3f} 0.01 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{gx_len} 18.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
+    lines.append(f'        <visual name="gx_road_str_vis"><pose>{gx_mid_e:.3f} {gx_mid_n:.3f} 0.01 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{gx_len} 18.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>')
+
+    # 1b. 關新路北側向東轉彎彎道 (5段順滑彎道, 依真實GIS路網曲線鋪設, 連通新莊車站迎賓廣場與關東路)
+    lines.append('\n        <!-- 1b. 關新路北側向東轉彎彎道 (依真實GIS與地圖曲線鋪設, 連通新莊車站前與關東路) -->')
+    gx_curves = [
+        ("gx_curve1", 488.0, 0.0, 540.0, 20.0, "關新路北彎道段1: 日光公園北端起始微彎"),
+        ("gx_curve2", 540.0, 20.0, 600.0, 65.0, "關新路北彎道段2: 日光公園東北轉折段"),
+        ("gx_curve3", 600.0, 65.0, 650.0, 130.0, "關新路北彎道段3: 朝新莊車站方向偏東"),
+        ("gx_curve4", 650.0, 130.0, 685.0, 190.0, "關新路北彎道段4: 新莊車站迎賓廣場前直通段"),
+        ("gx_curve5", 685.0, 190.0, 725.0, 245.0, "關新路北彎道段5: 車站前延伸通過鐵路高架下方銜接關東路"),
+    ]
+    for name, s1, p1, s2, p2, desc in gx_curves:
+        e1, n1 = pt_road(s1, p1)
+        e2, n2 = pt_road(s2, p2)
+        de, dn = e2 - e1, n2 - n1
+        l = math.hypot(de, dn)
+        yaw = math.atan2(dn, de)
+        me, mn = (e1 + e2) / 2.0, (n1 + n2) / 2.0
+        lines.append(f'        <!-- 關新路彎道: {desc} (長 {l:.1f}m, 寬 18m) -->')
+        lines.append(f'        <collision name="{name}_col"><pose>{me:.3f} {mn:.3f} 0.01 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} 18.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
+        lines.append(f'        <visual name="{name}_vis"><pose>{me:.3f} {mn:.3f} 0.01 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} 18.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>')
+        lines.append(f'        <visual name="{name}_line"><pose>{me:.3f} {mn:.3f} 0.022 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>')
 
     # 2. 正確的關新東路 (Guanxin East Road - Multi-segment realistic GIS curve)
     lines.append('\n        <!-- ===== 2. 正確的關新東路多段彎道主幹道 (Guanxin East Road: 依真實GIS與OSM曲線鋪設) ===== -->')
@@ -133,13 +154,64 @@ def build_accurate_road_network_sdf():
     lines.append(f'        <collision name="service_alley_col"><pose>{alley_mid_e:.3f} {alley_mid_n:.3f} 0.01 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{alley_len} 6.5 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
     lines.append(f'        <visual name="service_alley_vis"><pose>{alley_mid_e:.3f} {alley_mid_n:.3f} 0.01 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{alley_len} 6.5 0.02</size></box></geometry><material><ambient>0.24 0.24 0.25 1</ambient><diffuse>0.26 0.26 0.27 1</diffuse></material></visual>')
 
-    # 8. 關新路中央綠化分隔島
-    lines.append('\n        <!-- ===== 8. 關新路中央綠化分隔島 (Central Median Islands) ===== -->')
+    # 8. 關東路主幹道 (Guandong Road: 5段真實路網, 連通光復路至新莊車站東側並穿過鐵路接埔頂路)
+    lines.append('\n        <!-- ===== 8. 關東路主幹道 (Guandong Road: 依真實GIS連通光復路、新莊車站東側與埔頂路) ===== -->')
+    gd_segs = [
+        ("gd_seg1_south", 0.0, 290.0, 350.0, 240.0, "關東路南段: 自光復路向北", 12.0),
+        ("gd_seg2_mid", 350.0, 240.0, 550.0, 215.0, "關東路中段: 通往新莊車站商圈", 12.0),
+        ("gd_seg3_station", 550.0, 215.0, 685.0, 200.0, "關東路車站段: 新莊車站東側聯絡", 14.0),
+        ("gd_seg4_underpass", 685.0, 200.0, 760.0, 110.0, "關東路跨線/涵洞段: 穿越鐵路往西北", 14.0),
+        ("gd_seg5_north", 760.0, 110.0, 840.0, -10.0, "關東路北段: 連接埔頂路口", 14.0),
+    ]
+    for name, s1, p1, s2, p2, desc, width in gd_segs:
+        e1, n1 = pt_road(s1, p1)
+        e2, n2 = pt_road(s2, p2)
+        de, dn = e2 - e1, n2 - n1
+        l = math.hypot(de, dn)
+        yaw = math.atan2(dn, de)
+        me, mn = (e1 + e2) / 2.0, (n1 + n2) / 2.0
+        lines.append(f'        <!-- 關東路: {desc} (長 {l:.1f}m, 寬 {width:.1f}m) -->')
+        lines.append(f'        <collision name="{name}_col"><pose>{me:.3f} {mn:.3f} 0.01 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} {width:.1f} 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
+        lines.append(f'        <visual name="{name}_vis"><pose>{me:.3f} {mn:.3f} 0.01 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} {width:.1f} 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>')
+        lines.append(f'        <visual name="{name}_line"><pose>{me:.3f} {mn:.3f} 0.022 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>')
+
+    # 9. 埔頂路與新莊車站北側聯絡便道
+    lines.append('\n        <!-- ===== 9. 車站北側新馬路：埔頂路拓寬段與內灣線橋下便道 ===== -->')
+    puding_segs = [
+        ("puding_seg1_west", 840.0, -150.0, 840.0, -10.0, "埔頂路西段: 往光埔重劃區方向", 16.0),
+        ("puding_seg2_mid", 840.0, -10.0, 830.0, 120.0, "埔頂路中段: 關東路路口至便道路口", 16.0),
+        ("puding_seg3_east", 830.0, 120.0, 810.0, 260.0, "埔頂路東段: 跨越鐵路往公道五路方向", 16.0),
+    ]
+    for name, s1, p1, s2, p2, desc, width in puding_segs:
+        e1, n1 = pt_road(s1, p1)
+        e2, n2 = pt_road(s2, p2)
+        de, dn = e2 - e1, n2 - n1
+        l = math.hypot(de, dn)
+        yaw = math.atan2(dn, de)
+        me, mn = (e1 + e2) / 2.0, (n1 + n2) / 2.0
+        lines.append(f'        <!-- 埔頂路: {desc} (長 {l:.1f}m, 寬 {width:.1f}m) -->')
+        lines.append(f'        <collision name="{name}_col"><pose>{me:.3f} {mn:.3f} 0.01 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} {width:.1f} 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
+        lines.append(f'        <visual name="{name}_vis"><pose>{me:.3f} {mn:.3f} 0.01 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} {width:.1f} 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>')
+        lines.append(f'        <visual name="{name}_line"><pose>{me:.3f} {mn:.3f} 0.022 0 0 {yaw:.5f}</pose><geometry><box><size>{l:.2f} 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>')
+
+    # 內灣線橋下便道 (自新莊車站前沿高架鐵路下方通往埔頂路)
+    v_e1, v_n1 = pt_road(685.0, 200.0)
+    v_e2, v_n2 = pt_road(830.0, 120.0)
+    v_de, v_dn = v_e2 - v_e1, v_n2 - v_n1
+    v_l = math.hypot(v_de, v_dn)
+    v_yaw = math.atan2(v_dn, v_de)
+    v_me, v_mn = (v_e1 + v_e2) / 2.0, (v_n1 + v_n2) / 2.0
+    lines.append(f'        <!-- 內灣線橋下便道 (長 {v_l:.1f}m, 寬 10m) -->')
+    lines.append(f'        <collision name="viaduct_rd_col"><pose>{v_me:.3f} {v_mn:.3f} 0.01 0 0 {v_yaw:.5f}</pose><geometry><box><size>{v_l:.2f} 10.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>')
+    lines.append(f'        <visual name="viaduct_rd_vis"><pose>{v_me:.3f} {v_mn:.3f} 0.01 0 0 {v_yaw:.5f}</pose><geometry><box><size>{v_l:.2f} 10.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>')
+    lines.append(f'        <visual name="viaduct_rd_line"><pose>{v_me:.3f} {v_mn:.3f} 0.022 0 0 {v_yaw:.5f}</pose><geometry><box><size>{v_l:.2f} 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>')
+
+    # 10. 關新路中央綠化分隔島
+    lines.append('\n        <!-- ===== 10. 關新路中央綠化分隔島 (Central Median Islands) ===== -->')
     medians = [
         ("median_s1", 16.0, 76.0, "南段1 (光復路口至關新一街口)"),
         ("median_mid", 100.0, 332.0, "中段 (關新一街口至關新二街口)"),
-        ("median_n1", 356.0, 476.0, "北段1 (關新二街口至關新北路口)"),
-        ("median_n2", 500.0, 800.0, "北段2 (關新北路口至新莊車站大廳前)")
+        ("median_n1", 356.0, 476.0, "北段1 (關新二街口至關新北路口)")
     ]
     for name, s_start, s_end, desc in medians:
         m_len = s_end - s_start
@@ -150,9 +222,9 @@ def build_accurate_road_network_sdf():
         lines.append(f'        <visual name="{name}_curb"><pose>{me:.3f} {mn:.3f} 0.10 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{m_len:.2f} 1.8 0.20</size></box></geometry><material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material></visual>')
         lines.append(f'        <visual name="{name}_lawn"><pose>{me:.3f} {mn:.3f} 0.205 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{m_len - 1.2:.2f} 1.4 0.01</size></box></geometry><material><ambient>0.20 0.52 0.20 1</ambient><diffuse>0.25 0.58 0.25 1</diffuse></material></visual>')
 
-    # 9. 道路標線
-    lines.append('\n        <!-- ===== 9. 台灣標準道路標線 (Lane Markings, Double Yellow, Dash Lines) ===== -->')
-    for s_st, s_ed in [(16.0, 76.0), (100.0, 332.0), (356.0, 476.0), (500.0, 800.0)]:
+    # 11. 道路標線
+    lines.append('\n        <!-- ===== 11. 台灣標準道路標線 (Lane Markings, Double Yellow, Dash Lines) ===== -->')
+    for s_st, s_ed in [(16.0, 76.0), (100.0, 332.0), (356.0, 476.0)]:
         d_len = s_ed - s_st
         d_mid = s_st + d_len / 2.0
         dne, dnn = pt_road(d_mid, 4.5)
@@ -175,14 +247,14 @@ def build_accurate_road_network_sdf():
     cw_gfe_e, cw_gfe_n = pt_road(0.0, 10.5)
     lines.append(f'        <visual name="crosswalk_guangfu_e_vis"><pose>{cw_gfe_e:.3f} {cw_gfe_n:.3f} 0.022 0 0 {CROSS_YAW:.5f}</pose><geometry><box><size>3.0 24.0 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>')
 
-    # 10. 人行道鋪面 (Sidewalk Surfaces)
-    lines.append('\n        <!-- ===== 10. 人行道透水磚鋪面 (Permeable Brick Sidewalks: 寬度 4.5m ~ 8.0m) ===== -->')
-    w_sw_len = 824.0
+    # 12. 人行道鋪面 (Sidewalk Surfaces)
+    lines.append('\n        <!-- ===== 12. 人行道透水磚鋪面 (Permeable Brick Sidewalks: 寬度 4.5m ~ 8.0m) ===== -->')
+    w_sw_len = 472.0
     w_sw_mid_e, w_sw_mid_n = pt_road(16.0 + w_sw_len / 2.0, -11.5)
     lines.append(f'        <collision name="sw_west_col"><pose>{w_sw_mid_e:.3f} {w_sw_mid_n:.3f} 0.10 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{w_sw_len} 5.0 0.20</size></box></geometry></collision>')
     lines.append(f'        <visual name="sw_west_vis"><pose>{w_sw_mid_e:.3f} {w_sw_mid_n:.3f} 0.10 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{w_sw_len} 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>')
 
-    e_sw_len = 824.0
+    e_sw_len = 472.0
     e_sw_mid_e, e_sw_mid_n = pt_road(16.0 + e_sw_len / 2.0, 11.5)
     lines.append(f'        <collision name="sw_east_col"><pose>{e_sw_mid_e:.3f} {e_sw_mid_n:.3f} 0.10 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{e_sw_len} 5.0 0.20</size></box></geometry></collision>')
     lines.append(f'        <visual name="sw_east_vis"><pose>{e_sw_mid_e:.3f} {e_sw_mid_n:.3f} 0.10 0 0 {ROAD_YAW:.5f}</pose><geometry><box><size>{e_sw_len} 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>')
@@ -377,6 +449,33 @@ def transform_commercial_details_section(content):
 
     return content
 
+def update_phase3_landmarks(content):
+    # 1. Update railway_viaduct pose
+    v_pat = r'(<include>\s*<name>railway_viaduct</name>\s*<uri>model://railway_viaduct</uri>\s*<pose>)[^<]+(</pose>\s*</include>)'
+    content = re.sub(v_pat, r'\g<1>338.460 625.110 0.0 0 0 -0.22568\g<2>', content)
+
+    # 2. Update xinzhuang_station pose
+    s_pat = r'(<include>\s*<name>xinzhuang_station</name>\s*<uri>model://xinzhuang_station</uri>\s*<pose>)[^<]+(</pose>\s*</include>)'
+    content = re.sub(s_pat, r'\g<1>372.576 617.282 0.0 0 0 -0.22568\g<2>', content)
+
+    # 3. Update xinzhuang_station_plaza
+    plaza_sdf = '''    <!-- 新莊車站前迎賓廣場與計程車排班避車道 (Station Plaza & Taxi Drop-off Bay) -->
+    <model name="xinzhuang_station_plaza">
+      <static>true</static>
+      <link name="plaza_link">
+        <collision name="plaza_deck_col"><pose>343.336 623.995 0.075 0 0 -0.22568</pose><geometry><box><size>42.0 26.0 0.15</size></box></geometry></collision>
+        <visual name="plaza_deck_vis"><pose>343.336 623.995 0.075 0 0 -0.22568</pose><geometry><box><size>42.0 26.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
+        <visual name="plaza_planter1"><pose>334.932 632.081 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub1"><pose>334.932 632.081 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="plaza_planter2"><pose>354.425 627.605 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub2"><pose>354.425 627.605 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="flagpole1"><pose>348.162 631.608 4.0 0 0 0</pose><geometry><cylinder><radius>0.05</radius><length>8.0</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
+      </link>
+    </model>'''
+    p_pat = r'<!-- 新莊車站前迎賓廣場與計程車排班避車道.*?<model name="xinzhuang_station_plaza">.*?</model>'
+    content = re.sub(p_pat, plaza_sdf, content, flags=re.DOTALL)
+    return content
+
 def main():
     print(f"Loading world from {WORLD_PATH}...")
     with open(WORLD_PATH, "r", encoding="utf-8") as f:
@@ -415,6 +514,9 @@ def main():
         print("Error: Could not locate Phase 4 section!")
         return False
     content = re.sub(phase4_pat, phase4_sdf + "\n\n    <!-- ==================== Phase 3: 重點交通與公共休閒地標建模", content, flags=re.DOTALL)
+
+    print("Relocating Xinzhuang Station, station plaza, and railway viaduct...")
+    content = update_phase3_landmarks(content)
 
     with open(WORLD_PATH, "w", encoding="utf-8") as f:
         f.write(content)
