@@ -76,6 +76,18 @@
         <material><ambient>0.85 0.2 0.1 1</ambient><diffuse>0.92 0.25 0.15 1</diffuse></material>
       </visual>
 
+      <!-- 臨光復路外側店鋪與招牌 (Outer Shops facing Guangfu Rd: X = -67.5m, Y = 84m) -->
+      <visual name="guangfu_outer_shops">
+        <pose>-67.5 84.0 2.1 0 0 0</pose>
+        <geometry><box><size>0.2 50.0 3.8</size></box></geometry>
+        <material><ambient>0.15 0.25 0.35 0.85</ambient><diffuse>0.20 0.35 0.45 0.85</diffuse><specular>0.9 0.95 1 1</specular></material>
+      </visual>
+      <visual name="guangfu_outer_sign">
+        <pose>-67.8 84.0 4.2 0 0 0</pose>
+        <geometry><box><size>0.25 48.0 0.8</size></box></geometry>
+        <material><ambient>0.85 0.2 0.1 1</ambient><diffuse>0.92 0.25 0.15 1</diffuse></material>
+      </visual>
+
       <!-- 外側西棟大樓主體 (South Row Outer Duplicate: 15F, 48m) -->
       <visual name="south_outer_main_vis">
         <pose>-36.0 84.0 24.0 0 0 0</pose>

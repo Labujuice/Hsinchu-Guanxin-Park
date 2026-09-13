@@ -67,7 +67,7 @@
       </link>
     </model>
 
-        <!-- ==================== Phase 2: 全域路網精確鋪設與路邊智慧停車柱系統 ==================== -->
+            <!-- ==================== Phase 2: 全域路網精確鋪設與路邊智慧停車柱系統 ==================== -->
     <!-- 涵蓋 58 公頃: 關新路(18m)、真實多段彎道關新東路(14m)、光復路(24m)、關新一街(12m)、關新二街(14m)、關新北路(14m)、社區聯絡道 -->
     <model name="road_network">
       <static>true</static>
@@ -102,9 +102,9 @@
         <visual name="gxe_seg4c_north_vis"><pose>377.772 662.260 0.01 0 0 0.80470</pose><geometry><box><size>116.62 14.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
         <visual name="gxe_seg4c_north_line"><pose>377.772 662.260 0.022 0 0 0.80470</pose><geometry><box><size>116.62 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
 
-        <!-- 3. 光復路一段主幹道 (南界門戶橫向幹道, 長 450m, 寬 24m, 雙向六線道) -->
-        <collision name="guangfu_road_col"><pose>10.0 -12.0 0.01 0 0 0</pose><geometry><box><size>450.0 24.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
-        <visual name="guangfu_road_vis"><pose>10.0 -12.0 0.01 0 0 0</pose><geometry><box><size>450.0 24.0 0.02</size></box></geometry><material><ambient>0.20 0.20 0.21 1</ambient><diffuse>0.22 0.22 0.23 1</diffuse></material></visual>
+        <!-- 3. 光復路一段主幹道 (南界門戶橫向幹道, 長 450m, 寬 24m, 雙向六線道, 角度精準對齊北歐三小國南棟與關新一街) -->
+        <collision name="guangfu_road_col"><pose>24.366 -5.594 0.01 0 0 -0.22568</pose><geometry><box><size>450.0 24.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="guangfu_road_vis"><pose>24.366 -5.594 0.01 0 0 -0.22568</pose><geometry><box><size>450.0 24.0 0.02</size></box></geometry><material><ambient>0.20 0.20 0.21 1</ambient><diffuse>0.22 0.22 0.23 1</diffuse></material></visual>
 
         <!-- 4. 關新一街東段 (自關新路連通至關新東路, 長 131m, 寬 12m) -->
         <collision name="gx1_east_col"><pose>92.302 69.098 0.01 0 0 -0.22568</pose><geometry><box><size>131.0 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
@@ -158,13 +158,27 @@
         <visual name="dash_l_356"><pose>88.702 406.458 0.022 0 0 1.34512</pose><geometry><box><size>120.00 0.15 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
         <visual name="dash_r_500"><pose>149.835 632.511 0.022 0 0 1.34512</pose><geometry><box><size>300.00 0.15 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
         <visual name="dash_l_500"><pose>141.063 634.525 0.022 0 0 1.34512</pose><geometry><box><size>300.00 0.15 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
-        <visual name="guangfu_center_line"><pose>10.0 -12.0 0.022 0 0 0</pose><geometry><box><size>450.0 0.30 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <visual name="guangfu_center_line"><pose>24.366 -5.594 0.022 0 0 -0.22568</pose><geometry><box><size>450.0 0.30 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <visual name="guangfu_dash_eb"><pose>25.261 -1.696 0.022 0 0 -0.22568</pose><geometry><box><size>450.0 0.15 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="guangfu_dash_wb"><pose>23.471 -9.493 0.022 0 0 -0.22568</pose><geometry><box><size>450.0 0.15 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="crosswalk_guanxin_vis"><pose>3.021 13.158 0.022 0 0 1.34512</pose><geometry><box><size>3.0 18.0 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
+        <visual name="crosswalk_guangfu_w_vis"><pose>-10.234 2.350 0.022 0 0 -0.22568</pose><geometry><box><size>3.0 24.0 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
+        <visual name="crosswalk_guangfu_e_vis"><pose>10.234 -2.350 0.022 0 0 -0.22568</pose><geometry><box><size>3.0 24.0 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
 
-        <!-- ===== 10. 人行道透水磚鋪面 (Permeable Brick Sidewalks: 寬度 4.5m ~ 5.0m) ===== -->
+        <!-- ===== 10. 人行道透水磚鋪面 (Permeable Brick Sidewalks: 寬度 4.5m ~ 8.0m) ===== -->
         <collision name="sw_west_col"><pose>84.564 419.720 0.10 0 0 1.34512</pose><geometry><box><size>824.0 5.0 0.20</size></box></geometry></collision>
         <visual name="sw_west_vis"><pose>84.564 419.720 0.10 0 0 1.34512</pose><geometry><box><size>824.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
         <collision name="sw_east_col"><pose>106.981 414.574 0.10 0 0 1.34512</pose><geometry><box><size>824.0 5.0 0.20</size></box></geometry></collision>
         <visual name="sw_east_vis"><pose>106.981 414.574 0.10 0 0 1.34512</pose><geometry><box><size>824.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- 光復路北側人行道 (西段: 銜接北歐三小國南棟騎樓, 寬8m, 長115m) -->
+        <collision name="sw_guangfu_north_col"><pose>-63.183 30.922 0.10 0 0 -0.22568</pose><geometry><box><size>115.0 8.0 0.20</size></box></geometry></collision>
+        <visual name="sw_guangfu_north_vis"><pose>-63.183 30.922 0.10 0 0 -0.22568</pose><geometry><box><size>115.0 8.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- 光復路北側人行道 (東段: 關新路口至關新東路口, 寬5m, 長165m) -->
+        <collision name="sw_guangfu_ne_col"><pose>94.228 -6.756 0.10 0 0 -0.22568</pose><geometry><box><size>165.0 5.0 0.20</size></box></geometry></collision>
+        <visual name="sw_guangfu_ne_vis"><pose>94.228 -6.756 0.10 0 0 -0.22568</pose><geometry><box><size>165.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- 光復路南側全線人行道 (寬5m, 長450m) -->
+        <collision name="sw_guangfu_south_col"><pose>21.121 -19.727 0.10 0 0 -0.22568</pose><geometry><box><size>450.0 5.0 0.20</size></box></geometry></collision>
+        <visual name="sw_guangfu_south_vis"><pose>21.121 -19.727 0.10 0 0 -0.22568</pose><geometry><box><size>450.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
       </link>
     </model>
 
@@ -234,146 +248,146 @@
 
         <!-- ===== (A) 寶雅門前設施 (POYA Street Amenities: Street_photo11 實景) ===== -->
         <!-- 1. 不銹鋼手推車放置區 (Shopping Cart Corral: X: 182 ~ 187, Y: -13.0) -->
-        <collision name="cart_corral_col"><pose>53.956 176.913 0.450 0.000 0.000 1.34512</pose><geometry><box><size>5.0 1.2 0.9</size></box></geometry></collision>
-        <visual name="cart_corral_rail_l"><pose>54.443 176.801 0.500 0.000 1.571 1.34512</pose><geometry><cylinder><radius>0.03</radius><length>5.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cart_corral_rail_r"><pose>53.468 177.024 0.500 0.000 1.571 1.34512</pose><geometry><cylinder><radius>0.03</radius><length>5.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cart_corral_post1"><pose>53.906 174.462 0.450 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cart_corral_post2"><pose>54.980 179.140 0.450 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cart_corral_post3"><pose>52.931 174.685 0.450 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cart_corral_post4"><pose>54.005 179.364 0.450 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <collision name="cart_corral_col"><pose>-160.353 92.175 0.450 0.000 0.000 2.69024</pose><geometry><box><size>5.0 1.2 0.9</size></box></geometry></collision>
+        <visual name="cart_corral_rail_l"><pose>-160.135 92.625 0.500 0.000 1.571 2.69024</pose><geometry><cylinder><radius>0.03</radius><length>5.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cart_corral_rail_r"><pose>-160.571 91.724 0.500 0.000 1.571 2.69024</pose><geometry><cylinder><radius>0.03</radius><length>5.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cart_corral_post1"><pose>-157.976 91.578 0.450 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cart_corral_post2"><pose>-162.295 93.672 0.450 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cart_corral_post3"><pose>-158.411 90.678 0.450 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cart_corral_post4"><pose>-162.731 92.771 0.450 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.035</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
         <!-- 兩列整齊排疊之金屬網購物手推車 (Nested Wire Shopping Carts) -->
-        <visual name="carts_row1"><pose>54.199 176.857 0.480 0.000 0.000 1.34512</pose><geometry><box><size>4.5 0.4 0.75</size></box></geometry><material><ambient>0.6 0.62 0.65 1</ambient><diffuse>0.75 0.78 0.8 1</diffuse></material></visual>
-        <visual name="carts_row1_handles"><pose>54.199 176.857 0.880 0.000 0.000 1.34512</pose><geometry><box><size>4.5 0.08 0.05</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.95 0.12 0.12 1</diffuse></material></visual>
-        <visual name="carts_row2"><pose>53.712 176.968 0.480 0.000 0.000 1.34512</pose><geometry><box><size>4.5 0.4 0.75</size></box></geometry><material><ambient>0.6 0.62 0.65 1</ambient><diffuse>0.75 0.78 0.8 1</diffuse></material></visual>
-        <visual name="carts_row2_handles"><pose>53.712 176.968 0.880 0.000 0.000 1.34512</pose><geometry><box><size>4.5 0.08 0.05</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.95 0.12 0.12 1</diffuse></material></visual>
+        <visual name="carts_row1"><pose>-160.244 92.400 0.480 0.000 0.000 2.69024</pose><geometry><box><size>4.5 0.4 0.75</size></box></geometry><material><ambient>0.6 0.62 0.65 1</ambient><diffuse>0.75 0.78 0.8 1</diffuse></material></visual>
+        <visual name="carts_row1_handles"><pose>-160.244 92.400 0.880 0.000 0.000 2.69024</pose><geometry><box><size>4.5 0.08 0.05</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.95 0.12 0.12 1</diffuse></material></visual>
+        <visual name="carts_row2"><pose>-160.462 91.950 0.480 0.000 0.000 2.69024</pose><geometry><box><size>4.5 0.4 0.75</size></box></geometry><material><ambient>0.6 0.62 0.65 1</ambient><diffuse>0.75 0.78 0.8 1</diffuse></material></visual>
+        <visual name="carts_row2_handles"><pose>-160.462 91.950 0.880 0.000 0.000 2.69024</pose><geometry><box><size>4.5 0.08 0.05</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.95 0.12 0.12 1</diffuse></material></visual>
 
         <!-- 2. 門前特價商品促銷花車 (Promotional Display Carts: Street_photo11 實景) -->
-        <visual name="poya_promo_cart1"><pose>51.689 166.147 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.6 0.9 0.75</size></box></geometry><material><ambient>0.85 0.1 0.3 1</ambient><diffuse>0.92 0.15 0.35 1</diffuse></material></visual>
-        <visual name="poya_promo_goods1"><pose>51.689 166.147 0.900 0.000 0.000 1.34512</pose><geometry><box><size>1.5 0.8 0.2</size></box></geometry><material><ambient>0.9 0.8 0.3 1</ambient><diffuse>0.95 0.85 0.35 1</diffuse></material></visual>
-        <visual name="poya_promo_cart2"><pose>52.248 168.583 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.6 0.9 0.75</size></box></geometry><material><ambient>0.85 0.1 0.3 1</ambient><diffuse>0.92 0.15 0.35 1</diffuse></material></visual>
-        <visual name="poya_promo_goods2"><pose>52.248 168.583 0.900 0.000 0.000 1.34512</pose><geometry><box><size>1.5 0.8 0.2</size></box></geometry><material><ambient>0.3 0.7 0.9 1</ambient><diffuse>0.35 0.75 0.95 1</diffuse></material></visual>
+        <visual name="poya_promo_cart1"><pose>-150.368 87.557 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.6 0.9 0.75</size></box></geometry><material><ambient>0.85 0.1 0.3 1</ambient><diffuse>0.92 0.15 0.35 1</diffuse></material></visual>
+        <visual name="poya_promo_goods1"><pose>-150.368 87.557 0.900 0.000 0.000 2.69024</pose><geometry><box><size>1.5 0.8 0.2</size></box></geometry><material><ambient>0.9 0.8 0.3 1</ambient><diffuse>0.95 0.85 0.35 1</diffuse></material></visual>
+        <visual name="poya_promo_cart2"><pose>-152.617 88.647 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.6 0.9 0.75</size></box></geometry><material><ambient>0.85 0.1 0.3 1</ambient><diffuse>0.92 0.15 0.35 1</diffuse></material></visual>
+        <visual name="poya_promo_goods2"><pose>-152.617 88.647 0.900 0.000 0.000 2.69024</pose><geometry><box><size>1.5 0.8 0.2</size></box></geometry><material><ambient>0.3 0.7 0.9 1</ambient><diffuse>0.35 0.75 0.95 1</diffuse></material></visual>
 
         <!-- 3. 人行道木質景觀長椅 (Street Benches) -->
-        <collision name="bench_poya_col"><pose>48.206 164.381 0.400 0.000 0.000 1.34512</pose><geometry><box><size>2.0 0.6 0.5</size></box></geometry></collision>
-        <visual name="bench_poya_vis"><pose>48.206 164.381 0.350 0.000 0.000 1.34512</pose><geometry><box><size>2.0 0.6 0.45</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.55 0.35 0.2 1</diffuse></material></visual>
+        <collision name="bench_poya_col"><pose>-149.426 83.767 0.400 0.000 0.000 2.69024</pose><geometry><box><size>2.0 0.6 0.5</size></box></geometry></collision>
+        <visual name="bench_poya_vis"><pose>-149.426 83.767 0.350 0.000 0.000 2.69024</pose><geometry><box><size>2.0 0.6 0.45</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.55 0.35 0.2 1</diffuse></material></visual>
 
         <!-- ===== (B) 起家雞門前設施 (Cheogajip Amenities) ===== -->
-        <visual name="cheogajip_wait_bench"><pose>56.164 185.640 0.350 0.000 0.000 1.34512</pose><geometry><box><size>1.8 0.5 0.45</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="cheogajip_menu_stand"><pose>57.283 190.513 0.650 0.000 0.000 1.34512</pose><geometry><box><size>0.6 0.4 1.3</size></box></geometry><material><ambient>0.85 0.15 0.1 1</ambient><diffuse>0.9 0.2 0.12 1</diffuse></material></visual>
+        <visual name="cheogajip_wait_bench"><pose>-168.365 96.280 0.350 0.000 0.000 2.69024</pose><geometry><box><size>1.8 0.5 0.45</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <visual name="cheogajip_menu_stand"><pose>-172.864 98.461 0.650 0.000 0.000 2.69024</pose><geometry><box><size>0.6 0.4 1.3</size></box></geometry><material><ambient>0.85 0.15 0.1 1</ambient><diffuse>0.9 0.2 0.12 1</diffuse></material></visual>
 
         <!-- ===== (C) 麥當勞得來速入口與主建築設施 (McDonalds Drive-Thru & Storefront) ===== -->
         <!-- 1. 得來速入口限高龍門架 (Height Clearance Gantry: 2.8M 限高黑黃相間) -->
-        <collision name="mcd_gantry_post_l"><pose>58.471 194.344 1.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry></collision>
-        <visual name="mcd_gantry_post_l_vis"><pose>58.471 194.344 1.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <collision name="mcd_gantry_post_r"><pose>60.037 201.167 1.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry></collision>
-        <visual name="mcd_gantry_post_r_vis"><pose>60.037 201.167 1.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="mcd_gantry_bar"><pose>59.254 197.755 2.900 0.000 0.000 1.34512</pose><geometry><box><size>7.2 0.2 0.35</size></box></geometry><material><ambient>0.9 0.85 0.05 1</ambient><diffuse>0.95 0.9 0.05 1</diffuse></material></visual>
-        <visual name="mcd_gantry_sign"><pose>59.137 197.782 2.900 0.000 0.000 1.34512</pose><geometry><box><size>3.0 0.05 0.25</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+        <collision name="mcd_gantry_post_l"><pose>-176.332 100.476 1.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name="mcd_gantry_post_l_vis"><pose>-176.332 100.476 1.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <collision name="mcd_gantry_post_r"><pose>-182.632 103.529 1.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry></collision>
+        <visual name="mcd_gantry_post_r_vis"><pose>-182.632 103.529 1.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.08</radius><length>3.0</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <visual name="mcd_gantry_bar"><pose>-179.481 102.003 2.900 0.000 0.000 2.69024</pose><geometry><box><size>7.2 0.2 0.35</size></box></geometry><material><ambient>0.9 0.85 0.05 1</ambient><diffuse>0.95 0.9 0.05 1</diffuse></material></visual>
+        <visual name="mcd_gantry_sign"><pose>-179.534 101.895 2.900 0.000 0.000 2.69024</pose><geometry><box><size>3.0 0.05 0.25</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
 
         <!-- 2. 麥當勞得來速入口黑底紅條指示標柱 (Entrance Pylon: Street_photo10 實景) -->
-        <visual name="mcd_in_pylon"><pose>57.653 195.250 1.200 0.000 0.000 1.34512</pose><geometry><box><size>0.4 0.4 2.4</size></box></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="mcd_in_pylon_m"><pose>57.458 195.295 2.100 0.000 0.000 1.34512</pose><geometry><box><size>0.3 0.05 0.3</size></box></geometry><material><ambient>0.95 0.85 0.05 1</ambient><diffuse>0.98 0.88 0.05 1</diffuse></material></visual>
+        <visual name="mcd_in_pylon"><pose>-177.398 99.882 1.200 0.000 0.000 2.69024</pose><geometry><box><size>0.4 0.4 2.4</size></box></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="mcd_in_pylon_m"><pose>-177.486 99.702 2.100 0.000 0.000 2.69024</pose><geometry><box><size>0.3 0.05 0.3</size></box></geometry><material><ambient>0.95 0.85 0.05 1</ambient><diffuse>0.98 0.88 0.05 1</diffuse></material></visual>
 
         <!-- 3. 麥當勞門前「請勿停車」金屬活動拒馬群 (Street_photo9 & 10 實景：紅框黃板 3 座) -->
-        <visual name="mcd_barrier_1"><pose>58.831 207.087 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.6 0.4 0.85</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
-        <visual name="mcd_barrier_1_board"><pose>58.831 207.087 0.500 0.000 0.000 1.34512</pose><geometry><box><size>1.4 0.05 0.45</size></box></geometry><material><ambient>0.92 0.85 0.05 1</ambient><diffuse>0.95 0.88 0.05 1</diffuse></material></visual>
-        <visual name="mcd_barrier_2"><pose>60.621 214.884 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.6 0.4 0.85</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
-        <visual name="mcd_barrier_2_board"><pose>60.621 214.884 0.500 0.000 0.000 1.34512</pose><geometry><box><size>1.4 0.05 0.45</size></box></geometry><material><ambient>0.92 0.85 0.05 1</ambient><diffuse>0.95 0.88 0.05 1</diffuse></material></visual>
-        <visual name="mcd_barrier_3"><pose>62.411 222.681 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.6 0.4 0.85</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
-        <visual name="mcd_barrier_3_board"><pose>62.411 222.681 0.500 0.000 0.000 1.34512</pose><geometry><box><size>1.4 0.05 0.45</size></box></geometry><material><ambient>0.92 0.85 0.05 1</ambient><diffuse>0.95 0.88 0.05 1</diffuse></material></visual>
+        <visual name="mcd_barrier_1"><pose>-188.671 103.679 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.6 0.4 0.85</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
+        <visual name="mcd_barrier_1_board"><pose>-188.671 103.679 0.500 0.000 0.000 2.69024</pose><geometry><box><size>1.4 0.05 0.45</size></box></geometry><material><ambient>0.92 0.85 0.05 1</ambient><diffuse>0.95 0.88 0.05 1</diffuse></material></visual>
+        <visual name="mcd_barrier_2"><pose>-195.870 107.168 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.6 0.4 0.85</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
+        <visual name="mcd_barrier_2_board"><pose>-195.870 107.168 0.500 0.000 0.000 2.69024</pose><geometry><box><size>1.4 0.05 0.45</size></box></geometry><material><ambient>0.92 0.85 0.05 1</ambient><diffuse>0.95 0.88 0.05 1</diffuse></material></visual>
+        <visual name="mcd_barrier_3"><pose>-203.069 110.657 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.6 0.4 0.85</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
+        <visual name="mcd_barrier_3_board"><pose>-203.069 110.657 0.500 0.000 0.000 2.69024</pose><geometry><box><size>1.4 0.05 0.45</size></box></geometry><material><ambient>0.92 0.85 0.05 1</ambient><diffuse>0.95 0.88 0.05 1</diffuse></material></visual>
 
         <!-- ===== (D) 麥當勞得來速出口設施 (McDonalds Drive-Thru Exit: Street_photo9 實景) ===== -->
         <!-- 1. 道路廣角反射鏡 (Road Convex Safety Mirror: 鍍鋅金屬橘色圓形反光鏡) -->
-        <collision name="convex_mirror_post_col"><pose>65.696 234.752 1.400 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.05</radius><length>2.8</length></cylinder></geometry></collision>
-        <visual name="convex_mirror_post"><pose>65.696 234.752 1.400 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.05</radius><length>2.8</length></cylinder></geometry><material><ambient>0.9 0.4 0.05 1</ambient><diffuse>0.95 0.45 0.05 1</diffuse></material></visual>
-        <visual name="convex_mirror_dish"><pose>65.696 234.752 2.650 0.000 0.350 2.14512</pose><geometry><cylinder><radius>0.45</radius><length>0.08</length></cylinder></geometry><material><ambient>0.9 0.4 0.05 1</ambient><diffuse>0.95 0.45 0.05 1</diffuse></material></visual>
-        <visual name="convex_mirror_face"><pose>65.658 234.812 2.650 0.000 0.350 2.14512</pose><geometry><cylinder><radius>0.40</radius><length>0.02</length></cylinder></geometry><material><ambient>0.9 0.9 0.95 1</ambient><diffuse>0.95 0.95 1 1</diffuse></material></visual>
+        <collision name="convex_mirror_post_col"><pose>-214.099 116.560 1.400 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.05</radius><length>2.8</length></cylinder></geometry></collision>
+        <visual name="convex_mirror_post"><pose>-214.099 116.560 1.400 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.05</radius><length>2.8</length></cylinder></geometry><material><ambient>0.9 0.4 0.05 1</ambient><diffuse>0.95 0.45 0.05 1</diffuse></material></visual>
+        <visual name="convex_mirror_dish"><pose>-214.099 116.560 2.650 0.000 0.350 -2.79295</pose><geometry><cylinder><radius>0.45</radius><length>0.08</length></cylinder></geometry><material><ambient>0.9 0.4 0.05 1</ambient><diffuse>0.95 0.45 0.05 1</diffuse></material></visual>
+        <visual name="convex_mirror_face"><pose>-214.166 116.536 2.650 0.000 0.350 -2.79295</pose><geometry><cylinder><radius>0.40</radius><length>0.02</length></cylinder></geometry><material><ambient>0.9 0.9 0.95 1</ambient><diffuse>0.95 0.95 1 1</diffuse></material></visual>
 
         <!-- 2. 得來速出口黑底立柱標誌 (Exit Pylon Sign: "出口 Exit") -->
-        <visual name="mcd_out_pylon"><pose>67.802 234.987 1.000 0.000 0.000 1.34512</pose><geometry><box><size>0.35 0.35 2.0</size></box></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
-        <visual name="mcd_out_pylon_badge"><pose>67.607 235.032 1.700 0.000 0.000 1.34512</pose><geometry><box><size>0.3 0.05 0.3</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
+        <visual name="mcd_out_pylon"><pose>-213.856 118.665 1.000 0.000 0.000 2.69024</pose><geometry><box><size>0.35 0.35 2.0</size></box></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="mcd_out_pylon_badge"><pose>-213.944 118.485 1.700 0.000 0.000 2.69024</pose><geometry><box><size>0.3 0.05 0.3</size></box></geometry><material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.92 0.12 0.12 1</diffuse></material></visual>
 
         <!-- ===== (E) 國泰世華銀行門前設施 (Cathay United Bank Amenities: Street_photo8 實景) ===== -->
         <!-- 1. 無障礙雙層不銹鋼扶手斜坡道 (Barrier-free Ramp with Dual Railings: X: 262 ~ 274, Y: -13.8) -->
-        <collision name="cathay_ramp_col"><pose>73.420 258.116 0.180 0.000 0.000 1.34512</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry></collision>
-        <visual name="cathay_ramp_deck"><pose>73.420 258.116 0.180 0.000 0.000 1.34512</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry><material><ambient>0.7 0.7 0.72 1</ambient><diffuse>0.75 0.75 0.78 1</diffuse></material></visual>
+        <collision name="cathay_ramp_col"><pose>-235.142 129.316 0.180 0.000 0.000 2.69024</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry></collision>
+        <visual name="cathay_ramp_deck"><pose>-235.142 129.316 0.180 0.000 0.000 2.69024</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry><material><ambient>0.7 0.7 0.72 1</ambient><diffuse>0.75 0.75 0.78 1</diffuse></material></visual>
         <!-- 上下雙層不銹鋼護欄 (Upper & Lower Handrails) -->
-        <visual name="cathay_rail_top"><pose>72.640 258.295 0.850 0.000 1.571 1.34512</pose><geometry><cylinder><radius>0.025</radius><length>12.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cathay_rail_mid"><pose>72.640 258.295 0.650 0.000 1.571 1.34512</pose><geometry><cylinder><radius>0.02</radius><length>12.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cathay_rail_post1"><pose>71.342 252.642 0.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cathay_rail_post2"><pose>72.193 256.346 0.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cathay_rail_post3"><pose>73.088 260.244 0.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
-        <visual name="cathay_rail_post4"><pose>73.938 263.948 0.500 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cathay_rail_top"><pose>-235.491 128.596 0.850 0.000 1.571 2.69024</pose><geometry><cylinder><radius>0.025</radius><length>12.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cathay_rail_mid"><pose>-235.491 128.596 0.650 0.000 1.571 2.69024</pose><geometry><cylinder><radius>0.02</radius><length>12.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cathay_rail_post1"><pose>-230.272 126.066 0.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cathay_rail_post2"><pose>-233.691 127.724 0.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cathay_rail_post3"><pose>-237.290 129.469 0.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+        <visual name="cathay_rail_post4"><pose>-240.710 131.126 0.500 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.025</radius><length>0.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
 
         <!-- 2. 國泰世華景觀石造花台與常綠灌木叢 (Stone Planter Bed with Evergreen Shrubs) -->
-        <visual name="cathay_planter"><pose>72.756 262.373 0.300 0.000 0.000 1.34512</pose><geometry><box><size>9.0 1.2 0.45</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="cathay_shrubs"><pose>72.756 262.373 0.650 0.000 0.000 1.34512</pose><geometry><box><size>8.6 0.9 0.35</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.18 0.55 0.22 1</diffuse></material></visual>
+        <visual name="cathay_planter"><pose>-239.439 129.622 0.300 0.000 0.000 2.69024</pose><geometry><box><size>9.0 1.2 0.45</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <visual name="cathay_shrubs"><pose>-239.439 129.622 0.650 0.000 0.000 2.69024</pose><geometry><box><size>8.6 0.9 0.35</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.18 0.55 0.22 1</diffuse></material></visual>
 
         <!-- 3. 國泰世華銀行專屬「請勿停車」金屬拒馬 (Street_photo8 實景：深色框黃綠字 2 座) -->
-        <visual name="cathay_barrier_1"><pose>68.648 248.952 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.5 0.4 0.85</size></box></geometry><material><ambient>0.15 0.15 0.18 1</ambient><diffuse>0.2 0.2 0.22 1</diffuse></material></visual>
-        <visual name="cathay_barrier_1_board"><pose>68.648 248.952 0.500 0.000 0.000 1.34512</pose><geometry><box><size>1.3 0.05 0.45</size></box></geometry><material><ambient>0.1 0.45 0.2 1</ambient><diffuse>0.15 0.55 0.25 1</diffuse></material></visual>
-        <visual name="cathay_barrier_2"><pose>69.991 254.799 0.450 0.000 0.000 1.34512</pose><geometry><box><size>1.5 0.4 0.85</size></box></geometry><material><ambient>0.15 0.15 0.18 1</ambient><diffuse>0.2 0.2 0.22 1</diffuse></material></visual>
-        <visual name="cathay_barrier_2_board"><pose>69.991 254.799 0.500 0.000 0.000 1.34512</pose><geometry><box><size>1.3 0.05 0.45</size></box></geometry><material><ambient>0.1 0.45 0.2 1</ambient><diffuse>0.15 0.55 0.25 1</diffuse></material></visual>
+        <visual name="cathay_barrier_1"><pose>-227.278 122.615 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.5 0.4 0.85</size></box></geometry><material><ambient>0.15 0.15 0.18 1</ambient><diffuse>0.2 0.2 0.22 1</diffuse></material></visual>
+        <visual name="cathay_barrier_1_board"><pose>-227.278 122.615 0.500 0.000 0.000 2.69024</pose><geometry><box><size>1.3 0.05 0.45</size></box></geometry><material><ambient>0.1 0.45 0.2 1</ambient><diffuse>0.15 0.55 0.25 1</diffuse></material></visual>
+        <visual name="cathay_barrier_2"><pose>-232.676 125.232 0.450 0.000 0.000 2.69024</pose><geometry><box><size>1.5 0.4 0.85</size></box></geometry><material><ambient>0.15 0.15 0.18 1</ambient><diffuse>0.2 0.2 0.22 1</diffuse></material></visual>
+        <visual name="cathay_barrier_2_board"><pose>-232.676 125.232 0.500 0.000 0.000 2.69024</pose><geometry><box><size>1.3 0.05 0.45</size></box></geometry><material><ambient>0.1 0.45 0.2 1</ambient><diffuse>0.15 0.55 0.25 1</diffuse></material></visual>
         <!-- 交通警示三角錐 (Traffic Cones: 亮橘白圈 Street_photo8 實景) -->
-        <visual name="cone_c1"><pose>70.586 251.585 0.350 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.15</radius><length>0.7</length></cylinder></geometry><material><ambient>0.95 0.35 0.05 1</ambient><diffuse>0.98 0.4 0.05 1</diffuse></material></visual>
-        <visual name="cone_c2"><pose>73.831 265.717 0.350 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.15</radius><length>0.7</length></cylinder></geometry><material><ambient>0.95 0.35 0.05 1</ambient><diffuse>0.98 0.4 0.05 1</diffuse></material></visual>
+        <visual name="cone_c1"><pose>-229.411 125.093 0.350 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.15</radius><length>0.7</length></cylinder></geometry><material><ambient>0.95 0.35 0.05 1</ambient><diffuse>0.98 0.4 0.05 1</diffuse></material></visual>
+        <visual name="cone_c2"><pose>-242.458 131.418 0.350 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.15</radius><length>0.7</length></cylinder></geometry><material><ambient>0.95 0.35 0.05 1</ambient><diffuse>0.98 0.4 0.05 1</diffuse></material></visual>
 
         <!-- ===== (F) 康是美門前特有粉紅開花樹 (Cosmed Pink Flowering Tree: Street_photo7,8 實景) ===== -->
         <!-- 臨關新路最吸睛指標：康是美正前方洋紅風鈴木/櫻花盛開景觀樹 (X=293, Y=-10.0) -->
-        <collision name="pink_tree_trunk_col"><pose>75.310 283.333 2.000 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.18</radius><length>4.0</length></cylinder></geometry></collision>
-        <visual name="pink_tree_trunk"><pose>75.310 283.333 2.000 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.18</radius><length>4.0</length></cylinder></geometry><material><ambient>0.3 0.22 0.16 1</ambient><diffuse>0.38 0.28 0.20 1</diffuse></material></visual>
-        <visual name="pink_tree_grate"><pose>75.310 283.333 0.185 0.000 0.000 1.34512</pose><geometry><box><size>1.6 1.6 0.02</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <collision name="pink_tree_trunk_col"><pose>-259.296 136.801 2.000 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.18</radius><length>4.0</length></cylinder></geometry></collision>
+        <visual name="pink_tree_trunk"><pose>-259.296 136.801 2.000 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.18</radius><length>4.0</length></cylinder></geometry><material><ambient>0.3 0.22 0.16 1</ambient><diffuse>0.38 0.28 0.20 1</diffuse></material></visual>
+        <visual name="pink_tree_grate"><pose>-259.296 136.801 0.185 0.000 0.000 2.69024</pose><geometry><box><size>1.6 1.6 0.02</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
         <!-- 盛開粉紅/桃紅色花冠球體叢 (Pink Blossom Spheres) -->
-        <visual name="pink_blossom_main"><pose>75.310 283.333 4.800 0.000 0.000 1.34512</pose><geometry><sphere><radius>2.2</radius></sphere></geometry><material><ambient>0.92 0.35 0.65 1</ambient><diffuse>0.98 0.45 0.72 1</diffuse></material></visual>
-        <visual name="pink_blossom_sub1"><pose>74.949 284.441 5.400 0.000 0.000 1.34512</pose><geometry><sphere><radius>1.5</radius></sphere></geometry><material><ambient>0.95 0.4 0.7 1</ambient><diffuse>0.98 0.5 0.75 1</diffuse></material></visual>
-        <visual name="pink_blossom_sub2"><pose>75.716 282.419 5.100 0.000 0.000 1.34512</pose><geometry><sphere><radius>1.6</radius></sphere></geometry><material><ambient>0.90 0.32 0.62 1</ambient><diffuse>0.95 0.42 0.68 1</diffuse></material></visual>
+        <visual name="pink_blossom_main"><pose>-259.296 136.801 4.800 0.000 0.000 2.69024</pose><geometry><sphere><radius>2.2</radius></sphere></geometry><material><ambient>0.92 0.35 0.65 1</ambient><diffuse>0.98 0.45 0.72 1</diffuse></material></visual>
+        <visual name="pink_blossom_sub1"><pose>-260.457 136.697 5.400 0.000 0.000 2.69024</pose><geometry><sphere><radius>1.5</radius></sphere></geometry><material><ambient>0.95 0.4 0.7 1</ambient><diffuse>0.98 0.5 0.75 1</diffuse></material></visual>
+        <visual name="pink_blossom_sub2"><pose>-258.315 136.992 5.100 0.000 0.000 2.69024</pose><geometry><sphere><radius>1.6</radius></sphere></geometry><material><ambient>0.90 0.32 0.62 1</ambient><diffuse>0.95 0.42 0.68 1</diffuse></material></visual>
         <!-- 康是美活動立旗 (Teardrop Banners) -->
-        <visual name="cosmed_flag1"><pose>78.162 280.113 1.400 0.000 0.000 1.34512</pose><geometry><box><size>0.4 0.1 2.2</size></box></geometry><material><ambient>0.95 0.4 0.05 1</ambient><diffuse>0.98 0.45 0.05 1</diffuse></material></visual>
-        <visual name="cosmed_flag2"><pose>81.071 292.783 1.400 0.000 0.000 1.34512</pose><geometry><box><size>0.4 0.1 2.2</size></box></geometry><material><ambient>0.95 0.4 0.05 1</ambient><diffuse>0.98 0.45 0.05 1</diffuse></material></visual>
+        <visual name="cosmed_flag1"><pose>-255.520 138.860 1.400 0.000 0.000 2.69024</pose><geometry><box><size>0.4 0.1 2.2</size></box></geometry><material><ambient>0.95 0.4 0.05 1</ambient><diffuse>0.98 0.45 0.05 1</diffuse></material></visual>
+        <visual name="cosmed_flag2"><pose>-267.218 144.531 1.400 0.000 0.000 2.69024</pose><geometry><box><size>0.4 0.1 2.2</size></box></geometry><material><ambient>0.95 0.4 0.05 1</ambient><diffuse>0.98 0.45 0.05 1</diffuse></material></visual>
 
         <!-- ===== (G) 星巴克戶外露天雅座區 (Starbucks Patio, Umbrellas & Planters: Street_photo1,2 實景) ===== -->
         <!-- 戶外木質/紅磚露台圍欄與花槽 (Patio Planter Perimeter Railing: X: 312 ~ 326, Y: -9.5) -->
-        <collision name="sbux_fence_col"><pose>80.641 308.785 0.550 0.000 0.000 1.34512</pose><geometry><box><size>14.0 0.4 0.9</size></box></geometry></collision>
-        <visual name="sbux_fence_wood"><pose>80.641 308.785 0.500 0.000 0.000 1.34512</pose><geometry><box><size>14.0 0.35 0.8</size></box></geometry><material><ambient>0.28 0.18 0.1 1</ambient><diffuse>0.35 0.22 0.14 1</diffuse></material></visual>
-        <visual name="sbux_fence_hedges"><pose>80.641 308.785 0.950 0.000 0.000 1.34512</pose><geometry><box><size>13.8 0.4 0.3</size></box></geometry><material><ambient>0.15 0.45 0.15 1</ambient><diffuse>0.2 0.55 0.2 1</diffuse></material></visual>
+        <collision name="sbux_fence_col"><pose>-282.910 147.692 0.550 0.000 0.000 2.69024</pose><geometry><box><size>14.0 0.4 0.9</size></box></geometry></collision>
+        <visual name="sbux_fence_wood"><pose>-282.910 147.692 0.500 0.000 0.000 2.69024</pose><geometry><box><size>14.0 0.35 0.8</size></box></geometry><material><ambient>0.28 0.18 0.1 1</ambient><diffuse>0.35 0.22 0.14 1</diffuse></material></visual>
+        <visual name="sbux_fence_hedges"><pose>-282.910 147.692 0.950 0.000 0.000 2.69024</pose><geometry><box><size>13.8 0.4 0.3</size></box></geometry><material><ambient>0.15 0.45 0.15 1</ambient><diffuse>0.2 0.55 0.2 1</diffuse></material></visual>
         <!-- 星巴克戶外經典墨綠色遮陽傘與咖啡圓桌 (4 Sets of Outdoor Tables & Starbucks Green Umbrellas) -->
-        <visual name="sbux_table_1"><pose>81.583 303.952 0.420 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_pole_1"><pose>81.583 303.952 1.250 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_canopy_1"><pose>81.583 303.952 2.350 0.000 0.000 1.34512</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
-        <visual name="sbux_table_2"><pose>82.367 307.363 0.420 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_pole_2"><pose>82.367 307.363 1.250 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_canopy_2"><pose>82.367 307.363 2.350 0.000 0.000 1.34512</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
-        <visual name="sbux_table_3"><pose>83.150 310.774 0.420 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_pole_3"><pose>83.150 310.774 1.250 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_canopy_3"><pose>83.150 310.774 2.350 0.000 0.000 1.34512</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
-        <visual name="sbux_table_4"><pose>83.821 313.698 0.420 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_pole_4"><pose>83.821 313.698 1.250 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
-        <visual name="sbux_umbrella_canopy_4"><pose>83.821 313.698 2.350 0.000 0.000 1.34512</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
+        <visual name="sbux_table_1"><pose>-277.989 147.529 0.420 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_pole_1"><pose>-277.989 147.529 1.250 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_canopy_1"><pose>-277.989 147.529 2.350 0.000 0.000 2.69024</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
+        <visual name="sbux_table_2"><pose>-281.138 149.056 0.420 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_pole_2"><pose>-281.138 149.056 1.250 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_canopy_2"><pose>-281.138 149.056 2.350 0.000 0.000 2.69024</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
+        <visual name="sbux_table_3"><pose>-284.287 150.583 0.420 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_pole_3"><pose>-284.287 150.583 1.250 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_canopy_3"><pose>-284.287 150.583 2.350 0.000 0.000 2.69024</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
+        <visual name="sbux_table_4"><pose>-286.987 151.891 0.420 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.45</radius><length>0.75</length></cylinder></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_pole_4"><pose>-286.987 151.891 1.250 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.03</radius><length>2.5</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
+        <visual name="sbux_umbrella_canopy_4"><pose>-286.987 151.891 2.350 0.000 0.000 2.69024</pose><geometry><cylinder><radius>1.1</radius><length>0.35</length></cylinder></geometry><material><ambient>0.05 0.32 0.16 1</ambient><diffuse>0.08 0.40 0.20 1</diffuse></material></visual>
 
         <!-- ===== (H) 關新二街路口轉角街道家具 (Intersection Infrastructure: Street_photo1,2 實景) ===== -->
         <!-- 1. 地上式紅色消防栓 (Fire Hydrant: X=329.0, Y=-9.2) -->
-        <collision name="hydrant_col"><pose>82.586 318.599 0.400 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.16</radius><length>0.8</length></cylinder></geometry></collision>
-        <visual name="hydrant_body"><pose>82.586 318.599 0.400 0.000 0.000 1.34512</pose><geometry><cylinder><radius>0.15</radius><length>0.8</length></cylinder></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse></material></visual>
-        <visual name="hydrant_cap"><pose>82.586 318.599 0.820 0.000 0.000 1.34512</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse></material></visual>
-        <visual name="hydrant_nozzle"><pose>82.440 318.632 0.500 1.571 0.000 1.34512</pose><geometry><cylinder><radius>0.08</radius><length>0.35</length></cylinder></geometry><material><ambient>0.8 0.8 0.1 1</ambient><diffuse>0.85 0.85 0.1 1</diffuse></material></visual>
+        <collision name="hydrant_col"><pose>-292.040 151.784 0.400 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.16</radius><length>0.8</length></cylinder></geometry></collision>
+        <visual name="hydrant_body"><pose>-292.040 151.784 0.400 0.000 0.000 2.69024</pose><geometry><cylinder><radius>0.15</radius><length>0.8</length></cylinder></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse></material></visual>
+        <visual name="hydrant_cap"><pose>-292.040 151.784 0.820 0.000 0.000 2.69024</pose><geometry><sphere><radius>0.16</radius></sphere></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse></material></visual>
+        <visual name="hydrant_nozzle"><pose>-292.105 151.649 0.500 1.571 0.000 2.69024</pose><geometry><cylinder><radius>0.08</radius><length>0.35</length></cylinder></geometry><material><ambient>0.8 0.8 0.1 1</ambient><diffuse>0.85 0.85 0.1 1</diffuse></material></visual>
 
         <!-- 2. 銀灰色交通號誌控制機箱 (Traffic Signal Controller Cabinet: X=329.8, Y=-10.2) -->
-        <collision name="signal_cab_col"><pose>83.740 319.155 0.650 0.000 0.000 1.34512</pose><geometry><box><size>0.6 0.5 1.1</size></box></geometry></collision>
-        <visual name="signal_cab_base"><pose>83.740 319.155 0.100 0.000 0.000 1.34512</pose><geometry><box><size>0.65 0.55 0.2</size></box></geometry><material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
-        <visual name="signal_cab_body"><pose>83.740 319.155 0.700 0.000 0.000 1.34512</pose><geometry><box><size>0.58 0.48 1.0</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
+        <collision name="signal_cab_col"><pose>-292.324 153.033 0.650 0.000 0.000 2.69024</pose><geometry><box><size>0.6 0.5 1.1</size></box></geometry></collision>
+        <visual name="signal_cab_base"><pose>-292.324 153.033 0.100 0.000 0.000 2.69024</pose><geometry><box><size>0.65 0.55 0.2</size></box></geometry><material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+        <visual name="signal_cab_body"><pose>-292.324 153.033 0.700 0.000 0.000 2.69024</pose><geometry><box><size>0.58 0.48 1.0</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
 
         <!-- 3. 台電深綠色配電變壓器箱 (Taipower Transformer Box: X=304.0, Y=-9.6) -->
-        <collision name="taipower_col"><pose>77.382 294.143 0.650 0.000 0.000 1.34512</pose><geometry><box><size>1.2 0.7 1.3</size></box></geometry></collision>
-        <visual name="taipower_base"><pose>77.382 294.143 0.100 0.000 0.000 1.34512</pose><geometry><box><size>1.25 0.75 0.2</size></box></geometry><material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
-        <visual name="taipower_body"><pose>77.382 294.143 0.750 0.000 0.000 1.34512</pose><geometry><box><size>1.18 0.68 1.1</size></box></geometry><material><ambient>0.12 0.32 0.16 1</ambient><diffuse>0.15 0.38 0.20 1</diffuse></material></visual>
-        <visual name="taipower_flash"><pose>77.031 294.224 0.900 0.000 0.000 1.34512</pose><geometry><box><size>0.2 0.02 0.2</size></box></geometry><material><ambient>0.9 0.85 0.05 1</ambient><diffuse>0.95 0.9 0.05 1</diffuse></material></visual>
+        <collision name="taipower_col"><pose>-269.369 141.240 0.650 0.000 0.000 2.69024</pose><geometry><box><size>1.2 0.7 1.3</size></box></geometry></collision>
+        <visual name="taipower_base"><pose>-269.369 141.240 0.100 0.000 0.000 2.69024</pose><geometry><box><size>1.25 0.75 0.2</size></box></geometry><material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+        <visual name="taipower_body"><pose>-269.369 141.240 0.750 0.000 0.000 2.69024</pose><geometry><box><size>1.18 0.68 1.1</size></box></geometry><material><ambient>0.12 0.32 0.16 1</ambient><diffuse>0.15 0.38 0.20 1</diffuse></material></visual>
+        <visual name="taipower_flash"><pose>-269.526 140.916 0.900 0.000 0.000 2.69024</pose><geometry><box><size>0.2 0.02 0.2</size></box></geometry><material><ambient>0.9 0.85 0.05 1</ambient><diffuse>0.95 0.9 0.05 1</diffuse></material></visual>
 
         <!-- ===== (I) 藍色機車停車專區與停放機車格 (Blue Scooter Parking Bays & Parked Scooters) ===== -->
         <!-- 依據 Street_photo2 & 11 實景：鋪設醒目天藍色底漆 (Blue Ground) 與白色停車格線 -->
         <!-- 區域1: 寶雅門前機車停放專區 (X: 156 ~ 170, Y: -10.0) -->
-        <visual name="blue_bay_poya"><pose>46.221 156.629 0.185 0.000 0.000 1.34512</pose><geometry><box><size>14.0 2.2 0.005</size></box></geometry><material><ambient>0.08 0.45 0.82 1</ambient><diffuse>0.1 0.52 0.92 1</diffuse></material></visual>
+        <visual name="blue_bay_poya"><pose>-142.314 80.097 0.185 0.000 0.000 2.69024</pose><geometry><box><size>14.0 2.2 0.005</size></box></geometry><material><ambient>0.08 0.45 0.82 1</ambient><diffuse>0.1 0.52 0.92 1</diffuse></material></visual>
         <!-- 區域2: 星巴克旁機車停放專區 (X: 320 ~ 328, Y: -7.5) -->
-        <visual name="blue_bay_sbux"><pose>79.811 314.106 0.025 0.000 0.000 1.34512</pose><geometry><box><size>8.0 2.4 0.005</size></box></geometry><material><ambient>0.08 0.45 0.82 1</ambient><diffuse>0.1 0.52 0.92 1</diffuse></material></visual>
+        <visual name="blue_bay_sbux"><pose>-288.282 148.074 0.025 0.000 0.000 2.69024</pose><geometry><box><size>8.0 2.4 0.005</size></box></geometry><material><ambient>0.08 0.45 0.82 1</ambient><diffuse>0.1 0.52 0.92 1</diffuse></material></visual>
       </link>
     </model>
 
@@ -381,149 +395,149 @@
     <include>
       <name>scooter_poya_1</name>
       <uri>model://parked_scooter</uri>
-      <pose>45.102 151.756 0.180 0.000 0.000 2.91512</pose>
+      <pose>-137.815 77.916 0.180 0.000 0.000 4.26024</pose>
     </include>
     <include>
       <name>scooter_poya_2</name>
       <uri>model://parked_scooter</uri>
-      <pose>45.370 152.925 0.180 0.000 0.000 2.91512</pose>
+      <pose>-138.895 78.439 0.180 0.000 0.000 4.26024</pose>
     </include>
     <include>
       <name>scooter_poya_3</name>
       <uri>model://parked_scooter</uri>
-      <pose>45.639 154.095 0.180 0.000 0.000 2.96512</pose>
+      <pose>-139.975 78.963 0.180 0.000 0.000 4.31024</pose>
     </include>
     <include>
       <name>scooter_poya_4</name>
       <uri>model://parked_scooter</uri>
-      <pose>45.907 155.265 0.180 0.000 0.000 2.89512</pose>
+      <pose>-141.055 79.486 0.180 0.000 0.000 4.24024</pose>
     </include>
     <include>
       <name>scooter_poya_5</name>
       <uri>model://parked_scooter</uri>
-      <pose>46.221 156.629 0.180 0.000 0.000 2.91512</pose>
+      <pose>-142.314 80.097 0.180 0.000 0.000 4.26024</pose>
     </include>
     <include>
       <name>scooter_poya_6</name>
       <uri>model://parked_scooter</uri>
-      <pose>46.489 157.799 0.180 0.000 0.000 2.86512</pose>
+      <pose>-143.395 80.621 0.180 0.000 0.000 4.21024</pose>
     </include>
     <include>
       <name>scooter_poya_7</name>
       <uri>model://parked_scooter</uri>
-      <pose>46.780 159.066 0.180 0.000 0.000 2.91512</pose>
+      <pose>-144.565 81.188 0.180 0.000 0.000 4.26024</pose>
     </include>
     <include>
       <name>scooter_poya_8</name>
       <uri>model://parked_scooter</uri>
-      <pose>47.071 160.333 0.180 0.000 0.000 2.94512</pose>
+      <pose>-145.734 81.755 0.180 0.000 0.000 4.29024</pose>
     </include>
     <include>
       <name>scooter_sbux_1</name>
       <uri>model://parked_scooter</uri>
-      <pose>79.251 311.669 0.020 0.000 0.000 2.91512</pose>
+      <pose>-286.032 146.983 0.020 0.000 0.000 4.26024</pose>
     </include>
     <include>
       <name>scooter_sbux_2</name>
       <uri>model://parked_scooter</uri>
-      <pose>79.587 313.131 0.020 0.000 0.000 2.91512</pose>
+      <pose>-287.382 147.638 0.020 0.000 0.000 4.26024</pose>
     </include>
     <include>
       <name>scooter_sbux_3</name>
       <uri>model://parked_scooter</uri>
-      <pose>79.923 314.593 0.020 0.000 0.000 2.96512</pose>
+      <pose>-288.731 148.292 0.020 0.000 0.000 4.31024</pose>
     </include>
     <include>
       <name>scooter_sbux_4</name>
       <uri>model://parked_scooter</uri>
-      <pose>80.258 316.055 0.020 0.000 0.000 2.89512</pose>
+      <pose>-290.081 148.946 0.020 0.000 0.000 4.24024</pose>
     </include>
 
     <!-- ==================== 關新路行道樹群 (Lush Street Trees) ==================== -->
     <include>
       <name>tree_e_1</name>
       <uri>model://street_tree</uri>
-      <pose>32.376 97.221 0.20 0 0 1.34512</pose>
+      <pose>16.796 29.362 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_2</name>
       <uri>model://street_tree</uri>
-      <pose>36.404 114.764 0.20 0 0 1.34512</pose>
+      <pose>17.698 33.288 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_3</name>
       <uri>model://street_tree</uri>
-      <pose>40.431 132.308 0.20 0 0 1.34512</pose>
+      <pose>18.599 37.213 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_4</name>
       <uri>model://street_tree</uri>
-      <pose>44.012 147.902 0.20 0 0 1.34512</pose>
+      <pose>19.400 40.703 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_5</name>
       <uri>model://street_tree</uri>
-      <pose>49.382 171.293 0.20 0 0 1.34512</pose>
+      <pose>20.602 45.937 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_6</name>
       <uri>model://street_tree</uri>
-      <pose>56.990 204.431 0.20 0 0 1.34512</pose>
+      <pose>22.304 53.352 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_7</name>
       <uri>model://street_tree</uri>
-      <pose>62.361 227.823 0.20 0 0 1.34512</pose>
+      <pose>23.506 58.587 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_8</name>
       <uri>model://street_tree</uri>
-      <pose>66.389 245.366 0.20 0 0 1.34512</pose>
+      <pose>24.407 62.513 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_9</name>
       <uri>model://street_tree</uri>
-      <pose>71.311 266.808 0.20 0 0 1.34512</pose>
+      <pose>25.509 67.310 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_10</name>
       <uri>model://street_tree</uri>
-      <pose>78.472 297.997 0.20 0 0 1.34512</pose>
+      <pose>27.111 74.289 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_e_11</name>
       <uri>model://street_tree</uri>
-      <pose>82.500 315.541 0.20 0 0 1.34512</pose>
+      <pose>28.012 78.215 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_w_1</name>
       <uri>model://street_tree</uri>
-      <pose>15.063 109.404 0.20 0 0 1.34512</pose>
+      <pose>-6.181 16.874 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_w_2</name>
       <uri>model://street_tree</uri>
-      <pose>21.776 138.643 0.20 0 0 1.34512</pose>
+      <pose>-4.679 23.417 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_w_3</name>
       <uri>model://street_tree</uri>
-      <pose>30.727 177.629 0.20 0 0 1.34512</pose>
+      <pose>-2.676 32.141 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_w_4</name>
       <uri>model://street_tree</uri>
-      <pose>39.677 216.614 0.20 0 0 1.34512</pose>
+      <pose>-0.673 40.864 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_w_5</name>
       <uri>model://street_tree</uri>
-      <pose>48.628 255.600 0.20 0 0 1.34512</pose>
+      <pose>1.330 49.588 0.20 0 0 1.34512</pose>
     </include>
     <include>
       <name>tree_w_6</name>
       <uri>model://street_tree</uri>
-      <pose>57.579 294.586 0.20 0 0 1.34512</pose>
+      <pose>3.333 58.312 0.20 0 0 1.34512</pose>
     </include>
 
     <!-- ==================== 關新二街路口大型懸臂號誌桿 (Traffic Signal Mast Arm: Street_photo1,2 實景) ==================== -->
@@ -538,7 +552,7 @@
       <pose>69.060 343.251 0.20 0 0 -0.22568</pose>
     </include>
 
-        <!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ==================== -->
+            <!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ==================== -->
     <!-- 關新路西側: 北歐三小國(丹麥/芬蘭/挪威)、月影國際會館(18F)、橘時咖啡(2F)、東京中城(24F)、富宇君鼎(24F) | 東側: 關埔國小 -->
 
     <!-- 1. 昌益丹麥 / 芬蘭 / 挪威現代住宅社區 (15層樓, 48m, 東西橫向雙排 + 中央110m公園 + 雙道路對齊關新一街 + 外側複製棟) -->
