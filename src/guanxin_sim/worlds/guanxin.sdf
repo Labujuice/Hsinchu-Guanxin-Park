@@ -722,6 +722,44 @@
       <pose>120.089 388.992 0.10 0 0 2.91591</pose>
     </include>
 
+    <!-- ==================== Phase 5: 核心連鎖商圈與特色 POI 組合技建模 ==================== -->
+    <!-- 涵蓋: 7-ELEVEN 關新門市、全聯福利中心、鼎盛十里鍋物旗艦店、智慧地面收費停車場、昌益一品大觀豪宅 -->
+
+    <!-- 1. 7-ELEVEN 統一超商關新門市 (關新路與關新北路口, 經典三色帶招牌, 7m 雙面立式發光燈箱, 4000K 暖白室內穿透照明, ATM 專區) -->
+    <include>
+      <name>convenience_store_711</name>
+      <uri>model://convenience_store_711</uri>
+      <pose>126.904 463.353 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 2. 全聯福利中心新竹關新店 (雙層超市旗艦量體, 藍紅白企業橫幅看板, 自體發光 PX MART 招牌, 落地採光櫥窗, 物流高架裝卸貨月台與手推車收納棚) -->
+    <include>
+      <name>px_mart_store</name>
+      <uri>model://px_mart_store</uri>
+      <pose>140.872 506.316 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 3. 鼎盛十里鍋物新竹旗艦店 (日式禪風黑木旗艦量體, 燒杉板碳化立面, 挑高實木迎賓大門, 雙座大型和風發光燈籠光雕, 黑色鏡面迎賓水景池與花崗石步道, 庭園黑松) -->
+    <include>
+      <name>dingsheng_shili_restaurant</name>
+      <uri>model://dingsheng_shili_restaurant</uri>
+      <pose>231.542 373.919 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 4. 關新智慧地面收費停車場 (實體瀝青基座, 18格標準車位標線, ALPR 車牌辨識鏡頭柱, 電動起落柵欄機, 剩餘車位指示牌, 自助繳費亭, 2座 7.5m 高桅桿 LED 投光燈, 停放車輛) -->
+    <include>
+      <name>paid_parking_lot</name>
+      <uri>model://paid_parking_lot</uri>
+      <pose>244.968 432.397 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 5. 昌益一品大觀豪宅 (雙塔 22 層高檔社區, 新古典崗石厚重基座, 4根羅馬愛奧尼克迎賓圓柱挑高車道大迴廊, 頂部冠頂框架) -->
+    <include>
+      <name>yipin_daguan_complex</name>
+      <uri>model://yipin_daguan_complex</uri>
+      <pose>260.736 492.135 0.0 0 0 1.34512</pose>
+    </include>
+
     <!-- ==================== 載入 Tesla Model Y 載具 (自駕與鍵盤操控車輛) ==================== -->
     <include>
       <name>model_y</name>

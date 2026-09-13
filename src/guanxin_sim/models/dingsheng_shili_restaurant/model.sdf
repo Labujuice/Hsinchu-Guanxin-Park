@@ -1,0 +1,162 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="dingsheng_shili_restaurant">
+    <static>true</static>
+    <link name="restaurant_link">
+
+      <!-- ==================== 物理碰撞剛體 (Decoupled Primitives) ==================== -->
+      <!-- 主量體剛體 (38m x 28m x 9.0m) -->
+      <collision name="main_body_col">
+        <pose>0 0 4.5 0 0 0</pose>
+        <geometry><box><size>38.0 28.0 9.0</size></box></geometry>
+      </collision>
+      <!-- 前方迎賓玄關雨遮剛體 -->
+      <collision name="porch_col">
+        <pose>0 15.5 2.5 0 0 0</pose>
+        <geometry><box><size>18.0 3.5 5.0</size></box></geometry>
+      </collision>
+      <!-- 景觀水池台基剛體 (防車輛掉入) -->
+      <collision name="pond_curb_col">
+        <pose>0 16.0 0.25 0 0 0</pose>
+        <geometry><box><size>28.0 4.5 0.5</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 建築主體：碳化黑木 (Shou Sugi Ban) 外牆與日式格柵 ==================== -->
+      <visual name="main_walls">
+        <pose>0 0 4.5 0 0 0</pose>
+        <geometry><box><size>38.0 28.0 9.0</size></box></geometry>
+        <material>
+          <ambient>0.15 0.14 0.14 1</ambient>
+          <diffuse>0.20 0.19 0.19 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 2樓水平木紋格柵外飾 (Horizontal Cedar Louvers) -->
+      <visual name="wood_louvers_front">
+        <pose>0 14.1 6.8 0 0 0</pose>
+        <geometry><box><size>36.0 0.15 3.6</size></box></geometry>
+        <material>
+          <ambient>0.42 0.28 0.16 1</ambient>
+          <diffuse>0.52 0.35 0.20 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 日式黑瓦出簷與斜坡歇山屋頂 (Hip Roof with Eaves) ==================== -->
+      <!-- 一樓出簷 (Lower Eave: 40m x 30m) -->
+      <visual name="lower_eave">
+        <pose>0 0 5.2 0 0 0</pose>
+        <geometry><box><size>40.0 30.0 0.4</size></box></geometry>
+        <material><ambient>0.18 0.18 0.20 1</ambient><diffuse>0.22 0.22 0.25 1</diffuse></material>
+      </visual>
+      <!-- 頂部黑瓦大斜坡屋頂主體 (Upper Roof) -->
+      <visual name="upper_roof">
+        <pose>0 0 9.5 0 0 0</pose>
+        <geometry><box><size>39.5 29.5 0.6</size></box></geometry>
+        <material><ambient>0.16 0.16 0.18 1</ambient><diffuse>0.20 0.20 0.22 1</diffuse></material>
+      </visual>
+      <!-- 歇山斜頂冠頂裝飾 (Roof Ridge Crest) -->
+      <visual name="roof_ridge">
+        <pose>0 0 10.2 0 0 0</pose>
+        <geometry><box><size>34.0 1.2 0.8</size></box></geometry>
+        <material><ambient>0.12 0.12 0.14 1</ambient><diffuse>0.15 0.15 0.17 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 挑高迎賓大門與黑木柱樑 (Grand Entrance Portico) ==================== -->
+      <!-- 挑高大門深凹玄關牆 (Recessed Entrance Alcove) -->
+      <visual name="porch_alcove">
+        <pose>0 13.5 2.5 0 0 0</pose>
+        <geometry><box><size>16.0 1.2 5.0</size></box></geometry>
+        <material><ambient>0.10 0.10 0.10 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+      </visual>
+      <!-- 迎賓挑高大門雨遮深瓦 (Portico Eave Roof) -->
+      <visual name="porch_roof">
+        <pose>0 15.6 5.0 0 0 0</pose>
+        <geometry><box><size>18.4 3.8 0.4</size></box></geometry>
+        <material><ambient>0.16 0.16 0.18 1</ambient><diffuse>0.20 0.20 0.22 1</diffuse></material>
+      </visual>
+      <!-- 實木大門橫樑 (Grand Timber Beam) -->
+      <visual name="porch_beam">
+        <pose>0 15.2 4.6 0 0 0</pose>
+        <geometry><box><size>17.6 0.5 0.6</size></box></geometry>
+        <material><ambient>0.28 0.18 0.10 1</ambient><diffuse>0.35 0.22 0.12 1</diffuse></material>
+      </visual>
+      <!-- 兩側實木支承重柱 (Timber Columns) -->
+      <visual name="porch_pillar_l"><pose>-8.2 15.2 2.3 0 0 0</pose><geometry><box><size>0.6 0.6 4.6</size></box></geometry><material><ambient>0.28 0.18 0.10 1</ambient><diffuse>0.35 0.22 0.12 1</diffuse></material></visual>
+      <visual name="porch_pillar_r"><pose>8.2 15.2 2.3 0 0 0</pose><geometry><box><size>0.6 0.6 4.6</size></box></geometry><material><ambient>0.28 0.18 0.10 1</ambient><diffuse>0.35 0.22 0.12 1</diffuse></material></visual>
+
+      <!-- ==================== 大型發光和風紅黑燈籠光雕 (Japanese Zen Lanterns) ==================== -->
+      <!-- 左右兩座大型特色懸掛紙燈籠 (Emissive Amber Lanterns: "鼎盛十里") -->
+      <visual name="lantern_l">
+        <pose>-4.5 15.1 3.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.65</radius><length>1.8</length></cylinder></geometry>
+        <material>
+          <ambient>0.95 0.70 0.15 1</ambient>
+          <diffuse>0.98 0.75 0.20 1</diffuse>
+          <emissive>0.85 0.55 0.15 1</emissive>
+        </material>
+      </visual>
+      <visual name="lantern_l_cap">
+        <pose>-4.5 15.1 4.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.72</radius><length>0.2</length></cylinder></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+      <visual name="lantern_r">
+        <pose>4.5 15.1 3.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.65</radius><length>1.8</length></cylinder></geometry>
+        <material>
+          <ambient>0.95 0.70 0.15 1</ambient>
+          <diffuse>0.98 0.75 0.20 1</diffuse>
+          <emissive>0.85 0.55 0.15 1</emissive>
+        </material>
+      </visual>
+      <visual name="lantern_r_cap">
+        <pose>4.5 15.1 4.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.72</radius><length>0.2</length></cylinder></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+
+      <!-- 鼎盛十里黃金立體書法招牌 (Golden Signboard) -->
+      <visual name="signboard_gold">
+        <pose>0 15.25 4.3 0 0 0</pose>
+        <geometry><box><size>5.2 0.08 0.9</size></box></geometry>
+        <material>
+          <ambient>0.85 0.70 0.15 1</ambient>
+          <diffuse>0.95 0.80 0.18 1</diffuse>
+          <emissive>0.6 0.45 0.1 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 景觀鏡面水池與花崗石步道 (Zen Reflective Pool & Stepping Stones) ==================== -->
+      <!-- 黑色石材水池池體 (Pool Basin: 26m x 4.0m) -->
+      <visual name="pool_basin">
+        <pose>0 16.5 0.15 0 0 0</pose>
+        <geometry><box><size>26.0 4.0 0.3</size></box></geometry>
+        <material><ambient>0.12 0.12 0.13 1</ambient><diffuse>0.16 0.16 0.18 1</diffuse></material>
+      </visual>
+      <!-- 平靜倒影鏡面水層 (Mirror Water Surface) -->
+      <visual name="water_surface">
+        <pose>0 16.5 0.28 0 0 0</pose>
+        <geometry><box><size>25.4 3.6 0.02</size></box></geometry>
+        <material>
+          <ambient>0.15 0.25 0.32 0.9</ambient>
+          <diffuse>0.20 0.35 0.45 0.9</diffuse>
+        </material>
+      </visual>
+      <!-- 中央花崗石跨水迎賓步道 (Granite Stepping Bridge) -->
+      <visual name="granite_bridge">
+        <pose>0 16.5 0.32 0 0 0</pose>
+        <geometry><box><size>4.5 4.2 0.08</size></box></geometry>
+        <material><ambient>0.65 0.65 0.68 1</ambient><diffuse>0.72 0.72 0.75 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 庭園日式黑松與石雕造景 (Black Pines & Stone Lanterns) ==================== -->
+      <visual name="pine_trunk_l"><pose>-10.5 16.5 1.5 0.1 0.1 0</pose><geometry><cylinder><radius>0.18</radius><length>2.8</length></cylinder></geometry><material><ambient>0.3 0.22 0.16 1</ambient><diffuse>0.38 0.28 0.20 1</diffuse></material></visual>
+      <visual name="pine_foliage_l1"><pose>-10.5 16.5 2.8 0 0 0</pose><geometry><sphere><radius>1.4</radius></sphere></geometry><material><ambient>0.10 0.35 0.15 1</ambient><diffuse>0.12 0.42 0.18 1</diffuse></material></visual>
+      <visual name="pine_foliage_l2"><pose>-9.6 16.2 3.4 0 0 0</pose><geometry><sphere><radius>1.0</radius></sphere></geometry><material><ambient>0.10 0.35 0.15 1</ambient><diffuse>0.12 0.42 0.18 1</diffuse></material></visual>
+
+      <visual name="pine_trunk_r"><pose>10.5 16.5 1.5 -0.1 0.1 0</pose><geometry><cylinder><radius>0.18</radius><length>2.8</length></cylinder></geometry><material><ambient>0.3 0.22 0.16 1</ambient><diffuse>0.38 0.28 0.20 1</diffuse></material></visual>
+      <visual name="pine_foliage_r1"><pose>10.5 16.5 2.8 0 0 0</pose><geometry><sphere><radius>1.4</radius></sphere></geometry><material><ambient>0.10 0.35 0.15 1</ambient><diffuse>0.12 0.42 0.18 1</diffuse></material></visual>
+      <visual name="pine_foliage_r2"><pose>9.6 16.2 3.4 0 0 0</pose><geometry><sphere><radius>1.0</radius></sphere></geometry><material><ambient>0.10 0.35 0.15 1</ambient><diffuse>0.12 0.42 0.18 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>
