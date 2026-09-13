@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="moon_shadow_building">
+    <static>true</static>
+    <link name="moon_shadow_link">
+
+      <!-- Collisions -->
+      <collision name="podium_col">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>74.0 32.0 8.0</size></box></geometry>
+      </collision>
+      <collision name="tower_col">
+        <pose>0 0 33.0 0 0 0</pose>
+        <geometry><box><size>70.0 28.0 50.0</size></box></geometry>
+      </collision>
+
+      <!-- 1F~2F 崗石大廳基座與商鋪 (Luxury Stone Podium) -->
+      <visual name="podium_vis">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>74.0 32.0 8.0</size></box></geometry>
+        <material>
+          <ambient>0.78 0.76 0.72 1</ambient>
+          <diffuse>0.84 0.82 0.78 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 1F 挑高深凹連續騎樓 (Arcade facing Guanxin Rd: Y = +16m) -->
+      <visual name="arcade_floor">
+        <pose>0 14.2 0.08 0 0 0</pose>
+        <geometry><box><size>72.0 3.6 0.02</size></box></geometry>
+        <material><ambient>0.65 0.62 0.60 1</ambient><diffuse>0.72 0.70 0.68 1</diffuse></material>
+      </visual>
+      <visual name="arcade_ceiling">
+        <pose>0 14.2 4.2 0 0 0</pose>
+        <geometry><box><size>72.0 3.6 0.25</size></box></geometry>
+        <material><ambient>0.28 0.28 0.30 1</ambient><diffuse>0.32 0.32 0.35 1</diffuse></material>
+      </visual>
+
+      <!-- 騎樓結構大圓柱列 (沿關新路: 6 根大圓柱) -->
+      <visual name="col_1"><pose>-30.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="col_2"><pose>-18.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="col_3"><pose>-6.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="col_4"><pose>6.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="col_5"><pose>18.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="col_6"><pose>30.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.4</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+
+      <!-- 挑高迎賓大廳正門 (Grand Lobby Entrance Portal) -->
+      <visual name="lobby_glass">
+        <pose>0 12.4 3.0 0 0 0</pose>
+        <geometry><box><size>70.0 0.1 5.8</size></box></geometry>
+        <material><ambient>0.15 0.25 0.35 0.85</ambient><diffuse>0.20 0.35 0.45 0.85</diffuse><specular>0.9 0.95 1 1</specular></material>
+      </visual>
+      <!-- 金色社區標誌牌「月影國際會館 MOON SHADOW」 -->
+      <visual name="sign_board">
+        <pose>0 16.1 4.5 0 0 0</pose>
+        <geometry><box><size>18.0 0.2 0.9</size></box></geometry>
+        <material><ambient>0.2 0.2 0.22 1</ambient><diffuse>0.25 0.25 0.28 1</diffuse></material>
+      </visual>
+      <visual name="sign_letters">
+        <pose>0 16.22 4.5 0 0 0</pose>
+        <geometry><box><size>16.0 0.05 0.6</size></box></geometry>
+        <material><ambient>0.85 0.72 0.15 1</ambient><diffuse>0.95 0.80 0.18 1</diffuse><emissive>0.3 0.25 0.05 1</emissive></material>
+      </visual>
+
+      <!-- 3F~18F 塔樓主體 (Tower Body: 18F, 58m) -->
+      <visual name="tower_body_vis">
+        <pose>0 0 33.0 0 0 0</pose>
+        <geometry><box><size>69.6 27.6 50.0</size></box></geometry>
+        <material>
+          <ambient>0.74 0.72 0.70 1</ambient>
+          <diffuse>0.80 0.78 0.76 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 東向面向關新路之大景觀陽台 (Balconies facing Guanxin Rd) -->
+      <visual name="front_balconies_vis">
+        <pose>0 14.1 33.0 0 0 0</pose>
+        <geometry><box><size>66.0 0.6 48.0</size></box></geometry>
+        <material><ambient>0.26 0.28 0.30 1</ambient><diffuse>0.30 0.32 0.35 1</diffuse></material>
+      </visual>
+
+      <!-- 頂部造型冠頂女兒牆 (Roof Crown) -->
+      <visual name="roof_crown">
+        <pose>0 0 58.6 0 0 0</pose>
+        <geometry><box><size>71.0 29.0 1.2</size></box></geometry>
+        <material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
