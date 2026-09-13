@@ -72,9 +72,9 @@
     <model name="road_network">
       <static>true</static>
       <link name="road_link">
-        <!-- 1. 關新路主幹道直道柏油路面 (長 630.0m, 寬 18m, 雙向四線道, 方位角 12.93°, 直通新莊車站迎賓廣場) -->
-        <collision name="gx_road_str_col"><pose>70.487 307.012 0.01 0 0 1.34512</pose><geometry><box><size>630.0 18.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
-        <visual name="gx_road_str_vis"><pose>70.487 307.012 0.01 0 0 1.34512</pose><geometry><box><size>630.0 18.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 1. 關新路主幹道直道柏油路面 (長 680.0m, 寬 18m, 雙向四線道, 方位角 12.93°, 延伸貫通新莊車站前道路) -->
+        <collision name="gx_road_str_col"><pose>76.077 331.379 0.01 0 0 1.34512</pose><geometry><box><size>680.0 18.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gx_road_str_vis"><pose>76.077 331.379 0.01 0 0 1.34512</pose><geometry><box><size>680.0 18.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
 
         <!-- ===== 2. 關新東路主幹道 (Guanxin East Road: 依真實GIS鋪設, 北端直通關東路口相交) ===== -->
         <!-- 關新東路: 南段: 光復路至關新一街, 順正北走向 (長 95.0m, 寬 14m) -->
@@ -89,10 +89,10 @@
         <collision name="gxe_seg3_park_col"><pose>208.151 379.290 0.01 0 0 1.34512</pose><geometry><box><size>143.50 14.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
         <visual name="gxe_seg3_park_vis"><pose>208.151 379.290 0.01 0 0 1.34512</pose><geometry><box><size>143.50 14.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
         <visual name="gxe_seg3_park_line"><pose>208.151 379.290 0.022 0 0 1.34512</pose><geometry><box><size>143.50 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
-        <!-- 關新東路: 北段: 關新北路至關東路口直道, 寬14m, 連接關東路形成丁字路口 (長 100.0m, 寬 14m) -->
-        <collision name="gxe_seg4_north_col"><pose>235.395 497.953 0.01 0 0 1.34512</pose><geometry><box><size>100.00 14.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
-        <visual name="gxe_seg4_north_vis"><pose>235.395 497.953 0.01 0 0 1.34512</pose><geometry><box><size>100.00 14.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
-        <visual name="gxe_seg4_north_line"><pose>235.395 497.953 0.022 0 0 1.34512</pose><geometry><box><size>100.00 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <!-- 關新東路: 北段連接道: 日光公園東北角至關東路口, 寬14m, 依真實GIS與關東路形成丁字路口 (長 40.6m, 寬 14m) -->
+        <collision name="gxe_seg4_north_col"><pose>209.600 463.300 0.01 0 0 2.37500</pose><geometry><box><size>40.60 14.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gxe_seg4_north_vis"><pose>209.600 463.300 0.01 0 0 2.37500</pose><geometry><box><size>40.60 14.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gxe_seg4_north_line"><pose>209.600 463.300 0.022 0 0 2.37500</pose><geometry><box><size>40.60 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
 
         <!-- 3. 光復路一段主幹道 (南界門戶橫向幹道, 長 450m, 寬 24m, 雙向六線道, 角度精準對齊北歐三小國南棟與關新一街) -->
         <collision name="guangfu_road_col"><pose>24.366 -5.594 0.01 0 0 -0.22568</pose><geometry><box><size>450.0 24.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
@@ -123,10 +123,67 @@
         <collision name="service_alley_col"><pose>87.031 191.378 0.01 0 0 1.34512</pose><geometry><box><size>236.0 6.5 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
         <visual name="service_alley_vis"><pose>87.031 191.378 0.01 0 0 1.34512</pose><geometry><box><size>236.0 6.5 0.02</size></box></geometry><material><ambient>0.24 0.24 0.25 1</ambient><diffuse>0.26 0.26 0.27 1</diffuse></material></visual>
 
-        <!-- ===== 8. 關東路主幹道 (Guandong Road: 位於 s = 588.0m, 與關新路精確 90 度垂直交叉, 方位角 CROSS_YAW, 東西貫通長 300m, 寬 14m) ===== -->
-        <collision name="guandong_road_col"><pose>151.068 568.614 0.01 0 0 -0.22568</pose><geometry><box><size>300.0 14.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
-        <visual name="guandong_road_vis"><pose>151.068 568.614 0.01 0 0 -0.22568</pose><geometry><box><size>300.0 14.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
-        <visual name="guandong_road_line"><pose>151.068 568.614 0.022 0 0 -0.22568</pose><geometry><box><size>300.0 0.30 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <!-- ===== 8. 關東路主幹道 (Guandong Road 全線鋪設: 自光復路一段至新莊街, 依真實 GIS 航測路網 1192.5m 雙向車道) ===== -->
+        <collision name="gd_road_seg_00_col"><pose>506.405 -17.056 0.01 0 0 1.59791</pose><geometry><box><size>60.28 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_00_vis"><pose>506.405 -17.056 0.01 0 0 1.59791</pose><geometry><box><size>60.28 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_00_line"><pose>506.405 -17.056 0.022 0 0 1.59791</pose><geometry><box><size>60.28 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_01_col"><pose>502.109 33.756 0.01 0 0 1.73744</pose><geometry><box><size>41.95 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_01_vis"><pose>502.109 33.756 0.01 0 0 1.73744</pose><geometry><box><size>41.95 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_01_line"><pose>502.109 33.756 0.022 0 0 1.73744</pose><geometry><box><size>41.95 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_02_col"><pose>489.643 88.104 0.01 0 0 1.83167</pose><geometry><box><size>69.68 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_02_vis"><pose>489.643 88.104 0.01 0 0 1.83167</pose><geometry><box><size>69.68 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_02_line"><pose>489.643 88.104 0.022 0 0 1.83167</pose><geometry><box><size>69.68 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_03_col"><pose>474.541 130.450 0.01 0 0 2.18440</pose><geometry><box><size>21.24 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_03_vis"><pose>474.541 130.450 0.01 0 0 2.18440</pose><geometry><box><size>21.24 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_03_line"><pose>474.541 130.450 0.022 0 0 2.18440</pose><geometry><box><size>21.24 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_04_col"><pose>448.836 164.071 0.01 0 0 2.23666</pose><geometry><box><size>63.43 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_04_vis"><pose>448.836 164.071 0.01 0 0 2.23666</pose><geometry><box><size>63.43 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_04_line"><pose>448.836 164.071 0.022 0 0 2.23666</pose><geometry><box><size>63.43 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_05_col"><pose>397.507 243.280 0.01 0 0 2.09998</pose><geometry><box><size>125.74 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_05_vis"><pose>397.507 243.280 0.01 0 0 2.09998</pose><geometry><box><size>125.74 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_05_line"><pose>397.507 243.280 0.022 0 0 2.09998</pose><geometry><box><size>125.74 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_06_col"><pose>331.341 335.157 0.01 0 0 2.31209</pose><geometry><box><size>101.97 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_06_vis"><pose>331.341 335.157 0.01 0 0 2.31209</pose><geometry><box><size>101.97 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_06_line"><pose>331.341 335.157 0.022 0 0 2.31209</pose><geometry><box><size>101.97 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_07_col"><pose>288.878 378.582 0.01 0 0 2.51480</pose><geometry><box><size>19.85 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_07_vis"><pose>288.878 378.582 0.01 0 0 2.51480</pose><geometry><box><size>19.85 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_07_line"><pose>288.878 378.582 0.022 0 0 2.51480</pose><geometry><box><size>19.85 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_08_col"><pose>237.911 430.907 0.01 0 0 2.31625</pose><geometry><box><size>126.58 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_08_vis"><pose>237.911 430.907 0.01 0 0 2.31625</pose><geometry><box><size>126.58 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_08_line"><pose>237.911 430.907 0.022 0 0 2.31625</pose><geometry><box><size>126.58 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_09_col"><pose>178.084 498.300 0.01 0 0 2.25097</pose><geometry><box><size>53.73 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_09_vis"><pose>178.084 498.300 0.01 0 0 2.25097</pose><geometry><box><size>53.73 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_09_line"><pose>178.084 498.300 0.022 0 0 2.25097</pose><geometry><box><size>53.73 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_10_col"><pose>152.087 533.944 0.01 0 0 2.12334</pose><geometry><box><size>34.67 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_10_vis"><pose>152.087 533.944 0.01 0 0 2.12334</pose><geometry><box><size>34.67 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_10_line"><pose>152.087 533.944 0.022 0 0 2.12334</pose><geometry><box><size>34.67 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_11_col"><pose>137.283 560.899 0.01 0 0 2.00827</pose><geometry><box><size>26.93 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_11_vis"><pose>137.283 560.899 0.01 0 0 2.00827</pose><geometry><box><size>26.93 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_11_line"><pose>137.283 560.899 0.022 0 0 2.00827</pose><geometry><box><size>26.93 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_12_col"><pose>127.015 580.657 0.01 0 0 2.11382</pose><geometry><box><size>17.66 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_12_vis"><pose>127.015 580.657 0.01 0 0 2.11382</pose><geometry><box><size>17.66 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_12_line"><pose>127.015 580.657 0.022 0 0 2.11382</pose><geometry><box><size>17.66 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_13_col"><pose>98.574 642.310 0.01 0 0 1.98650</pose><geometry><box><size>118.26 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_13_vis"><pose>98.574 642.310 0.01 0 0 1.98650</pose><geometry><box><size>118.26 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_13_line"><pose>98.574 642.310 0.022 0 0 1.98650</pose><geometry><box><size>118.26 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_14_col"><pose>70.274 701.765 0.01 0 0 2.26036</pose><geometry><box><size>13.90 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_14_vis"><pose>70.274 701.765 0.01 0 0 2.26036</pose><geometry><box><size>13.90 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_14_line"><pose>70.274 701.765 0.022 0 0 2.26036</pose><geometry><box><size>13.90 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_15_col"><pose>59.017 712.393 0.01 0 0 2.48515</pose><geometry><box><size>17.25 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_15_vis"><pose>59.017 712.393 0.01 0 0 2.48515</pose><geometry><box><size>17.25 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_15_line"><pose>59.017 712.393 0.022 0 0 2.48515</pose><geometry><box><size>17.25 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_16_col"><pose>-14.908 754.894 0.01 0 0 2.63492</pose><geometry><box><size>153.46 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_16_vis"><pose>-14.908 754.894 0.01 0 0 2.63492</pose><geometry><box><size>153.46 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_16_line"><pose>-14.908 754.894 0.022 0 0 2.63492</pose><geometry><box><size>153.46 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_17_col"><pose>-93.581 796.852 0.01 0 0 2.75440</pose><geometry><box><size>25.02 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_17_vis"><pose>-93.581 796.852 0.01 0 0 2.75440</pose><geometry><box><size>25.02 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_17_line"><pose>-93.581 796.852 0.022 0 0 2.75440</pose><geometry><box><size>25.02 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_18_col"><pose>-145.386 814.517 0.01 0 0 2.83030</pose><geometry><box><size>84.50 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_18_vis"><pose>-145.386 814.517 0.01 0 0 2.83030</pose><geometry><box><size>84.50 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_18_line"><pose>-145.386 814.517 0.022 0 0 2.83030</pose><geometry><box><size>84.50 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <collision name="gd_road_seg_19_col"><pose>-192.927 830.869 0.01 0 0 2.70566</pose><geometry><box><size>16.15 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gd_road_seg_19_vis"><pose>-192.927 830.869 0.01 0 0 2.70566</pose><geometry><box><size>16.15 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="gd_road_seg_19_line"><pose>-192.927 830.869 0.022 0 0 2.70566</pose><geometry><box><size>16.15 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
 
         <!-- ===== 9. 關新路中央綠化分隔島 (Central Median Islands) ===== -->
         <!-- 分隔島: 南段1 (光復路口至關新一街口) -->
@@ -174,11 +231,11 @@
         <visual name="crosswalk_gd_e_vis"><pose>142.784 570.516 0.022 0 0 -0.22568</pose><geometry><box><size>3.0 14.0 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
         <visual name="crosswalk_gd_w_vis"><pose>120.367 575.663 0.022 0 0 -0.22568</pose><geometry><box><size>3.0 14.0 0.002</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
 
-        <!-- ===== 11. 人行道透水磚鋪面 (Permeable Brick Sidewalks: 寬度 4.5m ~ 8.0m) ===== -->
-        <collision name="sw_west_col"><pose>61.069 317.383 0.10 0 0 1.34512</pose><geometry><box><size>614.0 5.0 0.20</size></box></geometry></collision>
-        <visual name="sw_west_vis"><pose>61.069 317.383 0.10 0 0 1.34512</pose><geometry><box><size>614.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <collision name="sw_east_col"><pose>83.485 312.236 0.10 0 0 1.34512</pose><geometry><box><size>614.0 5.0 0.20</size></box></geometry></collision>
-        <visual name="sw_east_vis"><pose>83.485 312.236 0.10 0 0 1.34512</pose><geometry><box><size>614.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- ===== 11. 人行道透水磚鋪面 (Permeable Brick Sidewalks: 寬度 4.5m ~ 8.0m, 全線延伸 664m) ===== -->
+        <collision name="sw_west_col"><pose>66.663 341.749 0.10 0 0 1.34512</pose><geometry><box><size>664.0 5.0 0.20</size></box></geometry></collision>
+        <visual name="sw_west_vis"><pose>66.663 341.749 0.10 0 0 1.34512</pose><geometry><box><size>664.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <collision name="sw_east_col"><pose>89.079 336.602 0.10 0 0 1.34512</pose><geometry><box><size>664.0 5.0 0.20</size></box></geometry></collision>
+        <visual name="sw_east_vis"><pose>89.079 336.602 0.10 0 0 1.34512</pose><geometry><box><size>664.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
         <!-- 光復路北側人行道 (西段: 銜接北歐三小國南棟騎樓, 寬8m, 長115m) -->
         <collision name="sw_guangfu_north_col"><pose>-63.183 30.922 0.10 0 0 -0.22568</pose><geometry><box><size>115.0 8.0 0.20</size></box></geometry></collision>
         <visual name="sw_guangfu_north_vis"><pose>-63.183 30.922 0.10 0 0 -0.22568</pose><geometry><box><size>115.0 8.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
@@ -188,18 +245,117 @@
         <!-- 光復路南側全線人行道 (寬5m, 長450m) -->
         <collision name="sw_guangfu_south_col"><pose>21.121 -19.727 0.10 0 0 -0.22568</pose><geometry><box><size>450.0 5.0 0.20</size></box></geometry></collision>
         <visual name="sw_guangfu_south_vis"><pose>21.121 -19.727 0.10 0 0 -0.22568</pose><geometry><box><size>450.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <!-- 關東路東段南側人行道 (長 158.5m, 寬 3m) -->
-        <collision name="sw_gd_es_col"><pose>218.122 544.498 0.10 0 0 -0.22568</pose><geometry><box><size>158.5 3.0 0.20</size></box></geometry></collision>
-        <visual name="sw_gd_es_vis"><pose>218.122 544.498 0.10 0 0 -0.22568</pose><geometry><box><size>158.5 3.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <!-- 關東路東段北側人行道 (長 158.5m, 寬 3m) -->
-        <collision name="sw_gd_en_col"><pose>221.926 561.067 0.10 0 0 -0.22568</pose><geometry><box><size>158.5 3.0 0.20</size></box></geometry></collision>
-        <visual name="sw_gd_en_vis"><pose>221.926 561.067 0.10 0 0 -0.22568</pose><geometry><box><size>158.5 3.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <!-- 關東路西段南側人行道 (長 118.5m, 寬 3m) -->
-        <collision name="sw_gd_ws_col"><pose>60.718 580.637 0.10 0 0 -0.22568</pose><geometry><box><size>118.5 3.0 0.20</size></box></geometry></collision>
-        <visual name="sw_gd_ws_vis"><pose>60.718 580.637 0.10 0 0 -0.22568</pose><geometry><box><size>118.5 3.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <!-- 關東路西段北側人行道 (長 118.5m, 寬 3m) -->
-        <collision name="sw_gd_wn_col"><pose>64.522 597.206 0.10 0 0 -0.22568</pose><geometry><box><size>118.5 3.0 0.20</size></box></geometry></collision>
-        <visual name="sw_gd_wn_vis"><pose>64.522 597.206 0.10 0 0 -0.22568</pose><geometry><box><size>118.5 3.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+
+        <!-- ===== 台灣標準路邊智慧停車格系統 (關新路東側 24 格 + 西側 12 格) ===== -->
+        <!-- 停車格 #01 (s=25.0m, 東側路肩) -->
+        <visual name="stall_frame_01"><pose>13.148 22.632 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_01"><pose>13.148 22.632 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #02 (s=32.0m, 東側路肩) -->
+        <visual name="stall_frame_02"><pose>14.714 29.454 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_02"><pose>14.714 29.454 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #03 (s=39.0m, 東側路肩) -->
+        <visual name="stall_frame_03"><pose>16.280 36.277 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_03"><pose>16.280 36.277 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #04 (s=46.0m, 東側路肩) -->
+        <visual name="stall_frame_04"><pose>17.847 43.099 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_04"><pose>17.847 43.099 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #05 (s=53.0m, 東側路肩) -->
+        <visual name="stall_frame_05"><pose>19.413 49.922 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_05"><pose>19.413 49.922 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #06 (s=60.0m, 東側路肩) -->
+        <visual name="stall_frame_06"><pose>20.980 56.744 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_06"><pose>20.980 56.744 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #07 (s=110.0m, 東側路肩) -->
+        <visual name="stall_frame_07"><pose>32.168 105.476 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_07"><pose>32.168 105.476 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #08 (s=117.0m, 東側路肩) -->
+        <visual name="stall_frame_08"><pose>33.734 112.299 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_08"><pose>33.734 112.299 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #09 (s=124.0m, 東側路肩) -->
+        <visual name="stall_frame_09"><pose>35.301 119.121 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_09"><pose>35.301 119.121 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #10 (s=131.0m, 東側路肩) -->
+        <visual name="stall_frame_10"><pose>36.867 125.944 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_10"><pose>36.867 125.944 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #11 (s=138.0m, 東側路肩) -->
+        <visual name="stall_frame_11"><pose>38.433 132.766 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_11"><pose>38.433 132.766 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #12 (s=145.0m, 東側路肩) -->
+        <visual name="stall_frame_12"><pose>40.000 139.589 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_12"><pose>40.000 139.589 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #13 (s=152.0m, 東側路肩) -->
+        <visual name="stall_frame_13"><pose>41.566 146.411 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_13"><pose>41.566 146.411 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #14 (s=159.0m, 東側路肩) -->
+        <visual name="stall_frame_14"><pose>43.133 153.234 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_14"><pose>43.133 153.234 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #15 (s=166.0m, 東側路肩) -->
+        <visual name="stall_frame_15"><pose>44.699 160.056 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_15"><pose>44.699 160.056 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #16 (s=260.0m, 東側路肩) -->
+        <visual name="stall_frame_16"><pose>65.733 251.673 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_16"><pose>65.733 251.673 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #17 (s=267.0m, 東側路肩) -->
+        <visual name="stall_frame_17"><pose>67.300 258.495 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_17"><pose>67.300 258.495 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #18 (s=274.0m, 東側路肩) -->
+        <visual name="stall_frame_18"><pose>68.866 265.318 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_18"><pose>68.866 265.318 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #19 (s=365.0m, 東側路肩) -->
+        <visual name="stall_frame_19"><pose>89.229 354.010 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_19"><pose>89.229 354.010 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #20 (s=372.0m, 東側路肩) -->
+        <visual name="stall_frame_20"><pose>90.795 360.833 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_20"><pose>90.795 360.833 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #21 (s=379.0m, 東側路肩) -->
+        <visual name="stall_frame_21"><pose>92.362 367.655 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_21"><pose>92.362 367.655 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #22 (s=386.0m, 東側路肩) -->
+        <visual name="stall_frame_22"><pose>93.928 374.478 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_22"><pose>93.928 374.478 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #23 (s=393.0m, 東側路肩) -->
+        <visual name="stall_frame_23"><pose>95.494 381.300 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_23"><pose>95.494 381.300 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 停車格 #24 (s=400.0m, 東側路肩) -->
+        <visual name="stall_frame_24"><pose>97.061 388.123 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_24"><pose>97.061 388.123 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- ===== 關新路西側路面停車格 (配合西側智慧停車柱 pole_w_01~12) ===== -->
+        <!-- 西側停車格 #01 (s=105.5m, 西側路肩) -->
+        <visual name="stall_frame_w_01"><pose>16.048 104.536 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_01"><pose>16.048 104.536 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #02 (s=112.3m, 西側路肩) -->
+        <visual name="stall_frame_w_02"><pose>17.575 111.185 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_02"><pose>17.575 111.185 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #03 (s=119.1m, 西側路肩) -->
+        <visual name="stall_frame_w_03"><pose>19.101 117.834 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_03"><pose>19.101 117.834 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #04 (s=125.9m, 西側路肩) -->
+        <visual name="stall_frame_w_04"><pose>20.628 124.483 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_04"><pose>20.628 124.483 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #05 (s=132.8m, 西側路肩) -->
+        <visual name="stall_frame_w_05"><pose>22.155 131.132 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_05"><pose>22.155 131.132 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #06 (s=139.6m, 西側路肩) -->
+        <visual name="stall_frame_w_06"><pose>23.681 137.781 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_06"><pose>23.681 137.781 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #07 (s=146.4m, 西側路肩) -->
+        <visual name="stall_frame_w_07"><pose>25.208 144.430 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_07"><pose>25.208 144.430 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #08 (s=153.2m, 西側路肩) -->
+        <visual name="stall_frame_w_08"><pose>26.734 151.079 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_08"><pose>26.734 151.079 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #09 (s=160.1m, 西側路肩) -->
+        <visual name="stall_frame_w_09"><pose>28.261 157.728 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_09"><pose>28.261 157.728 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #10 (s=166.9m, 西側路肩) -->
+        <visual name="stall_frame_w_10"><pose>29.787 164.377 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_10"><pose>29.787 164.377 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #11 (s=173.7m, 西側路肩) -->
+        <visual name="stall_frame_w_11"><pose>31.314 171.026 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_11"><pose>31.314 171.026 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <!-- 西側停車格 #12 (s=180.5m, 西側路肩) -->
+        <visual name="stall_frame_w_12"><pose>32.840 177.675 0.022 0 0 1.34512</pose><geometry><box><size>5.5 2.5 0.0015</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+        <visual name="stall_inner_w_12"><pose>32.840 177.675 0.023 0 0 1.34512</pose><geometry><box><size>5.2 2.2 0.0015</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
       </link>
     </model>
 
@@ -623,31 +779,31 @@
     <!-- ==================== Phase 3: 重點交通與公共休閒地標建模 ==================== -->
     <!-- 涵蓋: 台鐵新莊車站大樓、高架鐵路橋梁橋墩(淨空>5.2m)、日光公園全區景觀與遊憩設施 -->
 
-    <!-- 1. 台鐵六家/內灣線高架鐵路跨街橋樑與混凝土橋墩 (橋下淨空 5.4m >= 4.8m) -->
+    <!-- 1. 台鐵六家/內灣線高架鐵路跨街橋樑與混凝土橋墩 (橋下淨空 5.4m >= 4.8m, 跨越關新路) -->
     <include>
       <name>railway_viaduct</name>
       <uri>model://railway_viaduct</uri>
-      <pose>114.693 655.969 0.0 0 0 -0.22568</pose>
+      <pose>135.698 635.762 0.0 0 0 -0.22568</pose>
     </include>
 
-    <!-- 2. 台鐵新莊車站大樓 (GCP 5: 二層挑高高架車站、鋼構雨棚月台、採光玻璃帷幕與正門發光招牌) -->
+    <!-- 2. 台鐵新莊車站大樓 (水平移至關新路東側馬路邊, 緊鄰人行道與迎賓廣場, 雙層挑高與月台) -->
     <include>
       <name>xinzhuang_station</name>
       <uri>model://xinzhuang_station</uri>
-      <pose>148.806 648.137 0.0 0 0 -0.22568</pose>
+      <pose>182.483 625.021 0.0 0 0 -0.22568</pose>
     </include>
 
-            <!-- 新莊車站前迎賓廣場與計程車排班避車道 (Station Plaza & Drop-off Bay: 唯一與關新路直接連通) -->
+    <!-- 新莊車站前迎賓廣場 (Station Plaza: 緊扣關新路東側人行道與車站正門, 唯一與關新路直接連通) -->
     <model name="xinzhuang_station_plaza">
       <static>true</static>
       <link name="plaza_link">
-        <collision name="plaza_deck_col"><pose>143.659 625.720 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry></collision>
-        <visual name="plaza_deck_vis"><pose>143.659 625.720 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
-        <visual name="plaza_planter1"><pose>133.306 634.254 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
-        <visual name="plaza_shrub1"><pose>133.306 634.254 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
-        <visual name="plaza_planter2"><pose>156.697 628.883 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
-        <visual name="plaza_shrub2"><pose>156.697 628.883 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
-        <visual name="flagpole1"><pose>144.778 630.594 4.0 0 0 0</pose><geometry><cylinder><radius>0.05</radius><length>8.0</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
+        <collision name="plaza_deck_col"><pose>165.776 610.364 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry></collision>
+        <visual name="plaza_deck_vis"><pose>165.776 610.364 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
+        <visual name="plaza_planter1"><pose>155.423 618.898 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub1"><pose>155.423 618.898 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="plaza_planter2"><pose>178.814 613.527 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub2"><pose>178.814 613.527 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="flagpole1"><pose>166.895 615.238 4.0 0 0 0</pose><geometry><cylinder><radius>0.05</radius><length>8.0</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
       </link>
     </model>
 
@@ -1007,5 +1163,38 @@
       <pose>6.63 8.74 0.38 0 0 1.34512</pose>
     </include>
 
+    <!-- ==================== POI: 麥當勞後方超大地面收費停車場 ==================== -->
+    <include>
+      <name>mcdonalds_rear_parking_lot</name>
+      <uri>model://mcdonalds_rear_parking_lot</uri>
+      <pose>116.850 205.050 0.0 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>mcd_lot_car_1</name>
+      <uri>model://parked_car_sedan</uri>
+      <pose>108.5 198.2 0.1 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>mcd_lot_car_2</name>
+      <uri>model://parked_car_suv</uri>
+      <pose>114.5 200.5 0.1 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>mcd_lot_car_3</name>
+      <uri>model://parked_car_sedan</uri>
+      <pose>120.5 202.8 0.1 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>mcd_lot_car_4</name>
+      <uri>model://parked_car_suv</uri>
+      <pose>126.5 205.1 0.1 0 0 1.34512</pose>
+    </include>
+
+    <!-- ==================== POI: 新竹市東區關東國民小學 (關東路53號) ==================== -->
+    <include>
+      <name>guandong_elementary_school</name>
+      <uri>model://guandong_elementary_school</uri>
+      <pose>331.050 182.880 0.0 0 0 0.52900</pose>
+    </include>
   </world>
 </sdf>
