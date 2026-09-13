@@ -809,44 +809,6 @@
       <pose>344.5 9.5 0 0 0 -1.5707963</pose>
     </include>
 
-    <!-- ==================== 日光公園全區 (Sunlight Park: 130m x 91m, 綠茵大草坪與溜滑梯) ==================== -->
-    <model name="sunlight_park">
-      <static>true</static>
-      <link name="park_link">
-        <!-- 公園大地大草坪 (X: 344 ~ 474, Y: -105 ~ -14, 綠色草皮) -->
-        <collision name="park_lawn_col"><pose>409 -59.5 0.10 0 0 0</pose><geometry><box><size>130 91 0.20</size></box></geometry></collision>
-        <visual name="park_lawn_vis"><pose>409 -59.5 0.10 0 0 0</pose><geometry><box><size>130 91 0.20</size></box></geometry><material><ambient>0.24 0.58 0.22 1</ambient><diffuse>0.28 0.65 0.25 1</diffuse></material></visual>
-
-        <!-- 入口景觀鋪面大廣場 (Street_photo1,6 實景: 棕灰色大地磚) -->
-        <visual name="park_entry_plaza"><pose>358 -28 0.205 0 0 0</pose><geometry><box><size>26 26 0.01</size></box></geometry><material><ambient>0.68 0.66 0.62 1</ambient><diffuse>0.74 0.72 0.68 1</diffuse></material></visual>
-
-        <!-- 入口著名棕櫚樹列 (Street_photo1,6 棕櫚景觀行道) -->
-        <visual name="palm_trunk_1"><pose>354 -18.0 3.0 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry><material><ambient>0.42 0.35 0.25 1</ambient><diffuse>0.48 0.40 0.30 1</diffuse></material></visual>
-        <visual name="palm_fronds_1"><pose>354 -18.0 6.2 0 0 0</pose><geometry><sphere><radius>2.0</radius></sphere></geometry><material><ambient>0.15 0.55 0.15 1</ambient><diffuse>0.2 0.65 0.2 1</diffuse></material></visual>
-        <visual name="palm_trunk_2"><pose>354 -22.0 3.0 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry><material><ambient>0.42 0.35 0.25 1</ambient><diffuse>0.48 0.40 0.30 1</diffuse></material></visual>
-        <visual name="palm_fronds_2"><pose>354 -22.0 6.2 0 0 0</pose><geometry><sphere><radius>2.0</radius></sphere></geometry><material><ambient>0.15 0.55 0.15 1</ambient><diffuse>0.2 0.65 0.2 1</diffuse></material></visual>
-        <visual name="palm_trunk_3"><pose>354 -26.0 3.0 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry><material><ambient>0.42 0.35 0.25 1</ambient><diffuse>0.48 0.40 0.30 1</diffuse></material></visual>
-        <visual name="palm_fronds_3"><pose>354 -26.0 6.2 0 0 0</pose><geometry><sphere><radius>2.0</radius></sphere></geometry><material><ambient>0.15 0.55 0.15 1</ambient><diffuse>0.2 0.65 0.2 1</diffuse></material></visual>
-        <visual name="palm_trunk_4"><pose>354 -30.0 3.0 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry><material><ambient>0.42 0.35 0.25 1</ambient><diffuse>0.48 0.40 0.30 1</diffuse></material></visual>
-        <visual name="palm_fronds_4"><pose>354 -30.0 6.2 0 0 0</pose><geometry><sphere><radius>2.0</radius></sphere></geometry><material><ambient>0.15 0.55 0.15 1</ambient><diffuse>0.2 0.65 0.2 1</diffuse></material></visual>
-        <visual name="palm_trunk_5"><pose>354 -34.0 3.0 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry><material><ambient>0.42 0.35 0.25 1</ambient><diffuse>0.48 0.40 0.30 1</diffuse></material></visual>
-        <visual name="palm_fronds_5"><pose>354 -34.0 6.2 0 0 0</pose><geometry><sphere><radius>2.0</radius></sphere></geometry><material><ambient>0.15 0.55 0.15 1</ambient><diffuse>0.2 0.65 0.2 1</diffuse></material></visual>
-        <visual name="palm_trunk_6"><pose>354 -38.0 3.0 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry><material><ambient>0.42 0.35 0.25 1</ambient><diffuse>0.48 0.40 0.30 1</diffuse></material></visual>
-        <visual name="palm_fronds_6"><pose>354 -38.0 6.2 0 0 0</pose><geometry><sphere><radius>2.0</radius></sphere></geometry><material><ambient>0.15 0.55 0.15 1</ambient><diffuse>0.2 0.65 0.2 1</diffuse></material></visual>
-
-        <!-- 公園內部休憩木質長椅 (Park Benches) -->
-        <visual name="park_bench_1"><pose>365 -22 0.45 0 0 0</pose><geometry><box><size>2.2 0.6 0.5</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.55 0.35 0.2 1</diffuse></material></visual>
-        <visual name="park_bench_2"><pose>365 -30 0.45 0 0 0</pose><geometry><box><size>2.2 0.6 0.5</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.55 0.35 0.2 1</diffuse></material></visual>
-      </link>
-    </model>
-
-    <!-- 日光公園地標：大型磨石子溜滑梯 (Terrazzo Slide) -->
-    <include>
-      <name>terrazzo_slide</name>
-      <uri>model://terrazzo_slide</uri>
-      <pose>390 -48 0.12 0 0 0</pose>
-    </include>
-
     <!-- ==================== 中街現代住宅社區群 (Mid-Block Residential Towers: Y: -100 ~ -66) ==================== -->
     <model name="midblock_residential_blocks">
       <static>true</static>
@@ -906,18 +868,107 @@
       </link>
     </model>
 
-    <!-- ==================== 北端街區 (新莊車站 & 富宇君鼎 X: 488 ~ 560) ==================== -->
-    <model name="xinzhuang_station_block">
+        <!-- ==================== Phase 3: 重點交通與公共休閒地標建模 ==================== -->
+    <!-- 涵蓋: 台鐵新莊車站大樓、高架鐵路橋梁橋墩(淨空>5.2m)、日光公園全區景觀與遊憩設施 -->
+
+    <!-- 1. 台鐵六家/內灣線高架鐵路跨街橋樑與混凝土橋墩 (橋下淨空 5.4m >= 4.8m) -->
+    <include>
+      <name>railway_viaduct</name>
+      <uri>model://railway_viaduct</uri>
+      <pose>179.842 783.320 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 2. 台鐵新莊車站大樓 (GCP 5: 二層挑高高架車站、鋼構雨棚月台、採光玻璃帷幕與正門發光招牌) -->
+    <include>
+      <name>xinzhuang_station</name>
+      <uri>model://xinzhuang_station</uri>
+      <pose>205.183 777.502 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 新莊車站前迎賓廣場與計程車排班避車道 (Station Plaza & Taxi Drop-off Bay) -->
+    <model name="xinzhuang_station_plaza">
       <static>true</static>
-      <link name="station_link">
-        <collision name="station_bldg_col"><pose>525 -25 8.0 0 0 0</pose><geometry><box><size>50 25 16.0</size></box></geometry></collision>
-        <visual name="station_bldg_vis"><pose>525 -25 8.0 0 0 0</pose><geometry><box><size>50 25 16.0</size></box></geometry><material><ambient>0.72 0.75 0.78 1</ambient><diffuse>0.78 0.82 0.85 1</diffuse></material></visual>
-        <visual name="station_canopy"><pose>525 -13.5 4.0 0 0 0</pose><geometry><box><size>48 3.5 0.3</size></box></geometry><material><ambient>0.25 0.28 0.32 1</ambient><diffuse>0.3 0.34 0.38 1</diffuse></material></visual>
-        <!-- 富宇君鼎高層豪宅 (X: 510 ~ 555, Y: 18 ~ 48, 高 70m) -->
-        <collision name="fuyu_tower_col"><pose>532.5 33 35.0 0 0 0</pose><geometry><box><size>45 30 70.0</size></box></geometry></collision>
-        <visual name="fuyu_tower_vis"><pose>532.5 33 35.0 0 0 0</pose><geometry><box><size>45 30 70.0</size></box></geometry><material><ambient>0.78 0.76 0.74 1</ambient><diffuse>0.82 0.80 0.78 1</diffuse></material></visual>
+      <link name="plaza_link">
+        <collision name="plaza_deck_col"><pose>195.151 760.619 0.075 0 0 1.34512</pose><geometry><box><size>42.0 26.0 0.15</size></box></geometry></collision>
+        <visual name="plaza_deck_vis"><pose>195.151 760.619 0.075 0 0 1.34512</pose><geometry><box><size>42.0 26.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
+        <visual name="plaza_planter1"><pose>187.065 752.215 0.35 0 0 1.34512</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub1"><pose>187.065 752.215 0.80 0 0 1.34512</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="plaza_planter2"><pose>191.540 771.708 0.35 0 0 1.34512</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub2"><pose>191.540 771.708 0.80 0 0 1.34512</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="flagpole1"><pose>187.538 765.445 4.0 0 0 0</pose><geometry><cylinder><radius>0.05</radius><length>8.0</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
       </link>
     </model>
+
+    <!-- 3. 關新公園 / 日光公園全區景觀系統 (120m x 91m, GCP 4, 洗石子圍牆, 大草坪, 景觀涼亭, 景觀公廁, 兒童遊憩與體健區) -->
+    <model name="sun_park_landscape">
+      <static>true</static>
+      <link name="park_link">
+        <!-- 公園基座微地形草皮大底 -->
+        <collision name="park_base_col"><pose>151.079 392.137 0.05 0 0 1.34512</pose><geometry><box><size>120.0 91.0 0.10</size></box></geometry></collision>
+        <visual name="park_base_vis"><pose>151.079 392.137 0.05 0 0 1.34512</pose><geometry><box><size>120.0 91.0 0.10</size></box></geometry><material><ambient>0.18 0.50 0.18 1</ambient><diffuse>0.22 0.58 0.22 1</diffuse></material></visual>
+        <collision name="wall_w_col"><pose>107.025 402.251 0.25 0 0 1.34512</pose><geometry><box><size>116.0 0.6 0.50</size></box></geometry></collision>
+        <visual name="wall_w_vis"><pose>107.025 402.251 0.25 0 0 1.34512</pose><geometry><box><size>116.0 0.6 0.50</size></box></geometry><material><ambient>0.65 0.62 0.58 1</ambient><diffuse>0.72 0.68 0.64 1</diffuse></material></visual>
+        <collision name="wall_e_col"><pose>195.133 382.023 0.25 0 0 1.34512</pose><geometry><box><size>116.0 0.6 0.50</size></box></geometry></collision>
+        <visual name="wall_e_vis"><pose>195.133 382.023 0.25 0 0 1.34512</pose><geometry><box><size>116.0 0.6 0.50</size></box></geometry><material><ambient>0.65 0.62 0.58 1</ambient><diffuse>0.72 0.68 0.64 1</diffuse></material></visual>
+        <collision name="wall_s_col"><pose>137.720 333.951 0.25 0 0 -0.22568</pose><geometry><box><size>88.0 0.6 0.50</size></box></geometry></collision>
+        <visual name="wall_s_vis"><pose>137.720 333.951 0.25 0 0 -0.22568</pose><geometry><box><size>88.0 0.6 0.50</size></box></geometry><material><ambient>0.65 0.62 0.58 1</ambient><diffuse>0.72 0.68 0.64 1</diffuse></material></visual>
+        <collision name="wall_n_col"><pose>164.438 450.323 0.25 0 0 -0.22568</pose><geometry><box><size>88.0 0.6 0.50</size></box></geometry></collision>
+        <visual name="wall_n_vis"><pose>164.438 450.323 0.25 0 0 -0.22568</pose><geometry><box><size>88.0 0.6 0.50</size></box></geometry><material><ambient>0.65 0.62 0.58 1</ambient><diffuse>0.72 0.68 0.64 1</diffuse></material></visual>
+        <!-- 西南角入口「關新公園」石牌標誌 (Park Stone Monument) -->
+        <visual name="monument_base"><pose>96.191 345.230 0.45 0 0 1.34512</pose><geometry><box><size>3.6 0.8 0.90</size></box></geometry><material><ambient>0.35 0.35 0.38 1</ambient><diffuse>0.42 0.42 0.45 1</diffuse></material></visual>
+        <visual name="monument_plaque"><pose>96.191 345.230 0.50 0 0 1.34512</pose><geometry><box><size>3.2 0.85 0.55</size></box></geometry><material><ambient>0.85 0.75 0.1 1</ambient><diffuse>0.92 0.82 0.12 1</diffuse><emissive>0.3 0.25 0.05 1</emissive></material></visual>
+        <!-- 公園外環紅磚休閒散步道 (Outer Loop Walkway) -->
+        <visual name="walk_w"><pose>110.631 401.423 0.105 0 0 1.34512</pose><geometry><box><size>110.0 2.8 0.01</size></box></geometry><material><ambient>0.62 0.35 0.26 1</ambient><diffuse>0.68 0.40 0.30 1</diffuse></material></visual>
+        <visual name="walk_e"><pose>191.526 382.851 0.105 0 0 1.34512</pose><geometry><box><size>110.0 2.8 0.01</size></box></geometry><material><ambient>0.62 0.35 0.26 1</ambient><diffuse>0.68 0.40 0.30 1</diffuse></material></visual>
+        <visual name="walk_s"><pose>138.548 337.557 0.105 0 0 -0.22568</pose><geometry><box><size>82.0 2.8 0.01</size></box></geometry><material><ambient>0.62 0.35 0.26 1</ambient><diffuse>0.68 0.40 0.30 1</diffuse></material></visual>
+        <visual name="walk_n"><pose>163.610 446.717 0.105 0 0 -0.22568</pose><geometry><box><size>82.0 2.8 0.01</size></box></geometry><material><ambient>0.62 0.35 0.26 1</ambient><diffuse>0.68 0.40 0.30 1</diffuse></material></visual>
+        <!-- 公園中央貫通林蔭步道 (Central Arterial Walkway) -->
+        <visual name="walk_cross"><pose>151.079 392.137 0.106 0 0 -0.22568</pose><geometry><box><size>80.0 3.2 0.01</size></box></geometry><material><ambient>0.72 0.70 0.65 1</ambient><diffuse>0.78 0.75 0.70 1</diffuse></material></visual>
+        <!-- 公園中央開闊陽光大草坪 (Central Sun Lawn) -->
+        <visual name="main_sun_lawn"><pose>153.515 391.578 0.108 0 0 1.34512</pose><geometry><box><size>75.0 52.0 0.01</size></box></geometry><material><ambient>0.15 0.55 0.18 1</ambient><diffuse>0.20 0.62 0.22 1</diffuse></material></visual>
+        <visual name="topo_mound1"><pose>159.249 358.455 0.45 0 0 1.34512</pose><geometry><cylinder><radius>12.0</radius><length>0.7</length></cylinder></geometry><material><ambient>0.18 0.58 0.20 1</ambient><diffuse>0.22 0.65 0.25 1</diffuse></material></visual>
+        <visual name="topo_mound2"><pose>141.631 429.191 0.40 0 0 1.34512</pose><geometry><cylinder><radius>9.5</radius><length>0.6</length></cylinder></geometry><material><ambient>0.18 0.58 0.20 1</ambient><diffuse>0.22 0.65 0.25 1</diffuse></material></visual>
+
+        <!-- 現代休閒景觀涼亭 (GCP 4 休憩核心: 挑高鋼構木紋百葉亭) -->
+        <collision name="pav_base_col"><pose>164.734 413.626 0.15 0 0 1.34512</pose><geometry><box><size>10.0 8.0 0.3</size></box></geometry></collision>
+        <visual name="pav_base_vis"><pose>164.734 413.626 0.15 0 0 1.34512</pose><geometry><box><size>10.0 8.0 0.3</size></box></geometry><material><ambient>0.5 0.48 0.45 1</ambient><diffuse>0.58 0.55 0.52 1</diffuse></material></visual>
+        <collision name="pav_roof_col"><pose>164.734 413.626 3.4 0 0 1.34512</pose><geometry><box><size>11.0 9.0 0.3</size></box></geometry></collision>
+        <visual name="pav_roof_vis"><pose>164.734 413.626 3.4 0 0 1.34512</pose><geometry><box><size>11.0 9.0 0.3</size></box></geometry><material><ambient>0.35 0.25 0.15 1</ambient><diffuse>0.45 0.32 0.20 1</diffuse></material></visual>
+        <visual name="pav_col_-4.2_-3.2"><pose>160.534 410.426 1.7 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.1</length></cylinder></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
+        <visual name="pav_col_4.2_-3.2"><pose>168.934 410.426 1.7 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.1</length></cylinder></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
+        <visual name="pav_col_-4.2_3.2"><pose>160.534 416.826 1.7 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.1</length></cylinder></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
+        <visual name="pav_col_4.2_3.2"><pose>168.934 416.826 1.7 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.1</length></cylinder></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
+        <visual name="pav_bench1"><pose>164.734 411.826 0.45 0 0 1.34512</pose><geometry><box><size>6.0 0.6 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.55 0.36 0.20 1</diffuse></material></visual>
+        <visual name="pav_bench2"><pose>164.734 415.426 0.45 0 0 1.34512</pose><geometry><box><size>6.0 0.6 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.55 0.36 0.20 1</diffuse></material></visual>
+
+        <!-- 現代公園景觀公廁 (Public Restroom - 清水模與木紋隔柵建築) -->
+        <collision name="restroom_col"><pose>192.600 427.749 2.0 0 0 1.34512</pose><geometry><box><size>12.0 7.5 4.0</size></box></geometry></collision>
+        <visual name="restroom_vis"><pose>192.600 427.749 2.0 0 0 1.34512</pose><geometry><box><size>12.0 7.5 4.0</size></box></geometry><material><ambient>0.72 0.74 0.72 1</ambient><diffuse>0.78 0.80 0.78 1</diffuse></material></visual>
+        <visual name="restroom_roof"><pose>192.600 427.749 4.15 0 0 1.34512</pose><geometry><box><size>13.2 8.5 0.3</size></box></geometry><material><ambient>0.28 0.30 0.32 1</ambient><diffuse>0.34 0.36 0.38 1</diffuse></material></visual>
+        <visual name="restroom_screen"><pose>191.100 423.549 1.5 0 0 1.34512</pose><geometry><box><size>5.0 0.15 3.0</size></box></geometry><material><ambient>0.45 0.28 0.15 1</ambient><diffuse>0.52 0.34 0.18 1</diffuse></material></visual>
+
+        <!-- 兒童遊樂場吸震彈性安全地墊區 (Rubber Safety Mat) -->
+        <visual name="play_mat_blue"><pose>122.933 392.443 0.108 0 0 1.34512</pose><geometry><box><size>24.0 18.0 0.015</size></box></geometry><material><ambient>0.12 0.40 0.70 1</ambient><diffuse>0.16 0.50 0.85 1</diffuse></material></visual>
+        <visual name="play_mat_yellow_ring"><pose>122.933 392.443 0.110 0 0 1.34512</pose><geometry><box><size>20.0 14.0 0.015</size></box></geometry><material><ambient>0.85 0.70 0.10 1</ambient><diffuse>0.92 0.78 0.12 1</diffuse></material></visual>
+        <!-- 雙人盪鞦韆組 (Double Swing Frame) -->
+        <collision name="swing_frame_col"><pose>130.571 398.897 1.6 0 0 1.34512</pose><geometry><box><size>4.5 1.8 3.2</size></box></geometry></collision>
+        <visual name="swing_beam"><pose>130.571 398.897 3.1 0 0 1.34512</pose><geometry><cylinder><radius>0.08</radius><length>4.5</length></cylinder></geometry><material><ambient>0.9 0.2 0.2 1</ambient><diffuse>0.95 0.25 0.25 1</diffuse></material></visual>
+        <visual name="swing_seat1"><pose>129.471 398.897 0.5 0 0 0</pose><geometry><box><size>0.6 0.25 0.06</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+        <visual name="swing_seat2"><pose>131.671 398.897 0.5 0 0 0</pose><geometry><box><size>0.6 0.25 0.06</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+
+        <!-- 社區體健設施區 (Fitness Equipment Zone: 雙人漫步機與轉腰器) -->
+        <visual name="fit_mat"><pose>116.220 363.204 0.108 0 0 1.34512</pose><geometry><box><size>14.0 10.0 0.015</size></box></geometry><material><ambient>0.20 0.45 0.25 1</ambient><diffuse>0.25 0.55 0.30 1</diffuse></material></visual>
+        <visual name="walker_vis"><pose>116.220 363.204 0.75 0 0 1.34512</pose><geometry><box><size>1.6 1.2 1.4</size></box></geometry><material><ambient>0.85 0.65 0.05 1</ambient><diffuse>0.92 0.72 0.08 1</diffuse></material></visual>
+        <visual name="twister_vis"><pose>118.720 363.204 0.65 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>1.2</length></cylinder></geometry><material><ambient>0.2 0.5 0.7 1</ambient><diffuse>0.25 0.6 0.8 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- 4. 標誌性地景：磨石子大溜滑梯 (Terrazzo Giant Slide - 依實測座標錨定於日光公園遊戲區) -->
+    <include>
+      <name>terrazzo_slide</name>
+      <uri>model://terrazzo_slide</uri>
+      <pose>120.089 388.992 0.10 0 0 2.91591</pose>
+    </include>
 
     <!-- ==================== 載入 Tesla Model Y 載具 (自駕與鍵盤操控車輛) ==================== -->
     <include>
