@@ -760,6 +760,245 @@
       <pose>260.736 492.135 0.0 0 0 1.34512</pose>
     </include>
 
+    <!-- ==================== Phase 6: 模組化街道家具庫與環境動態要素 ==================== -->
+    <!-- 涵蓋: 26盞懸臂LED路燈走廊、4座地上式消防栓、4座台電/電信接續箱、8輛路邊智慧停車格停放車輛 -->
+
+    <!-- ===== (A) 關新路東側 13 盞懸臂 LED 路燈 (間距 45m, 懸臂指向車道) ===== -->
+    <include>
+      <name>street_light_e_01</name>
+      <uri>model://street_light</uri>
+      <pose>20.447 46.606 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_02</name>
+      <uri>model://street_light</uri>
+      <pose>30.517 90.465 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_03</name>
+      <uri>model://street_light</uri>
+      <pose>40.586 134.324 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_04</name>
+      <uri>model://street_light</uri>
+      <pose>50.656 178.183 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_05</name>
+      <uri>model://street_light</uri>
+      <pose>60.725 222.042 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_06</name>
+      <uri>model://street_light</uri>
+      <pose>70.795 265.901 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_07</name>
+      <uri>model://street_light</uri>
+      <pose>80.864 309.760 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_08</name>
+      <uri>model://street_light</uri>
+      <pose>90.934 353.619 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_09</name>
+      <uri>model://street_light</uri>
+      <pose>101.003 397.478 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_10</name>
+      <uri>model://street_light</uri>
+      <pose>111.072 441.337 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_11</name>
+      <uri>model://street_light</uri>
+      <pose>121.142 485.196 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_12</name>
+      <uri>model://street_light</uri>
+      <pose>131.211 529.055 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>street_light_e_13</name>
+      <uri>model://street_light</uri>
+      <pose>141.281 572.914 0.20 0 0 1.34512</pose>
+    </include>
+
+    <!-- ===== (B) 關新路西側 13 盞懸臂 LED 路燈 (間距 45m, 懸臂指向車道) ===== -->
+    <include>
+      <name>street_light_w_01</name>
+      <uri>model://street_light</uri>
+      <pose>1.929 50.858 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_02</name>
+      <uri>model://street_light</uri>
+      <pose>11.999 94.717 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_03</name>
+      <uri>model://street_light</uri>
+      <pose>22.068 138.576 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_04</name>
+      <uri>model://street_light</uri>
+      <pose>32.138 182.435 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_05</name>
+      <uri>model://street_light</uri>
+      <pose>42.207 226.294 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_06</name>
+      <uri>model://street_light</uri>
+      <pose>52.276 270.153 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_07</name>
+      <uri>model://street_light</uri>
+      <pose>62.346 314.012 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_08</name>
+      <uri>model://street_light</uri>
+      <pose>72.415 357.870 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_09</name>
+      <uri>model://street_light</uri>
+      <pose>82.485 401.729 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_10</name>
+      <uri>model://street_light</uri>
+      <pose>92.554 445.588 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_11</name>
+      <uri>model://street_light</uri>
+      <pose>102.624 489.447 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_12</name>
+      <uri>model://street_light</uri>
+      <pose>112.693 533.306 0.20 0 0 -1.79647</pose>
+    </include>
+    <include>
+      <name>street_light_w_13</name>
+      <uri>model://street_light</uri>
+      <pose>122.763 577.165 0.20 0 0 -1.79647</pose>
+    </include>
+
+    <!-- ===== (C) 關鍵十字路口地上式雙口紅色消防栓 ===== -->
+    <!-- 關新一街口東南角 -->
+    <include>
+      <name>hydrant_corner_gx1</name>
+      <uri>model://fire_hydrant</uri>
+      <pose>26.334 70.905 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- 關新二街口日光公園角 -->
+    <include>
+      <name>hydrant_corner_gx2</name>
+      <uri>model://fire_hydrant</uri>
+      <pose>85.632 329.186 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- 關新北路口日光公園角 -->
+    <include>
+      <name>hydrant_corner_gxn</name>
+      <uri>model://fire_hydrant</uri>
+      <pose>112.484 446.143 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- 關東路口東南角 -->
+    <include>
+      <name>hydrant_corner_gd</name>
+      <uri>model://fire_hydrant</uri>
+      <pose>139.783 565.049 0.20 0 0 1.34512</pose>
+    </include>
+
+    <!-- ===== (D) 人行道公共電力變電箱與光纖接續箱 ===== -->
+    <!-- 商圈中段台電綠色變電箱 -->
+    <include>
+      <name>taipower_box_mid</name>
+      <uri>model://taipower_box</uri>
+      <pose>54.694 192.646 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- 關新一街口中華電信接續箱 -->
+    <include>
+      <name>telecom_box_gx1</name>
+      <uri>model://telecom_box</uri>
+      <pose>27.843 75.689 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- 日光公園側中華電信接續箱 -->
+    <include>
+      <name>telecom_box_park</name>
+      <uri>model://telecom_box</uri>
+      <pose>90.497 348.589 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- 關新北路口中華電信接續箱 -->
+    <include>
+      <name>telecom_box_north</name>
+      <uri>model://telecom_box</uri>
+      <pose>115.111 455.800 0.20 0 0 1.34512</pose>
+    </include>
+
+    <!-- ===== (E) 智慧停車位實體停放車輛 (Parked Vehicles in Meter Stalls) ===== -->
+    <!-- 東側車格停放 SUV (近 pole_e_03) -->
+    <include>
+      <name>car_parked_e_1</name>
+      <uri>model://parked_car_suv</uri>
+      <pose>33.335 110.339 0.02 0 0 1.34512</pose>
+    </include>
+    <!-- 東側車格停放房車 (近 pole_e_05) -->
+    <include>
+      <name>car_parked_e_2</name>
+      <uri>model://parked_car_sedan</uri>
+      <pose>36.020 122.034 0.02 0 0 1.34512</pose>
+    </include>
+    <!-- 東側車格停放 SUV (近 pole_e_08) -->
+    <include>
+      <name>car_parked_e_3</name>
+      <uri>model://parked_car_suv</uri>
+      <pose>40.048 139.578 0.02 0 0 1.34512</pose>
+    </include>
+    <!-- 東側車格停放房車 (近 pole_e_10) -->
+    <include>
+      <name>car_parked_e_4</name>
+      <uri>model://parked_car_sedan</uri>
+      <pose>42.733 151.274 0.02 0 0 1.34512</pose>
+    </include>
+    <!-- 西側車格停放房車 (近 pole_w_03) -->
+    <include>
+      <name>car_parked_w_1</name>
+      <uri>model://parked_car_sedan</uri>
+      <pose>19.473 119.677 0.02 0 0 -1.79647</pose>
+    </include>
+    <!-- 西側車格停放 SUV (近 pole_w_05) -->
+    <include>
+      <name>car_parked_w_2</name>
+      <uri>model://parked_car_suv</uri>
+      <pose>22.159 131.373 0.02 0 0 -1.79647</pose>
+    </include>
+    <!-- 西側車格停放房車 (近 pole_w_08) -->
+    <include>
+      <name>car_parked_w_3</name>
+      <uri>model://parked_car_sedan</uri>
+      <pose>26.186 148.916 0.02 0 0 -1.79647</pose>
+    </include>
+    <!-- 西側車格停放 SUV (近 pole_w_11) -->
+    <include>
+      <name>car_parked_w_4</name>
+      <uri>model://parked_car_suv</uri>
+      <pose>30.214 166.460 0.02 0 0 -1.79647</pose>
+    </include>
+
     <!-- ==================== 載入 Tesla Model Y 載具 (自駕與鍵盤操控車輛) ==================== -->
     <include>
       <name>model_y</name>
