@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="fuyu_junding_tower">
+    <static>true</static>
+    <link name="fuyu_link">
+
+      <!-- ==================== 物理碰撞剛體 ==================== -->
+      <!-- 1F~2F 豪宅迎賓基座碰撞體 -->
+      <collision name="podium_col">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>52.0 34.0 8.0</size></box></geometry>
+      </collision>
+
+      <!-- 塔樓主體 (Tower Shaft: 24層樓, 高 78m) -->
+      <collision name="tower_col">
+        <pose>0 0 43.0 0 0 0</pose>
+        <geometry><box><size>48.0 30.0 70.0</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 視覺呈現：大理石奢華基座 (Luxury Stone Podium) ==================== -->
+      <visual name="podium_vis">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>52.0 34.0 8.0</size></box></geometry>
+        <material>
+          <ambient>0.74 0.72 0.68 1</ambient>
+          <diffuse>0.80 0.78 0.74 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 挑高迎賓大門門廊 (Grand Entrance Portal) -->
+      <visual name="entry_portal">
+        <pose>0 17.1 4.5 0 0 0</pose>
+        <geometry><box><size>16.0 0.4 6.0</size></box></geometry>
+        <material><ambient>0.25 0.22 0.18 1</ambient><diffuse>0.32 0.28 0.22 1</diffuse><specular>0.8 0.7 0.5 1</specular></material>
+      </visual>
+
+      <!-- 挑高採光大廳玻璃帷幕 -->
+      <visual name="lobby_glass">
+        <pose>0 17.05 4.0 0 0 0</pose>
+        <geometry><box><size>36.0 0.1 6.5</size></box></geometry>
+        <material>
+          <ambient>0.15 0.25 0.35 0.85</ambient>
+          <diffuse>0.20 0.35 0.45 0.85</diffuse>
+          <specular>0.9 0.95 1.0 1</specular>
+        </material>
+      </visual>
+
+      <!-- ==================== 視覺呈現：24 層指標豪宅塔樓主體 (Main Tower Body) ==================== -->
+      <!-- 塔樓主牆面 (現代暖灰石材搭配深古銅金屬邊框) -->
+      <visual name="tower_main_vis">
+        <pose>0 0 43.0 0 0 0</pose>
+        <geometry><box><size>47.5 29.5 70.0</size></box></geometry>
+        <material>
+          <ambient>0.78 0.76 0.74 1</ambient>
+          <diffuse>0.84 0.82 0.80 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 南向面向新莊車站之全景景觀陽台 (Panoramic Glass Balconies) -->
+      <visual name="balconies_front">
+        <pose>0 15.0 43.0 0 0 0</pose>
+        <geometry><box><size>42.0 0.8 66.0</size></box></geometry>
+        <material>
+          <ambient>0.22 0.30 0.38 0.9</ambient>
+          <diffuse>0.28 0.36 0.45 0.9</diffuse>
+        </material>
+      </visual>
+
+      <!-- 外立面垂直金屬飾條 (Architectural Vertical Ribs) -->
+      <visual name="vertical_rib_1"><pose>-15.0 15.2 43.0 0 0 0</pose><geometry><box><size>0.4 0.4 68.0</size></box></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
+      <visual name="vertical_rib_2"><pose>15.0 15.2 43.0 0 0 0</pose><geometry><box><size>0.4 0.4 68.0</size></box></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
+
+      <!-- ==================== 標誌性頂部發光天際線冠頂 (Illuminated Sky Crown - 82m) ==================== -->
+      <visual name="sky_crown_frame">
+        <pose>0 0 80.0 0 0 0</pose>
+        <geometry><box><size>44.0 26.0 4.0</size></box></geometry>
+        <material>
+          <ambient>0.3 0.32 0.35 1</ambient>
+          <diffuse>0.38 0.40 0.43 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 夜間天際線自體發光光帶 (Illuminated Skyline Beacon) -->
+      <visual name="sky_crown_light">
+        <pose>0 0 81.5 0 0 0</pose>
+        <geometry><box><size>40.0 22.0 0.8</size></box></geometry>
+        <material>
+          <ambient>0.9 0.85 0.6 1</ambient>
+          <diffuse>1.0 0.95 0.7 1</diffuse>
+          <emissive>0.8 0.75 0.5 1</emissive>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

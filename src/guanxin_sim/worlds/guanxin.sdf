@@ -827,48 +827,45 @@
       </link>
     </model>
 
-    <!-- ==================== 西側街區群 (West Side Blocks: 騎樓走廊, 7-Eleven, 摩斯漢堡, 東京中城豪宅) ==================== -->
-    <model name="west_side_blocks">
-      <static>true</static>
-      <link name="west_link">
-        <!-- 1. 南段高層住宅社區 (昌益丹麥/芬蘭 - X: 20 ~ 150, Y: 14.5 ~ 45, 高 45m) -->
-        <collision name="west_s_col"><pose>85 30 22.5 0 0 0</pose><geometry><box><size>130 30 45.0</size></box></geometry></collision>
-        <visual name="west_s_vis"><pose>85 30 22.5 0 0 0</pose><geometry><box><size>130 30 45.0</size></box></geometry><material><ambient>0.8 0.78 0.75 1</ambient><diffuse>0.85 0.83 0.80 1</diffuse></material></visual>
-        <!-- 1F 挑高騎樓走廊 (Recessed Arcade Walkway) -->
-        <visual name="arcade_floor_s"><pose>85 15.7 0.16 0 0 0</pose><geometry><box><size>130 2.5 0.01</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <visual name="arcade_ceiling_s"><pose>85 15.7 3.6 0 0 0</pose><geometry><box><size>130 2.6 0.3</size></box></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material></visual>
-        <!-- 騎樓立柱群 (Pillars) -->
-        <visual name="arcade_pill_30"><pose>30 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_45"><pose>45 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_60"><pose>60 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_75"><pose>75 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_100"><pose>100 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_115"><pose>115 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_130"><pose>130 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="arcade_pill_145"><pose>145 14.6 1.8 0 0 0</pose><geometry><box><size>0.6 0.6 3.6</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <!-- ==================== Phase 4: 教育園區與代表性大型住商豪宅街區 ==================== -->
+    <!-- 確立街區天際線與真實建築陰影：關埔國小、東京中城(24F)、一品大觀(22F)、昌益丹麥芬蘭(15F)、富宇君鼎(24F) -->
 
-        <!-- 7-Eleven 便利商店門面 (X: 130 ~ 148, Y: 16.9) -->
-        <visual name="seven_banner"><pose>139 16.9 3.0 0 0 0</pose><geometry><box><size>16 0.2 0.9</size></box></geometry><material><ambient>0.9 0.45 0.05 1</ambient><diffuse>0.95 0.5 0.05 1</diffuse><emissive>0.7 0.35 0.05 1</emissive></material></visual>
-        <visual name="seven_green_stripe"><pose>139 16.8 3.3 0 0 0</pose><geometry><box><size>16 0.1 0.2</size></box></geometry><material><ambient>0.0 0.55 0.25 1</ambient><diffuse>0.0 0.65 0.3 1</diffuse><emissive>0.0 0.4 0.2 1</emissive></material></visual>
-        <visual name="seven_glass"><pose>139 17.0 1.5 0 0 0</pose><geometry><box><size>15 0.1 2.8</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse><emissive>0.85 0.85 0.8 1</emissive></material></visual>
+    <!-- 1. 昌益丹麥 / 芬蘭 / 挪威現代住宅社區 (15層樓, 48m, 1F 挑高深凹連續騎樓走廊與圓柱列) -->
+    <include>
+      <name>changyi_residential_block</name>
+      <uri>model://changyi_residential_block</uri>
+      <pose>-21.95 56.34 0.0 0 0 -0.22568</pose>
+    </include>
 
-        <!-- 2. 摩斯漢堡 MOS BURGER & 商業大樓 (X: 310 ~ 335, Y: 14.5 ~ 38, 高 22m - Street_photo4,5 實景) -->
-        <collision name="mos_bldg_col"><pose>322.5 26 11.0 0 0 0</pose><geometry><box><size>25 23 22.0</size></box></geometry></collision>
-        <visual name="mos_bldg_vis"><pose>322.5 26 11.0 0 0 0</pose><geometry><box><size>25 23 22.0</size></box></geometry><material><ambient>0.75 0.73 0.70 1</ambient><diffuse>0.80 0.78 0.75 1</diffuse></material></visual>
-        <!-- 摩斯漢堡 1F 紅色醒目招牌與落地門面 (MOS BURGER) -->
-        <visual name="mos_fascia"><pose>322.5 14.4 3.2 0 0 0</pose><geometry><box><size>24 0.2 1.2</size></box></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse><emissive>0.7 0.05 0.05 1</emissive></material></visual>
-        <visual name="mos_glass"><pose>322.5 14.45 1.5 0 0 0</pose><geometry><box><size>23.5 0.1 2.6</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse><emissive>0.85 0.85 0.8 1</emissive></material></visual>
-        <visual name="mos_blade_sign"><pose>311.0 13.6 4.5 0 0 0</pose><geometry><box><size>0.15 1.2 1.5</size></box></geometry><material><ambient>0.85 0.05 0.05 1</ambient><diffuse>0.92 0.08 0.08 1</diffuse><emissive>0.8 0.05 0.05 1</emissive></material></visual>
+    <!-- 2. 一品大觀新古典崗石名邸 (22層樓, 68m, 挑高迎賓車道大門 Porte-Cochère, 崗石厚重基座) -->
+    <include>
+      <name>yipin_daguan_complex</name>
+      <uri>model://yipin_daguan_complex</uri>
+      <pose>28.68 285.83 0.0 0 0 -0.22568</pose>
+    </include>
 
-        <!-- 3. 東京中城 / 一品大觀現代豪宅大樓 (X: 345 ~ 474, 高 65m) -->
-        <collision name="west_tower1_col"><pose>380 32 32.5 0 0 0</pose><geometry><box><size>45 32 65.0</size></box></geometry></collision>
-        <visual name="west_tower1_vis"><pose>380 32 32.5 0 0 0</pose><geometry><box><size>45 32 65.0</size></box></geometry><material><ambient>0.7 0.68 0.65 1</ambient><diffuse>0.75 0.73 0.70 1</diffuse></material></visual>
-        <collision name="west_tower2_col"><pose>440 32 32.5 0 0 0</pose><geometry><box><size>45 32 65.0</size></box></geometry></collision>
-        <visual name="west_tower2_vis"><pose>440 32 32.5 0 0 0</pose><geometry><box><size>45 32 65.0</size></box></geometry><material><ambient>0.68 0.66 0.63 1</ambient><diffuse>0.73 0.71 0.68 1</diffuse></material></visual>
-      </link>
-    </model>
+    <!-- 3. 東京中城雙塔現代豪宅地標 (24層樓, 72m, 日光公園西側對街, 挑高大理石精品商鋪基座, 垂直金屬格柵) -->
+    <include>
+      <name>tokyo_roppongi_towers</name>
+      <uri>model://tokyo_roppongi_towers</uri>
+      <pose>57.99 413.51 0.0 0 0 -0.22568</pose>
+    </include>
 
-        <!-- ==================== Phase 3: 重點交通與公共休閒地標建模 ==================== -->
+    <!-- 4. 富宇君鼎 24 層天際線豪宅地標 (高 78m, 發光造型冠頂 82m, 新莊車站迎賓廣場西北側) -->
+    <include>
+      <name>fuyu_junding_tower</name>
+      <uri>model://fuyu_junding_tower</uri>
+      <pose>92.17 553.41 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 5. 新竹市立關埔國小校園 (有機低矮聚落校舍、木紋清水模立面、200m 紅土 PU 跑道操場、穿透式金屬格柵圍牆) -->
+    <include>
+      <name>guanpu_elementary_school</name>
+      <uri>model://guanpu_elementary_school</uri>
+      <pose>296.56 219.20 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- ==================== Phase 3: 重點交通與公共休閒地標建模 ==================== -->
     <!-- 涵蓋: 台鐵新莊車站大樓、高架鐵路橋梁橋墩(淨空>5.2m)、日光公園全區景觀與遊憩設施 -->
 
     <!-- 1. 台鐵六家/內灣線高架鐵路跨街橋樑與混凝土橋墩 (橋下淨空 5.4m >= 4.8m) -->

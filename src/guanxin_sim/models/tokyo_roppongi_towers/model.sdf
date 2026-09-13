@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="tokyo_roppongi_towers">
+    <static>true</static>
+    <link name="tower_link">
+
+      <!-- ==================== 物理碰撞剛體 (低多邊形 Box，兼顧物理效能與阻擋) ==================== -->
+      <!-- 1F~2F 挑高大理石基座碰撞剛體 -->
+      <collision name="podium_col">
+        <pose>0 0 3.75 0 0 0</pose>
+        <geometry><box><size>74.0 36.0 7.5</size></box></geometry>
+      </collision>
+
+      <!-- 南塔主體 (Tower South: 24層樓, 高 72m) -->
+      <collision name="tower_s_col">
+        <pose>-18.0 0 36.0 0 0 0</pose>
+        <geometry><box><size>32.0 32.0 72.0</size></box></geometry>
+      </collision>
+
+      <!-- 北塔主體 (Tower North: 24層樓, 高 72m) -->
+      <collision name="tower_n_col">
+        <pose>18.0 0 36.0 0 0 0</pose>
+        <geometry><box><size>32.0 32.0 72.0</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 視覺呈現：1F~2F 奢華大理石基座商鋪 (Marble Podium) ==================== -->
+      <!-- 義大利卡拉拉白/深灰大理石基座外牆 -->
+      <visual name="podium_vis">
+        <pose>0 0 3.75 0 0 0</pose>
+        <geometry><box><size>74.0 36.0 7.5</size></box></geometry>
+        <material>
+          <ambient>0.70 0.68 0.65 1</ambient>
+          <diffuse>0.76 0.74 0.72 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 1F 精品名店挑高落地玻璃櫥窗 (東向面向關新路) -->
+      <visual name="podium_glass">
+        <pose>0 18.05 3.5 0 0 0</pose>
+        <geometry><box><size>70.0 0.1 6.0</size></box></geometry>
+        <material>
+          <ambient>0.15 0.25 0.35 0.85</ambient>
+          <diffuse>0.20 0.35 0.45 0.85</diffuse>
+          <specular>0.9 0.95 1.0 1</specular>
+        </material>
+      </visual>
+
+      <!-- 迎賓雨遮與店面外挑造型飾板 (Storefront Canopies) -->
+      <visual name="podium_canopy">
+        <pose>0 19.0 4.2 0 0 0</pose>
+        <geometry><box><size>72.0 2.2 0.35</size></box></geometry>
+        <material><ambient>0.20 0.22 0.24 1</ambient><diffuse>0.25 0.27 0.30 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 視覺呈現：雙塔 24 層現代豪宅主體 (Twin Towers) ==================== -->
+      <!-- 南塔主牆面 (深暖灰色氟碳烤漆飾板) -->
+      <visual name="tower_s_main">
+        <pose>-18.0 0 39.75 0 0 0</pose>
+        <geometry><box><size>31.6 31.6 64.5</size></box></geometry>
+        <material>
+          <ambient>0.74 0.72 0.70 1</ambient>
+          <diffuse>0.80 0.78 0.76 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 北塔主牆面 -->
+      <visual name="tower_n_main">
+        <pose>18.0 0 39.75 0 0 0</pose>
+        <geometry><box><size>31.6 31.6 64.5</size></box></geometry>
+        <material>
+          <ambient>0.74 0.72 0.70 1</ambient>
+          <diffuse>0.80 0.78 0.76 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 現代建築深凹景觀陽台與玻璃欄杆 (Recessed Balconies) ==================== -->
+      <!-- 南塔東向景觀深凹陽台 -->
+      <visual name="balconies_s_front">
+        <pose>-18.0 16.2 39.75 0 0 0</pose>
+        <geometry><box><size>26.0 1.2 60.0</size></box></geometry>
+        <material>
+          <ambient>0.22 0.28 0.35 0.9</ambient>
+          <diffuse>0.26 0.32 0.40 0.9</diffuse>
+        </material>
+      </visual>
+
+      <!-- 北塔東向景觀深凹陽台 -->
+      <visual name="balconies_n_front">
+        <pose>18.0 16.2 39.75 0 0 0</pose>
+        <geometry><box><size>26.0 1.2 60.0</size></box></geometry>
+        <material>
+          <ambient>0.22 0.28 0.35 0.9</ambient>
+          <diffuse>0.26 0.32 0.40 0.9</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 標誌性垂直遮陽金屬格柵 (Vertical Sunshade Louvers) ==================== -->
+      <!-- 南塔外立面金屬格柵 -->
+      <visual name="louvers_s">
+        <pose>-18.0 16.8 39.75 0 0 0</pose>
+        <geometry><box><size>18.0 0.2 60.0</size></box></geometry>
+        <material>
+          <ambient>0.18 0.20 0.22 1</ambient>
+          <diffuse>0.24 0.26 0.28 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 北塔外立面金屬格柵 -->
+      <visual name="louvers_n">
+        <pose>18.0 16.8 39.75 0 0 0</pose>
+        <geometry><box><size>18.0 0.2 60.0</size></box></geometry>
+        <material>
+          <ambient>0.18 0.20 0.22 1</ambient>
+          <diffuse>0.24 0.26 0.28 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 頂部天際線景觀造型冠頂框架 (Sky Crown Pergolas) ==================== -->
+      <visual name="crown_s_vis">
+        <pose>-18.0 0 73.5 0 0 0</pose>
+        <geometry><box><size>28.0 28.0 3.0</size></box></geometry>
+        <material>
+          <ambient>0.25 0.27 0.30 1</ambient>
+          <diffuse>0.32 0.35 0.38 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="crown_n_vis">
+        <pose>18.0 0 73.5 0 0 0</pose>
+        <geometry><box><size>28.0 28.0 3.0</size></box></geometry>
+        <material>
+          <ambient>0.25 0.27 0.30 1</ambient>
+          <diffuse>0.32 0.35 0.38 1</diffuse>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
