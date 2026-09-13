@@ -82,19 +82,25 @@ gz_my_world/
 * 主機具備 X11 視窗環境（Linux Desktop）。
 * （選配）NVIDIA GPU 與驅動：若主機具備可用 NVIDIA 驅動，腳本將自動啟用 `--gpus all` 加速；若無，自動無縫降級使用 Mesa / DRI CPU 渲染模式。
 
-### 2. 一鍵啟動
+### 2. 一鍵啟動與汽車模組開關 (Getting Started & Mode Switches)
 
-直接在專案根目錄執行：
+腳本支援「**地圖純檢視模式**」與「**完整模擬駕駛模式**」快速切換：
 
 ```bash
+# 模式 A: 平常改地圖模組專用 (地圖純檢視模式：不載入汽車、不開操控與相機視窗)
+bash run.sh -m        # 或 bash run.sh --no-car
+
+# 模式 B: 完整自駕與操控模式 (載入 Model Y、3 路相機串流視窗、鍵盤操控終端)
+bash run.sh -c        # 或 bash run.sh --car
+
+# 模式 C: 互動式選單啟動 (直接執行時若在終端會提示選擇 1 或 2，6 秒預設模式 1)
 bash run.sh
 ```
 
-> **提示**：腳本會自動完成以下作業：
-> 1. 開放本機 X11 權限 (`xhost +local:root`)。
-> 2. 檢測 GPU 狀態並配置渲染參數。
-> 3. 自動同歩建置/掛載本機 `src/` 目錄。
-> 4. 啟動 Gazebo Harmonic 3D 視窗、OpenCV 相機串流視窗與 Teleop 鍵盤控制終端。
+> **提示**：亦支援環境變數控制：
+> * `ENABLE_CAR=0 bash run.sh` (純地圖模式)
+> * `ENABLE_CAR=1 bash run.sh` (完整自駕模式)
+> * 查看完整指令說明：`bash run.sh --help`
 
 *(亦可使用 Docker Compose 啟動：`docker compose up`)*
 
@@ -120,6 +126,29 @@ bash run.sh
 ## 📝 需求與實作歷程更新日誌 (Update Log)
 
 整合自 `requirement.md`、`IMPLEMENTATION_PLAN.md` 以及各階段開發紀錄：
+
+### [v2.2.0] - 2026-09-13
+#### 🎛️ run.sh 與 sim.launch.py 新增汽車模組開關 (地圖純檢視模式 vs 完整車輛駕駛模式)
+* **需求來源 (User Prompt)**：
+  * 使用者提出彈性開發需求：「*我想要把 run.sh 增加一個開關, 是否將汽車模組打開, 平常改地圖模組我就不開汽車模組了*」。
+  * 核心訴求：在調整、編輯或審核 3D 街區與路網時，不需要載入車輛模型、不需要彈出 xterm 終端與 OpenCV 車載相機 HUD 視窗，節省主機資源並提升地圖檢視效率。
+* **技術架構與實作細節**：
+  1. **ROS 2 啟動檔條件式擴充 (`src/guanxin_sim/launch/sim.launch.py`)**：
+     * 新增 `enable_vehicle` Launch 參數（預設 `true`）。
+     * 導入 `OpaqueFunction(function=launch_setup)` 動態解析啟動情境。
+     * **當 `enable_vehicle:=true`**：載入包含 Model Y 的標準世界檔，啟動 `ros_gz_bridge`（橋接 `/cmd_vel`、`/odom` 與 3 組相機話題），並啟動 `teleop_vehicle` 控制終端與 OpenCV HUD。
+     * **當 `enable_vehicle:=false`**：在記憶體中自 `guanxin.sdf` 動態過濾去除 `<name>model_y</name>` 之 `<include>` 區塊，生成純地圖世界檔 `/tmp/guanxin_map_only.sdf` 供 Gazebo 載入；同時**完全不啟動相機橋接與 teleop 節點**，達成零彈出視窗、零多餘負載的純粹地圖環境。
+  2. **啟動腳本開關整合 (`run.sh`)**：
+     * **CLI 參數支援**：支援 `-m`、`--no-car`、`--map-only`（純地圖模式）與 `-c`、`--car`（汽車模式）。
+     * **互動式選單**：若使用者直接執行 `bash run.sh` 且處於互動終端，提供友善選單（`[1] 完整模擬模式 [2] 地圖純檢視模式`），並具備 6 秒逾時預設啟動機制，兼顧防呆與自動化需求。
+     * **環境變數支援**：支援 `ENABLE_CAR=0` 或 `ENABLE_CAR=1` 外部注入。
+     * **參數說明**：支援 `bash run.sh --help` 完整參數說明指南。
+* **測試與驗證**：
+  * `bash run.sh --help` 正確輸出使用說明。
+  * `gz sdf -k /tmp/guanxin_map_only.sdf` 通過檢驗（輸出 `Valid.`）。
+  * `colcon build --symlink-install` 編譯完成，`ros2 launch guanxin_sim sim.launch.py -s` 成功列出 `enable_vehicle` 與 `use_xterm` 雙參數。
+
+---
 
 ### [v2.1.1] - 2026-09-12
 #### 🚗 Tesla Model Y 載具模型重載與出生點校準 (Vehicle Model Re-Include & Spawn Calibration)
