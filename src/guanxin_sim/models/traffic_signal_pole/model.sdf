@@ -156,25 +156,95 @@
         </material>
       </visual>
 
-      <!-- 視覺呈現：頂部 LED 路燈向下傾角燈具 (Overhead Streetlight Luminaire) -->
-      <visual name="street_light_arm">
-        <pose>1.0 0 6.6 0 0.35 0</pose>
+      <!-- 視覺呈現：頂部路燈延伸管 (Pole Extension Mast) -->
+      <visual name="street_light_mast_ext">
+        <pose>0 0 6.4 0 0 0</pose>
         <geometry>
-          <cylinder><radius>0.06</radius><length>1.8</length></cylinder>
+          <cylinder><radius>0.08</radius><length>0.40</length></cylinder>
         </geometry>
         <material>
           <ambient>0.55 0.58 0.60 1</ambient>
           <diffuse>0.62 0.65 0.68 1</diffuse>
         </material>
       </visual>
+
+      <!-- 附掛路燈懸臂弧形段 1 -->
+      <visual name="street_light_arm_seg_1">
+        <pose>0.0885 0 6.7194 0 0.63767 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.2973</length></cylinder></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+      <visual name="street_light_joint_1">
+        <pose>0.1770 0 6.8389 0 0 0</pose>
+        <geometry><sphere><radius>0.046</radius></sphere></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+
+      <!-- 附掛路燈懸臂弧形段 2 -->
+      <visual name="street_light_arm_seg_2">
+        <pose>0.3547 0 6.9103 0 1.18878 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.3830</length></cylinder></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+      <visual name="street_light_joint_2">
+        <pose>0.5324 0 6.9817 0 0 0</pose>
+        <geometry><sphere><radius>0.046</radius></sphere></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+
+      <!-- 附掛路燈懸臂弧形段 3 -->
+      <visual name="street_light_arm_seg_3">
+        <pose>0.7559 0 7.0159 0 1.41906 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.4521</length></cylinder></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+      <visual name="street_light_joint_3">
+        <pose>0.9793 0 7.0500 0 0 0</pose>
+        <geometry><sphere><radius>0.046</radius></sphere></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+
+      <!-- 附掛路燈懸臂弧形段 4 -->
+      <visual name="street_light_arm_seg_4">
+        <pose>1.2051 0 7.0578 0 1.53637 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.4518</length></cylinder></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+      <visual name="street_light_joint_4">
+        <pose>1.4308 0 7.0656 0 0 0</pose>
+        <geometry><sphere><radius>0.046</radius></sphere></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+
+      <!-- 附掛路燈懸臂弧形段 5 (末端段) -->
+      <visual name="street_light_arm_seg_5">
+        <pose>1.6154 0 7.0578 0 1.61297 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.3695</length></cylinder></geometry>
+        <material><ambient>0.55 0.58 0.60 1</ambient><diffuse>0.62 0.65 0.68 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺呈現：路燈燈具本體 (Overhead Streetlight Luminaire Housing) -->
       <visual name="street_light_head">
-        <pose>1.8 0 6.8 0 0.15 0</pose>
+        <pose>2.10 0 7.03 0 0.06 0</pose>
         <geometry>
-          <box><size>0.6 0.25 0.12</size></box>
+          <box><size>0.62 0.26 0.09</size></box>
         </geometry>
         <material>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.35 0.35 0.35 1</diffuse>
+          <ambient>0.24 0.25 0.27 1</ambient>
+          <diffuse>0.32 0.34 0.36 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 視覺呈現：路燈 LED 自發光板 (Emissive LED Panel) -->
+      <visual name="street_light_led">
+        <pose>2.12 0 6.98 0 0.06 0</pose>
+        <geometry>
+          <box><size>0.44 0.22 0.006</size></box>
+        </geometry>
+        <material>
+          <ambient>1.0 1.0 0.95 1</ambient>
+          <diffuse>1.0 1.0 0.95 1</diffuse>
+          <emissive>0.95 0.95 0.90 1</emissive>
         </material>
       </visual>
     </link>
