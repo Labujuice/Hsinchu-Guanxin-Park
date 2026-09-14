@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="xinzhuang_station_east_tower">
+    <static>true</static>
+    <link name="east_tower_link">
+      <collision name="col"><pose>0 0 24.0 0 0 0</pose><geometry><box><size>32.0 20.0 48.0</size></box></geometry></collision>
+      <visual name="main_vis"><pose>0 0 24.0 0 0 0</pose><geometry><box><size>32.0 20.0 48.0</size></box></geometry><material><ambient>0.74 0.76 0.78 1</ambient><diffuse>0.80 0.82 0.85 1</diffuse></material></visual>
+      <visual name="glass_vis"><pose>0 13.1 24.0 0 0 0</pose><geometry><box><size>28.0 0.2 42.0</size></box></geometry><material><ambient>0.15 0.28 0.42 0.9</ambient><diffuse>0.20 0.38 0.55 0.9</diffuse><specular>0.95 0.98 1.0 1</specular></material></visual>
+    </link>
+  </model>
+</sdf>

@@ -46,6 +46,7 @@
       </visual>
 
       <!-- ==================== 視覺呈現：24 層指標豪宅塔樓主體 (Main Tower Body) ==================== -->
+      <!-- ==================== 視覺呈現：24 層指標豪宅塔樓主體 (Main Tower Body) ==================== -->
       <!-- 塔樓主牆面 (現代暖灰石材搭配深古銅金屬邊框) -->
       <visual name="tower_main_vis">
         <pose>0 0 43.0 0 0 0</pose>
@@ -56,19 +57,21 @@
         </material>
       </visual>
 
-      <!-- 南向面向新莊車站之全景景觀陽台 (Panoramic Glass Balconies) -->
-      <visual name="balconies_front">
-        <pose>0 15.0 43.0 0 0 0</pose>
-        <geometry><box><size>42.0 0.8 66.0</size></box></geometry>
+      <!-- 台灣高質感豪宅花崗石乾掛與二丁掛陶質面磚高清表皮 (Taiwanese Luxury Residence Facade) -->
+      <visual name="fuyu_facade_vis">
+        <pose>0 15.06 43.0 0 0 0</pose>
+        <geometry><box><size>48.0 0.10 70.0</size></box></geometry>
         <material>
-          <ambient>0.22 0.30 0.38 0.9</ambient>
-          <diffuse>0.28 0.36 0.45 0.9</diffuse>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://fuyu_junding_tower/materials/textures/fuyu_junding_facade.png</albedo_map>
+              <roughness>0.35</roughness>
+              <metalness>0.08</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
-
-      <!-- 外立面垂直金屬飾條 (Architectural Vertical Ribs) -->
-      <visual name="vertical_rib_1"><pose>-15.0 15.2 43.0 0 0 0</pose><geometry><box><size>0.4 0.4 68.0</size></box></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
-      <visual name="vertical_rib_2"><pose>15.0 15.2 43.0 0 0 0</pose><geometry><box><size>0.4 0.4 68.0</size></box></geometry><material><ambient>0.22 0.24 0.26 1</ambient><diffuse>0.28 0.30 0.32 1</diffuse></material></visual>
 
       <!-- ==================== 標誌性頂部發光天際線冠頂 (Illuminated Sky Crown - 82m) ==================== -->
       <visual name="sky_crown_frame">
@@ -90,6 +93,19 @@
           <emissive>0.8 0.75 0.5 1</emissive>
         </material>
       </visual>
+
+      <!-- ==================== 台灣特色天際線：頂樓高空不鏽鋼水塔四聯陣列 ==================== -->
+      <visual name="water_tank_1"><pose>-12.0 0 82.5 0 0 0</pose><geometry><cylinder><radius>1.1</radius><length>2.4</length></cylinder></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+      <visual name="water_tank_1_dome"><pose>-12.0 0 83.75 0 0 0</pose><geometry><sphere><radius>1.12</radius></sphere></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+
+      <visual name="water_tank_2"><pose>-4.0 0 82.5 0 0 0</pose><geometry><cylinder><radius>1.1</radius><length>2.4</length></cylinder></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+      <visual name="water_tank_2_dome"><pose>-4.0 0 83.75 0 0 0</pose><geometry><sphere><radius>1.12</radius></sphere></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+
+      <visual name="water_tank_3"><pose>4.0 0 82.5 0 0 0</pose><geometry><cylinder><radius>1.1</radius><length>2.4</length></cylinder></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+      <visual name="water_tank_3_dome"><pose>4.0 0 83.75 0 0 0</pose><geometry><sphere><radius>1.12</radius></sphere></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+
+      <visual name="water_tank_4"><pose>12.0 0 82.5 0 0 0</pose><geometry><cylinder><radius>1.1</radius><length>2.4</length></cylinder></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
+      <visual name="water_tank_4_dome"><pose>12.0 0 83.75 0 0 0</pose><geometry><sphere><radius>1.12</radius></sphere></geometry><material><ambient>0.75 0.78 0.82 1</ambient><diffuse>0.85 0.88 0.92 1</diffuse><pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr></material></visual>
 
     </link>
   </model>

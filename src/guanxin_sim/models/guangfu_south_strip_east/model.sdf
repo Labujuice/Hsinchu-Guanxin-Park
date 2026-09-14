@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="guangfu_south_strip_east">
+    <static>true</static>
+    <link name="strip_link">
+      <collision name="podium_col"><pose>0 0 4.0 0 0 0</pose><geometry><box><size>180.0 28.0 8.0</size></box></geometry></collision>
+      <collision name="tower_col"><pose>0 0 26.0 0 0 0</pose><geometry><box><size>176.0 24.0 52.0</size></box></geometry></collision>
+      <visual name="podium_vis"><pose>0 0 4.0 0 0 0</pose><geometry><box><size>180.0 28.0 8.0</size></box></geometry><material><ambient>0.70 0.68 0.65 1</ambient><diffuse>0.76 0.74 0.70 1</diffuse></material></visual>
+      <!-- 1F 連續騎樓走廊 (Y = +12.5m facing Guangfu Rd) -->
+      <visual name="arcade_floor"><pose>0 12.5 0.08 0 0 0</pose><geometry><box><size>178.0 3.5 0.02</size></box></geometry><material><ambient>0.60 0.58 0.56 1</ambient><diffuse>0.68 0.66 0.64 1</diffuse></material></visual>
+      <visual name="arcade_ceiling"><pose>0 12.5 4.5 0 0 0</pose><geometry><box><size>178.0 3.5 0.25</size></box></geometry><material><ambient>0.25 0.25 0.28 1</ambient><diffuse>0.30 0.30 0.34 1</diffuse></material></visual>
+      <!-- ==================== 光復路一段 9 間知名品牌獨立店招長廊 (9 Individual Exact 11.43:1 Ratio Signboards) ==================== -->
+      <!-- 騎樓簷口深色金屬邊框樑 (Architrave Backing Beam) -->
+      <visual name="arcade_fascia_architrave">
+        <pose>0 14.06 4.6 0 0 0</pose>
+        <geometry><box><size>178.0 0.08 1.4</size></box></geometry>
+        <material><ambient>0.22 0.22 0.25 1</ambient><diffuse>0.28 0.28 0.32 1</diffuse></material>
+      </visual>
+
+      <!-- 店招 0: 玉山銀行 E.SUN BANK (-80m) -->
+      <visual name="shop_sign_0_esun">
+        <pose>-80.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_esun.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 1: 大樹連鎖藥局 (-60m) -->
+      <visual name="shop_sign_1_great_tree">
+        <pose>-60.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_great_tree.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 2: 王品 陶板屋 (-40m) -->
+      <visual name="shop_sign_2_tokiya">
+        <pose>-40.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_tokiya.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 3: 50嵐 經典手搖飲 (-20m) -->
+      <visual name="shop_sign_3_50lan">
+        <pose>-20.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_50lan.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 4: 春水堂 人文茶館 (0m, 正中軸線) -->
+      <visual name="shop_sign_4_chunshuitang">
+        <pose>0.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_chunshuitang.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 5: 星展銀行 DBS BANK (+20m) -->
+      <visual name="shop_sign_5_dbs">
+        <pose>20.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_dbs.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 6: 安永鮮物 (+40m) -->
+      <visual name="shop_sign_6_anyoung">
+        <pose>40.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_anyoung.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 7: 台安聯合診所 (+60m) -->
+      <visual name="shop_sign_7_taian">
+        <pose>60.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_taian.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 8: 屈臣氏 Watsons (+80m) -->
+      <visual name="shop_sign_8_watsons">
+        <pose>80.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_watsons.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="shop_glass_0"><pose>-80.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_1"><pose>-60.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_2"><pose>-40.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_3"><pose>-20.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_4"><pose>0.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_5"><pose>20.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_6"><pose>40.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_7"><pose>60.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="shop_glass_8"><pose>80.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <!-- 主塔樓立面 (16F, 高 52.0m) -->
+      <visual name="tower_main_vis"><pose>0 0 26.0 0 0 0</pose><geometry><box><size>176.0 24.0 52.0</size></box></geometry><material><ambient>0.76 0.74 0.72 1</ambient><diffuse>0.82 0.80 0.78 1</diffuse></material></visual>
+      <visual name="balconies_front"><pose>0 12.2 28.0 0 0 0</pose><geometry><box><size>170.0 0.8 40.0</size></box></geometry><material><ambient>0.22 0.26 0.32 0.9</ambient><diffuse>0.28 0.34 0.40 0.9</diffuse></material></visual>
+      <!-- 屋頂四周防墜女兒牆 (Perimeter Parapet Walls - 內部中空無覆蓋) -->
+      <visual name="parapet_n"><pose>0 11.4 52.9 0 0 0</pose><geometry><box><size>178.0 0.6 1.8</size></box></geometry><material><ambient>0.35 0.35 0.38 1</ambient><diffuse>0.42 0.42 0.45 1</diffuse></material></visual>
+      <visual name="parapet_s"><pose>0 -11.4 52.9 0 0 0</pose><geometry><box><size>178.0 0.6 1.8</size></box></geometry><material><ambient>0.35 0.35 0.38 1</ambient><diffuse>0.42 0.42 0.45 1</diffuse></material></visual>
+      <visual name="parapet_w"><pose>-88.4 0 52.9 0 0 0</pose><geometry><box><size>0.6 22.8 1.8</size></box></geometry><material><ambient>0.35 0.35 0.38 1</ambient><diffuse>0.42 0.42 0.45 1</diffuse></material></visual>
+      <visual name="parapet_e"><pose>88.4 0 52.9 0 0 0</pose><geometry><box><size>0.6 22.8 1.8</size></box></geometry><material><ambient>0.35 0.35 0.38 1</ambient><diffuse>0.42 0.42 0.45 1</diffuse></material></visual>
+  
+      <!-- ==================== 頂樓三大直昇機與無人機垂直起降停機坪 (高架起降平台 Z=54.2m) ==================== -->
+      <!-- [Helipad 1: 西側重型緊急救援與商務直昇機坪 H-1, 正對關新路南端路衝天際線] -->
+      <!-- 1. 鋼結構挑高高架停機平台基座 (Elevated Flight Deck Structure, Z=54.0m) -->
+      <visual name="helipad1_support"><pose>-68.0 0 53.0 0 0 0</pose><geometry><box><size>18.5 18.5 2.0</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.26 0.28 0.32 1</diffuse></material></visual>
+      <visual name="helipad1_deck"><pose>-68.0 0 54.05 0 0 0</pose><geometry><cylinder><radius>9.5</radius><length>0.15</length></cylinder></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.22 0.24 0.26 1</diffuse><specular>0.5 0.5 0.5 1</specular></material></visual>
+      <!-- 白色外圈著陸引導環 (White Perimeter Circle) -->
+      <visual name="helipad1_ring"><pose>-68.0 0 54.14 0 0 0</pose><geometry><cylinder><radius>8.5</radius><length>0.02</length></cylinder></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.3 0.3 0.3 1</emissive></material></visual>
+      <visual name="helipad1_ring_cut"><pose>-68.0 0 54.15 0 0 0</pose><geometry><cylinder><radius>7.7</radius><length>0.025</length></cylinder></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.22 0.24 0.26 1</diffuse></material></visual>
+
+      <!-- 🌟 超醒目民航標準自體發光黃色「H」字樣 (Giant Luminous Yellow H, 高達 8.0 公尺) 🌟 -->
+      <visual name="helipad1_h_left"><pose>-70.5 0 54.18 0 0 0</pose><geometry><box><size>1.3 7.6 0.04</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.90 0.0 1</diffuse><emissive>0.7 0.6 0.05 1</emissive></material></visual>
+      <visual name="helipad1_h_right"><pose>-65.5 0 54.18 0 0 0</pose><geometry><box><size>1.3 7.6 0.04</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.90 0.0 1</diffuse><emissive>0.7 0.6 0.05 1</emissive></material></visual>
+      <visual name="helipad1_h_mid"><pose>-68.0 0 54.18 0 0 0</pose><geometry><box><size>4.5 1.3 0.04</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.90 0.0 1</diffuse><emissive>0.7 0.6 0.05 1</emissive></material></visual>
+
+      <!-- 停機坪綠色邊界燈與四隅紅色高空障礙警示燈 -->
+      <visual name="helipad1_obs_nw"><pose>-75.0 7.0 54.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>0.8</length></cylinder></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>1.0 0.1 0.1 1</diffuse><emissive>0.8 0.1 0.1 1</emissive></material></visual>
+      <visual name="helipad1_obs_ne"><pose>-61.0 7.0 54.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>0.8</length></cylinder></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>1.0 0.1 0.1 1</diffuse><emissive>0.8 0.1 0.1 1</emissive></material></visual>
+      <visual name="helipad1_obs_sw"><pose>-75.0 -7.0 54.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>0.8</length></cylinder></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>1.0 0.1 0.1 1</diffuse><emissive>0.8 0.1 0.1 1</emissive></material></visual>
+      <visual name="helipad1_obs_se"><pose>-61.0 -7.0 54.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>0.8</length></cylinder></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>1.0 0.1 0.1 1</diffuse><emissive>0.8 0.1 0.1 1</emissive></material></visual>
+
+      <!-- [Helipad 2: 中央公務商務直昇機與 eVTOL 飛行坪 H-2] -->
+      <visual name="helipad2_support"><pose>0 0 53.0 0 0 0</pose><geometry><box><size>17.0 17.0 2.0</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.26 0.28 0.32 1</diffuse></material></visual>
+      <visual name="helipad2_deck"><pose>0 0 54.05 0 0 0</pose><geometry><cylinder><radius>8.5</radius><length>0.15</length></cylinder></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.22 0.24 0.26 1</diffuse></material></visual>
+      <visual name="helipad2_ring"><pose>0 0 54.14 0 0 0</pose><geometry><cylinder><radius>7.6</radius><length>0.02</length></cylinder></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.3 0.3 0.3 1</emissive></material></visual>
+      <visual name="helipad2_ring_cut"><pose>0 0 54.15 0 0 0</pose><geometry><cylinder><radius>6.8</radius><length>0.025</length></cylinder></geometry><material><ambient>0.18 0.20 0.22 1</ambient><diffuse>0.22 0.24 0.26 1</diffuse></material></visual>
+
+      <!-- 🌟 中央停機坪超醒目自體發光黃色「H」字樣 🌟 -->
+      <visual name="helipad2_h_left"><pose>-2.4 0 54.18 0 0 0</pose><geometry><box><size>1.2 6.8 0.04</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.90 0.0 1</diffuse><emissive>0.7 0.6 0.05 1</emissive></material></visual>
+      <visual name="helipad2_h_right"><pose>2.4 0 54.18 0 0 0</pose><geometry><box><size>1.2 6.8 0.04</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.90 0.0 1</diffuse><emissive>0.7 0.6 0.05 1</emissive></material></visual>
+      <visual name="helipad2_h_mid"><pose>0 0 54.18 0 0 0</pose><geometry><box><size>4.0 1.2 0.04</size></box></geometry><material><ambient>1.0 0.85 0.0 1</ambient><diffuse>1.0 0.90 0.0 1</diffuse><emissive>0.7 0.6 0.05 1</emissive></material></visual>
+
+      <!-- [Helipad 3: 東側高科技無人機物流與智慧垂直起降場 D-3] -->
+      <visual name="helipad3_support"><pose>68.0 0 53.0 0 0 0</pose><geometry><box><size>17.0 17.0 2.0</size></box></geometry><material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.26 0.28 0.32 1</diffuse></material></visual>
+      <visual name="helipad3_deck"><pose>68.0 0 54.05 0 0 0</pose><geometry><box><size>16.5 16.5 0.15</size></box></geometry><material><ambient>0.16 0.20 0.24 1</ambient><diffuse>0.20 0.25 0.30 1</diffuse></material></visual>
+      <!-- 青藍色無人機發光同心圓靶心 (Luminous Cyan Drone Rings) -->
+      <visual name="helipad3_ring1"><pose>68.0 0 54.14 0 0 0</pose><geometry><cylinder><radius>7.2</radius><length>0.02</length></cylinder></geometry><material><ambient>0.1 0.7 0.9 1</ambient><diffuse>0.2 0.85 1.0 1</diffuse><emissive>0.5 0.8 1.0 1</emissive></material></visual>
+      <visual name="helipad3_ring1_cut"><pose>68.0 0 54.15 0 0 0</pose><geometry><cylinder><radius>6.4</radius><length>0.025</length></cylinder></geometry><material><ambient>0.16 0.20 0.24 1</ambient><diffuse>0.20 0.25 0.30 1</diffuse></material></visual>
+      <visual name="helipad3_ring2"><pose>68.0 0 54.16 0 0 0</pose><geometry><cylinder><radius>4.2</radius><length>0.02</length></cylinder></geometry><material><ambient>0.1 0.7 0.9 1</ambient><diffuse>0.2 0.85 1.0 1</diffuse><emissive>0.5 0.8 1.0 1</emissive></material></visual>
+      <visual name="helipad3_ring2_cut"><pose>68.0 0 54.17 0 0 0</pose><geometry><cylinder><radius>3.4</radius><length>0.025</length></cylinder></geometry><material><ambient>0.16 0.20 0.24 1</ambient><diffuse>0.20 0.25 0.30 1</diffuse></material></visual>
+      <!-- 無人機發光「D」字標識 -->
+      <visual name="helipad3_d_stem"><pose>66.5 0 54.20 0 0 0</pose><geometry><box><size>1.0 4.8 0.04</size></box></geometry><material><ambient>0.9 0.95 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.6 0.7 0.9 1</emissive></material></visual>
+      <visual name="helipad3_d_loop"><pose>68.8 0 54.20 0 0 0</pose><geometry><cylinder><radius>2.4</radius><length>0.04</length></cylinder></geometry><material><ambient>0.9 0.95 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0.6 0.7 0.9 1</emissive></material></visual>
+      <visual name="helipad3_d_loop_in"><pose>68.8 0 54.21 0 0 0</pose><geometry><cylinder><radius>1.4</radius><length>0.045</length></cylinder></geometry><material><ambient>0.16 0.20 0.24 1</ambient><diffuse>0.20 0.25 0.30 1</diffuse></material></visual>
+
+      <!-- 高空風向袋立柱 (Aviation Windsock Pole) -->
+      <visual name="windsock_pole"><pose>80.0 8.0 55.5 0 0 0</pose><geometry><cylinder><radius>0.1</radius><length>4.5</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
+      <visual name="windsock_cone"><pose>81.0 8.0 57.2 0 0.2 0</pose><geometry><cylinder><radius>0.35</radius><length>1.8</length></cylinder></geometry><material><ambient>1 0.4 0 1</ambient><diffuse>1 0.45 0 1</diffuse><emissive>0.4 0.15 0 1</emissive></material></visual>
+
+    </link>
+  </model>
+</sdf>

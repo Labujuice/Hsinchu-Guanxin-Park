@@ -242,9 +242,31 @@
         <!-- 光復路北側人行道 (東段: 關新路口至關新東路口, 寬5m, 長165m) -->
         <collision name="sw_guangfu_ne_col"><pose>94.228 -6.756 0.10 0 0 -0.22568</pose><geometry><box><size>165.0 5.0 0.20</size></box></geometry></collision>
         <visual name="sw_guangfu_ne_vis"><pose>94.228 -6.756 0.10 0 0 -0.22568</pose><geometry><box><size>165.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
-        <!-- 光復路南側全線人行道 (寬5m, 長450m) -->
-        <collision name="sw_guangfu_south_col"><pose>21.121 -19.727 0.10 0 0 -0.22568</pose><geometry><box><size>450.0 5.0 0.20</size></box></geometry></collision>
-        <visual name="sw_guangfu_south_vis"><pose>21.121 -19.727 0.10 0 0 -0.22568</pose><geometry><box><size>450.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- 光復路南側人行道 (西段: 介壽路口以西, 寬5m, 長392m) -->
+        <collision name="sw_guangfu_south_w_col"><pose>-7.143 -13.237 0.10 0 0 -0.22568</pose><geometry><box><size>392.0 5.0 0.20</size></box></geometry></collision>
+        <visual name="sw_guangfu_south_w_vis"><pose>-7.143 -13.237 0.10 0 0 -0.22568</pose><geometry><box><size>392.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- 光復路南側人行道 (東段: 介壽路口以東至竹科神牛廣場, 寬5m, 長42m) -->
+        <collision name="sw_guangfu_south_e_col"><pose>219.948 -65.375 0.10 0 0 -0.22568</pose><geometry><box><size>42.0 5.0 0.20</size></box></geometry></collision>
+        <visual name="sw_guangfu_south_e_vis"><pose>219.948 -65.375 0.10 0 0 -0.22568</pose><geometry><box><size>42.0 5.0 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+
+        <!-- ===== 9. 介壽路主幹道 (Jieshou Road: 直通新竹科學園區門戶大道, 長 150m, 寬 16m, 雙向四線道) ===== -->
+        <collision name="jieshou_road_col"><pose>175.474 -129.544 0.01 0 0 -1.79648</pose><geometry><box><size>150.0 16.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="jieshou_road_vis"><pose>175.474 -129.544 0.01 0 0 -1.79648</pose><geometry><box><size>150.0 16.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="jieshou_road_line"><pose>175.474 -129.544 0.022 0 0 -1.79648</pose><geometry><box><size>150.0 0.25 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
+        <!-- 介壽路東側人行道 (通往竹科神牛廣場, 寬3.5m) -->
+        <collision name="sw_jieshou_east_col"><pose>184.977 -131.726 0.10 0 0 -1.79648</pose><geometry><box><size>150.0 3.5 0.20</size></box></geometry></collision>
+        <visual name="sw_jieshou_east_vis"><pose>184.977 -131.726 0.10 0 0 -1.79648</pose><geometry><box><size>150.0 3.5 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+        <!-- 介壽路西側人行道 (通往科技研發總部, 寬3.5m) -->
+        <collision name="sw_jieshou_west_col"><pose>165.971 -127.362 0.10 0 0 -1.79648</pose><geometry><box><size>150.0 3.5 0.20</size></box></geometry></collision>
+        <visual name="sw_jieshou_west_vis"><pose>165.971 -127.362 0.10 0 0 -1.79648</pose><geometry><box><size>150.0 3.5 0.20</size></box></geometry><material><ambient>0.72 0.70 0.68 1</ambient><diffuse>0.78 0.76 0.74 1</diffuse></material></visual>
+
+        <!-- ===== 10. 關新二街西延聯絡道與新莊街商圈生活幹道 ===== -->
+        <collision name="gx2_west_ext_col"><pose>-64.240 368.240 0.01 0 0 -0.22568</pose><geometry><box><size>30.0 14.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="gx2_west_ext_vis"><pose>-64.240 368.240 0.01 0 0 -0.22568</pose><geometry><box><size>30.0 14.0 0.02</size></box></geometry><material><ambient>0.23 0.23 0.24 1</ambient><diffuse>0.25 0.25 0.26 1</diffuse></material></visual>
+        <!-- 新莊街主幹道 (南北向串聯關新生活圈西側, 長 320m, 寬 12m) -->
+        <collision name="xinzhuang_street_col"><pose>-78.000 390.000 0.01 0 0 1.34512</pose><geometry><box><size>320.0 12.0 0.02</size></box></geometry><surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface></collision>
+        <visual name="xinzhuang_street_vis"><pose>-78.000 390.000 0.01 0 0 1.34512</pose><geometry><box><size>320.0 12.0 0.02</size></box></geometry><material><ambient>0.22 0.22 0.23 1</ambient><diffuse>0.24 0.24 0.25 1</diffuse></material></visual>
+        <visual name="xinzhuang_street_line"><pose>-78.000 390.000 0.022 0 0 1.34512</pose><geometry><box><size>320.0 0.20 0.002</size></box></geometry><material><ambient>0.9 0.85 0.1 1</ambient><diffuse>0.95 0.9 0.1 1</diffuse></material></visual>
 
         <!-- ===== 台灣標準路邊智慧停車格系統 (關新路東側 24 格 + 西側 12 格) ===== -->
         <!-- 停車格 #01 (s=25.0m, 東側路肩) -->
@@ -391,17 +413,17 @@
     <!-- 關新路 6~18 號：十詠八方 12層大樓 (星島海南雞飯、精品門市) -->
     <model name="block_gx1_to_poya">
       <static>true</static>
-      <pose>56.295 112.249 0.0 0 0 1.34512</pose>
+      <pose>52.153 113.200 0.0 0 0 1.34512</pose>
       <link name="bldg_link">
-        <collision name="tower_col"><pose>0 0 21.0 0 0 0</pose><geometry><box><size>52 30.5 42.0</size></box></geometry></collision>
-        <visual name="tower_main_vis"><pose>0 0 21.0 0 0 0</pose><geometry><box><size>52 30.5 42.0</size></box></geometry><material><ambient>0.76 0.74 0.70 1</ambient><diffuse>0.82 0.80 0.76 1</diffuse></material></visual>
-        <visual name="tower_crown"><pose>0 0 43.5 0 0 0</pose><geometry><box><size>48 26 3.0</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-        <visual name="balconies_front"><pose>0 15.55 23.0 0 0 0</pose><geometry><box><size>48 0.8 34.0</size></box></geometry><material><ambient>0.2 0.25 0.3 0.9</ambient><diffuse>0.25 0.3 0.35 0.9</diffuse></material></visual>
-        <visual name="retail_canopy"><pose>0 15.75 4.2 0 0 0</pose><geometry><box><size>52 1.8 0.3</size></box></geometry><material><ambient>0.22 0.22 0.24 1</ambient><diffuse>0.25 0.25 0.28 1</diffuse></material></visual>
-        <visual name="singdao_fascia"><pose>-18.0 15.35 3.2 0 0 0</pose><geometry><box><size>15.5 0.15 1.4</size></box></geometry><material><ambient>0.92 0.75 0.1 1</ambient><diffuse>0.98 0.82 0.12 1</diffuse><emissive>0.7 0.55 0.1 1</emissive></material></visual>
-        <visual name="singdao_glass"><pose>-18.0 15.3 1.5 0 0 0</pose><geometry><box><size>15.0 0.1 2.4</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse></material></visual>
-        <visual name="retail_fascia_mid"><pose>8.0 15.35 3.2 0 0 0</pose><geometry><box><size>35.5 0.15 1.4</size></box></geometry><material><ambient>0.28 0.28 0.3 1</ambient><diffuse>0.32 0.32 0.35 1</diffuse></material></visual>
-        <visual name="retail_glass_mid"><pose>8.0 15.3 1.5 0 0 0</pose><geometry><box><size>35.0 0.1 2.4</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse></material></visual>
+        <collision name="tower_col"><pose>0 0 21.0 0 0 0</pose><geometry><box><size>52.0 22.0 42.0</size></box></geometry></collision>
+        <visual name="tower_main_vis"><pose>0 0 21.0 0 0 0</pose><geometry><box><size>52.0 22.0 42.0</size></box></geometry><material><ambient>0.76 0.74 0.70 1</ambient><diffuse>0.82 0.80 0.76 1</diffuse></material></visual>
+        <visual name="tower_crown"><pose>0 0 43.5 0 0 0</pose><geometry><box><size>48 18 3.0</size></box></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+        <visual name="balconies_front"><pose>0 11.3 23.0 0 0 0</pose><geometry><box><size>48 0.8 34.0</size></box></geometry><material><ambient>0.2 0.25 0.3 0.9</ambient><diffuse>0.25 0.3 0.35 0.9</diffuse></material></visual>
+        <visual name="retail_canopy"><pose>0 11.5 4.2 0 0 0</pose><geometry><box><size>52 1.8 0.3</size></box></geometry><material><ambient>0.22 0.22 0.24 1</ambient><diffuse>0.25 0.25 0.28 1</diffuse></material></visual>
+        <visual name="singdao_fascia"><pose>-18.0 11.1 3.2 0 0 0</pose><geometry><box><size>15.5 0.15 1.4</size></box></geometry><material><ambient>0.92 0.75 0.1 1</ambient><diffuse>0.98 0.82 0.12 1</diffuse><emissive>0.7 0.55 0.1 1</emissive></material></visual>
+        <visual name="singdao_glass"><pose>-18.0 11.05 1.5 0 0 0</pose><geometry><box><size>15.0 0.1 2.4</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse></material></visual>
+        <visual name="retail_fascia_mid"><pose>8.0 11.1 3.2 0 0 0</pose><geometry><box><size>35.5 0.15 1.4</size></box></geometry><material><ambient>0.28 0.28 0.3 1</ambient><diffuse>0.32 0.32 0.35 1</diffuse></material></visual>
+        <visual name="retail_glass_mid"><pose>8.0 11.05 1.5 0 0 0</pose><geometry><box><size>35.0 0.1 2.4</size></box></geometry><material><ambient>0.1 0.15 0.2 0.85</ambient><diffuse>0.15 0.2 0.25 0.85</diffuse></material></visual>
       </link>
     </model>
 
@@ -488,7 +510,7 @@
 
         <!-- ===== (E) 國泰世華銀行門前設施 (Cathay United Bank Amenities: Street_photo8 實景) ===== -->
         <!-- 1. 無障礙雙層不銹鋼扶手斜坡道 (Barrier-free Ramp with Dual Railings: X: 262 ~ 274, Y: -13.8) -->
-        <collision name="cathay_ramp_col"><pose>73.419 258.116 0.180 0.000 0.000 1.34512</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry></collision>
+        <collision name="cathay_ramp_col"><pose>73.127 258.183 0.180 0 0 1.34512</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry></collision>
         <visual name="cathay_ramp_deck"><pose>73.419 258.116 0.180 0.000 0.000 1.34512</pose><geometry><box><size>12.0 1.6 0.36</size></box></geometry><material><ambient>0.7 0.7 0.72 1</ambient><diffuse>0.75 0.75 0.78 1</diffuse></material></visual>
         <!-- 上下雙層不銹鋼護欄 (Upper & Lower Handrails) -->
         <visual name="cathay_rail_top"><pose>72.640 258.295 0.850 0.000 1.571 1.34512</pose><geometry><cylinder><radius>0.025</radius><length>12.0</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
@@ -797,8 +819,8 @@
     <model name="xinzhuang_station_plaza">
       <static>true</static>
       <link name="plaza_link">
-        <collision name="plaza_deck_col"><pose>168.212 609.803 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry></collision>
-        <visual name="plaza_deck_vis"><pose>168.212 609.803 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
+        <collision name="plaza_deck_col"><pose>168.212 609.803 0.075 0 0 -0.22568</pose><geometry><box><size>30.0 14.0 0.15</size></box></geometry></collision>
+        <visual name="plaza_deck_vis"><pose>168.212 609.803 0.075 0 0 -0.22568</pose><geometry><box><size>30.0 24.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
         <visual name="plaza_planter1"><pose>157.859 618.337 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
         <visual name="plaza_shrub1"><pose>157.859 618.337 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
         <visual name="plaza_planter2"><pose>181.250 612.966 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
@@ -868,6 +890,63 @@
         <visual name="fit_mat"><pose>116.220 363.204 0.108 0 0 1.34512</pose><geometry><box><size>14.0 10.0 0.015</size></box></geometry><material><ambient>0.20 0.45 0.25 1</ambient><diffuse>0.25 0.55 0.30 1</diffuse></material></visual>
         <visual name="walker_vis"><pose>116.220 363.204 0.75 0 0 1.34512</pose><geometry><box><size>1.6 1.2 1.4</size></box></geometry><material><ambient>0.85 0.65 0.05 1</ambient><diffuse>0.92 0.72 0.08 1</diffuse></material></visual>
         <visual name="twister_vis"><pose>118.720 363.204 0.65 0 0 0</pose><geometry><cylinder><radius>0.5</radius><length>1.2</length></cylinder></geometry><material><ambient>0.2 0.5 0.7 1</ambient><diffuse>0.25 0.6 0.8 1</diffuse></material></visual>
+
+        <!-- ===== 日光公園全區擬真細節升級 (Real-world Urban Park Amenities) ===== -->
+        <!-- A. 多層次透水石板曲徑步道 (Meandering Garden Flagstone Paths) -->
+        <visual name="walk_diag_sw_ne">
+          <pose>146.0 380.0 0.106 0 0 0.56</pose>
+          <geometry><box><size>52.0 2.2 0.01</size></box></geometry>
+          <material><ambient>0.70 0.66 0.60 1</ambient><diffuse>0.76 0.72 0.66 1</diffuse></material>
+        </visual>
+        <visual name="walk_north_terrace">
+          <pose>162.0 425.0 0.106 0 0 -0.22568</pose>
+          <geometry><box><size>38.0 2.0 0.01</size></box></geometry>
+          <material><ambient>0.70 0.66 0.60 1</ambient><diffuse>0.76 0.72 0.66 1</diffuse></material>
+        </visual>
+
+        <!-- B. 全園休閒實木金屬長椅群 (Hardwood Park Benches x 8) -->
+        <visual name="bench_lawn_1"><pose>142.0 370.0 0.45 0 0 1.34512</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_lawn_2"><pose>148.0 370.0 0.45 0 0 1.34512</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_lawn_3"><pose>172.0 395.0 0.45 0 0 -0.22568</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_lawn_4"><pose>172.0 405.0 0.45 0 0 -0.22568</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_play_1"><pose>126.0 405.0 0.45 0 0 1.34512</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_play_2"><pose>118.0 405.0 0.45 0 0 1.34512</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_tree_1"><pose>182.0 355.0 0.45 0 0 1.34512</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+        <visual name="bench_tree_2"><pose>182.0 365.0 0.45 0 0 1.34512</pose><geometry><box><size>2.2 0.65 0.45</size></box></geometry><material><ambient>0.48 0.30 0.15 1</ambient><diffuse>0.56 0.36 0.20 1</diffuse></material></visual>
+
+        <!-- C. 兒童多元共融遊樂設施 (Expanded Children Playground) -->
+        <!-- 雙人高低蹺蹺板 (Dual Seesaws) -->
+        <visual name="seesaw_beam1"><pose>128.0 382.0 0.65 0 0.25 1.34512</pose><geometry><box><size>3.6 0.28 0.12</size></box></geometry><material><ambient>0.9 0.4 0.1 1</ambient><diffuse>0.98 0.48 0.15 1</diffuse></material></visual>
+        <visual name="seesaw_base1"><pose>128.0 382.0 0.35 0 0 1.34512</pose><geometry><cylinder><radius>0.25</radius><length>0.6</length></cylinder></geometry><material><ambient>0.3 0.3 0.35 1</ambient><diffuse>0.4 0.4 0.45 1</diffuse></material></visual>
+        <!-- 彈簧搖搖樂 (Spring Riders: 小海豚與小木馬) -->
+        <visual name="rocker_dolphin"><pose>124.0 380.0 0.55 0 0 1.34512</pose><geometry><box><size>0.85 0.45 0.70</size></box></geometry><material><ambient>0.1 0.5 0.8 1</ambient><diffuse>0.15 0.65 0.95 1</diffuse></material></visual>
+        <visual name="rocker_pony"><pose>126.0 378.0 0.55 0 0 1.34512</pose><geometry><box><size>0.85 0.45 0.70</size></box></geometry><material><ambient>0.85 0.70 0.15 1</ambient><diffuse>0.95 0.80 0.20 1</diffuse></material></visual>
+        <!-- 半球形鋼管攀爬架 (Geodesic Jungle Gym Dome) -->
+        <visual name="climb_dome"><pose>132.0 376.0 1.2 0 0 0</pose><geometry><sphere><radius>2.2</radius></sphere></geometry><material><ambient>0.85 0.25 0.55 0.75</ambient><diffuse>0.95 0.35 0.65 0.75</diffuse></material></visual>
+        <!-- 原木圍欄白沙坑 (Timber-edged Sandbox) -->
+        <visual name="sandpit_curb"><pose>135.0 388.0 0.18 0 0 1.34512</pose><geometry><box><size>8.0 6.0 0.25</size></box></geometry><material><ambient>0.55 0.40 0.25 1</ambient><diffuse>0.65 0.48 0.32 1</diffuse></material></visual>
+        <visual name="sandpit_sand"><pose>135.0 388.0 0.16 0 0 1.34512</pose><geometry><box><size>7.2 5.2 0.20</size></box></geometry><material><ambient>0.85 0.80 0.65 1</ambient><diffuse>0.92 0.88 0.72 1</diffuse></material></visual>
+
+        <!-- D. 全功能樂齡體健設施 (Senior Comprehensive Fitness Hub) -->
+        <!-- 太極推手器 (Tai Chi Upper Limb Pushers) -->
+        <visual name="taichi_spinners"><pose>112.0 365.0 0.85 0 0 1.34512</pose><geometry><cylinder><radius>0.45</radius><length>0.15</length></cylinder></geometry><material><ambient>0.2 0.5 0.7 1</ambient><diffuse>0.25 0.6 0.8 1</diffuse></material></visual>
+        <!-- 引體向上與單雙槓健身架 (Pull-up & Parallel Bars) -->
+        <visual name="pullup_frame"><pose>120.0 358.0 1.6 0 0 1.34512</pose><geometry><box><size>3.2 0.15 3.0</size></box></geometry><material><ambient>0.85 0.65 0.05 1</ambient><diffuse>0.92 0.72 0.08 1</diffuse></material></visual>
+        <!-- 仰臥起坐健身板 (Sit-up Exercise Bench) -->
+        <visual name="situp_bench"><pose>114.0 355.0 0.45 0 0.25 1.34512</pose><geometry><box><size>2.2 0.6 0.35</size></box></geometry><material><ambient>0.3 0.3 0.35 1</ambient><diffuse>0.4 0.4 0.45 1</diffuse></material></visual>
+
+        <!-- E. 紫藤花架景觀休憩廊道 (Wisteria Pergola Trellis, 14m x 3.5m) -->
+        <visual name="pergola_beams"><pose>150.0 350.0 3.2 0 0 -0.22568</pose><geometry><box><size>14.0 3.6 0.3</size></box></geometry><material><ambient>0.42 0.28 0.16 1</ambient><diffuse>0.50 0.34 0.20 1</diffuse></material></visual>
+        <visual name="pergola_vines"><pose>150.0 350.0 3.4 0 0 -0.22568</pose><geometry><box><size>13.6 3.2 0.3</size></box></geometry><material><ambient>0.45 0.25 0.55 1</ambient><diffuse>0.55 0.32 0.68 1</diffuse></material></visual>
+        <visual name="pergola_post1"><pose>144.0 348.5 1.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.0</length></cylinder></geometry><material><ambient>0.42 0.28 0.16 1</ambient><diffuse>0.50 0.34 0.20 1</diffuse></material></visual>
+        <visual name="pergola_post2"><pose>156.0 348.5 1.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.0</length></cylinder></geometry><material><ambient>0.42 0.28 0.16 1</ambient><diffuse>0.50 0.34 0.20 1</diffuse></material></visual>
+        <visual name="pergola_post3"><pose>144.0 351.5 1.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.0</length></cylinder></geometry><material><ambient>0.42 0.28 0.16 1</ambient><diffuse>0.50 0.34 0.20 1</diffuse></material></visual>
+        <visual name="pergola_post4"><pose>156.0 351.5 1.6 0 0 0</pose><geometry><cylinder><radius>0.15</radius><length>3.0</length></cylinder></geometry><material><ambient>0.42 0.28 0.16 1</ambient><diffuse>0.50 0.34 0.20 1</diffuse></material></visual>
+
+        <!-- F. 公園導覽圖立牌與直飲水台 (Park Map Directory & Drinking Fountain) -->
+        <visual name="park_map_sw"><pose>98.0 350.0 1.2 0 0 1.34512</pose><geometry><box><size>1.6 0.12 1.8</size></box></geometry><material><ambient>0.2 0.35 0.5 1</ambient><diffuse>0.25 0.45 0.65 1</diffuse></material></visual>
+        <visual name="drink_fountain"><pose>125.0 395.0 0.5 0 0 0</pose><geometry><cylinder><radius>0.25</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.72 0.75 1</ambient><diffuse>0.8 0.82 0.85 1</diffuse></material></visual>
+
       </link>
     </model>
 
@@ -1195,6 +1274,252 @@
       <name>guandong_elementary_school</name>
       <uri>model://guandong_elementary_school</uri>
       <pose>400.000 70.000 0.0 0 0 0.25000</pose>
+    </include>
+
+  
+    <!-- ==================== Phase 8: 全域路網街道立面全線補全、內部街區與巨型青銅藝術裝置 ==================== -->
+    <!-- 幾何驗證: 100% 排除路面壓迫與建物重疊，實現完整街道立面與日光公園宏偉青銅裝置藝術 -->
+
+    <!-- 1. 日光公園核心地標：超級大青銅裝置藝術「風之冠．無限科技之環」(19.5m 雙翼螺旋莫比烏斯環青銅雕塑) -->
+    <include>
+      <name>giant_bronze_sculpture_monument</name>
+      <uri>model://giant_bronze_sculpture_monument</uri>
+      <pose>153.515 391.578 0.10 0 0 1.34512</pose>
+    </include>
+
+    <!-- 2. 日光公園現代景觀玻璃咖啡亭與露天遮陽雅座 -->
+    <include>
+      <name>nikko_glass_cafe_pavilion</name>
+      <uri>model://nikko_glass_cafe_pavilion</uri>
+      <pose>166.758 346.471 0.10 0 0 1.34512</pose>
+    </include>
+
+    <!-- 3. 關新帝國商業名邸大樓 (光復路與關新路口東南角, 17F 豪宅商辦、玉山銀行旗艦分行、挑高騎樓) -->
+    <include>
+      <name>guanxin_imperial_plaza</name>
+      <uri>model://guanxin_imperial_plaza</uri>
+      <pose>38.031 40.517 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 4. 光復路南側全線連續住商大樓群 (15F~16F, 挑高連續騎樓、銀行、生活商圈) -->
+    <include>
+      <name>guangfu_south_strip_west</name>
+      <uri>model://guangfu_south_strip_west</uri>
+      <pose>-81.154 -18.305 0.0 0 0 -0.22568</pose>
+    </include>
+    <include>
+      <name>guangfu_south_strip_east</name>
+      <uri>model://guangfu_south_strip_east</uri>
+      <pose>69.916 -52.989 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 5. 光復路東段科技商辦大樓 (14F) -->
+    <include>
+      <name>guangfu_east_tech_block</name>
+      <uri>model://guangfu_east_tech_block</uri>
+      <pose>100.423 12.855 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 6. 昌益藍海 / 璞石景觀名邸 (關新一街北側角隅, 15F, 精品烘焙、牙醫診所, 零碰撞) -->
+    <include>
+      <name>changyi_blue_ocean_residence</name>
+      <uri>model://changyi_blue_ocean_residence</uri>
+      <pose>-6.350 115.346 0.0 0 0 -1.79648</pose>
+    </include>
+
+    <!-- 7. 豐邑一極高層住宅名邸 (北排大樓與月影會館之間, 20F, 高 65m, 新古典崗石、有機超市, 零碰撞) -->
+    <include>
+      <name>fengyi_landmark_residence</name>
+      <uri>model://fengyi_landmark_residence</uri>
+      <pose>8.259 187.917 0.0 0 0 -1.79648</pose>
+    </include>
+
+    <!-- 8. 關新名品商務會館 (月影會館與橘時咖啡之間, 14F, 現代藍灰玻璃帷幕, 零碰撞) -->
+    <include>
+      <name>guanxin_prestige_center</name>
+      <uri>model://guanxin_prestige_center</uri>
+      <pose>37.667 298.131 0.0 0 0 -1.79648</pose>
+    </include>
+
+    <!-- 9. 公園首席景觀名邸 (關新路西側正對日光公園南半段, 18F, 景觀義式餐廳, 零碰撞) -->
+    <include>
+      <name>park_prime_residence</name>
+      <uri>model://park_prime_residence</uri>
+      <pose>49.512 363.129 0.0 0 0 -1.79648</pose>
+    </include>
+
+    <!-- 10. 晴空樹高層景觀大樓 (東京中城北側正對日光公園, 22F, 高 70m, 香檳金格柵, 零碰撞) -->
+    <include>
+      <name>skytree_parkview_tower</name>
+      <uri>model://skytree_parkview_tower</uri>
+      <pose>72.336 462.542 0.0 0 0 -1.79648</pose>
+    </include>
+
+    <!-- 11. 關東名邸與新莊商務街區 (關東路西段南側, 15F, 在地美食街, 零碰撞) -->
+    <include>
+      <name>guandong_west_commercial_block</name>
+      <uri>model://guandong_west_commercial_block</uri>
+      <pose>40.501 578.609 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 12. 關東路東段南側商住大樓 (11F, 零碰撞) -->
+    <include>
+      <name>guandong_east_commercial_block</name>
+      <uri>model://guandong_east_commercial_block</uri>
+      <pose>182.048 547.138 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 13. 關新東路北段商務大樓 (12F) -->
+    <include>
+      <name>gxe_north_commercial_block</name>
+      <uri>model://gxe_north_commercial_block</uri>
+      <pose>222.725 500.862 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 15. 新莊車站東南側科技商辦大樓 (退縮至鐵路南側廣場邊界, 15F, 完全淨空高架鐵道走廊) -->
+    <include>
+      <name>xinzhuang_station_east_tower</name>
+      <uri>model://xinzhuang_station_east_tower</uri>
+      <pose>241.964 584.688 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 16. 東側後勤服務巷弄與關新東路之間內部大型花園住宅名邸 (南區 14F & 北區 13F, 零碰撞) -->
+    <include>
+      <name>nikko_garden_block_south</name>
+      <uri>model://nikko_garden_block_south</uri>
+      <pose>115.291 122.303 0.0 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>nikko_garden_block_north</name>
+      <uri>model://nikko_garden_block_north</uri>
+      <pose>143.983 269.618 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 17. 街道節點青銅公共藝術雕塑 (光復路口、關新二街橘時咖啡前、新莊車站迎賓廣場) -->
+    <include>
+      <name>bronze_sculpture_guangfu</name>
+      <uri>model://bronze_street_sculpture</uri>
+      <pose>15.803 10.736 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>bronze_sculpture_gx2</name>
+      <uri>model://bronze_street_sculpture</uri>
+      <pose>95.256 343.392 0.20 0 0 1.34512</pose>
+    </include>
+    <include>
+      <name>bronze_sculpture_xinzhuang</name>
+      <uri>model://bronze_street_sculpture</uri>
+      <pose>154.619 610.892 0.20 0 0 1.34512</pose>
+    </include>
+    <!-- ==================== 外圍擴張亮點與竹科科技神牛紀念園區 ==================== -->
+    <!-- 18. 竹科門戶超大型「科技神牛」青銅雕塑 (高昂雄偉、刺破青天、萬馬奔騰、股價飆升) -->
+    <include>
+      <name>giant_bull_sculpture_monument</name>
+      <uri>model://giant_bull_sculpture_monument</uri>
+      <pose>217.022 -95.997 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 19. 新竹科學園區半導體創新總部研發大樓 (18F, 台積電/聯發科創新基地科技總部) -->
+    <include>
+      <name>science_park_tech_innovation_tower</name>
+      <uri>model://science_park_tech_innovation_tower</uri>
+      <pose>88.587 -128.072 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 20. 昌益丹麥 / 芬蘭歐洲村生活圈精品大樓 (關新東路與關東路間, 14F) -->
+    <include>
+      <name>changyi_danmark_residence</name>
+      <uri>model://changyi_danmark_residence</uri>
+      <pose>265.000 110.000 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 21. 新莊街文青美饌特色商圈與住宅街廓 (新莊街西側, 7F) -->
+    <include>
+      <name>xinzhuang_street_block</name>
+      <uri>model://xinzhuang_street_block</uri>
+      <pose>-105.000 390.000 0.0 0 0 1.34512</pose>
+    </include>
+
+    <!-- 22. 關東公有零售市場與文化會館綜合大樓 (關東路北端, 4F) -->
+    <include>
+      <name>guandong_civic_market</name>
+      <uri>model://guandong_civic_market</uri>
+      <pose>-75.000 750.000 0.0 0 0 2.75440</pose>
+    </include>
+
+    <!-- 23. 介壽路 (竹科大道) 迎賓智慧路燈組 -->
+    <include>
+      <name>street_light_js_e1</name>
+      <uri>model://street_light</uri>
+      <pose>194.659 -92.908 0.20 0 0 -0.22568</pose>
+    </include>
+    <include>
+      <name>street_light_js_e2</name>
+      <uri>model://street_light</uri>
+      <pose>185.708 -131.894 0.20 0 0 -0.22568</pose>
+    </include>
+    <include>
+      <name>street_light_js_e3</name>
+      <uri>model://street_light</uri>
+      <pose>176.757 -170.879 0.20 0 0 -0.22568</pose>
+    </include>
+    <include>
+      <name>street_light_js_w1</name>
+      <uri>model://street_light</uri>
+      <pose>174.191 -88.209 0.20 0 0 2.91591</pose>
+    </include>
+    <include>
+      <name>street_light_js_w2</name>
+      <uri>model://street_light</uri>
+      <pose>165.240 -127.194 0.20 0 0 2.91591</pose>
+    </include>
+    <include>
+      <name>street_light_js_w3</name>
+      <uri>model://street_light</uri>
+      <pose>156.289 -166.180 0.20 0 0 2.91591</pose>
+    </include>
+    <!-- ==================== 竹科大門科技裝置藝術：晶圓、光電/LED、DRAM 記憶體 ==================== -->
+    <!-- 24. 矽晶圓片裝置藝術 (12吋 300mm 鏡面光刻晶圓, 象徵護國神山與台灣半導體之基) -->
+    <include>
+      <name>monument_silicon_wafer</name>
+      <uri>model://monument_silicon_wafer</uri>
+      <pose>223.223 -77.926 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 25. 光電 LCD 面板與微型 LED 矩陣裝置藝術 (曲面 Micro-LED 顯示矩陣, 象徵面板科技光雕) -->
+    <include>
+      <name>monument_lcd_microled</name>
+      <uri>model://monument_lcd_microled</uri>
+      <pose>124.540 -105.544 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 26. DRAM 記憶體與 3D 先進封裝晶片裝置藝術 (4層 3D TSV 堆疊晶粒、均熱片與封裝載板) -->
+    <include>
+      <name>monument_dram_semiconductor</name>
+      <uri>model://monument_dram_semiconductor</uri>
+      <pose>66.062 -92.118 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- ==================== 台鐵六家/內灣線高架鐵路延伸段與橋下線性公園 ==================== -->
+    <!-- 27. 西向高架鐵路延伸段 (貫穿關埔西側地殼通往千甲/竹北高鐵, 長 300m, 雙柱橋墩, 雙軌, 淨空 5.4m) -->
+    <include>
+      <name>railway_viaduct_west_ext</name>
+      <uri>model://railway_viaduct_west_ext</uri>
+      <pose>-39.742 676.017 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 28. 東向高架鐵路延伸段 (自新莊車站月台東端無縫直通關東路/柯子湖溪方向, 長 250m, 雙軌, 淨空 5.4m) -->
+    <include>
+      <name>railway_viaduct_east_ext</name>
+      <uri>model://railway_viaduct_east_ext</uri>
+      <pose>343.800 588.020 0.0 0 0 -0.22568</pose>
+    </include>
+
+    <!-- 29. 鐵路橋下綠帶休憩公園 (長 100m, 紅磚休閒漫步道、健體雙人漫步機、兒童搖搖樂、長椅花槽、暖光燈) -->
+    <include>
+      <name>under_viaduct_linear_park</name>
+      <uri>model://under_viaduct_linear_park</uri>
+      <pose>38.230 658.130 0.0 0 0 -0.22568</pose>
     </include>
   </world>
 </sdf>

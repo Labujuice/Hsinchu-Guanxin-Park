@@ -7,20 +7,20 @@
       <!-- ==================== 物理碰撞剛體 (橋墩位於兩側人行道外，橋下淨空 5.4m) ==================== -->
       <!-- 左側/西側混凝土雙柱式橋墩碰撞剛體 (West Pier Column) -->
       <collision name="pier_west_col">
-        <pose>0 -12.5 2.7 0 0 0</pose>
-        <geometry><box><size>2.4 2.2 5.4</size></box></geometry>
+        <pose>-1.6 -12.5 2.7 0 0 0</pose>
+        <geometry><box><size>1.6 2.2 5.4</size></box></geometry>
       </collision>
 
       <!-- 右側/東側混凝土雙柱式橋墩碰撞剛體 (East Pier Column) -->
       <collision name="pier_east_col">
-        <pose>0 12.5 2.7 0 0 0</pose>
-        <geometry><box><size>2.4 2.2 5.4</size></box></geometry>
+        <pose>-1.6 12.5 2.7 0 0 0</pose>
+        <geometry><box><size>1.6 2.2 5.4</size></box></geometry>
       </collision>
 
       <!-- 高架連續箱梁主橋面碰撞剛體 (底面 Z=5.4m，頂面 Z=6.8m，淨空 5.4m > 4.8m) -->
       <collision name="girder_deck_col">
-        <pose>0 0 6.1 0 0 0</pose>
-        <geometry><box><size>60.0 10.5 1.4</size></box></geometry>
+        <pose>-1.0 0 6.1 0 0 0</pose>
+        <geometry><box><size>57.0 10.5 1.4</size></box></geometry>
       </collision>
 
       <!-- ==================== 視覺呈現：鋼筋混凝土橋墩與橫樑 (Concrete Piers & Crossbeam) ==================== -->

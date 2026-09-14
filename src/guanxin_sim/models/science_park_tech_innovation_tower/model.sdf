@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="science_park_tech_innovation_tower">
+    <static>true</static>
+    <link name="tower_link">
+      <collision name="podium_col">
+        <pose>0 0 4.5 0 0 0</pose>
+        <geometry><box><size>76.0 34.0 9.0</size></box></geometry>
+      </collision>
+      <collision name="tower_col">
+        <pose>0 0 32.0 0 0 0</pose>
+        <geometry><box><size>72.0 28.0 56.0</size></box></geometry>
+      </collision>
+
+      <!-- 裙樓與入口大廳 (1F~2F 挑高科技迎賓大廳) -->
+      <visual name="podium_base">
+        <pose>0 0 4.5 0 0 0</pose>
+        <geometry><box><size>76.0 34.0 9.0</size></box></geometry>
+        <material>
+          <ambient>0.25 0.26 0.28 1</ambient>
+          <diffuse>0.32 0.34 0.36 1</diffuse>
+          <specular>0.7 0.7 0.7 1</specular>
+        </material>
+      </visual>
+      <!-- 入口玻璃帷幕大廳 -->
+      <visual name="podium_glass">
+        <pose>0 17.1 4.5 0 0 0</pose>
+        <geometry><box><size>64.0 0.2 8.0</size></box></geometry>
+        <material>
+          <ambient>0.15 0.28 0.40 0.9</ambient>
+          <diffuse>0.22 0.40 0.58 0.9</diffuse>
+          <specular>0.95 0.95 1.0 1</specular>
+        </material>
+      </visual>
+
+      <!-- 主塔樓立面 (18F, 藍色節能鍍膜 Low-E 雙層玻璃帷幕) -->
+      <visual name="tower_core">
+        <pose>0 0 32.0 0 0 0</pose>
+        <geometry><box><size>72.0 28.0 56.0</size></box></geometry>
+        <material>
+          <ambient>0.16 0.26 0.38 1</ambient>
+          <diffuse>0.22 0.36 0.52 1</diffuse>
+          <specular>0.95 0.98 1.0 1</specular>
+        </material>
+      </visual>
+      <!-- 白色鋁合金建築遮陽飾條 (Horizontal Louvers) -->
+      <visual name="facade_louvers">
+        <pose>0 14.2 32.0 0 0 0</pose>
+        <geometry><box><size>70.0 0.3 54.0</size></box></geometry>
+        <material>
+          <ambient>0.82 0.84 0.86 1</ambient>
+          <diffuse>0.88 0.90 0.92 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 企業標誌招牌 (TSMC / MEDIATEK / HSINCHU SCIENCE PARK) -->
+      <visual name="logo_panel">
+        <pose>0 14.35 56.5 0 0 0</pose>
+        <geometry><box><size>36.0 0.15 3.2</size></box></geometry>
+        <material>
+          <ambient>0.10 0.20 0.35 1</ambient>
+          <diffuse>0.15 0.28 0.48 1</diffuse>
+        </material>
+      </visual>
+      <visual name="logo_text_glow">
+        <pose>0 14.45 56.5 0 0 0</pose>
+        <geometry><box><size>32.0 0.05 2.2</size></box></geometry>
+        <material>
+          <ambient>0.9 0.85 0.3 1</ambient>
+          <diffuse>1.0 0.95 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
+      </visual>
+
+      <!-- 屋頂太陽能晶圓天際線構架 (Silicon Wafer Rooftop Pergola) -->
+      <visual name="rooftop_solar">
+        <pose>0 0 61.5 0 0 0</pose>
+        <geometry><box><size>68.0 24.0 2.5</size></box></geometry>
+        <material>
+          <ambient>0.12 0.14 0.22 1</ambient>
+          <diffuse>0.18 0.22 0.32 1</diffuse>
+          <specular>0.8 0.85 0.9 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

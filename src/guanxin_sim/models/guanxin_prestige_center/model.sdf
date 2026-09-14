@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="guanxin_prestige_center">
+    <static>true</static>
+    <link name="prestige_link">
+      <collision name="tower_col"><pose>0 0 23.0 0 0 0</pose><geometry><box><size>26.0 24.0 46.0</size></box></geometry></collision>
+      <visual name="tower_vis"><pose>0 0 23.0 0 0 0</pose><geometry><box><size>26.0 24.0 46.0</size></box></geometry><material><ambient>0.74 0.75 0.76 1</ambient><diffuse>0.80 0.82 0.84 1</diffuse></material></visual>
+      <visual name="glass_curtain"><pose>0 14.1 23.0 0 0 0</pose><geometry><box><size>24.0 0.2 42.0</size></box></geometry><material><ambient>0.15 0.25 0.35 0.92</ambient><diffuse>0.20 0.35 0.50 0.92</diffuse><specular>0.95 0.98 1.0 1</specular></material></visual>
+      <visual name="retail_arcade"><pose>0 13.0 0.08 0 0 0</pose><geometry><box><size>24.0 3.2 0.02</size></box></geometry><material><ambient>0.62 0.62 0.62 1</ambient><diffuse>0.70 0.70 0.70 1</diffuse></material></visual>
+      <visual name="med_fascia"><pose>0 14.2 4.5 0 0 0</pose><geometry><box><size>22.0 0.15 1.5</size></box></geometry><material><ambient>0.10 0.40 0.55 1</ambient><diffuse>0.15 0.55 0.75 1</diffuse><emissive>0.08 0.25 0.35 1</emissive></material></visual>
+      <visual name="roof_top"><pose>0 0 47.0 0 0 0</pose><geometry><box><size>24.0 18.0 2.0</size></box></geometry><material><ambient>0.30 0.30 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

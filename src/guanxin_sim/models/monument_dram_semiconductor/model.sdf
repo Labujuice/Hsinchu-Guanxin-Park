@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="monument_dram_semiconductor">
+    <static>true</static>
+    <link name="monument_link">
+      <collision name="col">
+        <pose>0 0 2.6 0 0 0</pose>
+        <geometry><box><size>7.2 5.0 5.2</size></box></geometry>
+      </collision>
+
+      <!-- 1. 綠色半導體高密度載板基座 (High-Density Package Substrate Base) -->
+      <visual name="plinth_base">
+        <pose>0 0 0.5 0 0 0</pose>
+        <geometry><box><size>7.2 5.0 1.0</size></box></geometry>
+        <material>
+          <ambient>0.08 0.30 0.15 1</ambient>
+          <diffuse>0.12 0.40 0.20 1</diffuse>
+          <specular>0.6 0.7 0.6 1</specular>
+        </material>
+      </visual>
+      <!-- 金色 BGA 銲球陣列基底飾環 (Gold BGA Solder Balls Accent) -->
+      <visual name="bga_ring">
+        <pose>0 0 1.02 0 0 0</pose>
+        <geometry><box><size>6.8 4.6 0.05</size></box></geometry>
+        <material>
+          <ambient>0.85 0.70 0.20 1</ambient>
+          <diffuse>0.98 0.85 0.28 1</diffuse>
+          <specular>1 0.95 0.6 1</specular>
+        </material>
+      </visual>
+
+      <!-- 2. 3D 矽穿孔堆疊晶粒 (4-Layer 3D TSV DRAM Stacked Dies) -->
+      <!-- Die Layer 1 -->
+      <visual name="dram_die_1">
+        <pose>0 0 1.4 0 0 0</pose>
+        <geometry><box><size>5.2 3.4 0.5</size></box></geometry>
+        <material><ambient>0.20 0.22 0.26 1</ambient><diffuse>0.28 0.30 0.36 1</diffuse><specular>0.9 0.9 0.95 1</specular></material>
+      </visual>
+      <!-- Die Layer 2 -->
+      <visual name="dram_die_2">
+        <pose>0 0 2.1 0 0 0</pose>
+        <geometry><box><size>5.2 3.4 0.5</size></box></geometry>
+        <material><ambient>0.20 0.22 0.26 1</ambient><diffuse>0.28 0.30 0.36 1</diffuse><specular>0.9 0.9 0.95 1</specular></material>
+      </visual>
+      <!-- Die Layer 3 -->
+      <visual name="dram_die_3">
+        <pose>0 0 2.8 0 0 0</pose>
+        <geometry><box><size>5.2 3.4 0.5</size></box></geometry>
+        <material><ambient>0.20 0.22 0.26 1</ambient><diffuse>0.28 0.30 0.36 1</diffuse><specular>0.9 0.9 0.95 1</specular></material>
+      </visual>
+      <!-- Die Layer 4 -->
+      <visual name="dram_die_4">
+        <pose>0 0 3.5 0 0 0</pose>
+        <geometry><box><size>5.2 3.4 0.5</size></box></geometry>
+        <material><ambient>0.20 0.22 0.26 1</ambient><diffuse>0.28 0.30 0.36 1</diffuse><specular>0.9 0.9 0.95 1</specular></material>
+      </visual>
+
+      <!-- 矽穿孔垂直微金柱群 (Gold TSV Micro-Pillars) -->
+      <visual name="tsv_pillars_l"><pose>-2.65 0 2.45 0 0 0</pose><geometry><box><size>0.15 3.0 2.6</size></box></geometry><material><ambient>0.9 0.75 0.15 1</ambient><diffuse>1 0.85 0.2 1</diffuse></material></visual>
+      <visual name="tsv_pillars_r"><pose>2.65 0 2.45 0 0 0</pose><geometry><box><size>0.15 3.0 2.6</size></box></geometry><material><ambient>0.9 0.75 0.15 1</ambient><diffuse>1 0.85 0.2 1</diffuse></material></visual>
+
+      <!-- 3. 頂部紫銅高導熱均熱蓋 (Polished Copper Heat Spreader - IHS) -->
+      <visual name="copper_ihs">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>5.4 3.6 0.4</size></box></geometry>
+        <material>
+          <ambient>0.72 0.38 0.18 1</ambient>
+          <diffuse>0.88 0.48 0.24 1</diffuse>
+          <specular>0.95 0.70 0.40 1</specular>
+        </material>
+      </visual>
+      <!-- 雷雕核心標誌 (Laser Etched Core Pattern) -->
+      <visual name="ihs_logo">
+        <pose>0 0 4.22 0 0 0</pose>
+        <geometry><box><size>3.6 2.2 0.04</size></box></geometry>
+        <material>
+          <ambient>0.85 0.75 0.25 1</ambient>
+          <diffuse>0.98 0.88 0.35 1</diffuse>
+          <emissive>0.2 0.15 0.05 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 4. 金屬銘牌 (南亞科・華邦電・力積電・記憶體與先進封裝之基) -->
+      <visual name="dram_plaque">
+        <pose>0 2.52 0.5 0 0 0</pose>
+        <geometry><box><size>4.6 0.05 0.5</size></box></geometry>
+        <material>
+          <ambient>0.75 0.55 0.15 1</ambient>
+          <diffuse>0.90 0.70 0.20 1</diffuse>
+          <specular>0.9 0.8 0.4 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

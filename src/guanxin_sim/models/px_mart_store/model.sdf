@@ -42,86 +42,49 @@
         </material>
       </visual>
 
-      <!-- ==================== 正面企業標誌與雙色橫幅招牌 (Iconic PX Mart Fascia) ==================== -->
-      <!-- 全聯企業深海軍藍招牌底板 (Deep Navy Blue Banner: 32m x 2.2m) -->
-      <visual name="px_blue_fascia">
-        <pose>0 11.05 6.8 0 0 0</pose>
-        <geometry><box><size>32.1 0.15 2.2</size></box></geometry>
-        <material>
-          <ambient>0.0 0.12 0.35 1</ambient>
-          <diffuse>0.02 0.18 0.46 1</diffuse>
-        </material>
-      </visual>
-
-      <!-- 招牌下方全聯紅企業警示細條紋 (PX Red Accent Stripe: 32m x 0.18m) -->
-      <visual name="px_red_stripe">
+      <!-- ==================== 全聯福利中心 台灣特色高清擬真店招與門面 (Photo-Real PBR Signboards) ==================== -->
+      <!-- 1. 正面橫式發光主招牌 (Fascia Signboard: 24.0m x 2.4m, 比例 10.0:1 完全吻合 1600x160 貼圖) -->
+      <visual name="pxmart_fascia_vis">
         <pose>0 11.08 5.6 0 0 0</pose>
-        <geometry><box><size>32.1 0.12 0.2</size></box></geometry>
+        <geometry><box><size>24.0 0.14 2.4</size></box></geometry>
         <material>
-          <ambient>0.82 0.08 0.12 1</ambient>
-          <diffuse>0.90 0.12 0.15 1</diffuse>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://px_mart_store/materials/textures/pxmart_fascia_sign.png</albedo_map>
+              <roughness>0.20</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
 
-      <!-- 中央發光「全聯福利中心 PX MART」字牌燈箱 (Emissive Sign Board) -->
-      <visual name="px_signboard_main">
-        <pose>0 11.16 6.8 0 0 0</pose>
-        <geometry><box><size>18.0 0.1 1.6</size></box></geometry>
+      <!-- 2. 超市 1F 落地採光大櫥窗與自動感應玻璃門 (Supermarket Glass Curtain) -->
+      <visual name="pxmart_entrance_glass">
+        <pose>0 11.04 1.7 0 0 0</pose>
+        <geometry><box><size>20.0 0.08 3.4</size></box></geometry>
         <material>
-          <ambient>0.95 0.95 0.98 1</ambient>
-          <diffuse>1.0 1.0 1.0 1</diffuse>
-          <emissive>0.75 0.78 0.85 1</emissive>
+          <ambient>0.2 0.32 0.42 0.85</ambient>
+          <diffuse>0.28 0.42 0.52 0.85</diffuse>
+          <specular>0.9 0.95 1.0 1</specular>
         </material>
       </visual>
 
-      <!-- 全聯經典同心圓紅白企業圓形徽標 (Round Corporate Emblem) -->
-      <visual name="px_logo_emblem">
-        <pose>-7.2 11.22 6.8 1.5708 0 0</pose>
-        <geometry><cylinder><radius>0.7</radius><length>0.06</length></cylinder></geometry>
+      <!-- 3. 側懸垂直雙面發光店招 (Protruding Blade Signboard: 1.0m x 2.0m, 比例 1:2 完全吻合 512x1024 貼圖) -->
+      <visual name="pxmart_blade_sign">
+        <pose>16.08 10.0 5.2 0 0 1.5708</pose>
+        <geometry><box><size>1.0 0.16 2.0</size></box></geometry>
         <material>
-          <ambient>0.85 0.1 0.12 1</ambient>
-          <diffuse>0.95 0.12 0.15 1</diffuse>
-          <emissive>0.8 0.15 0.18 1</emissive>
-        </material>
-      </visual>
-
-      <!-- ==================== 一樓落地透明帷幕與室內超市採光視覺 ==================== -->
-      <!-- 一樓大面積透明鋼化玻璃落地窗 (1F Storefront Glazing: 28m x 3.6m) -->
-      <visual name="glazing_1f">
-        <pose>0 11.02 2.0 0 0 0</pose>
-        <geometry><box><size>28.0 0.08 3.6</size></box></geometry>
-        <material>
-          <ambient>0.2 0.3 0.35 0.75</ambient>
-          <diffuse>0.25 0.38 0.45 0.75</diffuse>
-        </material>
-      </visual>
-
-      <!-- 室內明亮商品陳列貨架與暖色採光 (Simulated Warm Supermarket Interior) -->
-      <visual name="interior_ambient">
-        <pose>0 10.7 2.0 0 0 0</pose>
-        <geometry><box><size>27.6 0.1 3.4</size></box></geometry>
-        <material>
-          <ambient>0.95 0.92 0.82 1</ambient>
-          <diffuse>0.98 0.95 0.85 1</diffuse>
-          <emissive>0.45 0.42 0.35 1</emissive>
-        </material>
-      </visual>
-
-      <!-- 入口中央雙扇自動感應玻璃推拉門框 (Automatic Sensor Doors) -->
-      <visual name="auto_door_frame">
-        <pose>0 11.06 1.8 0 0 0</pose>
-        <geometry><box><size>4.5 0.12 3.2</size></box></geometry>
-        <material>
-          <ambient>0.2 0.22 0.25 1</ambient>
-          <diffuse>0.25 0.28 0.30 1</diffuse>
-        </material>
-      </visual>
-      <visual name="auto_door_sensor">
-        <pose>0 11.14 3.35 0 0 0</pose>
-        <geometry><box><size>0.8 0.12 0.12</size></box></geometry>
-        <material>
-          <ambient>0.1 0.1 0.1 1</ambient>
-          <diffuse>0.15 0.15 0.15 1</diffuse>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.50 0.50 0.50 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://px_mart_store/materials/textures/pxmart_blade_sign.png</albedo_map>
+              <roughness>0.20</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
 
@@ -217,6 +180,55 @@
         <pose>6.0 -3.0 8.8 0 0 0</pose>
         <geometry><box><size>3.5 2.5 1.4</size></box></geometry>
         <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 台灣特色：頂樓雙聯不鏽鋼白鐵水塔 (Twin Stainless Steel Water Tanks) ==================== -->
+      <visual name="water_tank_1_stand">
+        <pose>10.0 -4.0 8.4 0 0 0</pose>
+        <geometry><box><size>2.0 2.0 0.4</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
+      </visual>
+      <visual name="water_tank_1_body">
+        <pose>10.0 -4.0 9.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.9</radius><length>1.8</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.9</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="water_tank_1_dome">
+        <pose>10.0 -4.0 10.45 0 0 0</pose>
+        <geometry><sphere><radius>0.92</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.9</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <visual name="water_tank_2_stand">
+        <pose>10.0 -6.5 8.4 0 0 0</pose>
+        <geometry><box><size>2.0 2.0 0.4</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
+      </visual>
+      <visual name="water_tank_2_body">
+        <pose>10.0 -6.5 9.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.9</radius><length>1.8</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.9</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="water_tank_2_dome">
+        <pose>10.0 -6.5 10.45 0 0 0</pose>
+        <geometry><sphere><radius>0.92</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.9</metalness></metal></pbr>
+        </material>
       </visual>
     </link>
   </model>

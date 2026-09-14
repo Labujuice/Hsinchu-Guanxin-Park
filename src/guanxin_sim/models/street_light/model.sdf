@@ -10,51 +10,231 @@
         <geometry><cylinder><radius>0.12</radius><length>7.0</length></cylinder></geometry>
       </collision>
 
-      <!-- 視覺：圓形地腳法蘭盤與螺栓基座 (Flanged Base Plinth) -->
+      <!-- 視覺：圓形地腳法蘭盤基座 (Flanged Base Plinth: R=0.24m) -->
       <visual name="base_plinth">
-        <pose>0 0 0.1 0 0 0</pose>
-        <geometry><cylinder><radius>0.24</radius><length>0.2</length></cylinder></geometry>
-        <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.5 0.52 0.55 1</diffuse></material>
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry><cylinder><radius>0.24</radius><length>0.10</length></cylinder></geometry>
+        <material><ambient>0.40 0.42 0.45 1</ambient><diffuse>0.50 0.52 0.55 1</diffuse></material>
       </visual>
 
-      <!-- 視覺：熱浸鍍鋅錐形主鋼管立桿 (Tapered Galvanized Pole: 6.5m) -->
-      <visual name="pole_shaft">
-        <pose>0 0 3.5 0 0 0</pose>
-        <geometry><cylinder><radius>0.11</radius><length>6.8</length></cylinder></geometry>
+      <!-- 視覺：地腳法蘭盤上階環 (Flange Collar Ring) -->
+      <visual name="base_flange_ring">
+        <pose>0 0 0.12 0 0 0</pose>
+        <geometry><cylinder><radius>0.19</radius><length>0.04</length></cylinder></geometry>
+        <material><ambient>0.45 0.47 0.50 1</ambient><diffuse>0.55 0.57 0.60 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：4 顆高強度固定螺栓 (Anchor Bolt Nuts) -->
+      <visual name="bolt_1">
+        <pose>0.14 0.14 0.13 0 0 0</pose>
+        <geometry><cylinder><radius>0.022</radius><length>0.06</length></cylinder></geometry>
+        <material><ambient>0.30 0.32 0.35 1</ambient><diffuse>0.40 0.42 0.45 1</diffuse></material>
+      </visual>
+      <visual name="bolt_2">
+        <pose>-0.14 0.14 0.13 0 0 0</pose>
+        <geometry><cylinder><radius>0.022</radius><length>0.06</length></cylinder></geometry>
+        <material><ambient>0.30 0.32 0.35 1</ambient><diffuse>0.40 0.42 0.45 1</diffuse></material>
+      </visual>
+      <visual name="bolt_3">
+        <pose>0.14 -0.14 0.13 0 0 0</pose>
+        <geometry><cylinder><radius>0.022</radius><length>0.06</length></cylinder></geometry>
+        <material><ambient>0.30 0.32 0.35 1</ambient><diffuse>0.40 0.42 0.45 1</diffuse></material>
+      </visual>
+      <visual name="bolt_4">
+        <pose>-0.14 -0.14 0.13 0 0 0</pose>
+        <geometry><cylinder><radius>0.022</radius><length>0.06</length></cylinder></geometry>
+        <material><ambient>0.30 0.32 0.35 1</ambient><diffuse>0.40 0.42 0.45 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：4 片底座三角加強肋板 (Base Stiffener Gussets) -->
+      <visual name="gusset_x_pos">
+        <pose>0.13 0 0.20 0 0 0</pose>
+        <geometry><box><size>0.08 0.015 0.16</size></box></geometry>
+        <material><ambient>0.45 0.47 0.50 1</ambient><diffuse>0.55 0.57 0.60 1</diffuse></material>
+      </visual>
+      <visual name="gusset_x_neg">
+        <pose>-0.13 0 0.20 0 0 0</pose>
+        <geometry><box><size>0.08 0.015 0.16</size></box></geometry>
+        <material><ambient>0.45 0.47 0.50 1</ambient><diffuse>0.55 0.57 0.60 1</diffuse></material>
+      </visual>
+      <visual name="gusset_y_pos">
+        <pose>0 0.13 0.20 0 0 0</pose>
+        <geometry><box><size>0.015 0.08 0.16</size></box></geometry>
+        <material><ambient>0.45 0.47 0.50 1</ambient><diffuse>0.55 0.57 0.60 1</diffuse></material>
+      </visual>
+      <visual name="gusset_y_neg">
+        <pose>0 -0.13 0.20 0 0 0</pose>
+        <geometry><box><size>0.015 0.08 0.16</size></box></geometry>
+        <material><ambient>0.45 0.47 0.50 1</ambient><diffuse>0.55 0.57 0.60 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：熱浸鍍鋅下段鋼管立桿 (Lower Pole Shaft: Z=0.10~4.20m, R=0.10m) -->
+      <visual name="pole_shaft_lower">
+        <pose>0 0 2.15 0 0 0</pose>
+        <geometry><cylinder><radius>0.10</radius><length>4.10</length></cylinder></geometry>
         <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
       </visual>
 
       <!-- 視覺：立桿底部台電/市府維修孔蓋 (Handhole Cover) -->
       <visual name="handhole">
-        <pose>0 0.11 0.75 0 0 0</pose>
-        <geometry><box><size>0.12 0.02 0.35</size></box></geometry>
-        <material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material>
+        <pose>0 0.102 0.75 0 0 0</pose>
+        <geometry><box><size>0.10 0.015 0.30</size></box></geometry>
+        <material><ambient>0.32 0.34 0.36 1</ambient><diffuse>0.40 0.42 0.45 1</diffuse></material>
       </visual>
 
-      <!-- 視覺：弧形延伸路燈懸臂 (Cantilever Outreach Arm: 延伸 2.0m 向 +Y 方向) -->
-      <visual name="arm_curve">
-        <pose>0 0.9 6.8 0.45 0 0</pose>
-        <geometry><cylinder><radius>0.05</radius><length>2.1</length></cylinder></geometry>
+      <!-- 視覺：中段漸縮接合環 (Pole Transition Reducer Collar) -->
+      <visual name="pole_collar">
+        <pose>0 0 4.20 0 0 0</pose>
+        <geometry><cylinder><radius>0.105</radius><length>0.08</length></cylinder></geometry>
+        <material><ambient>0.50 0.52 0.55 1</ambient><diffuse>0.60 0.62 0.65 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：熱浸鍍鋅上段漸縮鋼管立桿 (Upper Pole Shaft: Z=4.20~6.60m, R=0.075m) -->
+      <visual name="pole_shaft_upper">
+        <pose>0 0 5.40 0 0 0</pose>
+        <geometry><cylinder><radius>0.075</radius><length>2.40</length></cylinder></geometry>
         <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
       </visual>
 
-      <!-- 視覺：現代流線型 LED 路燈燈具本體 (Aerodynamic LED Luminaire) -->
-      <visual name="luminaire_housing">
-        <pose>0 1.8 7.3 0 0 0</pose>
-        <geometry><box><size>0.28 0.75 0.12</size></box></geometry>
-        <material><ambient>0.25 0.26 0.28 1</ambient><diffuse>0.30 0.32 0.35 1</diffuse></material>
+      <!-- 視覺：桿頂端蓋與懸臂底座 (Pole Top Cap & Arm Base Hub) -->
+      <visual name="pole_top_cap">
+        <pose>0 0 6.60 0 0 0</pose>
+        <geometry><cylinder><radius>0.082</radius><length>0.10</length></cylinder></geometry>
+        <material><ambient>0.55 0.57 0.60 1</ambient><diffuse>0.65 0.67 0.70 1</diffuse></material>
       </visual>
 
-      <!-- 視覺：高亮度 LED 透鏡自發光發光面 (Emissive LED Light Panel: 5000K Daylight) -->
+      <!-- 視覺：流暢弧形天鵝頸懸臂 (Swan-Neck Davit Outreach Arm: 延伸 1.85m 至車道上方) -->
+      <!-- 懸臂弧形段 1 -->
+      <visual name="arm_seg_1">
+        <pose>0 0.0522 6.7094 -0.44474 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.2425</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+      <!-- 懸臂接頭圓球 1 -->
+      <visual name="arm_joint_1">
+        <pose>0 0.1043 6.8189 0 0 0</pose>
+        <geometry><sphere><radius>0.0459</radius></sphere></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 懸臂弧形段 2 -->
+      <visual name="arm_seg_2">
+        <pose>0 0.2113 6.8963 -0.94442 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.2642</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+      <!-- 懸臂接頭圓球 2 -->
+      <visual name="arm_joint_2">
+        <pose>0 0.3184 6.9738 0 0 0</pose>
+        <geometry><sphere><radius>0.0459</radius></sphere></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 懸臂弧形段 3 -->
+      <visual name="arm_seg_3">
+        <pose>0 0.4634 7.0244 -1.23487 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.3071</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+      <!-- 懸臂接頭圓球 3 -->
+      <visual name="arm_joint_3">
+        <pose>0 0.6083 7.0750 0 0 0</pose>
+        <geometry><sphere><radius>0.0459</radius></sphere></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 懸臂弧形段 4 -->
+      <visual name="arm_seg_4">
+        <pose>0 0.7744 7.1040 -1.39808 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.3370</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+      <!-- 懸臂接頭圓球 4 -->
+      <visual name="arm_joint_4">
+        <pose>0 0.9404 7.1329 0 0 0</pose>
+        <geometry><sphere><radius>0.0459</radius></sphere></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 懸臂弧形段 5 -->
+      <visual name="arm_seg_5">
+        <pose>0 1.1104 7.1454 -1.49767 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.3411</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+      <!-- 懸臂接頭圓球 5 -->
+      <visual name="arm_joint_5">
+        <pose>0 1.2805 7.1579 0 0 0</pose>
+        <geometry><sphere><radius>0.0459</radius></sphere></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 懸臂弧形段 6 -->
+      <visual name="arm_seg_6">
+        <pose>0 1.4378 7.1590 -1.56365 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.3145</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+      <!-- 懸臂接頭圓球 6 -->
+      <visual name="arm_joint_6">
+        <pose>0 1.5950 7.1601 0 0 0</pose>
+        <geometry><sphere><radius>0.0459</radius></sphere></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 懸臂弧形段 7 (末端平緩段) -->
+      <visual name="arm_seg_7">
+        <pose>0 1.7225 7.1551 -1.61039 0 0</pose>
+        <geometry><cylinder><radius>0.045</radius><length>0.2552</length></cylinder></geometry>
+        <material><ambient>0.62 0.64 0.66 1</ambient><diffuse>0.72 0.74 0.76 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：燈具固定套管卡箍 (Slip-Fitter Tenon Adapter) -->
+      <visual name="luminaire_tenon_adapter">
+        <pose>0 1.88 7.147 -1.61039 0 0</pose>
+        <geometry><cylinder><radius>0.052</radius><length>0.10</length></cylinder></geometry>
+        <material><ambient>0.45 0.47 0.50 1</ambient><diffuse>0.52 0.54 0.58 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：流線型低風阻壓鑄鋁合金 LED 燈頭外殼 (Aerodynamic LED Luminaire Housing) -->
+      <visual name="luminaire_housing">
+        <pose>0 2.22 7.13 -0.06 0 0</pose>
+        <geometry><box><size>0.28 0.64 0.09</size></box></geometry>
+        <material><ambient>0.24 0.25 0.27 1</ambient><diffuse>0.32 0.34 0.36 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：燈具背部散熱鰭片飾板 (Die-Cast Cooling Fins) -->
+      <visual name="luminaire_cooling_fins">
+        <pose>0 2.20 7.18 -0.06 0 0</pose>
+        <geometry><box><size>0.22 0.40 0.025</size></box></geometry>
+        <material><ambient>0.18 0.19 0.21 1</ambient><diffuse>0.25 0.26 0.28 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：頂部 NEMA 藍色光敏日照感應器 (Photocell Receptacle) -->
+      <visual name="photocell_sensor">
+        <pose>0 1.98 7.21 -0.06 0 0</pose>
+        <geometry><cylinder><radius>0.035</radius><length>0.05</length></cylinder></geometry>
+        <material><ambient>0.06 0.16 0.38 1</ambient><diffuse>0.10 0.28 0.65 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：微棱鏡光學透鏡防護罩 (Optical Acrylic Lens Cover) -->
+      <visual name="led_lens_cover">
+        <pose>0 2.25 7.08 -0.06 0 0</pose>
+        <geometry><box><size>0.24 0.48 0.015</size></box></geometry>
+        <material><ambient>0.85 0.88 0.90 1</ambient><diffuse>0.92 0.94 0.96 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：高亮度 5000K LED 自發光矩陣 (Daylight Emissive LED Matrix Panel) -->
       <visual name="led_lens_emissive">
-        <pose>0 1.8 7.23 0 0 0</pose>
-        <geometry><box><size>0.24 0.65 0.02</size></box></geometry>
+        <pose>0 2.25 7.07 -0.06 0 0</pose>
+        <geometry><box><size>0.22 0.44 0.006</size></box></geometry>
         <material>
-          <ambient>0.95 0.95 0.9 1</ambient>
+          <ambient>1.0 1.0 0.95 1</ambient>
           <diffuse>1.0 1.0 0.95 1</diffuse>
-          <emissive>0.85 0.85 0.8 1</emissive>
+          <emissive>0.95 0.95 0.90 1</emissive>
         </material>
       </visual>
+
     </link>
   </model>
 </sdf>
