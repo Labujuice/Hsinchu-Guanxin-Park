@@ -12,43 +12,162 @@
         <geometry><box><size>56.0 20.0 17.0</size></box></geometry>
       </collision>
 
-      <!-- 1F 沿街特色文青美食街與精品店面 -->
+      <!-- 1F 沿街騎樓基座 (Taiwanese Arcade Structure) -->
       <visual name="podium_base">
         <pose>0 0 3.0 0 0 0</pose>
         <geometry><box><size>60.0 24.0 6.0</size></box></geometry>
         <material>
-          <ambient>0.35 0.34 0.32 1</ambient>
-          <diffuse>0.42 0.40 0.38 1</diffuse>
-        </material>
-      </visual>
-      <visual name="shop_fronts">
-        <pose>0 12.1 2.8 0 0 0</pose>
-        <geometry><box><size>56.0 0.2 4.8</size></box></geometry>
-        <material>
-          <ambient>0.18 0.24 0.30 0.9</ambient>
-          <diffuse>0.24 0.32 0.40 0.9</diffuse>
-          <specular>0.9 0.95 1 1</specular>
+          <ambient>0.42 0.40 0.38 1</ambient>
+          <diffuse>0.50 0.48 0.45 1</diffuse>
         </material>
       </visual>
 
-      <!-- 上層現代住宅立面 (7F) -->
+      <!-- 建築主體結構 (Building Main Structure) -->
       <visual name="tower_main">
         <pose>0 0 14.5 0 0 0</pose>
         <geometry><box><size>56.0 20.0 17.0</size></box></geometry>
         <material>
-          <ambient>0.72 0.70 0.68 1</ambient>
-          <diffuse>0.80 0.78 0.76 1</diffuse>
+          <ambient>0.70 0.68 0.65 1</ambient>
+          <diffuse>0.78 0.76 0.72 1</diffuse>
         </material>
       </visual>
-      <!-- 木質格柵遮陽裝飾 (Warm Timber Louvers) -->
-      <visual name="timber_louvers">
-        <pose>0 10.2 15.0 0 0 0</pose>
-        <geometry><box><size>52.0 0.3 12.0</size></box></geometry>
+
+      <!-- ==================== 新莊街老街 台灣特色連棟街屋高清擬真立面表皮 ==================== -->
+      <!-- 包含：小籠包早餐店、光陽機車行、清心福全手搖飲、碳烤鹽酥雞、中醫診所、鐵窗、雨遮與冷氣室外機 -->
+      <visual name="xinzhuang_old_street_facade_vis">
+        <pose>0 10.06 11.5 0 0 0</pose>
+        <geometry><box><size>56.0 0.10 23.0</size></box></geometry>
         <material>
-          <ambient>0.55 0.38 0.22 1</ambient>
-          <diffuse>0.68 0.48 0.28 1</diffuse>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://xinzhuang_street_block/materials/textures/xinzhuang_old_street_facade.png</albedo_map>
+              <roughness>0.42</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
+
+      <!-- ==================== 沿街側懸直立雙面發光店招 (Protruding Blade Signs) ==================== -->
+      <!-- 店招 1：林記小籠包早餐店 (黃底紅字) -->
+      <visual name="blade_sign_breakfast">
+        <pose>-20.0 11.5 4.8 0 0 0</pose>
+        <geometry><box><size>0.15 1.4 2.2</size></box></geometry>
+        <material>
+          <ambient>0.95 0.85 0.1 1</ambient>
+          <diffuse>1.0 0.9 0.1 1</diffuse>
+          <emissive>0.6 0.5 0.05 1</emissive>
+        </material>
+      </visual>
+      <!-- 店招 2：KYMCO 光陽機車行 (紅藍底白字) -->
+      <visual name="blade_sign_kymco">
+        <pose>-7.0 11.5 4.8 0 0 0</pose>
+        <geometry><box><size>0.15 1.4 2.2</size></box></geometry>
+        <material>
+          <ambient>0.9 0.1 0.15 1</ambient>
+          <diffuse>0.95 0.15 0.18 1</diffuse>
+          <emissive>0.6 0.1 0.1 1</emissive>
+        </material>
+      </visual>
+      <!-- 店招 3：清心福全手搖飲 (經典翡翠綠) -->
+      <visual name="blade_sign_tea">
+        <pose>7.0 11.5 4.8 0 0 0</pose>
+        <geometry><box><size>0.15 1.4 2.2</size></box></geometry>
+        <material>
+          <ambient>0.0 0.55 0.35 1</ambient>
+          <diffuse>0.0 0.65 0.4 1</diffuse>
+          <emissive>0.0 0.45 0.25 1</emissive>
+        </material>
+      </visual>
+      <!-- 店招 4：碳烤鹽酥雞 (大紅夜市招牌) -->
+      <visual name="blade_sign_chicken">
+        <pose>20.0 11.5 4.8 0 0 0</pose>
+        <geometry><box><size>0.15 1.4 2.2</size></box></geometry>
+        <material>
+          <ambient>0.88 0.15 0.1 1</ambient>
+          <diffuse>0.95 0.2 0.12 1</diffuse>
+          <emissive>0.6 0.1 0.05 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 台灣特色天際線：頂樓綠色鐵皮屋加蓋 (Turquoise Sheet Metal Penthouse) ==================== -->
+      <visual name="rooftop_iron_house">
+        <pose>0 0 24.5 0 0 0</pose>
+        <geometry><box><size>38.0 14.0 3.0</size></box></geometry>
+        <material>
+          <ambient>0.12 0.48 0.36 1</ambient>
+          <diffuse>0.18 0.58 0.44 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.35</roughness>
+              <metalness>0.7</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- 鐵皮屋斜坡浪板屋頂 (Sloped Metal Roof) -->
+      <visual name="rooftop_iron_roof">
+        <pose>0 0 26.15 0 0 0</pose>
+        <geometry><box><size>39.0 14.8 0.3</size></box></geometry>
+        <material>
+          <ambient>0.10 0.42 0.32 1</ambient>
+          <diffuse>0.15 0.52 0.38 1</diffuse>
+          <pbr><metal><roughness>0.3</roughness><metalness>0.75</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- ==================== 台灣特色天際線：經典白鐵不鏽鋼水塔雙組 (Twin Stainless Steel Water Tanks) ==================== -->
+      <!-- 水塔 1 -->
+      <visual name="water_tank_1_stand">
+        <pose>-12.0 4.0 26.2 0 0 0</pose>
+        <geometry><box><size>2.0 2.0 0.4</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
+      </visual>
+      <visual name="water_tank_1_body">
+        <pose>-12.0 4.0 27.3 0 0 0</pose>
+        <geometry><cylinder><radius>0.9</radius><length>1.8</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="water_tank_1_dome">
+        <pose>-12.0 4.0 28.25 0 0 0</pose>
+        <geometry><sphere><radius>0.92</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 水塔 2 -->
+      <visual name="water_tank_2_stand">
+        <pose>12.0 4.0 26.2 0 0 0</pose>
+        <geometry><box><size>2.0 2.0 0.4</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
+      </visual>
+      <visual name="water_tank_2_body">
+        <pose>12.0 4.0 27.3 0 0 0</pose>
+        <geometry><cylinder><radius>0.9</radius><length>1.8</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="water_tank_2_dome">
+        <pose>12.0 4.0 28.25 0 0 0</pose>
+        <geometry><sphere><radius>0.92</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+
     </link>
   </model>
 </sdf>

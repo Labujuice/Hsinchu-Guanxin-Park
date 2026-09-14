@@ -16,7 +16,7 @@
         <geometry><cylinder><radius>0.15</radius><length>7.0</length></cylinder></geometry>
       </collision>
 
-      <!-- ==================== 視覺主體：7-ELEVEN 現代超商門面 ==================== -->
+      <!-- ==================== 視覺主體：7-ELEVEN 建築本體 ==================== -->
       <visual name="store_walls">
         <pose>0 0 2.4 0 0 0</pose>
         <geometry><box><size>16.0 12.0 4.8</size></box></geometry>
@@ -33,98 +33,19 @@
         <material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material>
       </visual>
 
-      <!-- ==================== 7-ELEVEN 經典三色帶招牌門面 (Orange / Green / Red) ==================== -->
-      <!-- 招牌底板白色基底 -->
-      <visual name="fascia_base">
-        <pose>0 6.05 4.0 0 0 0</pose>
-        <geometry><box><size>16.1 0.15 1.4</size></box></geometry>
-        <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1.0 1.0 1.0 1</diffuse></material>
-      </visual>
-
-      <!-- 經典橘色條紋 (7-Eleven Orange Stripe) -->
-      <visual name="stripe_orange">
-        <pose>0 6.12 4.45 0 0 0</pose>
-        <geometry><box><size>16.1 0.08 0.35</size></box></geometry>
+      <!-- ==================== 7-ELEVEN 台灣特色高清擬真立面表皮 (Photo-Real PBR Facade) ==================== -->
+      <visual name="seven_facade_vis">
+        <pose>0 6.04 2.4 0 0 0</pose>
+        <geometry><box><size>16.0 0.08 4.8</size></box></geometry>
         <material>
-          <ambient>0.95 0.44 0.13 1</ambient>
-          <diffuse>0.98 0.48 0.15 1</diffuse>
-          <emissive>0.4 0.18 0.05 1</emissive>
-        </material>
-      </visual>
-
-      <!-- 經典綠色條紋 (7-Eleven Green Stripe) -->
-      <visual name="stripe_green">
-        <pose>0 6.12 4.05 0 0 0</pose>
-        <geometry><box><size>16.1 0.08 0.35</size></box></geometry>
-        <material>
-          <ambient>0.0 0.52 0.24 1</ambient>
-          <diffuse>0.0 0.58 0.28 1</diffuse>
-          <emissive>0.0 0.25 0.10 1</emissive>
-        </material>
-      </visual>
-
-      <!-- 經典紅色條紋 (7-Eleven Red Stripe) -->
-      <visual name="stripe_red">
-        <pose>0 6.12 3.65 0 0 0</pose>
-        <geometry><box><size>16.1 0.08 0.35</size></box></geometry>
-        <material>
-          <ambient>0.90 0.11 0.14 1</ambient>
-          <diffuse>0.95 0.14 0.16 1</diffuse>
-          <emissive>0.4 0.05 0.06 1</emissive>
-        </material>
-      </visual>
-
-      <!-- 7-ELEVEN 標誌發光燈箱 (Iconic 7 Logo Lightbox) -->
-      <visual name="seven_logo_box">
-        <pose>-4.5 6.2 4.0 0 0 0</pose>
-        <geometry><box><size>1.6 0.12 1.2</size></box></geometry>
-        <material>
-          <ambient>0.95 0.95 0.95 1</ambient>
-          <diffuse>1.0 1.0 1.0 1</diffuse>
-          <emissive>0.8 0.8 0.8 1</emissive>
-        </material>
-      </visual>
-
-      <!-- ==================== 一樓全透明落地玻璃窗與 4000K 暖白室內採光 ==================== -->
-      <visual name="store_glazing">
-        <pose>0 6.02 1.6 0 0 0</pose>
-        <geometry><box><size>14.5 0.06 2.8</size></box></geometry>
-        <material>
-          <ambient>0.2 0.3 0.35 0.7</ambient>
-          <diffuse>0.25 0.38 0.45 0.7</diffuse>
-        </material>
-      </visual>
-      <!-- 室內貨架明亮照明透光層 -->
-      <visual name="interior_illumination">
-        <pose>0 5.8 1.6 0 0 0</pose>
-        <geometry><box><size>14.2 0.08 2.6</size></box></geometry>
-        <material>
-          <ambient>0.98 0.95 0.88 1</ambient>
-          <diffuse>1.0 0.98 0.90 1</diffuse>
-          <emissive>0.6 0.58 0.5 1</emissive>
-        </material>
-      </visual>
-
-      <!-- 自動推拉玻璃門框 (Automatic Entrance Door) -->
-      <visual name="entrance_door">
-        <pose>3.5 6.06 1.4 0 0 0</pose>
-        <geometry><box><size>2.6 0.08 2.4</size></box></geometry>
-        <material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.25 0.28 0.30 1</diffuse></material>
-      </visual>
-
-      <!-- ==================== 獨立 ATM 銀行提款專區 (ATM Service Booth) ==================== -->
-      <visual name="atm_cubicle">
-        <pose>-5.8 6.06 1.4 0 0 0</pose>
-        <geometry><box><size>2.2 0.15 2.4</size></box></geometry>
-        <material><ambient>0.05 0.35 0.2 1</ambient><diffuse>0.08 0.45 0.25 1</diffuse></material>
-      </visual>
-      <visual name="atm_screen_glow">
-        <pose>-5.8 6.15 1.4 0 0 0</pose>
-        <geometry><box><size>0.6 0.05 0.45</size></box></geometry>
-        <material>
-          <ambient>0.2 0.8 0.9 1</ambient>
-          <diffuse>0.3 0.9 1.0 1</diffuse>
-          <emissive>0.6 0.9 1.0 1</emissive>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_facade.png</albedo_map>
+              <roughness>0.30</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
 
@@ -134,31 +55,62 @@
         <geometry><cylinder><radius>0.12</radius><length>7.0</length></cylinder></geometry>
         <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
       </visual>
-      <!-- 高空發光大燈箱 (High-mast Lightbox) -->
+
+      <!-- 高空發光大燈箱 (High-mast Lightbox with 7-11 Signage) -->
       <visual name="pylon_lightbox">
         <pose>8.5 7.2 6.5 0 0 0</pose>
         <geometry><box><size>1.6 0.35 2.0</size></box></geometry>
         <material>
-          <ambient>0.95 0.95 0.95 1</ambient>
-          <diffuse>1.0 1.0 1.0 1</diffuse>
-          <emissive>0.85 0.85 0.85 1</emissive>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.3 0.3 0.3 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_protruding_sign.png</albedo_map>
+              <roughness>0.25</roughness>
+              <metalness>0.1</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
-      <visual name="pylon_orange_stripe">
-        <pose>8.5 7.2 7.15 0 0 0</pose>
-        <geometry><box><size>1.62 0.36 0.4</size></box></geometry>
-        <material><ambient>0.95 0.44 0.13 1</ambient><diffuse>0.98 0.48 0.15 1</diffuse><emissive>0.7 0.3 0.08 1</emissive></material>
+
+      <!-- ==================== 台灣特色：頂樓不鏽鋼白鐵水塔 (Stainless Steel Water Tank) ==================== -->
+      <!-- 水塔角鋼腳架 -->
+      <visual name="water_tank_stand">
+        <pose>-5.0 -3.0 5.1 0 0 0</pose>
+        <geometry><box><size>1.8 1.8 0.4</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
       </visual>
-      <visual name="pylon_green_stripe">
-        <pose>8.5 7.2 6.55 0 0 0</pose>
-        <geometry><box><size>1.62 0.36 0.4</size></box></geometry>
-        <material><ambient>0.0 0.52 0.24 1</ambient><diffuse>0.0 0.58 0.28 1</diffuse><emissive>0.0 0.4 0.18 1</emissive></material>
+      <!-- 白鐵水塔桶身 (直徑 1.6m, 高 1.8m) -->
+      <visual name="water_tank_body">
+        <pose>-5.0 -3.0 6.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.80</radius><length>1.80</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.15</roughness>
+              <metalness>0.88</metalness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
-      <visual name="pylon_red_stripe">
-        <pose>8.5 7.2 5.95 0 0 0</pose>
-        <geometry><box><size>1.62 0.36 0.4</size></box></geometry>
-        <material><ambient>0.90 0.11 0.14 1</ambient><diffuse>0.95 0.14 0.16 1</diffuse><emissive>0.7 0.1 0.12 1</emissive></material>
+      <!-- 白鐵水塔圓拱頂蓋 -->
+      <visual name="water_tank_dome">
+        <pose>-5.0 -3.0 7.15 0 0 0</pose>
+        <geometry><sphere><radius>0.82</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr>
+            <metal>
+              <roughness>0.15</roughness>
+              <metalness>0.88</metalness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
+
     </link>
   </model>
 </sdf>

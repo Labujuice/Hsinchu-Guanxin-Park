@@ -8,7 +8,7 @@
         <geometry><box><size>48.0 36.0 20.0</size></box></geometry>
       </collision>
 
-      <!-- 關東市場主體外觀 (4F 複合式公有市場與客家文化會館) -->
+      <!-- 關東市場主體結構 (4F 複合式公有市場與客家文化會館) -->
       <visual name="market_main">
         <pose>0 0 10.0 0 0 0</pose>
         <geometry><box><size>48.0 36.0 20.0</size></box></geometry>
@@ -18,24 +18,92 @@
           <specular>0.3 0.3 0.3 1</specular>
         </material>
       </visual>
-      <!-- 傳統市場醒目遮陽格柵與入口招牌 -->
-      <visual name="market_sign_board">
-        <pose>0 18.1 14.0 0 0 0</pose>
-        <geometry><box><size>28.0 0.2 3.2</size></box></geometry>
+
+      <!-- ==================== 關東公有零售市場 台灣特色高清擬真立面表皮 ==================== -->
+      <!-- 包含：新竹市關東公有零售市場大招牌、客家文化會館、傳統早市攤商帆布雨遮與生鮮攤位 -->
+      <visual name="market_facade_vis">
+        <pose>0 18.06 10.0 0 0 0</pose>
+        <geometry><box><size>48.0 0.10 20.0</size></box></geometry>
         <material>
-          <ambient>0.65 0.15 0.12 1</ambient>
-          <diffuse>0.82 0.18 0.15 1</diffuse>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://guandong_civic_market/materials/textures/guandong_market_facade.png</albedo_map>
+              <roughness>0.38</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
         </material>
       </visual>
-      <visual name="market_sign_text">
-        <pose>0 18.25 14.0 0 0 0</pose>
-        <geometry><box><size>24.0 0.05 2.2</size></box></geometry>
+
+      <!-- 傳統早市 1F 延伸遮雨遮陽棚 (Market Stall Extended Canopy: 延伸 2.5m) -->
+      <visual name="market_morning_canopy">
+        <pose>0 19.3 4.2 0.15 0 0</pose>
+        <geometry><box><size>46.0 2.8 0.15</size></box></geometry>
         <material>
-          <ambient>0.95 0.95 0.90 1</ambient>
-          <diffuse>1.0 1.0 0.95 1</diffuse>
-          <specular>1 1 1 1</specular>
+          <ambient>0.8 0.2 0.15 1</ambient>
+          <diffuse>0.9 0.25 0.18 1</diffuse>
         </material>
       </visual>
+
+      <!-- ==================== 台灣特色天際線：公有建築頂樓大型白鐵水塔雙組 ==================== -->
+      <!-- 水塔 1 -->
+      <visual name="water_tank_1_stand">
+        <pose>-12.0 -6.0 20.4 0 0 0</pose>
+        <geometry><box><size>2.4 2.4 0.5</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
+      </visual>
+      <visual name="water_tank_1_body">
+        <pose>-12.0 -6.0 21.6 0 0 0</pose>
+        <geometry><cylinder><radius>1.1</radius><length>2.2</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="water_tank_1_dome">
+        <pose>-12.0 -6.0 22.75 0 0 0</pose>
+        <geometry><sphere><radius>1.12</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 水塔 2 -->
+      <visual name="water_tank_2_stand">
+        <pose>12.0 -6.0 20.4 0 0 0</pose>
+        <geometry><box><size>2.4 2.4 0.5</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.6 0.62 0.65 1</diffuse></material>
+      </visual>
+      <visual name="water_tank_2_body">
+        <pose>12.0 -6.0 21.6 0 0 0</pose>
+        <geometry><cylinder><radius>1.1</radius><length>2.2</length></cylinder></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+      <visual name="water_tank_2_dome">
+        <pose>12.0 -6.0 22.75 0 0 0</pose>
+        <geometry><sphere><radius>1.12</radius></sphere></geometry>
+        <material>
+          <ambient>0.75 0.78 0.82 1</ambient>
+          <diffuse>0.85 0.88 0.92 1</diffuse>
+          <pbr><metal><roughness>0.15</roughness><metalness>0.92</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 屋頂中央空調冰水主機 (Rooftop HVAC Chiller) -->
+      <visual name="rooftop_chiller">
+        <pose>0 0 21.2 0 0 0</pose>
+        <geometry><box><size>8.0 4.5 2.0</size></box></geometry>
+        <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
+      </visual>
+
     </link>
   </model>
 </sdf>
