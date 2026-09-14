@@ -9,20 +9,110 @@
       <!-- 1F 連續騎樓走廊 (Y = +12.5m facing Guangfu Rd) -->
       <visual name="arcade_floor"><pose>0 12.5 0.08 0 0 0</pose><geometry><box><size>178.0 3.5 0.02</size></box></geometry><material><ambient>0.60 0.58 0.56 1</ambient><diffuse>0.68 0.66 0.64 1</diffuse></material></visual>
       <visual name="arcade_ceiling"><pose>0 12.5 4.5 0 0 0</pose><geometry><box><size>178.0 3.5 0.25</size></box></geometry><material><ambient>0.25 0.25 0.28 1</ambient><diffuse>0.30 0.30 0.34 1</diffuse></material></visual>
-      <!-- ==================== 光復路一段 台灣特色知名連鎖店與銀行診所高清店招長廊 ==================== -->
-      <!-- 包含：玉山銀行、大樹藥局、陶板屋、50嵐、春水堂、星展銀行、安永鮮物、台安診所、屈臣氏 -->
-      <visual name="arcade_shops_fascia_vis">
-        <pose>0 14.12 4.6 0 0 0</pose>
-        <geometry><box><size>178.0 0.16 1.4</size></box></geometry>
+      <!-- ==================== 光復路一段 9 間知名品牌獨立店招長廊 (9 Individual Exact 11.43:1 Ratio Signboards) ==================== -->
+      <!-- 騎樓簷口深色金屬邊框樑 (Architrave Backing Beam) -->
+      <visual name="arcade_fascia_architrave">
+        <pose>0 14.06 4.6 0 0 0</pose>
+        <geometry><box><size>178.0 0.08 1.4</size></box></geometry>
+        <material><ambient>0.22 0.22 0.25 1</ambient><diffuse>0.28 0.28 0.32 1</diffuse></material>
+      </visual>
+
+      <!-- 店招 0: 玉山銀行 E.SUN BANK (-80m) -->
+      <visual name="shop_sign_0_esun">
+        <pose>-80.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
         <material>
           <diffuse>1 1 1 1</diffuse>
-          <pbr>
-            <metal>
-              <albedo_map>model://guangfu_south_strip_east/materials/textures/guangfu_strip_commercial_signs.png</albedo_map>
-              <roughness>0.32</roughness>
-              <metalness>0.08</metalness>
-            </metal>
-          </pbr>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_esun.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 1: 大樹連鎖藥局 (-60m) -->
+      <visual name="shop_sign_1_great_tree">
+        <pose>-60.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_great_tree.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 2: 王品 陶板屋 (-40m) -->
+      <visual name="shop_sign_2_tokiya">
+        <pose>-40.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_tokiya.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 3: 50嵐 經典手搖飲 (-20m) -->
+      <visual name="shop_sign_3_50lan">
+        <pose>-20.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_50lan.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 4: 春水堂 人文茶館 (0m, 正中軸線) -->
+      <visual name="shop_sign_4_chunshuitang">
+        <pose>0.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_chunshuitang.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 5: 星展銀行 DBS BANK (+20m) -->
+      <visual name="shop_sign_5_dbs">
+        <pose>20.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_dbs.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 6: 安永鮮物 (+40m) -->
+      <visual name="shop_sign_6_anyoung">
+        <pose>40.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_anyoung.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 7: 台安聯合診所 (+60m) -->
+      <visual name="shop_sign_7_taian">
+        <pose>60.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_taian.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
+        </material>
+      </visual>
+
+      <!-- 店招 8: 屈臣氏 Watsons (+80m) -->
+      <visual name="shop_sign_8_watsons">
+        <pose>80.0 14.15 4.6 0 0 0</pose>
+        <geometry><box><size>16.0 0.16 1.4</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
+          <pbr><metal><albedo_map>model://guangfu_south_strip_east/materials/textures/sign_watsons.png</albedo_map><roughness>0.2</roughness><metalness>0.05</metalness></metal></pbr>
         </material>
       </visual>
       <visual name="shop_glass_0"><pose>-80.0 14.05 2.2 0 0 0</pose><geometry><box><size>15.0 0.1 3.8</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>

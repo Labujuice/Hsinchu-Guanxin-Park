@@ -33,16 +33,52 @@
         <material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material>
       </visual>
 
-      <!-- ==================== 7-ELEVEN 台灣特色高清擬真立面表皮 (Photo-Real PBR Facade) ==================== -->
-      <visual name="seven_facade_vis">
-        <pose>0 6.04 2.4 0 0 0</pose>
-        <geometry><box><size>16.0 0.08 4.8</size></box></geometry>
+      <!-- ==================== 7-ELEVEN 台灣特色高清擬真店招與門面 (Photo-Real PBR Signboards) ==================== -->
+      <!-- 1. 正面橫式發光主招牌 (Fascia Signboard: 15.0m x 1.4m, 比例 10.71:1 完全吻合 1500x140 貼圖) -->
+      <visual name="seven_fascia_vis">
+        <pose>0 6.08 4.0 0 0 0</pose>
+        <geometry><box><size>15.0 0.12 1.4</size></box></geometry>
         <material>
           <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
           <pbr>
             <metal>
-              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_facade.png</albedo_map>
-              <roughness>0.30</roughness>
+              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_fascia_sign.png</albedo_map>
+              <roughness>0.20</roughness>
+              <metalness>0.05</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- 2. 店面落地大片採光玻璃與自動門 (Storefront Glass Curtain & Automatic Doors) -->
+      <visual name="storefront_glass">
+        <pose>0 6.04 1.6 0 0 0</pose>
+        <geometry><box><size>15.0 0.08 3.2</size></box></geometry>
+        <material>
+          <ambient>0.2 0.35 0.4 0.85</ambient>
+          <diffuse>0.3 0.45 0.5 0.85</diffuse>
+          <specular>0.9 0.95 1.0 1</specular>
+        </material>
+      </visual>
+      <!-- 自動門深灰色金屬門框 (Door Frame) -->
+      <visual name="storefront_doorframe">
+        <pose>0 6.07 1.6 0 0 0</pose>
+        <geometry><box><size>3.6 0.1 3.2</size></box></geometry>
+        <material><ambient>0.2 0.2 0.22 1</ambient><diffuse>0.25 0.25 0.28 1</diffuse></material>
+      </visual>
+
+      <!-- 3. 建築側懸直立雙面發光店招 (Protruding Blade Signboard: 0.8m x 1.6m, 比例 1:2 吻合 512x1024 貼圖) -->
+      <visual name="seven_blade_vis">
+        <pose>7.9 6.2 3.6 0 0 1.5708</pose>
+        <geometry><box><size>0.8 0.12 1.6</size></box></geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <emissive>0.5 0.5 0.5 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_blade_sign.png</albedo_map>
+              <roughness>0.20</roughness>
               <metalness>0.05</metalness>
             </metal>
           </pbr>
@@ -56,18 +92,18 @@
         <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
       </visual>
 
-      <!-- 高空發光大燈箱 (High-mast Lightbox with 7-11 Signage) -->
+      <!-- 高空發光大燈箱 (High-mast Lightbox: 1.0m x 2.0m, 比例 1:2 完全吻合 512x1024 貼圖) -->
       <visual name="pylon_lightbox">
-        <pose>8.5 7.2 6.5 0 0 0</pose>
-        <geometry><box><size>1.6 0.35 2.0</size></box></geometry>
+        <pose>8.5 7.2 6.5 0 0 1.5708</pose>
+        <geometry><box><size>1.0 0.25 2.0</size></box></geometry>
         <material>
           <diffuse>1 1 1 1</diffuse>
-          <emissive>0.3 0.3 0.3 1</emissive>
+          <emissive>0.55 0.55 0.55 1</emissive>
           <pbr>
             <metal>
-              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_protruding_sign.png</albedo_map>
-              <roughness>0.25</roughness>
-              <metalness>0.1</metalness>
+              <albedo_map>model://convenience_store_711/materials/textures/seven_eleven_blade_sign.png</albedo_map>
+              <roughness>0.20</roughness>
+              <metalness>0.05</metalness>
             </metal>
           </pbr>
         </material>

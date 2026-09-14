@@ -19,17 +19,18 @@
         </material>
       </visual>
 
-      <!-- ==================== 關東公有零售市場 台灣特色高清擬真立面表皮 ==================== -->
-      <!-- 包含：新竹市關東公有零售市場大招牌、客家文化會館、傳統早市攤商帆布雨遮與生鮮攤位 -->
-      <visual name="market_facade_vis">
-        <pose>0 18.06 10.0 0 0 0</pose>
-        <geometry><box><size>48.0 0.10 20.0</size></box></geometry>
+      <!-- ==================== 關東公有零售市場 台灣特色高清擬真主體與店招 (Photo-Real PBR) ==================== -->
+      <!-- 正門上方超大型發光主招牌 (Civic Market Marquee Sign: 24.0m x 3.0m, 比例 8:1 完全吻合 1600x200 貼圖) -->
+      <visual name="market_sign_vis">
+        <pose>0 18.20 7.2 0 0 0</pose>
+        <geometry><box><size>24.0 0.18 3.0</size></box></geometry>
         <material>
           <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
           <pbr>
             <metal>
-              <albedo_map>model://guandong_civic_market/materials/textures/guandong_market_facade.png</albedo_map>
-              <roughness>0.38</roughness>
+              <albedo_map>model://guandong_civic_market/materials/textures/guandong_market_sign.png</albedo_map>
+              <roughness>0.20</roughness>
               <metalness>0.05</metalness>
             </metal>
           </pbr>

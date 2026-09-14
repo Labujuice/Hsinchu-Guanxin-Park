@@ -42,34 +42,47 @@
         </material>
       </visual>
 
-      <!-- ==================== 全聯福利中心 台灣特色高清擬真立面表皮 (Photo-Real PBR Facade) ==================== -->
-      <visual name="pxmart_facade_vis">
-        <pose>0 11.06 4.0 0 0 0</pose>
-        <geometry><box><size>32.0 0.08 8.0</size></box></geometry>
+      <!-- ==================== 全聯福利中心 台灣特色高清擬真店招與門面 (Photo-Real PBR Signboards) ==================== -->
+      <!-- 1. 正面橫式發光主招牌 (Fascia Signboard: 24.0m x 2.4m, 比例 10.0:1 完全吻合 1600x160 貼圖) -->
+      <visual name="pxmart_fascia_vis">
+        <pose>0 11.08 5.6 0 0 0</pose>
+        <geometry><box><size>24.0 0.14 2.4</size></box></geometry>
         <material>
           <diffuse>1 1 1 1</diffuse>
+          <emissive>0.45 0.45 0.45 1</emissive>
           <pbr>
             <metal>
-              <albedo_map>model://px_mart_store/materials/textures/pxmart_facade.png</albedo_map>
-              <roughness>0.32</roughness>
-              <metalness>0.08</metalness>
+              <albedo_map>model://px_mart_store/materials/textures/pxmart_fascia_sign.png</albedo_map>
+              <roughness>0.20</roughness>
+              <metalness>0.05</metalness>
             </metal>
           </pbr>
         </material>
       </visual>
 
-      <!-- 側懸垂直雙面發光店招 (Protruding Blade Signboard) -->
+      <!-- 2. 超市 1F 落地採光大櫥窗與自動感應玻璃門 (Supermarket Glass Curtain) -->
+      <visual name="pxmart_entrance_glass">
+        <pose>0 11.04 1.7 0 0 0</pose>
+        <geometry><box><size>20.0 0.08 3.4</size></box></geometry>
+        <material>
+          <ambient>0.2 0.32 0.42 0.85</ambient>
+          <diffuse>0.28 0.42 0.52 0.85</diffuse>
+          <specular>0.9 0.95 1.0 1</specular>
+        </material>
+      </visual>
+
+      <!-- 3. 側懸垂直雙面發光店招 (Protruding Blade Signboard: 1.0m x 2.0m, 比例 1:2 完全吻合 512x1024 貼圖) -->
       <visual name="pxmart_blade_sign">
-        <pose>16.05 10.0 5.2 0 0 1.5708</pose>
-        <geometry><box><size>1.2 0.18 2.4</size></box></geometry>
+        <pose>16.08 10.0 5.2 0 0 1.5708</pose>
+        <geometry><box><size>1.0 0.16 2.0</size></box></geometry>
         <material>
           <diffuse>1 1 1 1</diffuse>
-          <emissive>0.3 0.3 0.3 1</emissive>
+          <emissive>0.50 0.50 0.50 1</emissive>
           <pbr>
             <metal>
-              <albedo_map>model://px_mart_store/materials/textures/pxmart_protruding_sign.png</albedo_map>
-              <roughness>0.28</roughness>
-              <metalness>0.1</metalness>
+              <albedo_map>model://px_mart_store/materials/textures/pxmart_blade_sign.png</albedo_map>
+              <roughness>0.20</roughness>
+              <metalness>0.05</metalness>
             </metal>
           </pbr>
         </material>
