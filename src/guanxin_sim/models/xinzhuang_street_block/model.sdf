@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="xinzhuang_street_block">
+    <static>true</static>
+    <link name="bldg_link">
+      <collision name="podium_col">
+        <pose>0 0 3.0 0 0 0</pose>
+        <geometry><box><size>60.0 24.0 6.0</size></box></geometry>
+      </collision>
+      <collision name="tower_col">
+        <pose>0 0 14.5 0 0 0</pose>
+        <geometry><box><size>56.0 20.0 17.0</size></box></geometry>
+      </collision>
+
+      <!-- 1F 沿街特色文青美食街與精品店面 -->
+      <visual name="podium_base">
+        <pose>0 0 3.0 0 0 0</pose>
+        <geometry><box><size>60.0 24.0 6.0</size></box></geometry>
+        <material>
+          <ambient>0.35 0.34 0.32 1</ambient>
+          <diffuse>0.42 0.40 0.38 1</diffuse>
+        </material>
+      </visual>
+      <visual name="shop_fronts">
+        <pose>0 12.1 2.8 0 0 0</pose>
+        <geometry><box><size>56.0 0.2 4.8</size></box></geometry>
+        <material>
+          <ambient>0.18 0.24 0.30 0.9</ambient>
+          <diffuse>0.24 0.32 0.40 0.9</diffuse>
+          <specular>0.9 0.95 1 1</specular>
+        </material>
+      </visual>
+
+      <!-- 上層現代住宅立面 (7F) -->
+      <visual name="tower_main">
+        <pose>0 0 14.5 0 0 0</pose>
+        <geometry><box><size>56.0 20.0 17.0</size></box></geometry>
+        <material>
+          <ambient>0.72 0.70 0.68 1</ambient>
+          <diffuse>0.80 0.78 0.76 1</diffuse>
+        </material>
+      </visual>
+      <!-- 木質格柵遮陽裝飾 (Warm Timber Louvers) -->
+      <visual name="timber_louvers">
+        <pose>0 10.2 15.0 0 0 0</pose>
+        <geometry><box><size>52.0 0.3 12.0</size></box></geometry>
+        <material>
+          <ambient>0.55 0.38 0.22 1</ambient>
+          <diffuse>0.68 0.48 0.28 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

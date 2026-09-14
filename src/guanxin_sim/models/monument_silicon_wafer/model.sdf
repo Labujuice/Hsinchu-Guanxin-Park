@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="monument_silicon_wafer">
+    <static>true</static>
+    <link name="monument_link">
+      <!-- 物理碰撞體 -->
+      <collision name="col">
+        <pose>0 0 3.2 0 0 0</pose>
+        <geometry><box><size>7.0 5.0 6.4</size></box></geometry>
+        <surface><friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction></surface>
+      </collision>
+
+      <!-- 1. 科技黑曜石基座 (Black Obsidian Plinth) -->
+      <visual name="plinth_base">
+        <pose>0 0 0.6 0 0 0</pose>
+        <geometry><box><size>7.2 5.2 1.2</size></box></geometry>
+        <material>
+          <ambient>0.12 0.12 0.14 1</ambient>
+          <diffuse>0.16 0.16 0.18 1</diffuse>
+          <specular>0.8 0.8 0.85 1</specular>
+        </material>
+      </visual>
+      <!-- 基座冷光 LED 藍光飾環 (Cyan LED Glow Ring) -->
+      <visual name="plinth_led_ring">
+        <pose>0 0 1.21 0 0 0</pose>
+        <geometry><box><size>6.8 4.8 0.04</size></box></geometry>
+        <material>
+          <ambient>0.1 0.7 0.9 1</ambient>
+          <diffuse>0.2 0.85 1.0 1</diffuse>
+          <emissive>0.2 0.8 0.95 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 2. 晶圓斜倚支承金屬架 (Stainless Steel Support Bracket) -->
+      <visual name="support_bracket">
+        <pose>0 -0.4 2.2 0.45 0 0</pose>
+        <geometry><box><size>2.4 0.6 3.6</size></box></geometry>
+        <material>
+          <ambient>0.7 0.72 0.75 1</ambient>
+          <diffuse>0.8 0.82 0.85 1</diffuse>
+          <specular>0.9 0.9 0.95 1</specular>
+        </material>
+      </visual>
+
+      <!-- 3. 巨型 12 吋 300mm 鏡面矽晶圓主體 (Mirror-polished Silicon Wafer Disc) -->
+      <!-- 直徑 6.0m, 厚度 0.22m, 迎向正面傾斜 26 度 -->
+      <visual name="wafer_disc">
+        <pose>0 0.1 3.8 0.45 0 0</pose>
+        <geometry><cylinder><radius>3.0</radius><length>0.22</length></cylinder></geometry>
+        <material>
+          <ambient>0.18 0.22 0.28 1</ambient>
+          <diffuse>0.28 0.34 0.42 1</diffuse>
+          <specular>0.98 0.98 1.0 1</specular>
+        </material>
+      </visual>
+      <!-- 晶圓邊緣倒角與圓形鏡面反光外環 (Beveled Rim) -->
+      <visual name="wafer_rim">
+        <pose>0 0.12 3.8 0.45 0 0</pose>
+        <geometry><cylinder><radius>2.96</radius><length>0.23</length></cylinder></geometry>
+        <material>
+          <ambient>0.7 0.6 0.2 1</ambient>
+          <diffuse>0.85 0.75 0.25 1</diffuse>
+          <specular>1 1 0.8 1</specular>
+        </material>
+      </visual>
+
+      <!-- 4. 晶圓光刻電路矩陣 (Photolithography Circuit Die Grid - 縱橫晶片陣列) -->
+      <visual name="wafer_grid_h1"><pose>0 0.23 3.8 0.45 0 0</pose><geometry><box><size>5.2 0.01 0.06</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>1 0.9 0.3 1</diffuse></material></visual>
+      <visual name="wafer_grid_h2"><pose>0 0.23 4.8 0.45 0 0</pose><geometry><box><size>4.5 0.01 0.06</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>1 0.9 0.3 1</diffuse></material></visual>
+      <visual name="wafer_grid_h3"><pose>0 0.23 2.8 0.45 0 0</pose><geometry><box><size>4.5 0.01 0.06</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>1 0.9 0.3 1</diffuse></material></visual>
+      <visual name="wafer_grid_v1"><pose>-1.0 0.23 3.8 0.45 0 0</pose><geometry><box><size>0.06 0.01 4.8</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>1 0.9 0.3 1</diffuse></material></visual>
+      <visual name="wafer_grid_v2"><pose>1.0 0.23 3.8 0.45 0 0</pose><geometry><box><size>0.06 0.01 4.8</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>1 0.9 0.3 1</diffuse></material></visual>
+      <visual name="wafer_grid_v0"><pose>0 0.23 3.8 0.45 0 0</pose><geometry><box><size>0.06 0.01 5.4</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>1 0.9 0.3 1</diffuse></material></visual>
+
+      <!-- 5. 核心晶粒高彩光雕銘牌 (Center Core Nanometer Die) -->
+      <visual name="wafer_center_die">
+        <pose>0 0.24 3.8 0.45 0 0</pose>
+        <geometry><box><size>1.6 0.02 1.6</size></box></geometry>
+        <material>
+          <ambient>0.1 0.7 0.9 1</ambient>
+          <diffuse>0.2 0.85 1.0 1</diffuse>
+          <specular>1 1 1 1</specular>
+          <emissive>0.15 0.5 0.7 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 6. 紀念基座銅牌銘文 -->
+      <visual name="wafer_plaque">
+        <pose>0 2.62 0.6 0 0 0</pose>
+        <geometry><box><size>4.5 0.05 0.6</size></box></geometry>
+        <material>
+          <ambient>0.75 0.55 0.15 1</ambient>
+          <diffuse>0.90 0.70 0.20 1</diffuse>
+          <specular>0.9 0.8 0.4 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

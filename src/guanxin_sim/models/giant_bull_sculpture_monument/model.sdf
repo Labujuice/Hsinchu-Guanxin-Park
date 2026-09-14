@@ -1,0 +1,343 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="giant_bull_sculpture_monument">
+    <static>true</static>
+    <link name="monument_link">
+      <!-- ==================== 物理碰撞體 (Collision: 2 Boxes, Zero Overhead) ==================== -->
+      <collision name="pedestal_col">
+        <pose>0 0 1.0 0 0 0</pose>
+        <geometry><box><size>18.0 10.0 2.0</size></box></geometry>
+        <surface>
+          <friction><ode><mu>0.9</mu><mu2>0.9</mu2></ode></friction>
+        </surface>
+      </collision>
+      <collision name="bull_body_col">
+        <pose>0 0 4.8 0 0 0</pose>
+        <geometry><box><size>12.0 5.2 4.8</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 基座與景觀鋪面 (Pedestal & Civic Plaza) ==================== -->
+      <!-- 1. 底層八角形花崗岩景觀基底 (22m x 14m x 0.3m) -->
+      <visual name="plaza_base">
+        <pose>0 0 0.15 0 0 0</pose>
+        <geometry><box><size>22.0 14.0 0.3</size></box></geometry>
+        <material>
+          <ambient>0.28 0.28 0.30 1</ambient>
+          <diffuse>0.34 0.34 0.36 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+      <!-- 景觀地坪金色環形鑲邊飾帶 -->
+      <visual name="plaza_gold_border">
+        <pose>0 0 0.31 0 0 0</pose>
+        <geometry><box><size>20.8 12.8 0.02</size></box></geometry>
+        <material>
+          <ambient>0.70 0.50 0.15 1</ambient>
+          <diffuse>0.85 0.65 0.20 1</diffuse>
+          <specular>0.9 0.8 0.3 1</specular>
+        </material>
+      </visual>
+
+      <!-- 2. 主基座 (18m x 10m x 1.4m 頂級黑金石基座) -->
+      <visual name="pedestal_main">
+        <pose>0 0 1.0 0 0 0</pose>
+        <geometry><box><size>18.0 10.0 1.4</size></box></geometry>
+        <material>
+          <ambient>0.12 0.12 0.14 1</ambient>
+          <diffuse>0.16 0.16 0.18 1</diffuse>
+          <specular>0.8 0.8 0.85 1</specular>
+        </material>
+      </visual>
+      <!-- 基座頂部黃金收邊飾條 -->
+      <visual name="pedestal_gold_cornice">
+        <pose>0 0 1.72 0 0 0</pose>
+        <geometry><box><size>18.4 10.4 0.08</size></box></geometry>
+        <material>
+          <ambient>0.75 0.55 0.18 1</ambient>
+          <diffuse>0.90 0.70 0.22 1</diffuse>
+          <specular>0.95 0.85 0.4 1</specular>
+        </material>
+      </visual>
+      <!-- 基座台頂踏面 (16m x 8m x 0.3m 鞍座) -->
+      <visual name="pedestal_top_deck">
+        <pose>0 0 1.88 0 0 0</pose>
+        <geometry><box><size>16.2 8.2 0.24</size></box></geometry>
+        <material>
+          <ambient>0.20 0.20 0.22 1</ambient>
+          <diffuse>0.24 0.24 0.26 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 3. 基座紀念銘牌 (銘刻：新竹科學園區・科技神牛・牛市萬馬奔騰・千金科技・股價狂飆) -->
+      <visual name="plaque_front">
+        <pose>9.05 0 1.0 0 0 0</pose>
+        <geometry><box><size>0.1 6.5 0.8</size></box></geometry>
+        <material>
+          <ambient>0.65 0.15 0.12 1</ambient>
+          <diffuse>0.82 0.18 0.15 1</diffuse>
+          <specular>0.9 0.7 0.3 1</specular>
+        </material>
+      </visual>
+      <visual name="plaque_front_gold_text">
+        <pose>9.11 0 1.0 0 0 0</pose>
+        <geometry><box><size>0.02 6.1 0.65</size></box></geometry>
+        <material>
+          <ambient>0.85 0.68 0.22 1</ambient>
+          <diffuse>0.95 0.80 0.28 1</diffuse>
+          <specular>0.98 0.90 0.50 1</specular>
+        </material>
+      </visual>
+      <visual name="plaque_back">
+        <pose>-9.05 0 1.0 0 0 0</pose>
+        <geometry><box><size>0.1 6.5 0.8</size></box></geometry>
+        <material>
+          <ambient>0.65 0.15 0.12 1</ambient>
+          <diffuse>0.82 0.18 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="plaque_back_gold_text">
+        <pose>-9.11 0 1.0 0 0 0</pose>
+        <geometry><box><size>0.02 6.1 0.65</size></box></geometry>
+        <material>
+          <ambient>0.85 0.68 0.22 1</ambient>
+          <diffuse>0.95 0.80 0.28 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 4. 四隅科技多角股價圖騰紀念柱 (Obelisks) -->
+      <visual name="obelisk_fl"><pose>8.5 4.5 2.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>2.4</length></cylinder></geometry><material><ambient>0.65 0.48 0.18 1</ambient><diffuse>0.82 0.62 0.22 1</diffuse></material></visual>
+      <visual name="obelisk_fl_cap"><pose>8.5 4.5 3.6 0 0 0</pose><geometry><box><size>0.6 0.6 0.6</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>0.95 0.85 0.3 1</diffuse><specular>1 1 0.6 1</specular></material></visual>
+
+      <visual name="obelisk_fr"><pose>8.5 -4.5 2.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>2.4</length></cylinder></geometry><material><ambient>0.65 0.48 0.18 1</ambient><diffuse>0.82 0.62 0.22 1</diffuse></material></visual>
+      <visual name="obelisk_fr_cap"><pose>8.5 -4.5 3.6 0 0 0</pose><geometry><box><size>0.6 0.6 0.6</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>0.95 0.85 0.3 1</diffuse><specular>1 1 0.6 1</specular></material></visual>
+
+      <visual name="obelisk_rl"><pose>-8.5 4.5 2.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>2.4</length></cylinder></geometry><material><ambient>0.65 0.48 0.18 1</ambient><diffuse>0.82 0.62 0.22 1</diffuse></material></visual>
+      <visual name="obelisk_rl_cap"><pose>-8.5 4.5 3.6 0 0 0</pose><geometry><box><size>0.6 0.6 0.6</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>0.95 0.85 0.3 1</diffuse><specular>1 1 0.6 1</specular></material></visual>
+
+      <visual name="obelisk_rr"><pose>-8.5 -4.5 2.2 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>2.4</length></cylinder></geometry><material><ambient>0.65 0.48 0.18 1</ambient><diffuse>0.82 0.62 0.22 1</diffuse></material></visual>
+      <visual name="obelisk_rr_cap"><pose>-8.5 -4.5 3.6 0 0 0</pose><geometry><box><size>0.6 0.6 0.6</size></box></geometry><material><ambient>0.9 0.8 0.2 1</ambient><diffuse>0.95 0.85 0.3 1</diffuse><specular>1 1 0.6 1</specular></material></visual>
+
+      <!-- ==================== 華爾街・竹科神牛青銅雕塑本體 (Monumental Bull Anatomy) ==================== -->
+      <!-- 材質：金光璀璨、氣勢如虹的鍛面金銅 (Burnished Golden-Bronze Patina) -->
+
+      <!-- [A] 軀幹 (Torso & Withers): 寬闊結實的牛背、充滿爆發力的胸腔與肩峰 -->
+      <!-- 1. 前胸核心胸腔 (Chest Core) -->
+      <visual name="bull_chest_main">
+        <pose>0.8 0 4.7 0 0.12 0</pose>
+        <geometry><box><size>5.8 4.2 3.6</size></box></geometry>
+        <material>
+          <ambient>0.68 0.48 0.16 1</ambient>
+          <diffuse>0.86 0.64 0.22 1</diffuse>
+          <specular>0.95 0.85 0.40 1</specular>
+        </material>
+      </visual>
+      <!-- 2. 隆起的強健肩峰 (Muscular Shoulder Hump / Withers - 象徵高昂動能) -->
+      <visual name="bull_withers_hump">
+        <pose>2.1 0 5.8 0 -0.15 0</pose>
+        <geometry><box><size>3.8 3.8 2.2</size></box></geometry>
+        <material>
+          <ambient>0.70 0.50 0.18 1</ambient>
+          <diffuse>0.88 0.66 0.24 1</diffuse>
+          <specular>0.95 0.85 0.40 1</specular>
+        </material>
+      </visual>
+      <!-- 3. 後背脊柱延伸段與強韌側腹 (Rear Torso & Flank) -->
+      <visual name="bull_torso_rear">
+        <pose>-2.2 0 4.8 0 -0.08 0</pose>
+        <geometry><box><size>4.5 3.6 3.2</size></box></geometry>
+        <material>
+          <ambient>0.68 0.48 0.16 1</ambient>
+          <diffuse>0.86 0.64 0.22 1</diffuse>
+          <specular>0.95 0.85 0.40 1</specular>
+        </material>
+      </visual>
+      <!-- 4. 健碩發達的牛臀部 (Muscular Rump / Quarters) -->
+      <visual name="bull_rump">
+        <pose>-4.0 0 4.9 0 -0.18 0</pose>
+        <geometry><box><size>3.5 3.9 3.3</size></box></geometry>
+        <material>
+          <ambient>0.68 0.48 0.16 1</ambient>
+          <diffuse>0.86 0.64 0.22 1</diffuse>
+          <specular>0.95 0.85 0.40 1</specular>
+        </material>
+      </visual>
+
+      <!-- [B] 蓄勢俯衝的牛首與刺破青天的黃金雙角 (Head, Snout & Celestial Horns) -->
+      <!-- 1. 粗壯傾斜的前頸 (Arched Neck) -->
+      <visual name="bull_neck">
+        <pose>3.7 0 4.8 0 0.32 0</pose>
+        <geometry><box><size>2.8 3.2 2.8</size></box></geometry>
+        <material>
+          <ambient>0.70 0.50 0.18 1</ambient>
+          <diffuse>0.88 0.66 0.24 1</diffuse>
+          <specular>0.95 0.85 0.40 1</specular>
+        </material>
+      </visual>
+      <!-- 2. 蓄勢衝刺低俯的頭骨主體 (Massive Lowered Head) -->
+      <visual name="bull_head_main">
+        <pose>5.3 0 3.9 0 0.42 0</pose>
+        <geometry><box><size>3.2 2.6 2.4</size></box></geometry>
+        <material>
+          <ambient>0.72 0.52 0.20 1</ambient>
+          <diffuse>0.90 0.68 0.26 1</diffuse>
+          <specular>0.98 0.88 0.45 1</specular>
+        </material>
+      </visual>
+      <!-- 3. 寬闊的吻端口鼻部與怒張鼻孔 (Snout & Muzzle) -->
+      <visual name="bull_snout">
+        <pose>6.6 0 3.0 0 0.48 0</pose>
+        <geometry><box><size>1.9 1.8 1.5</size></box></geometry>
+        <material>
+          <ambient>0.65 0.45 0.16 1</ambient>
+          <diffuse>0.82 0.60 0.20 1</diffuse>
+          <specular>0.9 0.8 0.4 1</specular>
+        </material>
+      </visual>
+      <!-- 左右鼻孔細節 -->
+      <visual name="bull_nostril_l"><pose>7.4 0.45 2.6 0 0 0</pose><geometry><cylinder><radius>0.16</radius><length>0.3</length></cylinder></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+      <visual name="bull_nostril_r"><pose>7.4 -0.45 2.6 0 0 0</pose><geometry><cylinder><radius>0.16</radius><length>0.3</length></cylinder></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+
+      <!-- 4. 象徵歷史新高、向上破頂的「黃金雙角」(Twin Soaring Golden Horns) -->
+      <!-- 左角根部 (向外側昂首斜出) -->
+      <visual name="horn_base_l">
+        <pose>5.1 1.5 4.8 0.65 -0.28 0.35</pose>
+        <geometry><cylinder><radius>0.38</radius><length>2.0</length></cylinder></geometry>
+        <material>
+          <ambient>0.85 0.70 0.20 1</ambient>
+          <diffuse>0.98 0.85 0.28 1</diffuse>
+          <specular>1.0 0.95 0.60 1</specular>
+        </material>
+      </visual>
+      <!-- 左角向上刺天角尖 (直衝天際 7.5m 高空) -->
+      <visual name="horn_tip_l">
+        <pose>5.7 2.5 6.2 0.25 -0.55 0.18</pose>
+        <geometry><cylinder><radius>0.24</radius><length>2.4</length></cylinder></geometry>
+        <material>
+          <ambient>0.90 0.78 0.25 1</ambient>
+          <diffuse>1.00 0.90 0.35 1</diffuse>
+          <specular>1.0 1.0 0.8 1</specular>
+        </material>
+      </visual>
+      <!-- 右角根部 -->
+      <visual name="horn_base_r">
+        <pose>5.1 -1.5 4.8 -0.65 -0.28 -0.35</pose>
+        <geometry><cylinder><radius>0.38</radius><length>2.0</length></cylinder></geometry>
+        <material>
+          <ambient>0.85 0.70 0.20 1</ambient>
+          <diffuse>0.98 0.85 0.28 1</diffuse>
+          <specular>1.0 0.95 0.60 1</specular>
+        </material>
+      </visual>
+      <!-- 右角向上刺天角尖 -->
+      <visual name="horn_tip_r">
+        <pose>5.7 -2.5 6.2 -0.25 -0.55 -0.18</pose>
+        <geometry><cylinder><radius>0.24</radius><length>2.4</length></cylinder></geometry>
+        <material>
+          <ambient>0.90 0.78 0.25 1</ambient>
+          <diffuse>1.00 0.90 0.35 1</diffuse>
+          <specular>1.0 1.0 0.8 1</specular>
+        </material>
+      </visual>
+
+      <!-- 銳利牛耳 (後掠角度) -->
+      <visual name="bull_ear_l"><pose>4.4 1.7 4.6 -0.4 0.2 0.5</pose><geometry><box><size>0.9 0.35 0.55</size></box></geometry><material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material></visual>
+      <visual name="bull_ear_r"><pose>4.4 -1.7 4.6 0.4 0.2 -0.5</pose><geometry><box><size>0.9 0.35 0.55</size></box></geometry><material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material></visual>
+
+      <!-- [C] 四肢動態 (Muscular Limbs & Driving Hooves) -->
+      <!-- 1. 左前腿 (向前猛力探出踩實踏板) -->
+      <visual name="leg_fl_upper">
+        <pose>2.6 1.7 3.4 0.1 -0.22 0</pose>
+        <geometry><cylinder><radius>0.58</radius><length>2.4</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="leg_fl_lower">
+        <pose>3.1 1.7 2.1 0 0 0</pose>
+        <geometry><cylinder><radius>0.44</radius><length>1.8</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="hoof_fl">
+        <pose>3.2 1.7 2.1 0 0 0</pose>
+        <geometry><box><size>1.2 0.95 0.45</size></box></geometry>
+        <material><ambient>0.2 0.18 0.15 1</ambient><diffuse>0.3 0.26 0.22 1</diffuse><specular>0.6 0.5 0.3 1</specular></material>
+      </visual>
+
+      <!-- 2. 右前腿 (緊繃屈膝沉潛、蓄積下一次蹬地能量) -->
+      <visual name="leg_fr_upper">
+        <pose>1.8 -1.7 3.5 -0.1 0.28 0</pose>
+        <geometry><cylinder><radius>0.58</radius><length>2.2</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="leg_fr_lower">
+        <pose>1.3 -1.7 2.1 0 0 0</pose>
+        <geometry><cylinder><radius>0.44</radius><length>1.8</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="hoof_fr">
+        <pose>1.3 -1.7 2.1 0 0 0</pose>
+        <geometry><box><size>1.2 0.95 0.45</size></box></geometry>
+        <material><ambient>0.2 0.18 0.15 1</ambient><diffuse>0.3 0.26 0.22 1</diffuse><specular>0.6 0.5 0.3 1</specular></material>
+      </visual>
+
+      <!-- 3. 左後腿 (粗壯如柱、向後強力蹬地後推) -->
+      <visual name="leg_rl_upper">
+        <pose>-3.7 1.8 3.6 0.15 0.35 0</pose>
+        <geometry><cylinder><radius>0.68</radius><length>2.5</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="leg_rl_lower">
+        <pose>-4.6 1.8 2.1 0 -0.25 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>2.0</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="hoof_rl">
+        <pose>-4.9 1.8 2.1 0 0 0</pose>
+        <geometry><box><size>1.25 1.0 0.45</size></box></geometry>
+        <material><ambient>0.2 0.18 0.15 1</ambient><diffuse>0.3 0.26 0.22 1</diffuse><specular>0.6 0.5 0.3 1</specular></material>
+      </visual>
+
+      <!-- 4. 右後腿 (穩如磐石的支撐腿) -->
+      <visual name="leg_rr_upper">
+        <pose>-3.9 -1.8 3.6 -0.15 0.28 0</pose>
+        <geometry><cylinder><radius>0.68</radius><length>2.5</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="leg_rr_lower">
+        <pose>-4.7 -1.8 2.1 0 -0.22 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>2.0</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="hoof_rr">
+        <pose>-5.0 -1.8 2.1 0 0 0</pose>
+        <geometry><box><size>1.25 1.0 0.45</size></box></geometry>
+        <material><ambient>0.2 0.18 0.15 1</ambient><diffuse>0.3 0.26 0.22 1</diffuse><specular>0.6 0.5 0.3 1</specular></material>
+      </visual>
+
+      <!-- [D] 勝利揚起的狂野牛尾 (Triumphant Upward-Curving Tail) -->
+      <visual name="tail_base">
+        <pose>-5.4 0 4.8 0 -0.85 0</pose>
+        <geometry><cylinder><radius>0.24</radius><length>1.8</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="tail_mid">
+        <pose>-6.1 0.25 5.8 0.2 -0.3 0</pose>
+        <geometry><cylinder><radius>0.18</radius><length>2.0</length></cylinder></geometry>
+        <material><ambient>0.68 0.48 0.16 1</ambient><diffuse>0.86 0.64 0.22 1</diffuse></material>
+      </visual>
+      <visual name="tail_brush">
+        <pose>-6.4 0.45 6.8 0.3 -0.1 0</pose>
+        <geometry><cylinder><radius>0.32</radius><length>1.4</length></cylinder></geometry>
+        <material>
+          <ambient>0.80 0.60 0.18 1</ambient>
+          <diffuse>0.95 0.75 0.25 1</diffuse>
+          <specular>0.9 0.8 0.4 1</specular>
+        </material>
+      </visual>
+
+      <!-- [E] 夜間景觀投射燈組 (Plaza Uplighting Units) -->
+      <visual name="light_pod_f"><pose>10.0 0 0.35 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>0.3</length></cylinder></geometry><material><ambient>0.9 0.85 0.6 1</ambient><diffuse>1 0.95 0.7 1</diffuse><specular>1 1 1 1</specular></material></visual>
+      <visual name="light_pod_l"><pose>0 6.2 0.35 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>0.3</length></cylinder></geometry><material><ambient>0.9 0.85 0.6 1</ambient><diffuse>1 0.95 0.7 1</diffuse><specular>1 1 1 1</specular></material></visual>
+      <visual name="light_pod_r"><pose>0 -6.2 0.35 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>0.3</length></cylinder></geometry><material><ambient>0.9 0.85 0.6 1</ambient><diffuse>1 0.95 0.7 1</diffuse><specular>1 1 1 1</specular></material></visual>
+      <visual name="light_pod_b"><pose>-10.0 0 0.35 0 0 0</pose><geometry><cylinder><radius>0.35</radius><length>0.3</length></cylinder></geometry><material><ambient>0.9 0.85 0.6 1</ambient><diffuse>1 0.95 0.7 1</diffuse><specular>1 1 1 1</specular></material></visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="guandong_civic_market">
+    <static>true</static>
+    <link name="market_link">
+      <collision name="podium_col">
+        <pose>0 0 10.0 0 0 0</pose>
+        <geometry><box><size>48.0 36.0 20.0</size></box></geometry>
+      </collision>
+
+      <!-- 關東市場主體外觀 (4F 複合式公有市場與客家文化會館) -->
+      <visual name="market_main">
+        <pose>0 0 10.0 0 0 0</pose>
+        <geometry><box><size>48.0 36.0 20.0</size></box></geometry>
+        <material>
+          <ambient>0.68 0.66 0.62 1</ambient>
+          <diffuse>0.76 0.74 0.70 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+      <!-- 傳統市場醒目遮陽格柵與入口招牌 -->
+      <visual name="market_sign_board">
+        <pose>0 18.1 14.0 0 0 0</pose>
+        <geometry><box><size>28.0 0.2 3.2</size></box></geometry>
+        <material>
+          <ambient>0.65 0.15 0.12 1</ambient>
+          <diffuse>0.82 0.18 0.15 1</diffuse>
+        </material>
+      </visual>
+      <visual name="market_sign_text">
+        <pose>0 18.25 14.0 0 0 0</pose>
+        <geometry><box><size>24.0 0.05 2.2</size></box></geometry>
+        <material>
+          <ambient>0.95 0.95 0.90 1</ambient>
+          <diffuse>1.0 1.0 0.95 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

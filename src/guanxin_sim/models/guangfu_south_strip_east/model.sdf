@@ -31,6 +31,114 @@
       <visual name="tower_main_vis"><pose>0 0 26.0 0 0 0</pose><geometry><box><size>176.0 24.0 52.0</size></box></geometry><material><ambient>0.76 0.74 0.72 1</ambient><diffuse>0.82 0.80 0.78 1</diffuse></material></visual>
       <visual name="balconies_front"><pose>0 12.2 28.0 0 0 0</pose><geometry><box><size>170.0 0.8 40.0</size></box></geometry><material><ambient>0.22 0.26 0.32 0.9</ambient><diffuse>0.28 0.34 0.40 0.9</diffuse></material></visual>
       <visual name="roof_parapet"><pose>0 0 52.9 0 0 0</pose><geometry><box><size>178.0 22.0 1.8</size></box></geometry><material><ambient>0.30 0.30 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
-    </link>
+  
+      <!-- ==================== 頂樓三大直昇機與無人機垂直起降停機坪 (Rooftop Vertipads) ==================== -->
+      <!-- [Helipad 1: 西側重型緊急救援與商務直昇機坪 H-1, 正對關新路路衝天際線] -->
+      <!-- 停機坪高強度防滑鋼構停機甲板 (18m x 18m) -->
+      <visual name="helipad1_deck">
+        <pose>-55.0 0 52.05 0 0 0</pose>
+        <geometry><cylinder><radius>9.0</radius><length>0.10</length></cylinder></geometry>
+        <material>
+          <ambient>0.20 0.22 0.24 1</ambient>
+          <diffuse>0.25 0.27 0.30 1</diffuse>
+          <specular>0.4 0.4 0.4 1</specular>
+        </material>
+      </visual>
+      <!-- 停機坪白色安全邊界圓環 (White Perimeter Ring) -->
+      <visual name="helipad1_ring">
+        <pose>-55.0 0 52.11 0 0 0</pose>
+        <geometry><cylinder><radius>8.2</radius><length>0.005</length></cylinder></geometry>
+        <material>
+          <ambient>0.92 0.92 0.92 1</ambient>
+          <diffuse>0.98 0.98 0.98 1</diffuse>
+        </material>
+      </visual>
+      <visual name="helipad1_ring_inner">
+        <pose>-55.0 0 52.112 0 0 0</pose>
+        <geometry><cylinder><radius>7.6</radius><length>0.006</length></cylinder></geometry>
+        <material>
+          <ambient>0.20 0.22 0.24 1</ambient>
+          <diffuse>0.25 0.27 0.30 1</diffuse>
+        </material>
+      </visual>
+      <!-- 醒目民航標準黃色「H」字樣 -->
+      <visual name="helipad1_h_bar_l"><pose>-57.2 0 52.12 0 0 0</pose><geometry><box><size>0.9 6.2 0.01</size></box></geometry><material><ambient>0.92 0.78 0.05 1</ambient><diffuse>0.98 0.85 0.08 1</diffuse></material></visual>
+      <visual name="helipad1_h_bar_r"><pose>-52.8 0 52.12 0 0 0</pose><geometry><box><size>0.9 6.2 0.01</size></box></geometry><material><ambient>0.92 0.78 0.05 1</ambient><diffuse>0.98 0.85 0.08 1</diffuse></material></visual>
+      <visual name="helipad1_h_cross"><pose>-55.0 0 52.12 0 0 0</pose><geometry><box><size>4.0 0.9 0.01</size></box></geometry><material><ambient>0.92 0.78 0.05 1</ambient><diffuse>0.98 0.85 0.08 1</diffuse></material></visual>
+      <!-- 停機坪綠色夜間邊界指引燈與紅色障礙燈 -->
+      <visual name="helipad1_light_n"><pose>-55.0 8.8 52.25 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>0.3</length></cylinder></geometry><material><ambient>0.1 0.9 0.2 1</ambient><diffuse>0.2 1.0 0.3 1</diffuse><emissive>0.2 0.9 0.2 1</emissive></material></visual>
+      <visual name="helipad1_light_s"><pose>-55.0 -8.8 52.25 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>0.3</length></cylinder></geometry><material><ambient>0.1 0.9 0.2 1</ambient><diffuse>0.2 1.0 0.3 1</diffuse><emissive>0.2 0.9 0.2 1</emissive></material></visual>
+      <visual name="helipad1_light_e"><pose>-46.2 0 52.25 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>0.3</length></cylinder></geometry><material><ambient>0.1 0.9 0.2 1</ambient><diffuse>0.2 1.0 0.3 1</diffuse><emissive>0.2 0.9 0.2 1</emissive></material></visual>
+      <visual name="helipad1_light_w"><pose>-63.8 0 52.25 0 0 0</pose><geometry><cylinder><radius>0.12</radius><length>0.3</length></cylinder></geometry><material><ambient>0.1 0.9 0.2 1</ambient><diffuse>0.2 1.0 0.3 1</diffuse><emissive>0.2 0.9 0.2 1</emissive></material></visual>
+
+      <!-- [Helipad 2: 中央商務公務直昇機與 eVTOL 載人飛行坪 H-2] -->
+      <visual name="helipad2_deck">
+        <pose>0 0 52.05 0 0 0</pose>
+        <geometry><cylinder><radius>8.0</radius><length>0.10</length></cylinder></geometry>
+        <material>
+          <ambient>0.24 0.24 0.26 1</ambient>
+          <diffuse>0.28 0.28 0.32 1</diffuse>
+        </material>
+      </visual>
+      <visual name="helipad2_ring">
+        <pose>0 0 52.11 0 0 0</pose>
+        <geometry><cylinder><radius>7.2</radius><length>0.005</length></cylinder></geometry>
+        <material>
+          <ambient>0.92 0.92 0.92 1</ambient>
+          <diffuse>0.98 0.98 0.98 1</diffuse>
+        </material>
+      </visual>
+      <visual name="helipad2_ring_inner">
+        <pose>0 0 52.112 0 0 0</pose>
+        <geometry><cylinder><radius>6.6</radius><length>0.006</length></cylinder></geometry>
+        <material>
+          <ambient>0.24 0.24 0.26 1</ambient>
+          <diffuse>0.28 0.28 0.32 1</diffuse>
+        </material>
+      </visual>
+      <!-- 中央停機坪「H」標示 -->
+      <visual name="helipad2_h_bar_l"><pose>-1.8 0 52.12 0 0 0</pose><geometry><box><size>0.8 5.4 0.01</size></box></geometry><material><ambient>0.92 0.78 0.05 1</ambient><diffuse>0.98 0.85 0.08 1</diffuse></material></visual>
+      <visual name="helipad2_h_bar_r"><pose>1.8 0 52.12 0 0 0</pose><geometry><box><size>0.8 5.4 0.01</size></box></geometry><material><ambient>0.92 0.78 0.05 1</ambient><diffuse>0.98 0.85 0.08 1</diffuse></material></visual>
+      <visual name="helipad2_h_cross"><pose>0 0 52.12 0 0 0</pose><geometry><box><size>3.4 0.8 0.01</size></box></geometry><material><ambient>0.92 0.78 0.05 1</ambient><diffuse>0.98 0.85 0.08 1</diffuse></material></visual>
+
+      <!-- [Helipad 3: 東側高科技無人機物流與智慧巡檢垂直起降場 D-3 (Drone Vertipad)] -->
+      <visual name="helipad3_deck">
+        <pose>55.0 0 52.05 0 0 0</pose>
+        <geometry><box><size>16.0 16.0 0.10</size></box></geometry>
+        <material>
+          <ambient>0.18 0.22 0.26 1</ambient>
+          <diffuse>0.22 0.28 0.34 1</diffuse>
+        </material>
+      </visual>
+      <!-- 無人機同心圓靶心標線 (Drone Landing Target) -->
+      <visual name="helipad3_ring1">
+        <pose>55.0 0 52.11 0 0 0</pose>
+        <geometry><cylinder><radius>6.8</radius><length>0.005</length></cylinder></geometry>
+        <material><ambient>0.1 0.6 0.8 1</ambient><diffuse>0.15 0.8 1.0 1</diffuse></material>
+      </visual>
+      <visual name="helipad3_ring1_in">
+        <pose>55.0 0 52.112 0 0 0</pose>
+        <geometry><cylinder><radius>6.2</radius><length>0.006</length></cylinder></geometry>
+        <material><ambient>0.18 0.22 0.26 1</ambient><diffuse>0.22 0.28 0.34 1</diffuse></material>
+      </visual>
+      <visual name="helipad3_ring2">
+        <pose>55.0 0 52.114 0 0 0</pose>
+        <geometry><cylinder><radius>3.8</radius><length>0.005</length></cylinder></geometry>
+        <material><ambient>0.1 0.6 0.8 1</ambient><diffuse>0.15 0.8 1.0 1</diffuse></material>
+      </visual>
+      <visual name="helipad3_ring2_in">
+        <pose>55.0 0 52.116 0 0 0</pose>
+        <geometry><cylinder><radius>3.2</radius><length>0.006</length></cylinder></geometry>
+        <material><ambient>0.18 0.22 0.26 1</ambient><diffuse>0.22 0.28 0.34 1</diffuse></material>
+      </visual>
+      <!-- 無人機專用「D」字標識 -->
+      <visual name="helipad3_d_stem"><pose>53.8 0 52.12 0 0 0</pose><geometry><box><size>0.8 3.6 0.01</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="helipad3_d_loop"><pose>55.5 0 52.12 0 0 0</pose><geometry><cylinder><radius>1.8</radius><length>0.01</length></cylinder></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <visual name="helipad3_d_loop_in"><pose>55.5 0 52.122 0 0 0</pose><geometry><cylinder><radius>1.0</radius><length>0.012</length></cylinder></geometry><material><ambient>0.18 0.22 0.26 1</ambient><diffuse>0.22 0.28 0.34 1</diffuse></material></visual>
+
+      <!-- 頂樓風向計立柱 (Rooftop Aviation Windsock Pole) -->
+      <visual name="windsock_pole"><pose>70.0 9.0 54.0 0 0 0</pose><geometry><cylinder><radius>0.08</radius><length>3.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.8 0.8 0.85 1</diffuse></material></visual>
+      <visual name="windsock_cone"><pose>70.8 9.0 55.6 0 0.2 0</pose><geometry><cylinder><radius>0.28</radius><length>1.4</length></cylinder></geometry><material><ambient>0.95 0.45 0.05 1</ambient><diffuse>1.0 0.5 0.08 1</diffuse></material></visual>
+  </link>
   </model>
 </sdf>
