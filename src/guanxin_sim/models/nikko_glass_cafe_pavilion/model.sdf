@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="nikko_glass_cafe_pavilion">
+    <static>true</static>
+    <link name="pavilion_link">
+      <collision name="deck_col"><pose>0 0 0.15 0 0 0</pose><geometry><box><size>22.0 16.0 0.3</size></box></geometry></collision>
+      <visual name="deck_vis"><pose>0 0 0.15 0 0 0</pose><geometry><box><size>22.0 16.0 0.3</size></box></geometry><material><ambient>0.48 0.32 0.18 1</ambient><diffuse>0.58 0.40 0.24 1</diffuse></material></visual>
+      <collision name="cafe_col"><pose>-3.0 0 2.4 0 0 0</pose><geometry><box><size>14.0 8.0 4.2</size></box></geometry></collision>
+      <visual name="cafe_glass"><pose>-3.0 0 2.4 0 0 0</pose><geometry><box><size>14.0 8.0 4.2</size></box></geometry><material><ambient>0.15 0.25 0.35 0.85</ambient><diffuse>0.20 0.35 0.48 0.85</diffuse><specular>0.95 0.98 1.0 1</specular></material></visual>
+      <visual name="cafe_roof"><pose>-3.0 0 4.6 0 0 0</pose><geometry><box><size>15.5 9.5 0.35</size></box></geometry><material><ambient>0.42 0.28 0.15 1</ambient><diffuse>0.55 0.38 0.22 1</diffuse><specular>0.7 0.5 0.2 1</specular></material></visual>
+      <visual name="table_6_-4"><pose>6.0 -4.5 0.75 0 0 0</pose><geometry><cylinder><radius>0.6</radius><length>0.75</length></cylinder></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+      <visual name="umbrella_6_-4"><pose>6.0 -4.5 2.6 0 0 0</pose><geometry><cylinder><radius>1.6</radius><length>0.35</length></cylinder></geometry><material><ambient>0.85 0.82 0.75 1</ambient><diffuse>0.92 0.88 0.80 1</diffuse></material></visual>
+      <visual name="table_6_4"><pose>6.0 4.5 0.75 0 0 0</pose><geometry><cylinder><radius>0.6</radius><length>0.75</length></cylinder></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+      <visual name="umbrella_6_4"><pose>6.0 4.5 2.6 0 0 0</pose><geometry><cylinder><radius>1.6</radius><length>0.35</length></cylinder></geometry><material><ambient>0.85 0.82 0.75 1</ambient><diffuse>0.92 0.88 0.80 1</diffuse></material></visual>
+      <visual name="table_7_0"><pose>7.5 0.0 0.75 0 0 0</pose><geometry><cylinder><radius>0.6</radius><length>0.75</length></cylinder></geometry><material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material></visual>
+      <visual name="umbrella_7_0"><pose>7.5 0.0 2.6 0 0 0</pose><geometry><cylinder><radius>1.6</radius><length>0.35</length></cylinder></geometry><material><ambient>0.85 0.82 0.75 1</ambient><diffuse>0.92 0.88 0.80 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

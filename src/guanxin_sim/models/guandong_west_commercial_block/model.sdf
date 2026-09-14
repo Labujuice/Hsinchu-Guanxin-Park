@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="guandong_west_commercial_block">
+    <static>true</static>
+    <link name="gd_link">
+      <collision name="col"><pose>0 0 24.0 0 0 0</pose><geometry><box><size>48.0 20.0 48.0</size></box></geometry></collision>
+      <visual name="main_vis"><pose>0 0 24.0 0 0 0</pose><geometry><box><size>48.0 20.0 48.0</size></box></geometry><material><ambient>0.74 0.72 0.68 1</ambient><diffuse>0.80 0.78 0.74 1</diffuse></material></visual>
+      <visual name="arcade_floor"><pose>0 11.5 0.08 0 0 0</pose><geometry><box><size>46.0 3.2 0.02</size></box></geometry><material><ambient>0.62 0.60 0.58 1</ambient><diffuse>0.70 0.68 0.66 1</diffuse></material></visual>
+      <visual name="store_sign_0"><pose>-30.0 13.1 4.5 0 0 0</pose><geometry><box><size>15.0 0.15 1.3</size></box></geometry><material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.38 0.40 0.45 1</diffuse></material></visual>
+      <visual name="store_sign_1"><pose>-10.0 13.1 4.5 0 0 0</pose><geometry><box><size>15.0 0.15 1.3</size></box></geometry><material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.38 0.40 0.45 1</diffuse></material></visual>
+      <visual name="store_sign_2"><pose>10.0 13.1 4.5 0 0 0</pose><geometry><box><size>15.0 0.15 1.3</size></box></geometry><material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.38 0.40 0.45 1</diffuse></material></visual>
+      <visual name="store_sign_3"><pose>30.0 13.1 4.5 0 0 0</pose><geometry><box><size>15.0 0.15 1.3</size></box></geometry><material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.38 0.40 0.45 1</diffuse></material></visual>
+      <visual name="balconies"><pose>0 11.2 26.0 0 0 0</pose><geometry><box><size>44.0 0.8 38.0</size></box></geometry><material><ambient>0.22 0.26 0.32 0.9</ambient><diffuse>0.28 0.34 0.40 0.9</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

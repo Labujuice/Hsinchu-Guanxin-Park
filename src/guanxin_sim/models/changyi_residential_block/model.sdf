@@ -31,8 +31,8 @@
 
       <!-- 5. 中庭社區公園地坪剛體 (Park Ground) -->
       <collision name="park_ground_col">
-        <pose>20.0 55.0 0.05 0 0 0</pose>
-        <geometry><box><size>24.0 110.0 0.10</size></box></geometry>
+        <pose>20.0 75.0 0.05 0 0 0</pose>
+        <geometry><box><size>24.0 68.0 0.10</size></box></geometry>
       </collision>
 
       <!-- ==================== 1. 南排大樓 (昌益丹麥 / 芬蘭: 臨光復路與關新路夾角) ==================== -->

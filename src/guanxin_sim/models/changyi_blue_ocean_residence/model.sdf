@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="changyi_blue_ocean_residence">
+    <static>true</static>
+    <link name="blue_ocean_link">
+      <collision name="podium_col"><pose>0 0 4.0 0 0 0</pose><geometry><box><size>28.0 28.0 8.0</size></box></geometry></collision>
+      <collision name="tower_col"><pose>0 0 27.0 0 0 0</pose><geometry><box><size>26.0 24.0 42.0</size></box></geometry></collision>
+      <visual name="podium_vis"><pose>0 0 4.0 0 0 0</pose><geometry><box><size>28.0 28.0 8.0</size></box></geometry><material><ambient>0.75 0.73 0.70 1</ambient><diffuse>0.82 0.80 0.76 1</diffuse></material></visual>
+      <visual name="arcade_floor"><pose>0 14.5 0.08 0 0 0</pose><geometry><box><size>26.0 3.6 0.02</size></box></geometry><material><ambient>0.65 0.62 0.60 1</ambient><diffuse>0.72 0.70 0.68 1</diffuse></material></visual>
+      <visual name="arcade_ceiling"><pose>0 14.5 4.2 0 0 0</pose><geometry><box><size>26.0 3.6 0.25</size></box></geometry><material><ambient>0.28 0.28 0.30 1</ambient><diffuse>0.32 0.32 0.35 1</diffuse></material></visual>
+      <visual name="arcade_col_-22"><pose>-22.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.42</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="arcade_col_-11"><pose>-11.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.42</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="arcade_col_0"><pose>0.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.42</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="arcade_col_11"><pose>11.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.42</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="arcade_col_22"><pose>22.0 15.8 2.1 0 0 0</pose><geometry><cylinder><radius>0.42</radius><length>4.2</length></cylinder></geometry><material><ambient>0.38 0.4 0.42 1</ambient><diffuse>0.45 0.48 0.50 1</diffuse></material></visual>
+      <visual name="bakery_fascia"><pose>-14.0 16.1 4.5 0 0 0</pose><geometry><box><size>18.0 0.15 1.4</size></box></geometry><material><ambient>0.82 0.52 0.18 1</ambient><diffuse>0.92 0.60 0.22 1</diffuse><emissive>0.3 0.18 0.05 1</emissive></material></visual>
+      <visual name="bakery_glass"><pose>-14.0 16.05 2.1 0 0 0</pose><geometry><box><size>17.0 0.1 3.6</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="clinic_fascia"><pose>14.0 16.1 4.5 0 0 0</pose><geometry><box><size>18.0 0.15 1.4</size></box></geometry><material><ambient>0.12 0.42 0.62 1</ambient><diffuse>0.18 0.55 0.78 1</diffuse><emissive>0.08 0.25 0.38 1</emissive></material></visual>
+      <visual name="clinic_glass"><pose>14.0 16.05 2.1 0 0 0</pose><geometry><box><size>17.0 0.1 3.6</size></box></geometry><material><ambient>0.15 0.25 0.35 0.88</ambient><diffuse>0.20 0.35 0.45 0.88</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="tower_main_vis"><pose>0 0 27.0 0 0 0</pose><geometry><box><size>26.0 24.0 42.0</size></box></geometry><material><ambient>0.78 0.76 0.72 1</ambient><diffuse>0.84 0.82 0.78 1</diffuse></material></visual>
+      <visual name="balconies_front"><pose>0 14.2 27.0 0 0 0</pose><geometry><box><size>24.0 0.8 36.0</size></box></geometry><material><ambient>0.22 0.28 0.34 0.9</ambient><diffuse>0.28 0.35 0.42 0.9</diffuse><specular>0.9 0.95 1.0 1</specular></material></visual>
+      <visual name="tower_crown"><pose>0 0 49.5 0 0 0</pose><geometry><box><size>24.0 20.0 3.0</size></box></geometry><material><ambient>0.30 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

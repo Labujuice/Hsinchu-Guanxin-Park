@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="gxe_north_commercial_block">
+    <static>true</static>
+    <link name="block_link">
+      <collision name="col"><pose>0 0 19.0 0 0 0</pose><geometry><box><size>52.0 22.0 38.0</size></box></geometry></collision>
+      <visual name="main_vis"><pose>0 0 19.0 0 0 0</pose><geometry><box><size>52.0 22.0 38.0</size></box></geometry><material><ambient>0.73 0.72 0.70 1</ambient><diffuse>0.80 0.78 0.75 1</diffuse></material></visual>
+      <visual name="balconies"><pose>0 0 19.0 0 0 0</pose><geometry><box><size>48.0 22.6 30.0</size></box></geometry><material><ambient>0.22 0.26 0.32 0.88</ambient><diffuse>0.28 0.34 0.40 0.88</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>
