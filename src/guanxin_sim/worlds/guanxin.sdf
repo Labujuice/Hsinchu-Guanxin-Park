@@ -417,7 +417,7 @@
     <!-- COSMED 康是美新竹日光門市 (36 號) -->
     <include><name>cosmed_store</name><uri>model://cosmed_store</uri><pose>87.414 284.658 0.0 0 0 1.34512</pose></include>
     <!-- 星巴克新竹日光門市 (38 號, 關新二街口) -->
-    <include><name>starbucks_building</name><uri>model://starbucks_building</uri><pose>94.594 314.816 0.0 0 0 1.34512</pose></include>
+    <include><name>starbucks_building</name><uri>model://starbucks_building</uri><pose>93.492 308.916 0.0 0 0 1.34512</pose></include>
 
     <!-- ==================== 寶雅至星巴克一整條路超精細真實街道設施 (POYA to Starbucks 80%+ Details) ==================== -->
     <!-- 依據實景照片 Street_photo1 ~ 11 全數重建：購物手推車區、特價花車、得來速限高龍門架、減速丘、反射鏡、國泰世華無障礙斜坡、康是美粉紅開花樹、星巴克露天陽傘座、藍色機車停等格與實體機車群 -->
@@ -790,20 +790,20 @@
     <include>
       <name>xinzhuang_station</name>
       <uri>model://xinzhuang_station</uri>
-      <pose>182.483 625.021 0.0 0 0 -0.22568</pose>
+      <pose>184.919 624.460 0.0 0 0 -0.22568</pose>
     </include>
 
     <!-- 新莊車站前迎賓廣場 (Station Plaza: 緊扣關新路東側人行道與車站正門, 唯一與關新路直接連通) -->
     <model name="xinzhuang_station_plaza">
       <static>true</static>
       <link name="plaza_link">
-        <collision name="plaza_deck_col"><pose>165.776 610.364 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry></collision>
-        <visual name="plaza_deck_vis"><pose>165.776 610.364 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
-        <visual name="plaza_planter1"><pose>155.423 618.898 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
-        <visual name="plaza_shrub1"><pose>155.423 618.898 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
-        <visual name="plaza_planter2"><pose>178.814 613.527 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
-        <visual name="plaza_shrub2"><pose>178.814 613.527 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
-        <visual name="flagpole1"><pose>166.895 615.238 4.0 0 0 0</pose><geometry><cylinder><radius>0.05</radius><length>8.0</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
+        <collision name="plaza_deck_col"><pose>168.212 609.803 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry></collision>
+        <visual name="plaza_deck_vis"><pose>168.212 609.803 0.075 0 0 -0.22568</pose><geometry><box><size>36.0 24.0 0.15</size></box></geometry><material><ambient>0.72 0.74 0.76 1</ambient><diffuse>0.78 0.80 0.82 1</diffuse></material></visual>
+        <visual name="plaza_planter1"><pose>157.859 618.337 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub1"><pose>157.859 618.337 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="plaza_planter2"><pose>181.250 612.966 0.35 0 0 -0.22568</pose><geometry><box><size>8.0 2.2 0.50</size></box></geometry><material><ambient>0.45 0.48 0.5 1</ambient><diffuse>0.52 0.55 0.58 1</diffuse></material></visual>
+        <visual name="plaza_shrub2"><pose>181.250 612.966 0.80 0 0 -0.22568</pose><geometry><box><size>7.6 1.8 0.45</size></box></geometry><material><ambient>0.15 0.48 0.18 1</ambient><diffuse>0.20 0.55 0.22 1</diffuse></material></visual>
+        <visual name="flagpole1"><pose>169.331 614.677 4.0 0 0 0</pose><geometry><cylinder><radius>0.05</radius><length>8.0</length></cylinder></geometry><material><ambient>0.8 0.8 0.85 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual>
       </link>
     </model>
 
@@ -885,28 +885,28 @@
     <include>
       <name>convenience_store_711</name>
       <uri>model://convenience_store_711</uri>
-      <pose>126.904 463.353 0.0 0 0 1.34512</pose>
+      <pose>92.534 496.894 0.0 0 0 -1.79647</pose>
     </include>
 
     <!-- 2. 全聯福利中心新竹關新店 (雙層超市旗艦量體, 藍紅白企業橫幅看板, 自體發光 PX MART 招牌, 落地採光櫥窗, 物流高架裝卸貨月台與手推車收納棚) -->
     <include>
       <name>px_mart_store</name>
       <uri>model://px_mart_store</uri>
-      <pose>140.872 506.316 0.0 0 0 1.34512</pose>
+      <pose>142.181 500.886 0.0 0 0 1.34512</pose>
     </include>
 
     <!-- 3. 鼎盛十里鍋物新竹旗艦店 (日式禪風黑木旗艦量體, 燒杉板碳化立面, 挑高實木迎賓大門, 雙座大型和風發光燈籠光雕, 黑色鏡面迎賓水景池與花崗石步道, 庭園黑松) -->
     <include>
       <name>dingsheng_shili_restaurant</name>
       <uri>model://dingsheng_shili_restaurant</uri>
-      <pose>231.542 373.919 0.0 0 0 1.34512</pose>
+      <pose>234.464 373.249 0.0 0 0 1.34512</pose>
     </include>
 
     <!-- 4. 關新智慧地面收費停車場 (實體瀝青基座, 18格標準車位標線, ALPR 車牌辨識鏡頭柱, 電動起落柵欄機, 剩餘車位指示牌, 自助繳費亭, 2座 7.5m 高桅桿 LED 投光燈, 停放車輛) -->
     <include>
       <name>paid_parking_lot</name>
       <uri>model://paid_parking_lot</uri>
-      <pose>244.968 432.397 0.0 0 0 1.34512</pose>
+      <pose>188.932 90.000 0.0 0 0 1.34512</pose>
     </include>
 
     <!-- 5. 昌益一品大觀豪宅 (雙塔 22 層高檔社區, 新古典崗石厚重基座, 4根羅馬愛奧尼克迎賓圓柱挑高車道大迴廊, 頂部冠頂框架) -->
@@ -1105,54 +1105,54 @@
       <pose>115.111 455.800 0.20 0 0 1.34512</pose>
     </include>
 
-    <!-- ===== (E) 智慧停車位實體停放車輛 (Parked Vehicles in Meter Stalls) ===== -->
-    <!-- 東側車格停放 SUV (近 pole_e_03) -->
+    <!-- ===== (E) 智慧停車位實體停放車輛 (Parked Vehicles in Meter Stalls: 精確置中於停車格 stall_frame_*) ===== -->
+    <!-- 東側車格停放 SUV (位於 stall_frame_08) -->
     <include>
       <name>car_parked_e_1</name>
       <uri>model://parked_car_suv</uri>
-      <pose>33.335 110.339 0.02 0 0 1.34512</pose>
+      <pose>33.734 112.299 0.02 0 0 1.34512</pose>
     </include>
-    <!-- 東側車格停放房車 (近 pole_e_05) -->
+    <!-- 東側車格停放房車 (位於 stall_frame_10) -->
     <include>
       <name>car_parked_e_2</name>
       <uri>model://parked_car_sedan</uri>
-      <pose>36.020 122.034 0.02 0 0 1.34512</pose>
+      <pose>36.867 125.944 0.02 0 0 1.34512</pose>
     </include>
-    <!-- 東側車格停放 SUV (近 pole_e_08) -->
+    <!-- 東側車格停放 SUV (位於 stall_frame_12) -->
     <include>
       <name>car_parked_e_3</name>
       <uri>model://parked_car_suv</uri>
-      <pose>40.048 139.578 0.02 0 0 1.34512</pose>
+      <pose>40.000 139.589 0.02 0 0 1.34512</pose>
     </include>
-    <!-- 東側車格停放房車 (近 pole_e_10) -->
+    <!-- 東側車格停放房車 (位於 stall_frame_14) -->
     <include>
       <name>car_parked_e_4</name>
       <uri>model://parked_car_sedan</uri>
-      <pose>42.733 151.274 0.02 0 0 1.34512</pose>
+      <pose>43.133 153.234 0.02 0 0 1.34512</pose>
     </include>
-    <!-- 西側車格停放房車 (近 pole_w_03) -->
+    <!-- 西側車格停放房車 (位於 stall_frame_w_03) -->
     <include>
       <name>car_parked_w_1</name>
       <uri>model://parked_car_sedan</uri>
-      <pose>19.473 119.677 0.02 0 0 -1.79647</pose>
+      <pose>19.101 117.834 0.02 0 0 -1.79647</pose>
     </include>
-    <!-- 西側車格停放 SUV (近 pole_w_05) -->
+    <!-- 西側車格停放 SUV (位於 stall_frame_w_05) -->
     <include>
       <name>car_parked_w_2</name>
       <uri>model://parked_car_suv</uri>
-      <pose>22.159 131.373 0.02 0 0 -1.79647</pose>
+      <pose>22.155 131.132 0.02 0 0 -1.79647</pose>
     </include>
-    <!-- 西側車格停放房車 (近 pole_w_08) -->
+    <!-- 西側車格停放房車 (位於 stall_frame_w_07) -->
     <include>
       <name>car_parked_w_3</name>
       <uri>model://parked_car_sedan</uri>
-      <pose>26.186 148.916 0.02 0 0 -1.79647</pose>
+      <pose>25.208 144.430 0.02 0 0 -1.79647</pose>
     </include>
-    <!-- 西側車格停放 SUV (近 pole_w_11) -->
+    <!-- 西側車格停放 SUV (位於 stall_frame_w_09) -->
     <include>
       <name>car_parked_w_4</name>
       <uri>model://parked_car_suv</uri>
-      <pose>30.214 166.460 0.02 0 0 -1.79647</pose>
+      <pose>28.261 157.728 0.02 0 0 -1.79647</pose>
     </include>
 
     <!-- ==================== 載入 Tesla Model Y 載具 (自駕與鍵盤操控車輛) ==================== -->
@@ -1163,38 +1163,38 @@
       <pose>6.63 8.74 0.38 0 0 1.34512</pose>
     </include>
 
-    <!-- ==================== POI: 麥當勞後方超大地面收費停車場 ==================== -->
+    <!-- ==================== POI: 麥當勞後方超大地面收費停車場 (40+車位、車位劃線與停放車輛精準歸位) ==================== -->
     <include>
       <name>mcdonalds_rear_parking_lot</name>
       <uri>model://mcdonalds_rear_parking_lot</uri>
-      <pose>116.850 205.050 0.0 0 0 -1.79647</pose>
+      <pose>119.284 204.493 0.0 0 0 -1.79647</pose>
     </include>
     <include>
       <name>mcd_lot_car_1</name>
       <uri>model://parked_car_sedan</uri>
-      <pose>108.5 198.2 0.1 0 0 1.34512</pose>
+      <pose>101.688 223.921 0.10 0 0 -0.22567</pose>
     </include>
     <include>
       <name>mcd_lot_car_2</name>
       <uri>model://parked_car_suv</uri>
-      <pose>114.5 200.5 0.1 0 0 1.34512</pose>
+      <pose>100.569 219.048 0.10 0 0 -0.22567</pose>
     </include>
     <include>
       <name>mcd_lot_car_3</name>
       <uri>model://parked_car_sedan</uri>
-      <pose>120.5 202.8 0.1 0 0 1.34512</pose>
+      <pose>97.213 204.428 0.10 0 0 -0.22567</pose>
     </include>
     <include>
       <name>mcd_lot_car_4</name>
       <uri>model://parked_car_suv</uri>
-      <pose>126.5 205.1 0.1 0 0 1.34512</pose>
+      <pose>96.094 199.555 0.10 0 0 -0.22567</pose>
     </include>
 
-    <!-- ==================== POI: 新竹市東區關東國民小學 (關東路53號) ==================== -->
+    <!-- ==================== POI: 新竹市東區關東國民小學 (關東路53號: 校門正對關東路，獨立專屬校區零重疊) ==================== -->
     <include>
       <name>guandong_elementary_school</name>
       <uri>model://guandong_elementary_school</uri>
-      <pose>331.050 182.880 0.0 0 0 0.52900</pose>
+      <pose>400.000 70.000 0.0 0 0 0.25000</pose>
     </include>
   </world>
 </sdf>
