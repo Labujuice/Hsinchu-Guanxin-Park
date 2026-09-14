@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="guandong_elementary_school">
+    <static>true</static>
+    <link name="school_link">
+
+      <!-- ==================== 物理碰撞剛體 (校舍主體、體育館與校門守衛室) ==================== -->
+      <!-- 1. 行政與教學大樓主棟 (4層樓, 48m x 16m x 15m) -->
+      <collision name="admin_bldg_col">
+        <pose>-20.0 35.0 7.5 0 0 0</pose>
+        <geometry><box><size>48.0 16.0 15.0</size></box></geometry>
+      </collision>
+
+      <!-- 2. 西側教學大樓 (4層樓, 54m x 15m x 15m) -->
+      <collision name="west_wing_col">
+        <pose>-55.0 -5.0 7.5 0 0 1.5708</pose>
+        <geometry><box><size>54.0 15.0 15.0</size></box></geometry>
+      </collision>
+
+      <!-- 3. 南側教學大樓 (3層樓, 42m x 15m x 12m) -->
+      <collision name="south_wing_col">
+        <pose>-25.0 -45.0 6.0 0 0 0</pose>
+        <geometry><box><size>42.0 15.0 12.0</size></box></geometry>
+      </collision>
+
+      <!-- 4. 多功能活動中心 / 室內體育館 (挑高13m, 40m x 28m x 13m) -->
+      <collision name="gym_col">
+        <pose>45.0 30.0 6.5 0 0 0</pose>
+        <geometry><box><size>40.0 28.0 13.0</size></box></geometry>
+      </collision>
+
+      <!-- 5. 關東路正門警衛傳達室 (1層樓, 7m x 5m x 3.5m) -->
+      <collision name="gatehouse_col">
+        <pose>72.0 -15.0 1.75 0 0 0</pose>
+        <geometry><box><size>7.0 5.0 3.5</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 校園大底地坪 (Campus Ground Surface 165m x 125m) ==================== -->
+      <visual name="campus_ground_vis">
+        <pose>0 0 0.04 0 0 0</pose>
+        <geometry><box><size>165.0 125.0 0.08</size></box></geometry>
+        <material>
+          <ambient>0.60 0.58 0.55 1</ambient>
+          <diffuse>0.68 0.65 0.62 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 操場運動場與跑道系統 (200m Athletic Track & Field) ==================== -->
+      <!-- 200m 紅色 PU 橢圓跑道區 (Red Tartan Running Track: 72m x 46m) -->
+      <visual name="track_oval_vis">
+        <pose>10.0 -20.0 0.085 0 0 0</pose>
+        <geometry><box><size>72.0 46.0 0.01</size></box></geometry>
+        <material>
+          <ambient>0.75 0.20 0.15 1</ambient>
+          <diffuse>0.85 0.25 0.18 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 操場中央天然草皮足球場/多功能活動草坪 (Center Grass Lawn: 56m x 30m) -->
+      <visual name="center_pitch_vis">
+        <pose>10.0 -20.0 0.092 0 0 0</pose>
+        <geometry><box><size>56.0 30.0 0.01</size></box></geometry>
+        <material>
+          <ambient>0.18 0.58 0.22 1</ambient>
+          <diffuse>0.22 0.65 0.25 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 跑道白色分道標線 (White Lane Striping) -->
+      <visual name="track_line_outer">
+        <pose>10.0 -20.0 0.095 0 0 0</pose>
+        <geometry><box><size>68.0 42.0 0.005</size></box></geometry>
+        <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material>
+      </visual>
+
+      <!-- 戶外綜合籃球與排球場 (Outdoor Courts: 34m x 22m 藍綠雙色耐磨面層) -->
+      <visual name="court_vis">
+        <pose>-15.0 -5.0 0.085 0 0 0</pose>
+        <geometry><box><size>34.0 22.0 0.01</size></box></geometry>
+        <material>
+          <ambient>0.15 0.45 0.65 1</ambient>
+          <diffuse>0.20 0.55 0.75 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 校舍建築群視覺呈現 (Classroom & Admin Complex) ==================== -->
+      <!-- 行政大樓主棟 (米白搭配深灰磚) -->
+      <visual name="admin_bldg_vis">
+        <pose>-20.0 35.0 7.5 0 0 0</pose>
+        <geometry><box><size>48.0 16.0 15.0</size></box></geometry>
+        <material>
+          <ambient>0.75 0.73 0.70 1</ambient>
+          <diffuse>0.82 0.80 0.77 1</diffuse>
+        </material>
+      </visual>
+      <visual name="admin_roof_trim">
+        <pose>-20.0 35.0 15.2 0 0 0</pose>
+        <geometry><box><size>49.0 17.0 0.4</size></box></geometry>
+        <material><ambient>0.25 0.35 0.45 1</ambient><diffuse>0.30 0.40 0.52 1</diffuse></material>
+      </visual>
+
+      <!-- 西側教學大樓 (米白洗石子) -->
+      <visual name="west_wing_vis">
+        <pose>-55.0 -5.0 7.5 0 0 1.5708</pose>
+        <geometry><box><size>54.0 15.0 15.0</size></box></geometry>
+        <material>
+          <ambient>0.72 0.70 0.68 1</ambient>
+          <diffuse>0.78 0.76 0.74 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 南側教學大樓 -->
+      <visual name="south_wing_vis">
+        <pose>-25.0 -45.0 6.0 0 0 0</pose>
+        <geometry><box><size>42.0 15.0 12.0</size></box></geometry>
+        <material>
+          <ambient>0.72 0.70 0.68 1</ambient>
+          <diffuse>0.78 0.76 0.74 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 多功能活動中心 / 體育館 (弧頂鋼構造型) -->
+      <visual name="gym_vis">
+        <pose>45.0 30.0 6.5 0 0 0</pose>
+        <geometry><box><size>40.0 28.0 13.0</size></box></geometry>
+        <material>
+          <ambient>0.65 0.68 0.70 1</ambient>
+          <diffuse>0.70 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name="gym_roof_barrel">
+        <pose>45.0 30.0 13.5 0 0 0</pose>
+        <geometry><box><size>41.0 29.0 1.2</size></box></geometry>
+        <material><ambient>0.30 0.45 0.55 1</ambient><diffuse>0.35 0.50 0.62 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 關東路校門與入口意象 (Main Entrance on Guandong Rd) ==================== -->
+      <!-- 校門口警衛傳達室 -->
+      <visual name="gatehouse_vis">
+        <pose>72.0 -15.0 1.75 0 0 0</pose>
+        <geometry><box><size>7.0 5.0 3.5</size></box></geometry>
+        <material><ambient>0.75 0.73 0.70 1</ambient><diffuse>0.80 0.78 0.75 1</diffuse></material>
+      </visual>
+
+      <!-- 校門立柱與經典紅磚大理石銘牌 (Guandong Elementary School Marble Pillars) -->
+      <visual name="gate_pillar_north">
+        <pose>78.0 -8.0 2.2 0 0 0</pose>
+        <geometry><box><size>1.6 1.6 4.4</size></box></geometry>
+        <material><ambient>0.50 0.20 0.15 1</ambient><diffuse>0.60 0.25 0.20 1</diffuse></material>
+      </visual>
+      <visual name="gate_pillar_south">
+        <pose>78.0 -22.0 2.2 0 0 0</pose>
+        <geometry><box><size>1.6 1.6 4.4</size></box></geometry>
+        <material><ambient>0.50 0.20 0.15 1</ambient><diffuse>0.60 0.25 0.20 1</diffuse></material>
+      </visual>
+      <visual name="school_name_plaque">
+        <pose>78.85 -8.0 2.4 0 0 0</pose>
+        <geometry><box><size>0.1 1.4 3.0</size></box></geometry>
+        <material><ambient>0.1 0.1 0.12 1</ambient><diffuse>0.15 0.15 0.18 1</diffuse><emissive>0.2 0.2 0.05 1</emissive></material>
+      </visual>
+
+      <!-- 校園穿透式鋼飾綠化圍牆 (Perimeter Fence) -->
+      <visual name="fence_east">
+        <pose>79.0 15.0 1.2 0 0 0</pose>
+        <geometry><box><size>0.4 45.0 2.4</size></box></geometry>
+        <material><ambient>0.3 0.35 0.3 1</ambient><diffuse>0.35 0.40 0.35 1</diffuse></material>
+      </visual>
+      <visual name="fence_north">
+        <pose>0 60.0 1.2 0 0 0</pose>
+        <geometry><box><size>160.0 0.4 2.4</size></box></geometry>
+        <material><ambient>0.3 0.35 0.3 1</ambient><diffuse>0.35 0.40 0.35 1</diffuse></material>
+      </visual>
+      <visual name="fence_south">
+        <pose>0 -60.0 1.2 0 0 0</pose>
+        <geometry><box><size>160.0 0.4 2.4</size></box></geometry>
+        <material><ambient>0.3 0.35 0.3 1</ambient><diffuse>0.35 0.40 0.35 1</diffuse></material>
+      </visual>
+
+      <!-- 升旗台與不鏽鋼旗桿 (Flagpole Stand) -->
+      <visual name="flag_platform">
+        <pose>10.0 6.0 0.4 0 0 0</pose>
+        <geometry><box><size>8.0 4.0 0.8</size></box></geometry>
+        <material><ambient>0.7 0.7 0.72 1</ambient><diffuse>0.75 0.75 0.78 1</diffuse></material>
+      </visual>
+      <visual name="flagpole_main">
+        <pose>10.0 6.0 6.0 0 0 0</pose>
+        <geometry><cylinder><radius>0.08</radius><length>12.0</length></cylinder></geometry>
+        <material><ambient>0.85 0.85 0.9 1</ambient><diffuse>0.92 0.92 0.95 1</diffuse></material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

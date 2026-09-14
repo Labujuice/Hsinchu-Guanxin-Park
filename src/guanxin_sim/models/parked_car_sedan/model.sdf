@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="parked_car_sedan">
+    <static>true</static>
+    <link name="car_link">
+
+      <!-- 物理碰撞剛體 (單一 Box 幾何) -->
+      <collision name="car_col">
+        <pose>0 0 0.7 0 0 0</pose>
+        <geometry><box><size>4.6 1.82 1.4</size></box></geometry>
+      </collision>
+
+      <!-- 視覺：車身主體下部 (Lower Body) -->
+      <visual name="body_lower">
+        <pose>0 0 0.55 0 0 0</pose>
+        <geometry><box><size>4.6 1.82 0.7</size></box></geometry>
+        <material><ambient>0.25 0.28 0.32 1</ambient><diffuse>0.32 0.36 0.42 1</diffuse></material>
+      </visual>
+
+      <!-- 視覺：車頂駕駛座艙 (Cabin & Roof) -->
+      <visual name="cabin">
+        <pose>-0.2 0 1.15 0 0 0</pose>
+        <geometry><box><size>2.6 1.55 0.6</size></box></geometry>
+        <material><ambient>0.15 0.18 0.22 0.9</ambient><diffuse>0.20 0.25 0.30 0.9</diffuse></material>
+      </visual>
+
+      <!-- 視覺：前擋風玻璃與後擋風玻璃 (Windshields) -->
+      <visual name="front_windshield">
+        <pose>1.1 0 1.1 0 0.4 0</pose>
+        <geometry><box><size>0.6 1.45 0.05</size></box></geometry>
+        <material><ambient>0.1 0.2 0.25 0.85</ambient><diffuse>0.15 0.25 0.35 0.85</diffuse></material>
+      </visual>
+      <visual name="rear_windshield">
+        <pose>-1.5 0 1.1 0 -0.4 0</pose>
+        <geometry><box><size>0.6 1.45 0.05</size></box></geometry>
+        <material><ambient>0.1 0.2 0.25 0.85</ambient><diffuse>0.15 0.25 0.35 0.85</diffuse></material>
+      </visual>
+
+      <!-- 視覺：車輪 (4 Wheels: 半徑 0.32m) -->
+      <visual name="wheel_fl"><pose>1.4 0.85 0.32 1.5708 0 0</pose><geometry><cylinder><radius>0.32</radius><length>0.22</length></cylinder></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+      <visual name="wheel_fr"><pose>1.4 -0.85 0.32 1.5708 0 0</pose><geometry><cylinder><radius>0.32</radius><length>0.22</length></cylinder></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+      <visual name="wheel_rl"><pose>-1.4 0.85 0.32 1.5708 0 0</pose><geometry><cylinder><radius>0.32</radius><length>0.22</length></cylinder></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+      <visual name="wheel_rr"><pose>-1.4 -0.85 0.32 1.5708 0 0</pose><geometry><cylinder><radius>0.32</radius><length>0.22</length></cylinder></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+
+      <!-- 視覺：車頭燈與車尾燈 (Headlights & Taillights) -->
+      <visual name="headlight_l"><pose>2.31 0.65 0.65 0 0 0</pose><geometry><box><size>0.05 0.3 0.12</size></box></geometry><material><ambient>0.9 0.9 0.8 1</ambient><diffuse>0.98 0.98 0.9 1</diffuse><emissive>0.3 0.3 0.25 1</emissive></material></visual>
+      <visual name="headlight_r"><pose>2.31 -0.65 0.65 0 0 0</pose><geometry><box><size>0.05 0.3 0.12</size></box></geometry><material><ambient>0.9 0.9 0.8 1</ambient><diffuse>0.98 0.98 0.9 1</diffuse><emissive>0.3 0.3 0.25 1</emissive></material></visual>
+      <visual name="taillight_l"><pose>-2.31 0.65 0.68 0 0 0</pose><geometry><box><size>0.05 0.3 0.12</size></box></geometry><material><ambient>0.8 0.05 0.05 1</ambient><diffuse>0.9 0.08 0.08 1</diffuse><emissive>0.2 0.02 0.02 1</emissive></material></visual>
+      <visual name="taillight_r"><pose>-2.31 -0.65 0.68 0 0 0</pose><geometry><box><size>0.05 0.3 0.12</size></box></geometry><material><ambient>0.8 0.05 0.05 1</ambient><diffuse>0.9 0.08 0.08 1</diffuse><emissive>0.2 0.02 0.02 1</emissive></material></visual>
+    </link>
+  </model>
+</sdf>

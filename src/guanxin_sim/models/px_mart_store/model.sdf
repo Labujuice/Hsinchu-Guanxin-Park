@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="px_mart_store">
+    <static>true</static>
+    <link name="pxmart_link">
+
+      <!-- ==================== 物理碰撞剛體 (Decoupled Primitives) ==================== -->
+      <!-- 主建物量體剛體 (32m x 22m x 8.0m) -->
+      <collision name="building_col">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>32.0 22.0 8.0</size></box></geometry>
+      </collision>
+      <!-- 門前雨遮剛體 -->
+      <collision name="canopy_col">
+        <pose>0 11.8 3.5 0 0 0</pose>
+        <geometry><box><size>16.0 2.2 0.3</size></box></geometry>
+      </collision>
+      <!-- 後方貨物裝卸月台剛體 -->
+      <collision name="dock_col">
+        <pose>-6.0 -11.8 0.6 0 0 0</pose>
+        <geometry><box><size>10.0 2.4 1.2</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 視覺主體：全聯現代雙層商場建築 ==================== -->
+      <!-- 主建築白色微紋理外牆 -->
+      <visual name="building_walls">
+        <pose>0 0 4.0 0 0 0</pose>
+        <geometry><box><size>32.0 22.0 8.0</size></box></geometry>
+        <material>
+          <ambient>0.88 0.88 0.90 1</ambient>
+          <diffuse>0.92 0.92 0.94 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 頂樓微凸的女兒牆邊緣 (Roof Parapet Cap) -->
+      <visual name="roof_parapet">
+        <pose>0 0 8.1 0 0 0</pose>
+        <geometry><box><size>32.4 22.4 0.25</size></box></geometry>
+        <material>
+          <ambient>0.3 0.32 0.35 1</ambient>
+          <diffuse>0.38 0.40 0.44 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 正面企業標誌與雙色橫幅招牌 (Iconic PX Mart Fascia) ==================== -->
+      <!-- 全聯企業深海軍藍招牌底板 (Deep Navy Blue Banner: 32m x 2.2m) -->
+      <visual name="px_blue_fascia">
+        <pose>0 11.05 6.8 0 0 0</pose>
+        <geometry><box><size>32.1 0.15 2.2</size></box></geometry>
+        <material>
+          <ambient>0.0 0.12 0.35 1</ambient>
+          <diffuse>0.02 0.18 0.46 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 招牌下方全聯紅企業警示細條紋 (PX Red Accent Stripe: 32m x 0.18m) -->
+      <visual name="px_red_stripe">
+        <pose>0 11.08 5.6 0 0 0</pose>
+        <geometry><box><size>32.1 0.12 0.2</size></box></geometry>
+        <material>
+          <ambient>0.82 0.08 0.12 1</ambient>
+          <diffuse>0.90 0.12 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 中央發光「全聯福利中心 PX MART」字牌燈箱 (Emissive Sign Board) -->
+      <visual name="px_signboard_main">
+        <pose>0 11.16 6.8 0 0 0</pose>
+        <geometry><box><size>18.0 0.1 1.6</size></box></geometry>
+        <material>
+          <ambient>0.95 0.95 0.98 1</ambient>
+          <diffuse>1.0 1.0 1.0 1</diffuse>
+          <emissive>0.75 0.78 0.85 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 全聯經典同心圓紅白企業圓形徽標 (Round Corporate Emblem) -->
+      <visual name="px_logo_emblem">
+        <pose>-7.2 11.22 6.8 1.5708 0 0</pose>
+        <geometry><cylinder><radius>0.7</radius><length>0.06</length></cylinder></geometry>
+        <material>
+          <ambient>0.85 0.1 0.12 1</ambient>
+          <diffuse>0.95 0.12 0.15 1</diffuse>
+          <emissive>0.8 0.15 0.18 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 一樓落地透明帷幕與室內超市採光視覺 ==================== -->
+      <!-- 一樓大面積透明鋼化玻璃落地窗 (1F Storefront Glazing: 28m x 3.6m) -->
+      <visual name="glazing_1f">
+        <pose>0 11.02 2.0 0 0 0</pose>
+        <geometry><box><size>28.0 0.08 3.6</size></box></geometry>
+        <material>
+          <ambient>0.2 0.3 0.35 0.75</ambient>
+          <diffuse>0.25 0.38 0.45 0.75</diffuse>
+        </material>
+      </visual>
+
+      <!-- 室內明亮商品陳列貨架與暖色採光 (Simulated Warm Supermarket Interior) -->
+      <visual name="interior_ambient">
+        <pose>0 10.7 2.0 0 0 0</pose>
+        <geometry><box><size>27.6 0.1 3.4</size></box></geometry>
+        <material>
+          <ambient>0.95 0.92 0.82 1</ambient>
+          <diffuse>0.98 0.95 0.85 1</diffuse>
+          <emissive>0.45 0.42 0.35 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 入口中央雙扇自動感應玻璃推拉門框 (Automatic Sensor Doors) -->
+      <visual name="auto_door_frame">
+        <pose>0 11.06 1.8 0 0 0</pose>
+        <geometry><box><size>4.5 0.12 3.2</size></box></geometry>
+        <material>
+          <ambient>0.2 0.22 0.25 1</ambient>
+          <diffuse>0.25 0.28 0.30 1</diffuse>
+        </material>
+      </visual>
+      <visual name="auto_door_sensor">
+        <pose>0 11.14 3.35 0 0 0</pose>
+        <geometry><box><size>0.8 0.12 0.12</size></box></geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 挑出式深灰色進口懸挑雨遮 (Steel Entrance Canopy: 16m x 2.2m) -->
+      <visual name="entrance_canopy">
+        <pose>0 11.8 3.5 0 0 0</pose>
+        <geometry><box><size>16.0 2.2 0.25</size></box></geometry>
+        <material>
+          <ambient>0.25 0.26 0.28 1</ambient>
+          <diffuse>0.30 0.32 0.34 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 雨遮支撐不銹鋼拉桿 (Tension Rods) -->
+      <visual name="canopy_rod_1"><pose>-6.5 11.4 4.3 0 0.45 0</pose><geometry><cylinder><radius>0.03</radius><length>1.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="canopy_rod_2"><pose>6.5 11.4 4.3 0 -0.45 0</pose><geometry><cylinder><radius>0.03</radius><length>1.8</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+
+      <!-- ==================== 門前不銹鋼手推車收納專區 (Shopping Cart Corral) ==================== -->
+      <visual name="cart_shelter_roof">
+        <pose>10.5 12.2 2.2 0 0 0</pose>
+        <geometry><box><size>5.0 2.0 0.1</size></box></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.38 0.40 0.45 1</diffuse></material>
+      </visual>
+      <visual name="cart_shelter_post1"><pose>8.2 11.4 1.1 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>2.2</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="cart_shelter_post2"><pose>12.8 11.4 1.1 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>2.2</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="cart_shelter_post3"><pose>8.2 13.0 1.1 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>2.2</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="cart_shelter_post4"><pose>12.8 13.0 1.1 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>2.2</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <!-- 排列整齊的購物手推車排 (Nested Carts) -->
+      <visual name="px_carts_row1">
+        <pose>10.5 11.9 0.45 0 0 0</pose>
+        <geometry><box><size>4.2 0.45 0.75</size></box></geometry>
+        <material><ambient>0.6 0.62 0.65 1</ambient><diffuse>0.75 0.78 0.8 1</diffuse></material>
+      </visual>
+      <visual name="px_carts_row1_handles">
+        <pose>10.5 11.9 0.85 0 0 0</pose>
+        <geometry><box><size>4.2 0.08 0.05</size></box></geometry>
+        <material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.95 0.12 0.12 1</diffuse></material>
+      </visual>
+      <visual name="px_carts_row2">
+        <pose>10.5 12.5 0.45 0 0 0</pose>
+        <geometry><box><size>4.2 0.45 0.75</size></box></geometry>
+        <material><ambient>0.6 0.62 0.65 1</ambient><diffuse>0.75 0.78 0.8 1</diffuse></material>
+      </visual>
+      <visual name="px_carts_row2_handles">
+        <pose>10.5 12.5 0.85 0 0 0</pose>
+        <geometry><box><size>4.2 0.08 0.05</size></box></geometry>
+        <material><ambient>0.85 0.1 0.1 1</ambient><diffuse>0.95 0.12 0.12 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 門前不銹鋼防撞立柱 (Stainless Bollards) ==================== -->
+      <visual name="bollard_1"><pose>-3.0 12.5 0.45 0 0 0</pose><geometry><cylinder><radius>0.08</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="bollard_2"><pose>-1.0 12.5 0.45 0 0 0</pose><geometry><cylinder><radius>0.08</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="bollard_3"><pose>1.0 12.5 0.45 0 0 0</pose><geometry><cylinder><radius>0.08</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+      <visual name="bollard_4"><pose>3.0 12.5 0.45 0 0 0</pose><geometry><cylinder><radius>0.08</radius><length>0.9</length></cylinder></geometry><material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.85 0.85 0.9 1</diffuse></material></visual>
+
+      <!-- ==================== 後方生鮮與乾貨進貨卸貨專區 (Logistics Dock) ==================== -->
+      <!-- 混凝土高架裝卸平台 (Dock Platform) -->
+      <visual name="dock_platform">
+        <pose>-6.0 -11.8 0.6 0 0 0</pose>
+        <geometry><box><size>10.0 2.4 1.2</size></box></geometry>
+        <material><ambient>0.5 0.52 0.55 1</ambient><diffuse>0.58 0.60 0.62 1</diffuse></material>
+      </visual>
+      <!-- 防撞黑黃斜紋警示邊 (Hazard Striping) -->
+      <visual name="dock_edge_hazard">
+        <pose>-6.0 -12.98 0.6 0 0 0</pose>
+        <geometry><box><size>9.8 0.05 1.1</size></box></geometry>
+        <material><ambient>0.9 0.8 0.05 1</ambient><diffuse>0.95 0.85 0.08 1</diffuse></material>
+      </visual>
+      <!-- 金屬工業電動捲門 (Roll-up Shutter Doors: 2 樘進貨門) -->
+      <visual name="dock_shutter_1">
+        <pose>-8.0 -10.95 2.5 0 0 0</pose>
+        <geometry><box><size>3.2 0.1 3.0</size></box></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material>
+      </visual>
+      <visual name="dock_shutter_2">
+        <pose>-4.0 -10.95 2.5 0 0 0</pose>
+        <geometry><box><size>3.2 0.1 3.0</size></box></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 屋頂空調冷卻水塔與通風設備 (Rooftop HVAC) ==================== -->
+      <visual name="hvac_unit_1">
+        <pose>-8.0 2.0 8.8 0 0 0</pose>
+        <geometry><box><size>4.2 3.0 1.5</size></box></geometry>
+        <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
+      </visual>
+      <visual name="hvac_fan_1">
+        <pose>-8.0 2.0 9.6 0 0 0</pose>
+        <geometry><cylinder><radius>1.0</radius><length>0.3</length></cylinder></geometry>
+        <material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.25 0.25 0.25 1</diffuse></material>
+      </visual>
+      <visual name="hvac_unit_2">
+        <pose>6.0 -3.0 8.8 0 0 0</pose>
+        <geometry><box><size>3.5 2.5 1.4</size></box></geometry>
+        <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

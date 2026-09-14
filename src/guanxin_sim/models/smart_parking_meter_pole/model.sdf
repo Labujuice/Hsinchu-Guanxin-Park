@@ -1,0 +1,292 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="smart_parking_meter_pole">
+    <static>true</static>
+    <link name="pole_link">
+
+      <!-- ==================== 物理碰撞剛體 (簡化圓柱體，保護自駕車輪胎與底盤) ==================== -->
+      <collision name="pole_col">
+        <pose>0 0 0.55 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.10</radius>
+            <length>1.10</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+      <!-- ==================== 地面安裝底座法蘭盤 (Base Flange & Anchors) ==================== -->
+      <visual name="base_flange_vis">
+        <pose>0 0 0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.14</radius>
+            <length>0.04</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.25 0.25 0.27 1</ambient>
+          <diffuse>0.30 0.30 0.32 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="base_cover_vis">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.11</radius>
+            <length>0.03</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.18 0.18 0.20 1</ambient>
+          <diffuse>0.22 0.22 0.24 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 金屬主柱體 (Main Anodized Aluminum Column) ==================== -->
+      <visual name="column_vis">
+        <pose>0 0 0.55 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.14 0.16 1.00</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.16 0.18 1</ambient>
+          <diffuse>0.22 0.23 0.25 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 側邊保護與修飾裝飾條 (Side Trim Stripes) -->
+      <visual name="side_trim_left_vis">
+        <pose>0.071 0 0.55 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.005 0.04 0.90</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.20 0.55 0.85 1</ambient>
+          <diffuse>0.25 0.65 0.95 1</diffuse>
+          <emissive>0.05 0.15 0.25 1</emissive>
+        </material>
+      </visual>
+
+      <visual name="side_trim_right_vis">
+        <pose>-0.071 0 0.55 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.005 0.04 0.90</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.20 0.55 0.85 1</ambient>
+          <diffuse>0.25 0.65 0.95 1</diffuse>
+          <emissive>0.05 0.15 0.25 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 頂部太陽能集電板與遮雨頂蓋 (Solar Bevel Top Cap) ==================== -->
+      <visual name="top_cap_vis">
+        <pose>0 0 1.08 0 0.15 0</pose>
+        <geometry>
+          <box>
+            <size>0.18 0.20 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.13 0.15 1</ambient>
+          <diffuse>0.15 0.16 0.18 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="solar_panel_vis">
+        <pose>0 0 1.102 0 0.15 0</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.18 0.005</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.05 0.10 0.25 1</ambient>
+          <diffuse>0.08 0.15 0.35 1</diffuse>
+          <specular>0.8 0.8 0.9 1</specular>
+        </material>
+      </visual>
+
+      <!-- ==================== 車牌辨識雙相機鏡頭艙 (LPR Dual Camera Head - 傾角朝車位) ==================== -->
+      <visual name="camera_pod_vis">
+        <pose>0 0.085 0.95 -0.22 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.13 0.06 0.14</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.10 0.12 1</ambient>
+          <diffuse>0.12 0.12 0.14 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 車牌辨識鏡頭 1 (左鏡頭 / 主辨識) -->
+      <visual name="camera_lens1_vis">
+        <pose>-0.035 0.118 0.95 -0.22 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.018</radius>
+            <length>0.01</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.02 0.02 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.10 1</diffuse>
+          <specular>0.9 0.9 1.0 1</specular>
+        </material>
+      </visual>
+
+      <!-- 車牌辨識鏡頭 2 (右鏡頭 / 廣角全景監控) -->
+      <visual name="camera_lens2_vis">
+        <pose>0.035 0.118 0.95 -0.22 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.018</radius>
+            <length>0.01</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.02 0.02 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.10 1</diffuse>
+          <specular>0.9 0.9 1.0 1</specular>
+        </material>
+      </visual>
+
+      <!-- 夜間紅外線補光燈陣列 (IR Illuminator Array) -->
+      <visual name="ir_illuminator_vis">
+        <pose>0 0.116 0.91 -0.22 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.09 0.005 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.1 0.1 1</ambient>
+          <diffuse>0.4 0.1 0.1 1</diffuse>
+          <emissive>0.2 0.0 0.0 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 360° 車位狀態指示燈 (LED Status Light Bar: 空位綠燈) ==================== -->
+      <visual name="status_led_vis">
+        <pose>0 0 1.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.08</radius>
+            <length>0.04</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.0 0.9 0.2 1</ambient>
+          <diffuse>0.0 1.0 0.3 1</diffuse>
+          <emissive>0.1 0.8 0.2 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 行人人行道繳費與操作觸控面板 (Pedestrian Side Touchscreen) ==================== -->
+      <visual name="touchscreen_frame_vis">
+        <pose>0 -0.082 0.70 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.10 0.008 0.18</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="touchscreen_display_vis">
+        <pose>0 -0.087 0.70 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.002 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.30 0.60 1</ambient>
+          <diffuse>0.15 0.45 0.80 1</diffuse>
+          <emissive>0.15 0.35 0.60 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 悠遊卡 / 一卡通 / 信用卡感應區 (Contactless Card Reader) -->
+      <visual name="card_reader_vis">
+        <pose>0 -0.085 0.55 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.035</radius>
+            <length>0.006</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.20 0.70 0.30 1</ambient>
+          <diffuse>0.25 0.80 0.35 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 宏碁智通 / 新竹智慧停車標誌貼牌 (Brand Plaque) -->
+      <visual name="brand_plaque_vis">
+        <pose>0 -0.082 0.42 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.004 0.06</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 地面埋設式無線地磁感應器 (Ground Geomagnetic Puck Sensor) ==================== -->
+      <!-- 位於車位地面中央 (相對於停車柱路緣向車位內延伸 1.25m) -->
+      <visual name="geomagnetic_sensor_puck_vis">
+        <pose>0 1.25 0.006 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.11</radius>
+            <length>0.012</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.18 0.18 0.20 1</ambient>
+          <diffuse>0.22 0.22 0.25 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="geomagnetic_sensor_core_vis">
+        <pose>0 1.25 0.013 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.003</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.9 0.7 0.0 1</ambient>
+          <diffuse>0.95 0.8 0.1 1</diffuse>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

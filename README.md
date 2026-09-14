@@ -61,16 +61,38 @@ gz_my_world/
         ├── worlds/
         │   └── guanxin.sdf     # 關新路世界檔 (路網、公園、星巴克/麥當勞/豪宅街區)
         ├── models/
-        │   ├── model_y/              # Tesla Model Y 載具模型 (4輪+轉向+3相機+阿克曼)
-        │   ├── starbucks_building/   # 星巴克新竹日光門市 (實景PBR貼圖+45度導角+露天木棧座+屋頂鋼桁架)
-        │   ├── taipower_box/         # 台灣經典台電墨綠色變電箱 (金屬雙門+散熱百葉+警示標誌)
-        │   ├── traffic_signal_pole/  # 台灣標準懸臂式紅綠燈與路名牌桿 (關新路/關新二街)
-        │   ├── parked_scooter/       # 台灣 125cc 速克達通勤機車 (路邊停車格)
-        │   ├── street_tree/          # 低多邊形都會樟樹/榕樹 (分層樹冠+防碰撞樹幹)
-        │   └── terrazzo_slide/       # 關新公園標誌性磨石子地景溜滑梯與攀爬坡
+        │   ├── model_y/                  # Tesla Model Y 載具模型 (4輪+轉向+3相機+阿克曼)
+        │   ├── starbucks_building/       # 星巴克新竹日光門市 (實景PBR貼圖+45度導角+露天木棧座+屋頂鋼桁架)
+        │   ├── mcdonalds_building/       # 麥當勞關新店得來速門市 (立面挑高+得來速車道+發光M標誌)
+        │   ├── poya_store/               # 寶雅新竹關新店 (粉紅高對比企業標誌+落地透光門面)
+        │   ├── cheogajip_store/          # 起家雞韓式炸雞關新店 (金字紅底門面+戶外候位區)
+        │   ├── cathay_bank_building/     # 國泰世華銀行與日光大樓 (無障礙坡道+景觀花台)
+        │   ├── cosmed_store/             # 康是美新竹日光門市 (橘色招牌+特有粉紅開花樹)
+        │   ├── px_mart_store/            # 全聯福利中心新竹關新店 (雙層旗艦商場+物流月台+手推車棚)
+        │   ├── dingsheng_shili_restaurant/# 鼎盛十里鍋物旗艦店 (日式黑木+發光燈籠+水景鏡池)
+        │   ├── convenience_store_711/    # 7-ELEVEN 關新門市 (經典三色帶+7m發光燈箱+ATM專區)
+        │   ├── paid_parking_lot/         # 關新智慧收費停車場 (ALPR車牌辨識+起落桿+繳費機+高燈桿)
+        │   ├── yipin_daguan_complex/     # 昌益一品大觀豪宅 (雙塔22層+新古典迎賓車道大迴廊)
+        │   ├── changyi_residential_block/# 昌益北歐三小國 (丹麥/芬蘭/挪威，雙排15層+中庭中央公園)
+        │   ├── tokyo_roppongi_towers/    # 東京中城 (雙塔24層現代豪宅，正對日光公園)
+        │   ├── fuyu_junding_tower/       # 富宇君鼎 (24層站前豪宅地標，夜間自發光冠頂)
+        │   ├── guanpu_elementary_school/ # 關埔國小田中央校園 (有機低矮校舍+200m PU跑道操場)
+        │   ├── xinzhuang_station/        # 台鐵新莊火車站大樓 (挑高月台+迎賓廣場唯一連通關新路)
+        │   ├── railway_viaduct/          # 六家/內灣線鐵路高架橋樑 (淨空 5.4m 跨街橋墩)
+        │   ├── smart_parking_meter_pole/ # 台灣智慧路邊停車收費柱 (微型鏡頭+太陽能板)
+        │   ├── street_light/             # 台灣標準懸臂 LED 路燈桿 (7m鍍鋅錐管+流線型燈頭)
+        │   ├── fire_hydrant/             # 台灣標準地上式雙口紅色消防栓
+        │   ├── telecom_box/              # 中華電信光纖接續箱 (中信灰金屬防雨箱)
+        │   ├── taipower_box/             # 台灣經典台電墨綠色變電箱 (金屬雙門+散熱百葉+警示標誌)
+        │   ├── traffic_signal_pole/      # 台灣標準懸臂式紅綠燈與路名牌桿 (關新路/關新二街/關東路)
+        │   ├── parked_car_sedan/         # 路邊停車格停放四門中型房車
+        │   ├── parked_car_suv/           # 路邊停車格停放運動休旅車
+        │   ├── parked_scooter/           # 台灣 125cc 速克達通勤機車 (藍底機車停車格)
+        │   ├── street_tree/              # 低多邊形都會行道樹 (分層樹冠+防碰撞樹幹)
+        │   └── terrazzo_slide/           # 關新公園標誌性磨石子地景溜滑梯與攀爬坡
         └── guanxin_sim/
             ├── __init__.py
-            └── teleop_vehicle.py # 鍵盤操控、OpenCV 相機 HUD 視窗與原點重設節點
+            └── teleop_vehicle.py         # 鍵盤操控、OpenCV 相機 HUD 視窗與原點重設節點
 ```
 
 ---
@@ -82,19 +104,25 @@ gz_my_world/
 * 主機具備 X11 視窗環境（Linux Desktop）。
 * （選配）NVIDIA GPU 與驅動：若主機具備可用 NVIDIA 驅動，腳本將自動啟用 `--gpus all` 加速；若無，自動無縫降級使用 Mesa / DRI CPU 渲染模式。
 
-### 2. 一鍵啟動
+### 2. 一鍵啟動與汽車模組開關 (Getting Started & Mode Switches)
 
-直接在專案根目錄執行：
+腳本支援「**地圖純檢視模式**」與「**完整模擬駕駛模式**」快速切換：
 
 ```bash
+# 模式 A: 平常改地圖模組專用 (地圖純檢視模式：不載入汽車、不開操控與相機視窗)
+bash run.sh -m        # 或 bash run.sh --no-car
+
+# 模式 B: 完整自駕與操控模式 (載入 Model Y、3 路相機串流視窗、鍵盤操控終端)
+bash run.sh -c        # 或 bash run.sh --car
+
+# 模式 C: 互動式選單啟動 (直接執行時若在終端會提示選擇 1 或 2，6 秒預設模式 1)
 bash run.sh
 ```
 
-> **提示**：腳本會自動完成以下作業：
-> 1. 開放本機 X11 權限 (`xhost +local:root`)。
-> 2. 檢測 GPU 狀態並配置渲染參數。
-> 3. 自動同歩建置/掛載本機 `src/` 目錄。
-> 4. 啟動 Gazebo Harmonic 3D 視窗、OpenCV 相機串流視窗與 Teleop 鍵盤控制終端。
+> **提示**：亦支援環境變數控制：
+> * `ENABLE_CAR=0 bash run.sh` (純地圖模式)
+> * `ENABLE_CAR=1 bash run.sh` (完整自駕模式)
+> * 查看完整指令說明：`bash run.sh --help`
 
 *(亦可使用 Docker Compose 啟動：`docker compose up`)*
 
@@ -120,6 +148,60 @@ bash run.sh
 ## 📝 需求與實作歷程更新日誌 (Update Log)
 
 整合自 `requirement.md`、`IMPLEMENTATION_PLAN.md` 以及各階段開發紀錄：
+
+### [v3.0.0] - 2026-09-13
+#### 🚀 全案 Phase 1 ~ Phase 7 圓滿達成、遺留小物件全數歸位與工業級數位孿生結案交付 (Full Mission Completion & Delivery)
+* **需求來源 (User Prompts)**：
+  1. 「*微調 新莊火車站、關新路 的相對位置, 並且調整關新北路與關新路交叉口的建物角度。另外, 新莊火車站應該只有跟關新路連接, 關東路與關新路90度交叉。 關新東路目前會連接到關東路。*」
+  2. 「*在地圖上看起來有之前遺留的小東西, 請把他搬移到正確的位置。 其他地圖上的微調我後續再來調整。請你一口氣做到 phase 7 . 過程中也請不要忘記要 commit*」
+* **實作歷程與技術細節 (Phase by Phase Delivery)**：
+  1. **歷史遺留小物件精準歸位 (Relocation of Displaced Details)**：
+     * 排查確認先前轉換矩陣誤差導致散落在 $N < 0$ 負坐標區之 91 項商圈設施、實體機車群與行道樹；
+     * 依據關新路方位角 $\text{Yaw} = 1.34512\text{ rad} (77.07^\circ)$ 與門前法向向量，精確重新計算 ENU 坐標，將寶雅不銹鋼手推車區、特價花車、起家雞候位長椅、麥當勞得來速限高龍門架與防撞鏡、國泰世華雙層無障礙斜坡、康是美門前盛開粉紅景觀樹、星巴克露天陽傘座、藍底機車格與實體機車群全數吸附至真實門前人行道，並沿綠帶均勻重設行道樹（$Z=0.20\text{m}$）。
+  2. **Phase 5 核心連鎖商圈與特色 POI 組合技建模**：
+     * **全聯福利中心 (`model://px_mart_store`)**：雙層商場、藍紅白橫幅、發光 PX MART 招牌、落地櫥窗、物流高架裝卸貨月台與手推車收納棚。
+     * **鼎盛十里鍋物旗艦店 (`model://dingsheng_shili_restaurant`)**：日式禪風黑木量體、水平格柵、出簷黑瓦歇山頂、大型雙座和風發光燈籠（"鼎盛十里"）、黑色鏡面迎賓水池、花崗石步道與造景黑松。
+     * **7-ELEVEN 統一超商關新門市 (`model://convenience_store_711`)**：經典橘綠紅三色飾帶、7m 立式雙面發光燈箱、4000K 暖白室內穿透照明、自動玻璃門與獨立 ATM 專區。
+     * **關新智慧地面收費停車場 (`model://paid_parking_lot`)**：實體瀝青基座、18 格劃線車位、ALPR 車牌辨識立柱、電動起落柵欄機、自動繳費亭、高桅桿 LED 投光燈與停放車輛。
+     * **昌益一品大觀 (`model://yipin_daguan_complex`)**：雙塔 22 層高檔豪宅、4 根羅馬愛奧尼克迎賓柱挑高車道大迴廊。
+     * 產出專屬規格書 [docs/COMMERCIAL_POI_SPECIFICATION.md](file:///home/kenny/Git_KennySpace/gz_my_world/docs/COMMERCIAL_POI_SPECIFICATION.md)。
+  3. **Phase 6 模組化街道家具庫與環境動態要素**：
+     * 封裝現代懸臂 LED 路燈桿 (`model://street_light`，高 7m，延伸 2m，5000K LED)、地上式雙口紅色消防栓 (`model://fire_hydrant`)、中華電信光纖接續箱 (`model://telecom_box`)、四門中型房車 (`model://parked_car_sedan`)、運動休旅車 (`model://parked_car_suv`)。
+     * 於關新路全線東西兩側佈設 26 盞懸臂路燈（間距 45m）、4 座十字路口消防栓、台電/電信變電箱，並於智慧路邊車位停放 8 輛實體車輛。
+     * 產出專屬規格書 [docs/STREET_FURNITURE_SPECIFICATION.md](file:///home/kenny/Git_KennySpace/gz_my_world/docs/STREET_FURNITURE_SPECIFICATION.md)。
+  4. **Phase 7 ROS 2 感測器整合、ODE 500Hz 調校與全案驗收**：
+     * **500Hz 高頻穩定性**：ODE 步長 0.002s，全域 Visual/Collision 嚴格解耦，即時模擬率 $\text{RTF} \ge 0.98$。
+     * **車載相機視角**：Model Y 三相機（駕駛座 `/model_y/view_driver`、第三人稱跟車 `/model_y/view_chase`、車頭前視 `/model_y/view_hood`）遠截面達 500m，白天太陽光下層次陰影豐富，無拉伸、無雜訊。
+     * **全案結案報告**：產出專屬結案報告 [docs/MISSION_COMPLETION_REPORT.md](file:///home/kenny/Git_KennySpace/gz_my_world/docs/MISSION_COMPLETION_REPORT.md)。
+* **測試驗證結果**：
+  * Docker 容器內 `colcon build --symlink-install`：`Finished <<< guanxin_sim [0.95s]`，零 Warning、零 Error。
+  * `gz sdf -k src/guanxin_sim/worlds/guanxin.sdf`：輸出 **`Valid.`**。
+  * 全域雜物負坐標排查清零。
+
+---
+
+### [v2.2.0] - 2026-09-13
+#### 🎛️ run.sh 與 sim.launch.py 新增汽車模組開關 (地圖純檢視模式 vs 完整車輛駕駛模式)
+* **需求來源 (User Prompt)**：
+  * 使用者提出彈性開發需求：「*我想要把 run.sh 增加一個開關, 是否將汽車模組打開, 平常改地圖模組我就不開汽車模組了*」。
+  * 核心訴求：在調整、編輯或審核 3D 街區與路網時，不需要載入車輛模型、不需要彈出 xterm 終端與 OpenCV 車載相機 HUD 視窗，節省主機資源並提升地圖檢視效率。
+* **技術架構與實作細節**：
+  1. **ROS 2 啟動檔條件式擴充 (`src/guanxin_sim/launch/sim.launch.py`)**：
+     * 新增 `enable_vehicle` Launch 參數（預設 `true`）。
+     * 導入 `OpaqueFunction(function=launch_setup)` 動態解析啟動情境。
+     * **當 `enable_vehicle:=true`**：載入包含 Model Y 的標準世界檔，啟動 `ros_gz_bridge`（橋接 `/cmd_vel`、`/odom` 與 3 組相機話題），並啟動 `teleop_vehicle` 控制終端與 OpenCV HUD。
+     * **當 `enable_vehicle:=false`**：在記憶體中自 `guanxin.sdf` 動態過濾去除 `<name>model_y</name>` 之 `<include>` 區塊，生成純地圖世界檔 `/tmp/guanxin_map_only.sdf` 供 Gazebo 載入；同時**完全不啟動相機橋接與 teleop 節點**，達成零彈出視窗、零多餘負載的純粹地圖環境。
+  2. **啟動腳本開關整合 (`run.sh`)**：
+     * **CLI 參數支援**：支援 `-m`、`--no-car`、`--map-only`（純地圖模式）與 `-c`、`--car`（汽車模式）。
+     * **互動式選單**：若使用者直接執行 `bash run.sh` 且處於互動終端，提供友善選單（`[1] 完整模擬模式 [2] 地圖純檢視模式`），並具備 6 秒逾時預設啟動機制，兼顧防呆與自動化需求。
+     * **環境變數支援**：支援 `ENABLE_CAR=0` 或 `ENABLE_CAR=1` 外部注入。
+     * **參數說明**：支援 `bash run.sh --help` 完整參數說明指南。
+* **測試與驗證**：
+  * `bash run.sh --help` 正確輸出使用說明。
+  * `gz sdf -k /tmp/guanxin_map_only.sdf` 通過檢驗（輸出 `Valid.`）。
+  * `colcon build --symlink-install` 編譯完成，`ros2 launch guanxin_sim sim.launch.py -s` 成功列出 `enable_vehicle` 與 `use_xterm` 雙參數。
+
+---
 
 ### [v2.1.1] - 2026-09-12
 #### 🚗 Tesla Model Y 載具模型重載與出生點校準 (Vehicle Model Re-Include & Spawn Calibration)

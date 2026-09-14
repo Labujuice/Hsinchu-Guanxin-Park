@@ -1,0 +1,164 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="convenience_store_711">
+    <static>true</static>
+    <link name="store_link">
+
+      <!-- ==================== 物理碰撞剛體 (Decoupled Primitives) ==================== -->
+      <!-- 主量體剛體 (16m x 12m x 4.8m) -->
+      <collision name="store_col">
+        <pose>0 0 2.4 0 0 0</pose>
+        <geometry><box><size>16.0 12.0 4.8</size></box></geometry>
+      </collision>
+      <!-- 立式獨立高空招牌立柱剛體 -->
+      <collision name="pylon_pole_col">
+        <pose>8.5 7.2 3.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.15</radius><length>7.0</length></cylinder></geometry>
+      </collision>
+
+      <!-- ==================== 視覺主體：7-ELEVEN 現代超商門面 ==================== -->
+      <visual name="store_walls">
+        <pose>0 0 2.4 0 0 0</pose>
+        <geometry><box><size>16.0 12.0 4.8</size></box></geometry>
+        <material>
+          <ambient>0.88 0.88 0.88 1</ambient>
+          <diffuse>0.92 0.92 0.92 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 頂部女兒牆收邊 (Parapet Cap) -->
+      <visual name="roof_trim">
+        <pose>0 0 4.85 0 0 0</pose>
+        <geometry><box><size>16.3 12.3 0.15</size></box></geometry>
+        <material><ambient>0.3 0.3 0.32 1</ambient><diffuse>0.35 0.35 0.38 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 7-ELEVEN 經典三色帶招牌門面 (Orange / Green / Red) ==================== -->
+      <!-- 招牌底板白色基底 -->
+      <visual name="fascia_base">
+        <pose>0 6.05 4.0 0 0 0</pose>
+        <geometry><box><size>16.1 0.15 1.4</size></box></geometry>
+        <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>1.0 1.0 1.0 1</diffuse></material>
+      </visual>
+
+      <!-- 經典橘色條紋 (7-Eleven Orange Stripe) -->
+      <visual name="stripe_orange">
+        <pose>0 6.12 4.45 0 0 0</pose>
+        <geometry><box><size>16.1 0.08 0.35</size></box></geometry>
+        <material>
+          <ambient>0.95 0.44 0.13 1</ambient>
+          <diffuse>0.98 0.48 0.15 1</diffuse>
+          <emissive>0.4 0.18 0.05 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 經典綠色條紋 (7-Eleven Green Stripe) -->
+      <visual name="stripe_green">
+        <pose>0 6.12 4.05 0 0 0</pose>
+        <geometry><box><size>16.1 0.08 0.35</size></box></geometry>
+        <material>
+          <ambient>0.0 0.52 0.24 1</ambient>
+          <diffuse>0.0 0.58 0.28 1</diffuse>
+          <emissive>0.0 0.25 0.10 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 經典紅色條紋 (7-Eleven Red Stripe) -->
+      <visual name="stripe_red">
+        <pose>0 6.12 3.65 0 0 0</pose>
+        <geometry><box><size>16.1 0.08 0.35</size></box></geometry>
+        <material>
+          <ambient>0.90 0.11 0.14 1</ambient>
+          <diffuse>0.95 0.14 0.16 1</diffuse>
+          <emissive>0.4 0.05 0.06 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 7-ELEVEN 標誌發光燈箱 (Iconic 7 Logo Lightbox) -->
+      <visual name="seven_logo_box">
+        <pose>-4.5 6.2 4.0 0 0 0</pose>
+        <geometry><box><size>1.6 0.12 1.2</size></box></geometry>
+        <material>
+          <ambient>0.95 0.95 0.95 1</ambient>
+          <diffuse>1.0 1.0 1.0 1</diffuse>
+          <emissive>0.8 0.8 0.8 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 一樓全透明落地玻璃窗與 4000K 暖白室內採光 ==================== -->
+      <visual name="store_glazing">
+        <pose>0 6.02 1.6 0 0 0</pose>
+        <geometry><box><size>14.5 0.06 2.8</size></box></geometry>
+        <material>
+          <ambient>0.2 0.3 0.35 0.7</ambient>
+          <diffuse>0.25 0.38 0.45 0.7</diffuse>
+        </material>
+      </visual>
+      <!-- 室內貨架明亮照明透光層 -->
+      <visual name="interior_illumination">
+        <pose>0 5.8 1.6 0 0 0</pose>
+        <geometry><box><size>14.2 0.08 2.6</size></box></geometry>
+        <material>
+          <ambient>0.98 0.95 0.88 1</ambient>
+          <diffuse>1.0 0.98 0.90 1</diffuse>
+          <emissive>0.6 0.58 0.5 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 自動推拉玻璃門框 (Automatic Entrance Door) -->
+      <visual name="entrance_door">
+        <pose>3.5 6.06 1.4 0 0 0</pose>
+        <geometry><box><size>2.6 0.08 2.4</size></box></geometry>
+        <material><ambient>0.2 0.22 0.25 1</ambient><diffuse>0.25 0.28 0.30 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 獨立 ATM 銀行提款專區 (ATM Service Booth) ==================== -->
+      <visual name="atm_cubicle">
+        <pose>-5.8 6.06 1.4 0 0 0</pose>
+        <geometry><box><size>2.2 0.15 2.4</size></box></geometry>
+        <material><ambient>0.05 0.35 0.2 1</ambient><diffuse>0.08 0.45 0.25 1</diffuse></material>
+      </visual>
+      <visual name="atm_screen_glow">
+        <pose>-5.8 6.15 1.4 0 0 0</pose>
+        <geometry><box><size>0.6 0.05 0.45</size></box></geometry>
+        <material>
+          <ambient>0.2 0.8 0.9 1</ambient>
+          <diffuse>0.3 0.9 1.0 1</diffuse>
+          <emissive>0.6 0.9 1.0 1</emissive>
+        </material>
+      </visual>
+
+      <!-- ==================== 經典雙面立式高空發光招牌立柱 (Pylon Sign Tower) ==================== -->
+      <visual name="pylon_pole">
+        <pose>8.5 7.2 3.5 0 0 0</pose>
+        <geometry><cylinder><radius>0.12</radius><length>7.0</length></cylinder></geometry>
+        <material><ambient>0.4 0.42 0.45 1</ambient><diffuse>0.48 0.50 0.52 1</diffuse></material>
+      </visual>
+      <!-- 高空發光大燈箱 (High-mast Lightbox) -->
+      <visual name="pylon_lightbox">
+        <pose>8.5 7.2 6.5 0 0 0</pose>
+        <geometry><box><size>1.6 0.35 2.0</size></box></geometry>
+        <material>
+          <ambient>0.95 0.95 0.95 1</ambient>
+          <diffuse>1.0 1.0 1.0 1</diffuse>
+          <emissive>0.85 0.85 0.85 1</emissive>
+        </material>
+      </visual>
+      <visual name="pylon_orange_stripe">
+        <pose>8.5 7.2 7.15 0 0 0</pose>
+        <geometry><box><size>1.62 0.36 0.4</size></box></geometry>
+        <material><ambient>0.95 0.44 0.13 1</ambient><diffuse>0.98 0.48 0.15 1</diffuse><emissive>0.7 0.3 0.08 1</emissive></material>
+      </visual>
+      <visual name="pylon_green_stripe">
+        <pose>8.5 7.2 6.55 0 0 0</pose>
+        <geometry><box><size>1.62 0.36 0.4</size></box></geometry>
+        <material><ambient>0.0 0.52 0.24 1</ambient><diffuse>0.0 0.58 0.28 1</diffuse><emissive>0.0 0.4 0.18 1</emissive></material>
+      </visual>
+      <visual name="pylon_red_stripe">
+        <pose>8.5 7.2 5.95 0 0 0</pose>
+        <geometry><box><size>1.62 0.36 0.4</size></box></geometry>
+        <material><ambient>0.90 0.11 0.14 1</ambient><diffuse>0.95 0.14 0.16 1</diffuse><emissive>0.7 0.1 0.12 1</emissive></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

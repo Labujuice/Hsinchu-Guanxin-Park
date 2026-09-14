@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="mcdonalds_rear_parking_lot">
+    <static>true</static>
+    <link name="parking_link">
+
+      <!-- ==================== 物理碰撞剛體 ==================== -->
+      <!-- 68m x 48m 瀝青地面大底 -->
+      <collision name="ground_col">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry><box><size>68.0 48.0 0.1</size></box></geometry>
+        <surface><friction><ode><mu>0.85</mu><mu2>0.85</mu2></ode></friction></surface>
+      </collision>
+
+      <!-- 入口收費安全島碰撞體 -->
+      <collision name="gate_island_col">
+        <pose>0 22.5 0.3 0 0 0</pose>
+        <geometry><box><size>8.0 2.2 0.6</size></box></geometry>
+      </collision>
+
+      <!-- 自助繳費亭碰撞體 -->
+      <collision name="pay_station_col">
+        <pose>8.0 21.5 1.2 0 0 0</pose>
+        <geometry><box><size>3.0 2.2 2.4</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 視覺主體：瀝青鋪面與周邊路緣石 ==================== -->
+      <visual name="asphalt_deck">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry><box><size>68.0 48.0 0.1</size></box></geometry>
+        <material>
+          <ambient>0.24 0.24 0.25 1</ambient>
+          <diffuse>0.28 0.28 0.30 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 周圍混凝土路緣石防護 (Perimeter Curbs) -->
+      <visual name="curb_n"><pose>0 24.0 0.15 0 0 0</pose><geometry><box><size>68.2 0.3 0.2</size></box></geometry><material><ambient>0.6 0.6 0.62 1</ambient><diffuse>0.65 0.65 0.68 1</diffuse></material></visual>
+      <visual name="curb_s"><pose>0 -24.0 0.15 0 0 0</pose><geometry><box><size>68.2 0.3 0.2</size></box></geometry><material><ambient>0.6 0.6 0.62 1</ambient><diffuse>0.65 0.65 0.68 1</diffuse></material></visual>
+      <visual name="curb_e"><pose>34.0 0 0.15 0 0 0</pose><geometry><box><size>0.3 48.2 0.2</size></box></geometry><material><ambient>0.6 0.6 0.62 1</ambient><diffuse>0.65 0.65 0.68 1</diffuse></material></visual>
+      <visual name="curb_w"><pose>-34.0 0 0.15 0 0 0</pose><geometry><box><size>0.3 48.2 0.2</size></box></geometry><material><ambient>0.6 0.6 0.62 1</ambient><diffuse>0.65 0.65 0.68 1</diffuse></material></visual>
+
+      <!-- ==================== 標準白色車位劃線 (4 排車位, 每排 12~14 格) ==================== -->
+      <!-- 南側車位排 (South Row: 12 格) -->
+      <visual name="stall_lines_row1"><pose>0 -19.0 0.105 0 0 0</pose><geometry><box><size>62.0 5.0 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+      <!-- 中南車位排 (Mid-South Row: 12 格) -->
+      <visual name="stall_lines_row2"><pose>0 -7.0 0.105 0 0 0</pose><geometry><box><size>62.0 5.0 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+      <!-- 中北車位排 (Mid-North Row: 12 格) -->
+      <visual name="stall_lines_row3"><pose>0 5.0 0.105 0 0 0</pose><geometry><box><size>62.0 5.0 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+      <!-- 北側車位排 (North Row: 10 格) -->
+      <visual name="stall_lines_row4"><pose>-8.0 17.0 0.105 0 0 0</pose><geometry><box><size>46.0 5.0 0.002</size></box></geometry><material><ambient>0.92 0.92 0.92 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material></visual>
+
+      <!-- 車行動線車道標線 (Driveway Lane Lines) -->
+      <visual name="lane_line_s"><pose>0 -13.0 0.105 0 0 0</pose><geometry><box><size>62.0 0.15 0.002</size></box></geometry><material><ambient>0.9 0.82 0.1 1</ambient><diffuse>0.95 0.88 0.12 1</diffuse></material></visual>
+      <visual name="lane_line_n"><pose>0 -1.0 0.105 0 0 0</pose><geometry><box><size>62.0 0.15 0.002</size></box></geometry><material><ambient>0.9 0.82 0.1 1</ambient><diffuse>0.95 0.88 0.12 1</diffuse></material></visual>
+      <visual name="lane_line_entry"><pose>0 11.0 0.105 0 0 0</pose><geometry><box><size>62.0 0.15 0.002</size></box></geometry><material><ambient>0.9 0.82 0.1 1</ambient><diffuse>0.95 0.88 0.12 1</diffuse></material></visual>
+
+      <!-- ==================== 入出口閘門與收費設備 ==================== -->
+      <!-- 入出口中央安全島 -->
+      <visual name="gate_island_vis"><pose>0 22.5 0.2 0 0 0</pose><geometry><box><size>8.0 2.0 0.2</size></box></geometry><material><ambient>0.7 0.7 0.72 1</ambient><diffuse>0.75 0.75 0.78 1</diffuse></material></visual>
+
+      <!-- 車牌辨識立柱 (ALPR Poles) -->
+      <visual name="alpr_pole1"><pose>-2.5 22.5 0.8 0 0 0</pose><geometry><cylinder><radius>0.06</radius><length>1.2</length></cylinder></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+      <visual name="alpr_cam1"><pose>-2.5 22.5 1.35 0 0.2 0</pose><geometry><box><size>0.25 0.15 0.15</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+      <visual name="alpr_pole2"><pose>2.5 22.5 0.8 0 0 0</pose><geometry><cylinder><radius>0.06</radius><length>1.2</length></cylinder></geometry><material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+      <visual name="alpr_cam2"><pose>2.5 22.5 1.35 0 0.2 0</pose><geometry><box><size>0.25 0.15 0.15</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material></visual>
+
+      <!-- 電動升降欄杆機箱與柵欄 (Barrier Gates) -->
+      <visual name="barrier_box_in"><pose>-1.5 22.5 0.6 0 0 0</pose><geometry><box><size>0.4 0.4 0.9</size></box></geometry><material><ambient>0.9 0.65 0.05 1</ambient><diffuse>0.98 0.75 0.08 1</diffuse></material></visual>
+      <visual name="barrier_arm_in"><pose>-1.5 20.8 0.95 0 0 1.5708</pose><geometry><box><size>3.2 0.05 0.12</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
+      <visual name="barrier_box_out"><pose>1.5 22.5 0.6 0 0 0</pose><geometry><box><size>0.4 0.4 0.9</size></box></geometry><material><ambient>0.9 0.65 0.05 1</ambient><diffuse>0.98 0.75 0.08 1</diffuse></material></visual>
+      <visual name="barrier_arm_out"><pose>1.5 24.2 0.95 0 0 1.5708</pose><geometry><box><size>3.2 0.05 0.12</size></box></geometry><material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.98 0.98 0.98 1</diffuse></material></visual>
+
+      <!-- 自助繳費亭 (Pay Station Canopy) -->
+      <visual name="pay_booth_body"><pose>8.0 21.5 1.2 0 0 0</pose><geometry><box><size>2.6 1.8 2.2</size></box></geometry><material><ambient>0.25 0.3 0.35 1</ambient><diffuse>0.3 0.35 0.42 1</diffuse></material></visual>
+      <visual name="pay_booth_roof"><pose>8.0 21.5 2.35 0 0 0</pose><geometry><box><size>3.2 2.4 0.1</size></box></geometry><material><ambient>0.15 0.2 0.25 1</ambient><diffuse>0.18 0.25 0.32 1</diffuse></material></visual>
+
+      <!-- 照明高燈 (Floodlight Poles: 8m LED) -->
+      <visual name="light_pole_sw"><pose>-30.0 -20.0 4.0 0 0 0</pose><geometry><cylinder><radius>0.1</radius><length>8.0</length></cylinder></geometry><material><ambient>0.4 0.4 0.45 1</ambient><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      <visual name="light_pole_se"><pose>30.0 -20.0 4.0 0 0 0</pose><geometry><cylinder><radius>0.1</radius><length>8.0</length></cylinder></geometry><material><ambient>0.4 0.4 0.45 1</ambient><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      <visual name="light_pole_nw"><pose>-30.0 20.0 4.0 0 0 0</pose><geometry><cylinder><radius>0.1</radius><length>8.0</length></cylinder></geometry><material><ambient>0.4 0.4 0.45 1</ambient><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+      <visual name="light_pole_ne"><pose>30.0 20.0 4.0 0 0 0</pose><geometry><cylinder><radius>0.1</radius><length>8.0</length></cylinder></geometry><material><ambient>0.4 0.4 0.45 1</ambient><diffuse>0.45 0.45 0.5 1</diffuse></material></visual>
+
+    </link>
+  </model>
+</sdf>

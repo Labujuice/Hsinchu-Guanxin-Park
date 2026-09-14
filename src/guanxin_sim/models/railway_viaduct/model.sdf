@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="railway_viaduct">
+    <static>true</static>
+    <link name="viaduct_link">
+
+      <!-- ==================== 物理碰撞剛體 (橋墩位於兩側人行道外，橋下淨空 5.4m) ==================== -->
+      <!-- 左側/西側混凝土雙柱式橋墩碰撞剛體 (West Pier Column) -->
+      <collision name="pier_west_col">
+        <pose>0 -12.5 2.7 0 0 0</pose>
+        <geometry><box><size>2.4 2.2 5.4</size></box></geometry>
+      </collision>
+
+      <!-- 右側/東側混凝土雙柱式橋墩碰撞剛體 (East Pier Column) -->
+      <collision name="pier_east_col">
+        <pose>0 12.5 2.7 0 0 0</pose>
+        <geometry><box><size>2.4 2.2 5.4</size></box></geometry>
+      </collision>
+
+      <!-- 高架連續箱梁主橋面碰撞剛體 (底面 Z=5.4m，頂面 Z=6.8m，淨空 5.4m > 4.8m) -->
+      <collision name="girder_deck_col">
+        <pose>0 0 6.1 0 0 0</pose>
+        <geometry><box><size>60.0 10.5 1.4</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 視覺呈現：鋼筋混凝土橋墩與橫樑 (Concrete Piers & Crossbeam) ==================== -->
+      <!-- 西側橋墩基礎與柱體 -->
+      <visual name="pier_west_vis">
+        <pose>0 -12.5 2.7 0 0 0</pose>
+        <geometry><box><size>2.4 2.2 5.4</size></box></geometry>
+        <material>
+          <ambient>0.62 0.64 0.66 1</ambient>
+          <diffuse>0.68 0.70 0.72 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 東側橋墩基礎與柱體 -->
+      <visual name="pier_east_vis">
+        <pose>0 12.5 2.7 0 0 0</pose>
+        <geometry><box><size>2.4 2.2 5.4</size></box></geometry>
+        <material>
+          <ambient>0.62 0.64 0.66 1</ambient>
+          <diffuse>0.68 0.70 0.72 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- T 型蓋樑與橫向支承橫樑 (Hammerhead Pier Cap Beam) -->
+      <visual name="cap_beam_vis">
+        <pose>0 0 5.1 0 0 0</pose>
+        <geometry><box><size>3.2 27.0 0.8</size></box></geometry>
+        <material>
+          <ambient>0.58 0.60 0.62 1</ambient>
+          <diffuse>0.64 0.66 0.68 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 視覺呈現：連續預力混凝土箱梁 (Concrete Box Girder) ==================== -->
+      <visual name="girder_deck_vis">
+        <pose>0 0 6.1 0 0 0</pose>
+        <geometry><box><size>60.0 10.5 1.4</size></box></geometry>
+        <material>
+          <ambient>0.65 0.67 0.70 1</ambient>
+          <diffuse>0.72 0.74 0.77 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 梁底防撞淨高標誌與黃黑斜紋警示反光貼條 (Underbridge Hazard Stripes & 4.8m Warning) -->
+      <!-- 位於橋跨下方跨越關新路車道正面 (Z = 5.4m) -->
+      <visual name="hazard_stripes_s">
+        <pose>-0.05 0 5.42 0 0 0</pose>
+        <geometry><box><size>0.08 18.0 0.35</size></box></geometry>
+        <material>
+          <ambient>0.92 0.80 0.05 1</ambient>
+          <diffuse>0.98 0.85 0.08 1</diffuse>
+          <emissive>0.3 0.25 0.0 1</emissive>
+        </material>
+      </visual>
+
+      <!-- 限高標誌牌：限高 4.8 公尺 (Clearance Sign: 4.8m) -->
+      <visual name="clearance_sign">
+        <pose>-0.10 0 5.8 0 0 0</pose>
+        <geometry><cylinder><radius>0.45</radius><length>0.06</length></cylinder></geometry>
+        <material>
+          <ambient>0.9 0.1 0.1 1</ambient>
+          <diffuse>0.95 0.12 0.12 1</diffuse>
+        </material>
+      </visual>
+      <visual name="clearance_sign_inner">
+        <pose>-0.12 0 5.8 0 0 0</pose>
+        <geometry><cylinder><radius>0.35</radius><length>0.06</length></cylinder></geometry>
+        <material>
+          <ambient>0.95 0.95 0.95 1</ambient>
+          <diffuse>0.98 0.98 0.98 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ==================== 視覺呈現：軌道、道碴與鋼軌 (Ballast Bed & Dual Tracks) ==================== -->
+      <!-- 鐵路道碴碎石床 (Ballast Bed) -->
+      <visual name="ballast_bed_vis">
+        <pose>0 0 6.85 0 0 0</pose>
+        <geometry><box><size>60.0 9.8 0.10</size></box></geometry>
+        <material>
+          <ambient>0.30 0.28 0.26 1</ambient>
+          <diffuse>0.35 0.33 0.30 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 左線鋼軌 (Track 1 Rails: Y = -2.2m) -->
+      <visual name="track1_rail_l"><pose>0 -2.7 6.95 0 0 0</pose><geometry><box><size>60.0 0.07 0.10</size></box></geometry><material><ambient>0.75 0.77 0.8 1</ambient><diffuse>0.82 0.84 0.88 1</diffuse></material></visual>
+      <visual name="track1_rail_r"><pose>0 -1.7 6.95 0 0 0</pose><geometry><box><size>60.0 0.07 0.10</size></box></geometry><material><ambient>0.75 0.77 0.8 1</ambient><diffuse>0.82 0.84 0.88 1</diffuse></material></visual>
+
+      <!-- 右線鋼軌 (Track 2 Rails: Y = +2.2m) -->
+      <visual name="track2_rail_l"><pose>0 1.7 6.95 0 0 0</pose><geometry><box><size>60.0 0.07 0.10</size></box></geometry><material><ambient>0.75 0.77 0.8 1</ambient><diffuse>0.82 0.84 0.88 1</diffuse></material></visual>
+      <visual name="track2_rail_r"><pose>0 2.7 6.95 0 0 0</pose><geometry><box><size>60.0 0.07 0.10</size></box></geometry><material><ambient>0.75 0.77 0.8 1</ambient><diffuse>0.82 0.84 0.88 1</diffuse></material></visual>
+
+      <!-- ==================== 視覺呈現：高架橋兩側吸音隔音牆 (Acoustic Noise Barriers) ==================== -->
+      <!-- 採用台灣鐵道經典之「金屬吸音板下段 + 鋼化壓克力透明採光窗上段」複合隔音牆 -->
+      <!-- 南側隔音牆 (South Noise Barrier) -->
+      <visual name="barrier_s_base">
+        <pose>0 -5.1 7.4 0 0 0</pose>
+        <geometry><box><size>60.0 0.25 1.0</size></box></geometry>
+        <material><ambient>0.50 0.55 0.58 1</ambient><diffuse>0.58 0.62 0.66 1</diffuse></material>
+      </visual>
+      <visual name="barrier_s_acrylic">
+        <pose>0 -5.1 8.5 0 0 0</pose>
+        <geometry><box><size>60.0 0.08 1.2</size></box></geometry>
+        <material>
+          <ambient>0.15 0.35 0.40 0.75</ambient>
+          <diffuse>0.20 0.45 0.50 0.75</diffuse>
+          <specular>0.8 0.9 0.95 1</specular>
+        </material>
+      </visual>
+
+      <!-- 北側隔音牆 (North Noise Barrier) -->
+      <visual name="barrier_n_base">
+        <pose>0 5.1 7.4 0 0 0</pose>
+        <geometry><box><size>60.0 0.25 1.0</size></box></geometry>
+        <material><ambient>0.50 0.55 0.58 1</ambient><diffuse>0.58 0.62 0.66 1</diffuse></material>
+      </visual>
+      <visual name="barrier_n_acrylic">
+        <pose>0 5.1 8.5 0 0 0</pose>
+        <geometry><box><size>60.0 0.08 1.2</size></box></geometry>
+        <material>
+          <ambient>0.15 0.35 0.40 0.75</ambient>
+          <diffuse>0.20 0.45 0.50 0.75</diffuse>
+          <specular>0.8 0.9 0.95 1</specular>
+        </material>
+      </visual>
+
+      <!-- ==================== 視覺呈現：電車線支柱與懸臂 (Catenary Masts & Cantilevers) ==================== -->
+      <visual name="catenary_mast_w">
+        <pose>-20.0 0 9.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.14</radius><length>4.6</length></cylinder></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material>
+      </visual>
+      <visual name="catenary_arm_w">
+        <pose>-20.0 0 11.2 0 1.5707963 0</pose>
+        <geometry><cylinder><radius>0.06</radius><length>8.0</length></cylinder></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material>
+      </visual>
+
+      <visual name="catenary_mast_e">
+        <pose>20.0 0 9.2 0 0 0</pose>
+        <geometry><cylinder><radius>0.14</radius><length>4.6</length></cylinder></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material>
+      </visual>
+      <visual name="catenary_arm_e">
+        <pose>20.0 0 11.2 0 1.5707963 0</pose>
+        <geometry><cylinder><radius>0.06</radius><length>8.0</length></cylinder></geometry>
+        <material><ambient>0.3 0.32 0.35 1</ambient><diffuse>0.36 0.38 0.42 1</diffuse></material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

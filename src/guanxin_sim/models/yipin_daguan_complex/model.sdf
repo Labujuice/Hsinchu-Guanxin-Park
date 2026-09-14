@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="yipin_daguan_complex">
+    <static>true</static>
+    <link name="yipin_link">
+
+      <!-- ==================== 物理碰撞剛體 ==================== -->
+      <!-- 1F~3F 厚重崗石基座與退縮裙樓 -->
+      <collision name="podium_col">
+        <pose>0 0 5.25 0 0 0</pose>
+        <geometry><box><size>84.0 36.0 10.5</size></box></geometry>
+      </collision>
+
+      <!-- 南翼主塔 (22層樓, 高 68m) -->
+      <collision name="tower_s_col">
+        <pose>-22.0 0 39.25 0 0 0</pose>
+        <geometry><box><size>36.0 32.0 57.5</size></box></geometry>
+      </collision>
+
+      <!-- 北翼主塔 (22層樓, 高 68m) -->
+      <collision name="tower_n_col">
+        <pose>22.0 0 39.25 0 0 0</pose>
+        <geometry><box><size>36.0 32.0 57.5</size></box></geometry>
+      </collision>
+
+      <!-- 迎賓車道大門雨遮碰撞剛體 -->
+      <collision name="porte_cochere_col">
+        <pose>0 19.5 2.8 0 0 0</pose>
+        <geometry><box><size>18.0 7.0 5.6</size></box></geometry>
+      </collision>
+
+      <!-- ==================== 視覺呈現：新古典石材厚重基座 (Neoclassical Rusticated Stone) ==================== -->
+      <visual name="podium_vis">
+        <pose>0 0 5.25 0 0 0</pose>
+        <geometry><box><size>84.0 36.0 10.5</size></box></geometry>
+        <material>
+          <ambient>0.78 0.74 0.68 1</ambient>
+          <diffuse>0.84 0.80 0.74 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 基座水平分段飾條 (Belt Courses & Entablature) -->
+      <visual name="podium_belt">
+        <pose>0 0 10.5 0 0 0</pose>
+        <geometry><box><size>85.5 37.5 0.6</size></box></geometry>
+        <material><ambient>0.65 0.60 0.55 1</ambient><diffuse>0.72 0.68 0.62 1</diffuse></material>
+      </visual>
+
+      <!-- ==================== 迎賓挑高大門與迎賓車道大迴廊 (Porte-Cochère) ==================== -->
+      <visual name="porte_roof">
+        <pose>0 20.0 5.4 0 0 0</pose>
+        <geometry><box><size>18.5 7.5 0.7</size></box></geometry>
+        <material><ambient>0.70 0.66 0.60 1</ambient><diffuse>0.76 0.72 0.66 1</diffuse></material>
+      </visual>
+
+      <!-- 新古典羅馬愛奧尼克/多立克式石雕圓柱 (Classical Columns: 4 根迎賓巨柱) -->
+      <visual name="porte_col_1"><pose>-7.5 22.5 2.5 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>5.0</length></cylinder></geometry><material><ambient>0.8 0.76 0.7 1</ambient><diffuse>0.85 0.82 0.76 1</diffuse></material></visual>
+      <visual name="porte_col_2"><pose>-2.5 22.5 2.5 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>5.0</length></cylinder></geometry><material><ambient>0.8 0.76 0.7 1</ambient><diffuse>0.85 0.82 0.76 1</diffuse></material></visual>
+      <visual name="porte_col_3"><pose>2.5 22.5 2.5 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>5.0</length></cylinder></geometry><material><ambient>0.8 0.76 0.7 1</ambient><diffuse>0.85 0.82 0.76 1</diffuse></material></visual>
+      <visual name="porte_col_4"><pose>7.5 22.5 2.5 0 0 0</pose><geometry><cylinder><radius>0.45</radius><length>5.0</length></cylinder></geometry><material><ambient>0.8 0.76 0.7 1</ambient><diffuse>0.85 0.82 0.76 1</diffuse></material></visual>
+
+      <!-- 豪宅挑高鍍鈦迎賓雙開銅門 (Bronze Entrance Portal) -->
+      <visual name="bronze_doors">
+        <pose>0 18.05 3.0 0 0 0</pose>
+        <geometry><box><size>8.0 0.1 5.5</size></box></geometry>
+        <material><ambient>0.45 0.35 0.18 1</ambient><diffuse>0.55 0.42 0.22 1</diffuse><specular>0.7 0.6 0.3 1</specular></material>
+      </visual>
+
+      <!-- ==================== 南北雙塔主體與經典窗格 (Towers & Classical Casements) ==================== -->
+      <!-- 南塔主牆 (溫潤暖黃石材崗石外觀) -->
+      <visual name="tower_s_main">
+        <pose>-22.0 0 39.25 0 0 0</pose>
+        <geometry><box><size>35.5 31.5 57.5</size></box></geometry>
+        <material>
+          <ambient>0.82 0.78 0.72 1</ambient>
+          <diffuse>0.88 0.84 0.78 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 北塔主牆 -->
+      <visual name="tower_n_main">
+        <pose>22.0 0 39.25 0 0 0</pose>
+        <geometry><box><size>35.5 31.5 57.5</size></box></geometry>
+        <material>
+          <ambient>0.82 0.78 0.72 1</ambient>
+          <diffuse>0.88 0.84 0.78 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 新古典深凹窗與法式露台 (Balconies with Classical Balusters) -->
+      <visual name="balconies_s_vis">
+        <pose>-22.0 16.0 39.25 0 0 0</pose>
+        <geometry><box><size>28.0 0.8 54.0</size></box></geometry>
+        <material><ambient>0.3 0.32 0.35 0.9</ambient><diffuse>0.35 0.38 0.42 0.9</diffuse></material>
+      </visual>
+      <visual name="balconies_n_vis">
+        <pose>22.0 16.0 39.25 0 0 0</pose>
+        <geometry><box><size>28.0 0.8 54.0</size></box></geometry>
+        <material><ambient>0.3 0.32 0.35 0.9</ambient><diffuse>0.35 0.38 0.42 0.9</diffuse></material>
+      </visual>
+
+      <!-- ==================== 頂部新古典飛簷與石雕天際線 (Classical Cornice Crown) ==================== -->
+      <visual name="cornice_s">
+        <pose>-22.0 0 68.6 0 0 0</pose>
+        <geometry><box><size>37.0 33.0 1.2</size></box></geometry>
+        <material><ambient>0.70 0.65 0.58 1</ambient><diffuse>0.78 0.72 0.65 1</diffuse></material>
+      </visual>
+      <visual name="cornice_n">
+        <pose>22.0 0 68.6 0 0 0</pose>
+        <geometry><box><size>37.0 33.0 1.2</size></box></geometry>
+        <material><ambient>0.70 0.65 0.58 1</ambient><diffuse>0.78 0.72 0.65 1</diffuse></material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
